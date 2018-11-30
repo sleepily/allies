@@ -3,6 +3,7 @@ ludic game project. topic: unity/allies
 
 ## setting up github desktop
 0. **important:** first of all, you don't explicitly *need* to do this. you can also upload your stuff by navigating into the correct folder in your web browser and dragging your files into your browser window, but if you want to be able to access all (updated!) files at any time, be sure to set up the github desktop client.
+
 1. download the github desktop client from here: https://desktop.github.com/
 
 2. after logging into github desktop, go to file > clone repository:
