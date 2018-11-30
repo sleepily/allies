@@ -1,0 +1,62 @@
+﻿General Characteristics:
+
+
+-All characters based on/represent negative emotions
+-Can be switched between via Mouse
+-Can be controlled by player until using an ability
+-After ability has been activated, character can't be used until another character reaches them.
+-Characters can be moved as a group if they are close enough together.
+-Some objects cause abilities to be activated automatically
+-Abilities can be combined by having two characters stand in close proximity to each other
+-After using combined abilities, both characters can't be controlled anymore (Risk vs Reward).
+
+
+
+Name: Rage
+Individual Ability: Can destroy certain obstacles by running through them/light torches/explosives/etc..., but keeps on running afterwards without responding to commands.
+NOT INVINCIBLE
+Concept Art:
+
+
+Name: Anxiety
+Individual Ability: Freezes in place from fear, making him invulnerable/impenetrable/causing any attack to be repelled/creating a platform for the others/etc…
+Concept Art:
+
+
+Name: Depression
+Individual Ability: Cries uncontrollably, which can be used to activate mechanisms/put out fires/Fill containers/etc.. 
+Concept Art:
+
+
+(Name: Loneliness
+Individual Ability: Actively avoids the other characters if given the chance, taking risks such as jumping over big gaps/swinging on vines.
+Concept Art)
+
+
+
+
+Combined Abilities:
+
+
+Rage+Anxiety: Combination becomes invincible for a short period and can destroy stronger obstacles and enemies. Also runs faster than normal Rage
+
+
+Rage+Depression: Cries magma tears that harden after some time to form a path
+
+
+Depression+Anxiety: Can shoot frozen tears in a controllable direction 360° to hit far away enemies/mechanisms/etc…
+
+
+Rage+Anxiety+Depression: Creates a gigantic explosion that can clear any obstacle, but scatters all characters without being able to control them. Player needs to plan so that they can meet on their own/ reach the exit after having used this ability.
+
+
+Observation:
+Possible Abilities with 3 Characters: 3 Individual + 3*2nd tier + 1*3rd tier = 7 Abilities
+Possible Abilities with 4 Characters: 4 Individual + 6*2nd tier + 4*3rd tier + 1*4th tier = 15 Abilities
+
+
+=> 3 Characters seem more manageable (Plus emotions stay more varied)
+
+
+Questions:
+Should character's "melt together" shortly for combined abilities? (Artist's opinion important)
