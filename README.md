@@ -2,6 +2,7 @@
 ludic game project. topic: unity/allies
 
 ## setting up github desktop
+0. **important:** first of all, you don't explicitly *need* to do this. you can also upload your stuff by navigating into the correct folder in your web browser and dragging your files into your browser window, but if you want to be able to access all (updated!) files at any time, be sure to set up the github desktop client.
 1. download the github desktop client from here: https://desktop.github.com/
 
 2. after logging into github desktop, go to file > clone repository:
@@ -16,7 +17,7 @@ ludic game project. topic: unity/allies
 5. and click on 'fetch origin'. this will download all the files to your local folder:
 ![fetch origin](https://i.imgur.com/mRDdAW1.png)
 
-## commiting and pushing
+## committing and pushing
 0. every time someone else has changed something, you should fetch the repo again. as artists, this doesn't matter than much since each of you can work on seperate things. if you want to work on each other's files, please communicate when you can update your local files so nobody is working on outdated files.
 
 1. now, you can change/add your local files and github will keep track of what you've changed.
