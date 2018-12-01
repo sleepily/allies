@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-  public List<GameObject> characters = new List<GameObject>();
+  [Header("Active/Controllable Characters")]
+  public List<Character> characters = new List<Character>();
   public int characterIndex = 0;
-  GameObject activeCharacter;
+  public Character activeCharacter;
+  public List<Character> allies = new List<Character>();
+
+  [Header("Rigidbodies")]
   List<Rigidbody2D> rbs = new List<Rigidbody2D>();
   Rigidbody2D activeRigidbody;
-  public float speed = 5f;
-  public float jumpForce = 10f;
+
+  [Header("Global Character Physics")]
+  public float speed = 20f;
+  public float jumpForce = 1000f;
+  public float globalGravityScale = 5f;
   
 	void Start ()
   {
-    foreach (GameObject c in characters)
-      rbs.Add(c.GetComponent<Rigidbody2D>());
-
+    GetCharacterRigidbodies();
+    SetPlayerManagerParent();
+    SetRigidbodyGravityScale();
     SetActiveCharacter();
   }
 
@@ -24,6 +31,28 @@ public class PlayerManager : MonoBehaviour
   {
     GetInput();
 	}
+
+  void SetPlayerManagerParent()
+  {
+    foreach (Character c in characters)
+    {
+      c.pm = this;
+    }
+  }
+
+  void GetCharacterRigidbodies()
+  {
+    foreach (Character c in characters)
+    {
+      rbs.Add(c.GetComponent<Rigidbody2D>());
+    }
+  }
+
+  void SetRigidbodyGravityScale()
+  {
+    foreach (Rigidbody2D r in rbs)
+      r.gravityScale = globalGravityScale;
+  }
 
   void SetActiveCharacter()
   {
@@ -52,11 +81,11 @@ public class PlayerManager : MonoBehaviour
     var input = Input.GetAxisRaw("Horizontal");
     float movement = input * speed * Time.deltaTime;
     Vector3 horizontalForce = new Vector3(movement * speed, 0, 0);
-    activeRigidbody.AddForce(horizontalForce);
+    activeCharacter.Move(horizontalForce);
 
     float verticalInput = Input.GetKeyDown(KeyCode.W) ? 1f : 0f;
     verticalInput = Mathf.Clamp01(verticalInput);
     Vector3 verticalForce = Vector3.up * jumpForce * verticalInput;
-    activeRigidbody.AddForce(verticalForce);
+    activeCharacter.Jump(verticalForce);
   }
 }
