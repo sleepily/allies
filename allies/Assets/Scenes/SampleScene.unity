@@ -219,12 +219,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characters:
-  - {fileID: 2030524606}
-  - {fileID: 1099699901}
-  - {fileID: 1989272832}
+  - {fileID: 2030524611}
+  - {fileID: 1099699906}
+  - {fileID: 1989272837}
   characterIndex: 0
-  speed: 10
-  jumpForce: 500
+  activeCharacter: {fileID: 0}
+  allies: []
+  speed: 2
+  jumpForce: 3
+  globalGravityScale: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +356,7 @@ PolygonCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   m_Points:
     m_Paths:
     - - {x: -12.8, y: 7.2000003}
@@ -927,6 +930,7 @@ GameObject:
   - component: {fileID: 1099699905}
   - component: {fileID: 1099699904}
   - component: {fileID: 1099699903}
+  - component: {fileID: 1099699906}
   m_Layer: 0
   m_Name: Anxiety
   m_TagString: Character
@@ -1018,7 +1022,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.07843135, g: 0.47769627, b: 0.7921569, a: 1}
+  m_Color: {r: 0.68529725, g: 0.7665002, b: 0.8301887, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1028,6 +1032,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1099699906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1099699901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473bc8dea06c6a641aa5e32ed468afda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allowJump: 0
+  allowMove: 0
+  rb: {fileID: 0}
+  isColliding: 0
+  state: 0
+  pm: {fileID: 0}
 --- !u!1 &1491746492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,6 +1132,7 @@ GameObject:
   - component: {fileID: 1989272836}
   - component: {fileID: 1989272835}
   - component: {fileID: 1989272834}
+  - component: {fileID: 1989272837}
   m_Layer: 0
   m_Name: Depression
   m_TagString: Character
@@ -1202,7 +1224,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.7921569, g: 0.62688136, b: 0.07843135, a: 1}
+  m_Color: {r: 0.07843135, g: 0.36359575, b: 0.7921569, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1212,6 +1234,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1989272837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1989272832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473bc8dea06c6a641aa5e32ed468afda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allowJump: 0
+  allowMove: 0
+  rb: {fileID: 0}
+  isColliding: 0
+  state: 0
+  pm: {fileID: 0}
 --- !u!1 &2030524606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,6 +1262,7 @@ GameObject:
   - component: {fileID: 2030524608}
   - component: {fileID: 2030524610}
   - component: {fileID: 2030524609}
+  - component: {fileID: 2030524611}
   m_Layer: 0
   m_Name: Rage
   m_TagString: Character
@@ -1307,7 +1347,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &2030524610
 CircleCollider2D:
@@ -1324,3 +1364,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
+--- !u!114 &2030524611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2030524606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473bc8dea06c6a641aa5e32ed468afda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allowJump: 1
+  allowMove: 1
+  rb: {fileID: 0}
+  isColliding: 0
+  state: 0
+  pm: {fileID: 0}
