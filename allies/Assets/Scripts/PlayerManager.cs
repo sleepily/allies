@@ -15,15 +15,14 @@ public class PlayerManager : MonoBehaviour
   Rigidbody2D activeRigidbody;
 
   [Header("Global Character Physics")]
-  public float speed = 20f;
-  public float jumpForce = 1000f;
+  public float speed = 2f;
+  public float jumpForce = 2f;
   public float globalGravityScale = 5f;
   
 	void Start ()
   {
     GetCharacterRigidbodies();
     SetPlayerManagerParent();
-    SetRigidbodyGravityScale();
     SetActiveCharacter();
   }
 
@@ -46,12 +45,6 @@ public class PlayerManager : MonoBehaviour
     {
       rbs.Add(c.GetComponent<Rigidbody2D>());
     }
-  }
-
-  void SetRigidbodyGravityScale()
-  {
-    foreach (Rigidbody2D r in rbs)
-      r.gravityScale = globalGravityScale;
   }
 
   void SetActiveCharacter()

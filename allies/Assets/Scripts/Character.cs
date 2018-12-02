@@ -9,65 +9,63 @@ public class Character : MonoBehaviour
   public Rigidbody2D rb;
   public bool isColliding;
 
+  public enum State
+  {
+    idle,
+    move,
+    jump,
+    freeze,
+    ability
+  }
+
+  public State state;
+
   public PlayerManager pm;
 
   private void Start()
   {
     rb = GetComponent<Rigidbody2D>();
-
-    switch(name)
-    {
-      case "Rage":
-        allowMove = false;
-        allowJump = true; //for testing
-        break;
-      case "Anxiety":
-        allowMove = true;
-        allowJump = true;
-        break;
-      case "Depression":
-        allowMove = true;
-        allowJump = true;
-        break;
-      default:
-        allowMove = false;
-        allowJump = false;
-        break;
-    }
   }
   
   private void Update()
   {
-    // @TODO: fix this later
-    if (rb.velocity.y <= 0)
-      isColliding = true;
 
-    if (name == "Depression" && isColliding)
-      allowJump = true;
-    else
-      allowJump = false;
-
-    isColliding = false;
   }
 
-  public void Move(Vector3 horizontalForce)
+  private void FixedUpdate()
+  {
+    GetGlobalGravityScale();
+  }
+
+  void GetGlobalGravityScale()
+  {
+    rb.gravityScale = pm.globalGravityScale;
+  }
+
+  public void Move(Vector2 horizontalForce)
   {
     if (!allowMove)
       return;
 
-    rb.AddForce(horizontalForce);
+    state = State.move;
+
+    rb.velocity += horizontalForce * rb.gravityScale;
   }
 
-  public void Jump(Vector3 verticalForce)
+  public void Jump(Vector2 verticalForce)
   {
-    if (!allowJump)
+    if (!allowJump || !isColliding)
       return;
 
-    rb.AddForce(verticalForce);
+    state = State.jump;
+
+    rb.velocity += verticalForce * rb.gravityScale;
   }
 
   private void OnCollisionStay2D(Collision2D collision)
   {
+    // @TODO: clean up and fix this
+    /*
     string cName = collision.gameObject.name;
 
     foreach (Character c in pm.characters)
@@ -75,5 +73,20 @@ public class Character : MonoBehaviour
       if (c.name == cName)
         pm.allies.Add(c);
     }
+    */
+    
+    isColliding = false;
+
+    foreach (ContactPoint2D cp in collision.contacts)
+      if (cp.point.y < transform.position.y + (Vector2.down * .3f).y)
+      {
+        isColliding = true;
+        Debug.DrawRay(cp.point, cp.normal, Color.green);
+      }
+  }
+
+  private void OnCollisionExit2D(Collision2D collision)
+  {
+    isColliding = false;
   }
 }
