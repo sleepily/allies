@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Character : MonoBehaviour
 {
   [Header("Physics")]
-  public bool allowJump, allowMove;
+  public bool allowJump;
+
+  public bool allowMove;
   public Rigidbody2D rb;
   public bool isColliding;
 
@@ -26,7 +26,7 @@ public class Character : MonoBehaviour
   {
     rb = GetComponent<Rigidbody2D>();
   }
-  
+
   private void Update()
   {
 
@@ -37,7 +37,17 @@ public class Character : MonoBehaviour
     GetGlobalGravityScale();
   }
 
-  void GetGlobalGravityScale()
+  private void OnCollisionStay2D(Collision2D collision)
+  {
+    CheckGroundCollision(collision);
+  }
+
+  private void OnCollisionExit2D(Collision2D collision)
+  {
+    isColliding = false;
+  }
+
+  private void GetGlobalGravityScale()
   {
     rb.gravityScale = pm.globalGravityScale;
   }
@@ -62,19 +72,8 @@ public class Character : MonoBehaviour
     rb.velocity += verticalForce * rb.gravityScale;
   }
 
-  private void OnCollisionStay2D(Collision2D collision)
+  private void CheckGroundCollision(Collision2D collision)
   {
-    // @TODO: clean up and fix this
-    /*
-    string cName = collision.gameObject.name;
-
-    foreach (Character c in pm.characters)
-    {
-      if (c.name == cName)
-        pm.allies.Add(c);
-    }
-    */
-    
     isColliding = false;
 
     foreach (ContactPoint2D cp in collision.contacts)
@@ -83,10 +82,5 @@ public class Character : MonoBehaviour
         isColliding = true;
         Debug.DrawRay(cp.point, cp.normal, Color.green);
       }
-  }
-
-  private void OnCollisionExit2D(Collision2D collision)
-  {
-    isColliding = false;
   }
 }

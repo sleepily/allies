@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+  public GameManager gm;
+
   [Header("Active/Controllable Characters")]
   public List<Character> characters = new List<Character>();
   public int characterIndex = 0;
   public Character activeCharacter;
-  public List<Character> allies = new List<Character>();
 
-  [Header("Rigidbodies")]
-  List<Rigidbody2D> rbs = new List<Rigidbody2D>();
-  Rigidbody2D activeRigidbody;
+  [Header("Group/Team")]
+  public List<Character> allies = new List<Character>();
+  public float maxGroupingDistance = 3f;
 
   [Header("Global Character Physics")]
   public float speed = 2f;
@@ -21,7 +22,6 @@ public class PlayerManager : MonoBehaviour
   
 	void Start ()
   {
-    GetCharacterRigidbodies();
     SetPlayerManagerParent();
     SetActiveCharacter();
   }
@@ -31,6 +31,30 @@ public class PlayerManager : MonoBehaviour
     GetInput();
 	}
 
+  private void FixedUpdate()
+  {
+    CheckGroupAbility();
+  }
+
+  private void CheckGroupAbility()
+  {
+    allies.Clear();
+
+    string allyString = "ALLIES:\n\n";
+
+    foreach (Character otherCharacter in characters)
+    {
+      if (maxGroupingDistance > Vector2.Distance(activeCharacter.transform.position, otherCharacter.transform.position))
+      {
+        Debug.DrawRay(otherCharacter.transform.position, Vector2.up, Color.cyan);
+        allies.Add(otherCharacter);
+        allyString += otherCharacter.name + "\n";
+      }
+    }
+
+    gm.ui.alliesText.text = allyString;
+  }
+
   void SetPlayerManagerParent()
   {
     foreach (Character c in characters)
@@ -39,18 +63,9 @@ public class PlayerManager : MonoBehaviour
     }
   }
 
-  void GetCharacterRigidbodies()
-  {
-    foreach (Character c in characters)
-    {
-      rbs.Add(c.GetComponent<Rigidbody2D>());
-    }
-  }
-
   void SetActiveCharacter()
   {
     activeCharacter = characters[characterIndex];
-    activeRigidbody = rbs[characterIndex];
   }
 
   void NextCharacter()
@@ -65,7 +80,7 @@ public class PlayerManager : MonoBehaviour
 
   void GetInput()
   {
-    if (activeRigidbody == null)
+    if (activeCharacter.rb == null)
       return;
 
     if (Input.GetKeyDown(KeyCode.R))
@@ -74,11 +89,15 @@ public class PlayerManager : MonoBehaviour
     var input = Input.GetAxisRaw("Horizontal");
     float movement = input * speed * Time.deltaTime;
     Vector3 horizontalForce = new Vector3(movement * speed, 0, 0);
-    activeCharacter.Move(horizontalForce);
+
+    foreach (Character ally in allies)
+      ally.Move(horizontalForce);
 
     float verticalInput = Input.GetKeyDown(KeyCode.W) ? 1f : 0f;
     verticalInput = Mathf.Clamp01(verticalInput);
     Vector3 verticalForce = Vector3.up * jumpForce * verticalInput;
-    activeCharacter.Jump(verticalForce);
+
+    foreach (Character ally in allies)
+      ally.Jump(verticalForce);
   }
 }
