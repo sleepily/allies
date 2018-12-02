@@ -11,9 +11,13 @@ ludic game project. topic: unity/allies
   - [ ] rage: dash/fire
   - [ ] anxiety: freeze
   - [ ] depression: tears
-- [ ] character grouping (team combos)
+- [x] character grouping (team combos)
   - [ ] implementation
+    - [x] grouping based on distance
+    - [ ] ally/deally action
   - [ ] visualization
+    - [x] UI text
+    - [ ] character glow/pointer
 - [ ] win condition
 - [ ] level retry function
 - [ ] level selector
