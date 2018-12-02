@@ -23,4 +23,4 @@ ludic game project. topic: unity/allies
 - [ ] level selector
 
 click to view a gif of the updated prototype:
-[![current progress](https://i.imgur.com/2H4IM51.png)](https://i.imgur.com/qz3Q4cf.gifv)
+![current progress](https://i.imgur.com/qz3Q4cf.gif)
