@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -85,6 +86,9 @@ public class PlayerManager : MonoBehaviour
 
     if (Input.GetKeyDown(KeyCode.R))
       NextCharacter();
+
+    if (Input.GetKeyDown(KeyCode.Q))
+      SceneManager.LoadScene(0);
 
     var input = Input.GetAxisRaw("Horizontal");
     float movement = input * speed * Time.deltaTime;
