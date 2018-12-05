@@ -22,5 +22,9 @@ ludic game project. topic: unity/allies
 - [ ] level retry function
 - [ ] level selector
 
-click to view a gif of the updated prototype:
-![current progress](https://i.imgur.com/qz3Q4cf.gif)
+### testing
+- [x] level sketch (fore-/background/collision)
+- [x] presentation mode: parallax view
+
+## gallery
+![current progress](https://i.imgur.com/JoJZhxK.gif)
