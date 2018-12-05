@@ -27,4 +27,4 @@ ludic game project. topic: unity/allies
 - [x] presentation mode: parallax view
 
 ## gallery
-![current progress](https://i.imgur.com/JoJZhxK.gif)
+![current progress](https://i.imgur.com/XIqtzH6.gif)
