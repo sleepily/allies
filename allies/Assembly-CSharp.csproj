@@ -67,14 +67,14 @@
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
+    <Reference Include="Cinemachine">
+      <HintPath>C:/Users/lilly/Documents/GitHub/allies/allies/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/lilly/Documents/GitHub/allies/allies/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>C:/Users/lilly/Documents/GitHub/allies/allies/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>C:/Users/lilly/Documents/GitHub/allies/allies/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>C:/Users/lilly/Documents/GitHub/allies/allies/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
