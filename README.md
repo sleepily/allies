@@ -1,6 +1,14 @@
 # allies
 ludic game project. topic: unity/allies
 
+### latest release (v0.1a)
+[win 64bit](https://github.com/sleepily/allies/releases/download/v0.1a/forget.me.not.x64.zip)  
+[win 32bit](https://github.com/sleepily/allies/releases/download/v0.1a/forget.me.not.x86.zip)  
+[source](https://github.com/sleepily/allies/archive/v0.1a.zip)
+
+## gallery
+![current progress](https://i.imgur.com/XIqtzH6.gif)
+
 ## prototype progress/roadmap
 - [x] test level
 - [x] physics-based 2D controls
@@ -26,5 +34,6 @@ ludic game project. topic: unity/allies
 - [x] level sketch (fore-/background/collision)
 - [x] presentation mode: parallax view
 
-## gallery
-![current progress](https://i.imgur.com/XIqtzH6.gif)
+## links
+[design drive](https://drive.google.com/open?id=1zmjnRqnnEuSpaveNCgCleNKUZapSFEd6)  
+[spaces](https://spaces.colognegamelab.de/allies/)  
