@@ -84,10 +84,10 @@ public class PlayerManager : MonoBehaviour
     if (activeCharacter.rb == null)
       return;
 
-    if (Input.GetKeyDown(KeyCode.R))
+    if (gm.im.switchAction)
       NextCharacter();
 
-    if (Input.GetKeyDown(KeyCode.Q))
+    if (gm.im.reloadScene)
       SceneManager.LoadScene(0);
 
     var input = Input.GetAxisRaw("Horizontal");

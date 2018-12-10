@@ -3,13 +3,16 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
+  public GameManager gm;
+
+  public Camera mainCamera;
   public float transitionSpeed = 1f;
+
   public List<Camera> views;
   public Camera currentView; // Use this for initialization
   public int viewIndex = 0;
-  public Camera mainCamera;
 
-  public SpriteRenderer visibleWithLayers;
+  public SpriteRenderer visibleWithLayers; // sprite to be enabled only when vieweing in layer mode
 
   private void Start()
   {
@@ -21,7 +24,7 @@ public class CameraManager : MonoBehaviour
 
     mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, currentView.orthographicSize, Time.deltaTime * transitionSpeed);
 
-    Vector3 currentAngle =
+    Vector3 updatedAngle =
       new Vector3
       (
         Mathf.LerpAngle(mainCamera.transform.rotation.eulerAngles.x, currentView.transform.rotation.eulerAngles.x, Time.deltaTime * transitionSpeed),
@@ -29,7 +32,7 @@ public class CameraManager : MonoBehaviour
         Mathf.LerpAngle(mainCamera.transform.rotation.eulerAngles.z, currentView.transform.rotation.eulerAngles.z, Time.deltaTime * transitionSpeed)
       );
 
-    mainCamera.transform.eulerAngles = currentAngle;
+    mainCamera.transform.eulerAngles = updatedAngle;
   }
 
   private void Update()
@@ -42,7 +45,7 @@ public class CameraManager : MonoBehaviour
 
   void GetInput()
   {
-    if (Input.GetKeyDown(KeyCode.Space))
+    if (gm.im.cameraSwitch)
     {
       viewIndex++;
 

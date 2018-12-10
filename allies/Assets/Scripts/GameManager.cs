@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+  public InputManager im;
   public UIManager ui;
-  public PlayerManager playerManager;
-  public LevelManager levelManager;
+  public PlayerManager pm;
+  public LevelManager lm;
+  public CameraManager cm;
 
   private void Start()
   {
+    im.gm = this;
     ui.gm = this;
-    playerManager.gm = this;
-    levelManager.gm = this;
+    pm.gm = this;
+    lm.gm = this;
+    cm.gm = this;
   }
 }

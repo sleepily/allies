@@ -261,6 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 226360845}
   - component: {fileID: 226360846}
+  - component: {fileID: 226360847}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -295,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30aa887a612cd4e4c80a2860c2920c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 0}
+  gm: {fileID: 1491746493}
   characters:
   - {fileID: 2030524611}
   - {fileID: 1099699906}
@@ -307,6 +308,18 @@ MonoBehaviour:
   speed: 2
   jumpForce: 3
   globalGravityScale: 5
+--- !u!114 &226360847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 226360844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4dc04e25f5b50243b44f4d7a45e3d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 0}
 --- !u!1 &422429365
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,13 +361,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1808a030027858d4f84d2844b1986fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 1491746493}
+  mainCamera: {fileID: 519420031}
   transitionSpeed: 4
   views:
   - {fileID: 195030345}
   - {fileID: 733272972}
   currentView: {fileID: 0}
   viewIndex: 0
-  mainCamera: {fileID: 519420031}
   visibleWithLayers: {fileID: 779357279}
 --- !u!1 &519420028
 GameObject:
@@ -1026,7 +1040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb724f4cd4ec4d44a21b0c6ed108777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 0}
+  gm: {fileID: 1491746493}
   canvas: {fileID: 893755695}
   alliesText: {fileID: 1381804306}
 --- !u!1 &893755691
@@ -1200,6 +1214,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1050447618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1050447619}
+  - component: {fileID: 1050447620}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1050447619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1050447618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1491746494}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1050447620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1050447618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56beac45e6df6da44a3c1b485676e36c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 1491746493}
+  switchAction: 0
+  groupAction: 0
+  abilityAction: 0
+  reloadScene: 0
+  cameraSwitch: 0
 --- !u!1 &1099699901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,9 +1567,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7d203cb7f8ed94dab961e7693d8ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  im: {fileID: 1050447620}
   ui: {fileID: 874997535}
-  playerManager: {fileID: 226360846}
-  levelManager: {fileID: 1668091848}
+  pm: {fileID: 226360846}
+  lm: {fileID: 1668091848}
+  cm: {fileID: 422429367}
 --- !u!4 &1491746494
 Transform:
   m_ObjectHideFlags: 0
@@ -1524,6 +1586,7 @@ Transform:
   - {fileID: 1668091847}
   - {fileID: 226360845}
   - {fileID: 422429366}
+  - {fileID: 1050447619}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1570,7 +1633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93996f78ca2e4884ea1bd3591af8d1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 0}
+  gm: {fileID: 1491746493}
 --- !u!1 &1699591134
 GameObject:
   m_ObjectHideFlags: 0
