@@ -7,12 +7,4 @@ public class UIManager : MonoBehaviour
 
   public Canvas canvas;
   public Text alliesText;
-  
-  private void Start()
-  {
-  }
-  
-  private void Update()
-  {
-  }
 }

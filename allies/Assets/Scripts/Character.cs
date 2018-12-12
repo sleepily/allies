@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
     idle,
     move,
     jump,
-    freeze,
+    stun,
     ability
   }
 
