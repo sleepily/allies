@@ -2,6 +2,8 @@
 
 public class Character : MonoBehaviour
 {
+  public PlayerManager pm;
+
   [Header("Physics")]
   public bool allowJump;
 
@@ -20,8 +22,6 @@ public class Character : MonoBehaviour
 
   public State state;
 
-  public PlayerManager pm;
-
   private void Start()
   {
     rb = GetComponent<Rigidbody2D>();
@@ -29,7 +29,7 @@ public class Character : MonoBehaviour
 
   private void Update()
   {
-
+    state = State.idle;
   }
 
   private void FixedUpdate()

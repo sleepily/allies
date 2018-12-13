@@ -1561,6 +1561,7 @@ MonoBehaviour:
   pm: {fileID: 226360846}
   lm: {fileID: 1668091848}
   cm: {fileID: 422429367}
+  state: 0
 --- !u!4 &1491746494
 Transform:
   m_ObjectHideFlags: 0
@@ -1904,8 +1905,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2030524606}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.5, y: 1.4, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.14, y: 1.69, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 226360845}
@@ -1989,9 +1990,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.03}
+  m_Offset: {x: 0, y: -1.5}
   serializedVersion: 2
-  m_Radius: 1.42
+  m_Radius: 1.56
 --- !u!114 &2030524611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2018,7 +2019,7 @@ Animator:
   m_GameObject: {fileID: 2030524606}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 694c1fa0ee9d07640a34ee8b3da25d75, type: 2}
+  m_Controller: {fileID: 9100000, guid: aa19bc373d77f214fb3b3e3b6c3e5f7a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

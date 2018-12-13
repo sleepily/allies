@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
   public float maxGroupingDistance = 3f;
 
   [Header("Global Character Physics")]
-  public float speed = 2f;
+  public float movementForce = 2f;
   public float jumpForce = 2f;
   public float globalGravityScale = 5f;
   
@@ -30,14 +30,15 @@ public class PlayerManager : MonoBehaviour
   void Update ()
   {
     GetInput();
+    CalculateMovement();
 	}
 
   private void FixedUpdate()
   {
-    CheckGroupAbility();
+    CheckGroupability();
   }
 
-  private void CheckGroupAbility()
+  private void CheckGroupability()
   {
     allies.Clear();
 
@@ -69,7 +70,7 @@ public class PlayerManager : MonoBehaviour
     activeCharacter = characters[characterIndex];
   }
 
-  void NextCharacter()
+  void SetNextCharacterAsActive()
   {
     if (characterIndex + 1 >= characters.Count)
       characterIndex = 0;
@@ -85,23 +86,26 @@ public class PlayerManager : MonoBehaviour
       return;
 
     if (gm.im.switchAction)
-      NextCharacter();
+      SetNextCharacterAsActive();
 
     if (gm.im.reloadScene)
       SceneManager.LoadScene(0);
+  }
 
-    var input = Input.GetAxisRaw("Horizontal");
-    float movement = input * speed * Time.deltaTime;
-    Vector3 horizontalForce = new Vector3(movement * speed, 0, 0);
+  void CalculateMovement()
+  {
+    var inputX = Input.GetAxisRaw("Horizontal");
+    float movement = inputX * movementForce * Time.deltaTime;
+    Vector3 horizontalForce = Vector3.right * movement * movementForce;
+
+    float inputY = Input.GetKeyDown(KeyCode.W) ? 1f : 0f;
+    inputY = Mathf.Clamp01(inputY); // make sure the value stays at 0 or higher
+    Vector3 verticalForce = Vector3.up * jumpForce * inputY;
 
     foreach (Character ally in allies)
+    {
       ally.Move(horizontalForce);
-
-    float verticalInput = Input.GetKeyDown(KeyCode.W) ? 1f : 0f;
-    verticalInput = Mathf.Clamp01(verticalInput);
-    Vector3 verticalForce = Vector3.up * jumpForce * verticalInput;
-
-    foreach (Character ally in allies)
       ally.Jump(verticalForce);
+    }
   }
 }
