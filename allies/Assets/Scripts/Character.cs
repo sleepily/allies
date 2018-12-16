@@ -57,7 +57,13 @@ public class Character : MonoBehaviour
     if (!allowMove)
       return;
 
-    state = State.move;
+    if (state == State.jump)
+    {
+      if (isColliding)
+        state = State.move;
+      else
+        state = State.jump;
+    }
 
     rb.velocity += horizontalForce * rb.gravityScale;
   }
@@ -76,6 +82,7 @@ public class Character : MonoBehaviour
   {
     isColliding = false;
 
+    // check for collision in the lower 30% of the collider in order to enable jumping
     foreach (ContactPoint2D cp in collision.contacts)
       if (cp.point.y < transform.position.y + (Vector2.down * .3f).y)
       {
