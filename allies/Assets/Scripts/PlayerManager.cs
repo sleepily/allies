@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
-  public GameManager gm;
+  public GameManager gameManager;
 
   [Header("Active/Controllable Characters")]
   public List<Character> characters = new List<Character>();
@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
   public float maxGroupingDistance = 3f;
 
   [Header("Global Character Physics")]
-  public float speed = 2f;
+  public float movementForce = 2f;
   public float jumpForce = 2f;
   public float globalGravityScale = 5f;
   
@@ -30,14 +30,15 @@ public class PlayerManager : MonoBehaviour
   void Update ()
   {
     GetInput();
+    CalculateMovement();
 	}
 
   private void FixedUpdate()
   {
-    CheckGroupAbility();
+    CheckGroupability();
   }
 
-  private void CheckGroupAbility()
+  private void CheckGroupability()
   {
     allies.Clear();
 
@@ -53,14 +54,14 @@ public class PlayerManager : MonoBehaviour
       }
     }
 
-    gm.ui.alliesText.text = allyString;
+    gameManager.uiManager.alliesText.text = allyString;
   }
 
   void SetPlayerManagerParent()
   {
     foreach (Character c in characters)
     {
-      c.pm = this;
+      c.playerManager = this;
     }
   }
 
@@ -69,7 +70,7 @@ public class PlayerManager : MonoBehaviour
     activeCharacter = characters[characterIndex];
   }
 
-  void NextCharacter()
+  void SetNextCharacterAsActive()
   {
     if (characterIndex + 1 >= characters.Count)
       characterIndex = 0;
@@ -81,27 +82,28 @@ public class PlayerManager : MonoBehaviour
 
   void GetInput()
   {
-    if (activeCharacter.rb == null)
+    if (activeCharacter.rigidBody == null)
       return;
 
-    if (Input.GetKeyDown(KeyCode.R))
-      NextCharacter();
+    if (gameManager.inputManager.switchAction)
+      SetNextCharacterAsActive();
 
-    if (Input.GetKeyDown(KeyCode.Q))
+    if (gameManager.inputManager.reloadScene)
       SceneManager.LoadScene(0);
+  }
 
-    var input = Input.GetAxisRaw("Horizontal");
-    float movement = input * speed * Time.deltaTime;
-    Vector3 horizontalForce = new Vector3(movement * speed, 0, 0);
+  void CalculateMovement()
+  {
+    float moveX = gameManager.inputManager.moveX * movementForce * Time.deltaTime;
+    Vector3 horizontalForce = Vector3.right * moveX * movementForce;
+
+    float moveY = Mathf.Clamp01(gameManager.inputManager.moveY);
+    Vector3 verticalForce = Vector3.up * jumpForce * moveY;
 
     foreach (Character ally in allies)
+    {
       ally.Move(horizontalForce);
-
-    float verticalInput = Input.GetKeyDown(KeyCode.W) ? 1f : 0f;
-    verticalInput = Mathf.Clamp01(verticalInput);
-    Vector3 verticalForce = Vector3.up * jumpForce * verticalInput;
-
-    foreach (Character ally in allies)
       ally.Jump(verticalForce);
+    }
   }
 }

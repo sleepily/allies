@@ -2,39 +2,47 @@
 
 public class Character : MonoBehaviour
 {
+  public PlayerManager playerManager;
+
   [Header("Physics")]
   public bool allowJump;
-
   public bool allowMove;
-  public Rigidbody2D rb;
+  public Rigidbody2D rigidBody;
   public bool isColliding;
+
+  [Header("Animations")]
+  public Animator animator;
+  public bool mirrorAnimation;
 
   public enum State
   {
     idle,
     move,
     jump,
-    freeze,
+    stun,
     ability
   }
 
   public State state;
 
-  public PlayerManager pm;
-
   private void Start()
   {
-    rb = GetComponent<Rigidbody2D>();
+    rigidBody = GetComponent<Rigidbody2D>();
   }
 
   private void Update()
   {
-
+    state = State.idle;
   }
 
   private void FixedUpdate()
   {
     GetGlobalGravityScale();
+  }
+
+  private void OnCollisionEnter2D(Collision2D collision)
+  {
+    CheckGroundCollision(collision);
   }
 
   private void OnCollisionStay2D(Collision2D collision)
@@ -49,7 +57,7 @@ public class Character : MonoBehaviour
 
   private void GetGlobalGravityScale()
   {
-    rb.gravityScale = pm.globalGravityScale;
+    rigidBody.gravityScale = playerManager.globalGravityScale;
   }
 
   public void Move(Vector2 horizontalForce)
@@ -57,9 +65,15 @@ public class Character : MonoBehaviour
     if (!allowMove)
       return;
 
-    state = State.move;
+    if (state == State.jump)
+    {
+      if (isColliding)
+        state = State.move;
+      else
+        state = State.jump;
+    }
 
-    rb.velocity += horizontalForce * rb.gravityScale;
+    rigidBody.velocity += horizontalForce * rigidBody.gravityScale;
   }
 
   public void Jump(Vector2 verticalForce)
@@ -69,13 +83,14 @@ public class Character : MonoBehaviour
 
     state = State.jump;
 
-    rb.velocity += verticalForce * rb.gravityScale;
+    rigidBody.velocity += verticalForce * rigidBody.gravityScale;
   }
 
   private void CheckGroundCollision(Collision2D collision)
   {
     isColliding = false;
 
+    // check for collision in the lower 30% of the collider in order to enable jumping
     foreach (ContactPoint2D cp in collision.contacts)
       if (cp.point.y < transform.position.y + (Vector2.down * .3f).y)
       {
