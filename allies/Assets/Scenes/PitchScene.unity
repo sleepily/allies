@@ -296,6 +296,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1491746493}
+  rage: {fileID: 2030524611}
+  anxiety: {fileID: 1099699906}
+  depression: {fileID: 1989272837}
   characters:
   - {fileID: 2030524611}
   - {fileID: 1099699906}
@@ -661,7 +664,6 @@ PolygonCollider2D:
       - {x: -7.525946, y: 14.237862}
       - {x: -7.341637, y: 13.654217}
       - {x: -7.218765, y: 13.224163}
-      - {x: -7.034456, y: 12.609799}
       - {x: -6.9115834, y: 12.179746}
       - {x: -6.850147, y: 12.056873}
       - {x: -7.4337916, y: 11.473228}
@@ -677,21 +679,11 @@ PolygonCollider2D:
       - {x: -8.816109, y: 6.9883785}
       - {x: -8.816109, y: 4.0394363}
       - {x: -8.78539, y: 3.3636372}
-      - {x: -8.662518, y: 2.933583}
-      - {x: -8.662518, y: 2.3499384}
-      - {x: -10.014116, y: 2.1349113}
-      - {x: -10.5363245, y: 2.0427568}
-      - {x: -10.659197, y: 1.9198842}
-      - {x: -10.843506, y: 1.2748032}
-      - {x: -11.058533, y: 0.5068494}
-      - {x: -11.181406, y: 0.07679537}
-      - {x: -11.242842, y: -0.19966796}
-      - {x: -9.829807, y: -1.9813205}
-      - {x: -9.706935, y: -2.1349113}
-      - {x: -9.61478, y: -2.2270658}
-      - {x: -9.553344, y: -2.2270658}
-      - {x: -9.246162, y: -2.0427568}
-      - {x: -8.416773, y: -1.459112}
+      - {x: -8.508927, y: 2.3806565}
+      - {x: -8.447491, y: 1.8584479}
+      - {x: -8.416773, y: 1.1519306}
+      - {x: -8.386054, y: 0.4761313}
+      - {x: -8.324618, y: -0.9369035}
       - {x: -8.2939, y: -1.3976758}
       - {x: -8.017437, y: -2.9950194}
       - {x: -7.7716913, y: -4.4080544}
@@ -805,6 +797,9 @@ PolygonCollider2D:
       - {x: 16.157745, y: 1.8891661}
       - {x: 16.127028, y: 1.8584479}
       - {x: 14.652556, y: 1.8584479}
+      - {x: 14.191784, y: 2.0427568}
+      - {x: 13.700294, y: 2.2270658}
+      - {x: 13.178085, y: 2.4113746}
       - {x: 12.44085, y: 2.6878378}
       - {x: 11.795769, y: 2.933583}
       - {x: 11.580742, y: 2.933583}
@@ -835,7 +830,8 @@ PolygonCollider2D:
       - {x: 10.382734, y: -2.1041932}
       - {x: 12.533005, y: -2.933583}
       - {x: 12.717313, y: -2.9950194}
-      - {x: 12.963058, y: -2.9643013}
+      - {x: 13.208803, y: -2.9643013}
+      - {x: 13.638858, y: -2.902865}
       - {x: 14.468247, y: -2.7492743}
       - {x: 14.713993, y: -2.7185562}
       - {x: 14.867583, y: -2.6878378}
@@ -867,7 +863,7 @@ PolygonCollider2D:
       - {x: 23.499384, y: -15.435869}
       - {x: 23.499384, y: -15.528024}
       - {x: 22.88502, y: -15.528024}
-      - {x: 22.854301, y: -15.558742}
+      - {x: 22.823584, y: -15.558742}
       - {x: 21.349113, y: -15.558742}
       - {x: 20.949778, y: -15.25156}
       - {x: 19.475306, y: -14.114989}
@@ -1041,14 +1037,13 @@ GameObject:
   m_Component:
   - component: {fileID: 882330419}
   - component: {fileID: 882330421}
-  - component: {fileID: 882330420}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &882330419
 Transform:
   m_ObjectHideFlags: 0
@@ -1062,24 +1057,6 @@ Transform:
   m_Father: {fileID: 2030524607}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &882330420
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 882330418}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 177677b28b39fe44d88c6caae2e5afc7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &882330421
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1115,7 +1092,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 55da3c8cb72ee324b8c83a75078580a9, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1123,7 +1100,7 @@ SpriteRenderer:
   m_Size: {x: 13.54, y: 28.13}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &893755691
@@ -1372,7 +1349,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1491746494}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1053691317
 MonoBehaviour:
@@ -1398,6 +1375,7 @@ GameObject:
   - component: {fileID: 1099699904}
   - component: {fileID: 1099699903}
   - component: {fileID: 1099699906}
+  - component: {fileID: 1099699907}
   m_Layer: 0
   m_Name: Anxiety
   m_TagString: Character
@@ -1413,7 +1391,7 @@ Transform:
   m_GameObject: {fileID: 1099699901}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -8.78, y: -5.52, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 226360845}
   m_RootOrder: 1
@@ -1511,13 +1489,79 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
+  rb: {fileID: 0}
   allowJump: 1
   allowMove: 1
-  rigidBody: {fileID: 0}
   isColliding: 0
-  animator: {fileID: 0}
+  isJumping: 0
+  animator: {fileID: 1099699907}
   mirrorAnimation: 0
   state: 0
+--- !u!95 &1099699907
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1099699901}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd021543f1b3bd844acdad6798e134b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1165416988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1165416990}
+  - component: {fileID: 1165416989}
+  m_Layer: 0
+  m_Name: AbilityManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1165416989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1165416988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4dc04e25f5b50243b44f4d7a45e3d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 1491746493}
+  rampage: 0
+  crybaby: 0
+  coldFeet: 0
+  eruption: 0
+  frozenOutrage: 0
+  iceyTears: 0
+--- !u!4 &1165416990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1165416988}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1491746494}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1369370510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,7 +1744,7 @@ MonoBehaviour:
   playerManager: {fileID: 226360846}
   levelManager: {fileID: 1668091848}
   cameraManager: {fileID: 422429367}
-  abilityManager: {fileID: 1971857988}
+  abilityManager: {fileID: 1165416989}
   interactiblesManager: {fileID: 1053691317}
   state: 5
   lastState: 0
@@ -1719,8 +1763,8 @@ Transform:
   - {fileID: 226360845}
   - {fileID: 422429366}
   - {fileID: 1050447619}
-  - {fileID: 1971857987}
   - {fileID: 1053691316}
+  - {fileID: 1165416990}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1851,47 +1895,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1699591134}
   m_CullTransparentMesh: 0
---- !u!1 &1971857986
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1971857987}
-  - component: {fileID: 1971857988}
-  m_Layer: 0
-  m_Name: AbilityManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1971857987
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1971857986}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1491746494}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1971857988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1971857986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4dc04e25f5b50243b44f4d7a45e3d52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 1491746493}
 --- !u!1 &1989272832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,6 +1907,7 @@ GameObject:
   - component: {fileID: 1989272835}
   - component: {fileID: 1989272834}
   - component: {fileID: 1989272837}
+  - component: {fileID: 1989272838}
   m_Layer: 0
   m_Name: Depression
   m_TagString: Character
@@ -1919,7 +1923,7 @@ Transform:
   m_GameObject: {fileID: 1989272832}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 6.33, y: 1.44, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 226360845}
   m_RootOrder: 2
@@ -2017,13 +2021,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
+  rb: {fileID: 0}
   allowJump: 1
   allowMove: 1
-  rigidBody: {fileID: 0}
   isColliding: 0
-  animator: {fileID: 0}
+  isJumping: 0
+  animator: {fileID: 1989272838}
   mirrorAnimation: 0
   state: 0
+--- !u!95 &1989272838
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1989272832}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e3e39a6f2add591499a4c45066105fc3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2030524606
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,7 +2075,7 @@ Transform:
   m_GameObject: {fileID: 2030524606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.14, y: 1.69, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
   - {fileID: 882330419}
   m_Father: {fileID: 226360845}
@@ -2151,10 +2174,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
+  rb: {fileID: 0}
   allowJump: 1
   allowMove: 1
-  rigidBody: {fileID: 0}
   isColliding: 0
+  isJumping: 0
   animator: {fileID: 2030524612}
   mirrorAnimation: 0
   state: 0

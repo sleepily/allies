@@ -5,14 +5,17 @@ public class Character : MonoBehaviour
   public PlayerManager playerManager;
 
   [Header("Physics")]
+  public Rigidbody2D rb;
   public bool allowJump;
   public bool allowMove;
-  public Rigidbody2D rigidBody;
   public bool isColliding;
+  public bool isJumping;
 
   [Header("Animations")]
   public Animator animator;
   public bool mirrorAnimation;
+
+  public State state;
 
   public enum State
   {
@@ -23,16 +26,15 @@ public class Character : MonoBehaviour
     ability
   }
 
-  public State state;
-
   private void Start()
   {
-    rigidBody = GetComponent<Rigidbody2D>();
+    rb = GetComponent<Rigidbody2D>();
   }
 
   private void Update()
   {
     state = State.idle;
+    SetAnimatorProperties();
   }
 
   private void FixedUpdate()
@@ -57,7 +59,17 @@ public class Character : MonoBehaviour
 
   private void GetGlobalGravityScale()
   {
-    rigidBody.gravityScale = playerManager.globalGravityScale;
+    rb.gravityScale = playerManager.globalGravityScale;
+  }
+
+  private void SetAnimatorProperties()
+  {
+    if (animator == null)
+      return;
+
+    animator.SetBool("isColliding", isColliding);
+    animator.SetBool("isJumping", isJumping);
+    animator.SetFloat("verticalVelocity", rb.velocity.y);
   }
 
   public void Move(Vector2 horizontalForce)
@@ -73,7 +85,7 @@ public class Character : MonoBehaviour
         state = State.jump;
     }
 
-    rigidBody.velocity += horizontalForce * rigidBody.gravityScale;
+    rb.velocity += horizontalForce * rb.gravityScale;
   }
 
   public void Jump(Vector2 verticalForce)
@@ -81,9 +93,14 @@ public class Character : MonoBehaviour
     if (!allowJump || !isColliding)
       return;
 
+    if (verticalForce.magnitude < 1)
+      return;
+    
     state = State.jump;
+    isJumping = true;
 
-    rigidBody.velocity += verticalForce * rigidBody.gravityScale;
+    rb.velocity += verticalForce * rb.gravityScale;
+    
   }
 
   private void CheckGroundCollision(Collision2D collision)
@@ -95,6 +112,7 @@ public class Character : MonoBehaviour
       if (cp.point.y < transform.position.y + (Vector2.down * .3f).y)
       {
         isColliding = true;
+        isJumping = false;
         Debug.DrawRay(cp.point, cp.normal, Color.green);
       }
   }

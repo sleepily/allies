@@ -8,6 +8,10 @@ public class PlayerManager : MonoBehaviour
   public GameManager gameManager;
 
   [Header("Active/Controllable Characters")]
+  public Character rage;
+  public Character anxiety;
+  public Character depression;
+
   public List<Character> characters = new List<Character>();
   public int characterIndex = 0;
   public Character activeCharacter;
@@ -82,7 +86,7 @@ public class PlayerManager : MonoBehaviour
 
   void GetInput()
   {
-    if (activeCharacter.rigidBody == null)
+    if (activeCharacter.rb == null)
       return;
 
     if (gameManager.inputManager.switchAction)
@@ -90,6 +94,9 @@ public class PlayerManager : MonoBehaviour
 
     if (gameManager.inputManager.reloadScene)
       SceneManager.LoadScene(0);
+
+    if (gameManager.inputManager.abilityAction)
+      gameManager.abilityManager.ActivateAbility(allies);
   }
 
   void CalculateMovement()
