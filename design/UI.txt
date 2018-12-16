@@ -9,7 +9,7 @@ UI
 	- may be distracting
 
 # make it an option 
-	- let the player decide wether or not he wants the UI
+	- let the player decide wether he wants the UI or not
 	- activate/deactivate it by pressing tab
 		-> Danger: accidentally activate/deactivate it 
 	- activate/deactivate it in the option menu
