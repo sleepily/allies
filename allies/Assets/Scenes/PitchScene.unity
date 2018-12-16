@@ -1220,7 +1220,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!1 &1012847692
 GameObject:
@@ -1510,11 +1510,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473bc8dea06c6a641aa5e32ed468afda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pm: {fileID: 0}
+  playerManager: {fileID: 0}
   allowJump: 1
   allowMove: 1
-  rb: {fileID: 0}
+  rigidBody: {fileID: 0}
   isColliding: 0
+  animator: {fileID: 0}
   mirrorAnimation: 0
   state: 0
 --- !u!1 &1369370510
@@ -1699,7 +1700,7 @@ MonoBehaviour:
   playerManager: {fileID: 226360846}
   levelManager: {fileID: 1668091848}
   cameraManager: {fileID: 422429367}
-  abilityManager: {fileID: 0}
+  abilityManager: {fileID: 1971857988}
   interactiblesManager: {fileID: 1053691317}
   state: 5
   lastState: 0
@@ -2015,11 +2016,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473bc8dea06c6a641aa5e32ed468afda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pm: {fileID: 0}
+  playerManager: {fileID: 0}
   allowJump: 1
   allowMove: 1
-  rb: {fileID: 0}
+  rigidBody: {fileID: 0}
   isColliding: 0
+  animator: {fileID: 0}
   mirrorAnimation: 0
   state: 0
 --- !u!1 &2030524606
@@ -2148,11 +2150,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473bc8dea06c6a641aa5e32ed468afda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pm: {fileID: 0}
+  playerManager: {fileID: 0}
   allowJump: 1
   allowMove: 1
-  rb: {fileID: 0}
+  rigidBody: {fileID: 0}
   isColliding: 0
+  animator: {fileID: 2030524612}
   mirrorAnimation: 0
   state: 0
 --- !u!95 &2030524612
