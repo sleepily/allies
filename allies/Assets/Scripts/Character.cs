@@ -11,6 +11,8 @@ public class Character : MonoBehaviour
   public Rigidbody2D rb;
   public bool isColliding;
 
+  public bool mirrorAnimation;
+
   public enum State
   {
     idle,

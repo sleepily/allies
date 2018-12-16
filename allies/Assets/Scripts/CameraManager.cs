@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-  public GameManager gm;
+  public GameManager gameManager;
 
   public Camera mainCamera;
   public float transitionSpeed = 1f;
@@ -45,7 +45,7 @@ public class CameraManager : MonoBehaviour
 
   void GetInput()
   {
-    if (gm.im.cameraSwitch)
+    if (gameManager.inputManager.cameraSwitch)
     {
       viewIndex++;
 

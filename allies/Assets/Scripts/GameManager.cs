@@ -2,11 +2,13 @@
 
 public class GameManager : MonoBehaviour
 {
-  public InputManager im;
-  public UIManager ui;
-  public PlayerManager pm;
-  public LevelManager lm;
-  public CameraManager cm;
+  public InputManager inputManager;
+  public UIManager uiManager;
+  public PlayerManager playerManager;
+  public LevelManager levelManager;
+  public CameraManager cameraManager;
+  public AbilityManager abilityManager;
+  public InteractiblesManager interactiblesManager;
 
   public State state;
   public State lastState;
@@ -27,11 +29,13 @@ public class GameManager : MonoBehaviour
   {
     ChangeState(State.level, gameObject);
 
-    im.gm = this;
-    ui.gm = this;
-    pm.gm = this;
-    lm.gm = this;
-    cm.gm = this;
+    inputManager.gameManager = this;
+    uiManager.gameManager = this;
+    playerManager.gameManager = this;
+    levelManager.gameManager = this;
+    cameraManager.gameManager = this;
+    abilityManager.gameManager = this;
+    interactiblesManager.gameManager = this;
   }
 
   private void Update()

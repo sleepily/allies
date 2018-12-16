@@ -2,5 +2,5 @@
 
 public class LevelManager : MonoBehaviour
 {
-  public GameManager gm;
+  public GameManager gameManager;
 }

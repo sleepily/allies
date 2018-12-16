@@ -2,7 +2,7 @@
 
 public class AbilityManager : MonoBehaviour
 {
-  public GameManager gm;
+  public GameManager gameManager;
 
   private void Start()
   {
