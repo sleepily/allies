@@ -3,7 +3,11 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-  public GameManager gm;
+  public GameManager gameManager;
+
+  [Header("Direction controls")]
+  public float moveX = 0f;
+  public float moveY = 0f;
 
   [Header("Player related")]
   public bool switchAction  = false;
@@ -22,5 +26,8 @@ public class InputManager : MonoBehaviour
 
     cameraSwitch  = Input.GetKeyDown(KeyCode.Space);
     reloadScene   = Input.GetKeyDown(KeyCode.Q);
+
+    moveX = Input.GetAxisRaw("Horizontal");
+    moveY = Input.GetKeyDown(KeyCode.W) ? 1f : 0f;
   }
 }
