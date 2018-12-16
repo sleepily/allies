@@ -1,0 +1,15 @@
+UI
+# integrate in the pause menu
+
+	- the player is not distracted by the UI
+
+# put it in upper right corner
+
+	- visual aide for the player (characters, keys, abilities)
+	- may be distracting
+
+# make it an option 
+	- let the player decide wether or not he wants the UI
+	- activate/deactivate it by pressing tab
+		-> Danger: accidentally activate/deactivate it 
+	- activate/deactivate it in the option menu
