@@ -61,7 +61,7 @@ public class PlayerManager : MonoBehaviour
   {
     foreach (Character c in characters)
     {
-      c.pm = this;
+      c.playerManager = this;
     }
   }
 
@@ -82,7 +82,7 @@ public class PlayerManager : MonoBehaviour
 
   void GetInput()
   {
-    if (activeCharacter.rb == null)
+    if (activeCharacter.rigidBody == null)
       return;
 
     if (gameManager.inputManager.switchAction)

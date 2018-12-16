@@ -2,15 +2,16 @@
 
 public class Character : MonoBehaviour
 {
-  public PlayerManager pm;
+  public PlayerManager playerManager;
 
   [Header("Physics")]
   public bool allowJump;
-
   public bool allowMove;
-  public Rigidbody2D rb;
+  public Rigidbody2D rigidBody;
   public bool isColliding;
 
+  [Header("Animations")]
+  public Animator animator;
   public bool mirrorAnimation;
 
   public enum State
@@ -26,7 +27,7 @@ public class Character : MonoBehaviour
 
   private void Start()
   {
-    rb = GetComponent<Rigidbody2D>();
+    rigidBody = GetComponent<Rigidbody2D>();
   }
 
   private void Update()
@@ -37,6 +38,11 @@ public class Character : MonoBehaviour
   private void FixedUpdate()
   {
     GetGlobalGravityScale();
+  }
+
+  private void OnCollisionEnter2D(Collision2D collision)
+  {
+    CheckGroundCollision(collision);
   }
 
   private void OnCollisionStay2D(Collision2D collision)
@@ -51,7 +57,7 @@ public class Character : MonoBehaviour
 
   private void GetGlobalGravityScale()
   {
-    rb.gravityScale = pm.globalGravityScale;
+    rigidBody.gravityScale = playerManager.globalGravityScale;
   }
 
   public void Move(Vector2 horizontalForce)
@@ -67,7 +73,7 @@ public class Character : MonoBehaviour
         state = State.jump;
     }
 
-    rb.velocity += horizontalForce * rb.gravityScale;
+    rigidBody.velocity += horizontalForce * rigidBody.gravityScale;
   }
 
   public void Jump(Vector2 verticalForce)
@@ -77,7 +83,7 @@ public class Character : MonoBehaviour
 
     state = State.jump;
 
-    rb.velocity += verticalForce * rb.gravityScale;
+    rigidBody.velocity += verticalForce * rigidBody.gravityScale;
   }
 
   private void CheckGroundCollision(Collision2D collision)
