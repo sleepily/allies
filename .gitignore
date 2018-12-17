@@ -17,6 +17,8 @@ ExportedObj/
 .consulo/
 # project files are needed if more users want to work on the code smoothly
 *.csproj
+.DS_Store
+*.DS_Store
 # *.unityproj
 # *.sln
 *.suo
