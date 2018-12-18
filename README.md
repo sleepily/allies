@@ -14,7 +14,10 @@ ludic game project. topic: unity/allies
 - [x] physics-based 2D controls
   - [x] movement
   - [x] jumping only when touching ground
-- [x] character-specific jump/move values
+- [x] character animations
+  - [x] rage
+  - [x] anxiety (needs rework)
+  - [ ] depression (waiting for sprites)
 - [ ] character abilities
   - [ ] rage: dash/fire
   - [ ] anxiety: freeze

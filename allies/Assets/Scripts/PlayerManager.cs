@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
-  public GameManager gm;
+  public GameManager gameManager;
 
   [Header("Active/Controllable Characters")]
+  public Character rage;
+  public Character anxiety;
+  public Character depression;
+
   public List<Character> characters = new List<Character>();
   public int characterIndex = 0;
   public Character activeCharacter;
@@ -54,14 +58,14 @@ public class PlayerManager : MonoBehaviour
       }
     }
 
-    gm.ui.alliesText.text = allyString;
+    gameManager.uiManager.alliesText.text = allyString;
   }
 
   void SetPlayerManagerParent()
   {
     foreach (Character c in characters)
     {
-      c.pm = this;
+      c.playerManager = this;
     }
   }
 
@@ -85,22 +89,23 @@ public class PlayerManager : MonoBehaviour
     if (activeCharacter.rb == null)
       return;
 
-    if (gm.im.switchAction)
+    if (gameManager.inputManager.switchAction)
       SetNextCharacterAsActive();
 
-    if (gm.im.reloadScene)
+    if (gameManager.inputManager.reloadScene)
       SceneManager.LoadScene(0);
+
+    if (gameManager.inputManager.abilityAction)
+      gameManager.abilityManager.ActivateAbility(allies);
   }
 
   void CalculateMovement()
   {
-    var inputX = Input.GetAxisRaw("Horizontal");
-    float movement = inputX * movementForce * Time.deltaTime;
-    Vector3 horizontalForce = Vector3.right * movement * movementForce;
+    float moveX = gameManager.inputManager.moveX * movementForce * Time.deltaTime;
+    Vector3 horizontalForce = Vector3.right * moveX * movementForce;
 
-    float inputY = Input.GetKeyDown(KeyCode.W) ? 1f : 0f;
-    inputY = Mathf.Clamp01(inputY); // make sure the value stays at 0 or higher
-    Vector3 verticalForce = Vector3.up * jumpForce * inputY;
+    float moveY = Mathf.Clamp01(gameManager.inputManager.moveY);
+    Vector3 verticalForce = Vector3.up * jumpForce * moveY;
 
     foreach (Character ally in allies)
     {

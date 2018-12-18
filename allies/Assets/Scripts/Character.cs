@@ -2,14 +2,20 @@
 
 public class Character : MonoBehaviour
 {
-  public PlayerManager pm;
+  public PlayerManager playerManager;
 
   [Header("Physics")]
-  public bool allowJump;
-
-  public bool allowMove;
   public Rigidbody2D rb;
+  public bool allowJump;
+  public bool allowMove;
   public bool isColliding;
+  public bool isJumping;
+
+  [Header("Animations")]
+  public Animator animator;
+  public bool mirrorAnimation;
+
+  public State state;
 
   public enum State
   {
@@ -20,8 +26,6 @@ public class Character : MonoBehaviour
     ability
   }
 
-  public State state;
-
   private void Start()
   {
     rb = GetComponent<Rigidbody2D>();
@@ -30,11 +34,17 @@ public class Character : MonoBehaviour
   private void Update()
   {
     state = State.idle;
+    SetAnimatorProperties();
   }
 
   private void FixedUpdate()
   {
     GetGlobalGravityScale();
+  }
+
+  private void OnCollisionEnter2D(Collision2D collision)
+  {
+    CheckGroundCollision(collision);
   }
 
   private void OnCollisionStay2D(Collision2D collision)
@@ -49,7 +59,17 @@ public class Character : MonoBehaviour
 
   private void GetGlobalGravityScale()
   {
-    rb.gravityScale = pm.globalGravityScale;
+    rb.gravityScale = playerManager.globalGravityScale;
+  }
+
+  private void SetAnimatorProperties()
+  {
+    if (animator == null)
+      return;
+
+    animator.SetBool("isColliding", isColliding);
+    animator.SetBool("isJumping", isJumping);
+    animator.SetFloat("verticalVelocity", rb.velocity.y);
   }
 
   public void Move(Vector2 horizontalForce)
@@ -57,7 +77,13 @@ public class Character : MonoBehaviour
     if (!allowMove)
       return;
 
-    state = State.move;
+    if (state == State.jump)
+    {
+      if (isColliding)
+        state = State.move;
+      else
+        state = State.jump;
+    }
 
     rb.velocity += horizontalForce * rb.gravityScale;
   }
@@ -67,19 +93,26 @@ public class Character : MonoBehaviour
     if (!allowJump || !isColliding)
       return;
 
+    if (verticalForce.magnitude < 1)
+      return;
+    
     state = State.jump;
+    isJumping = true;
 
     rb.velocity += verticalForce * rb.gravityScale;
+    
   }
 
   private void CheckGroundCollision(Collision2D collision)
   {
     isColliding = false;
 
+    // check for collision in the lower 30% of the collider in order to enable jumping
     foreach (ContactPoint2D cp in collision.contacts)
       if (cp.point.y < transform.position.y + (Vector2.down * .3f).y)
       {
         isColliding = true;
+        isJumping = false;
         Debug.DrawRay(cp.point, cp.normal, Color.green);
       }
   }
