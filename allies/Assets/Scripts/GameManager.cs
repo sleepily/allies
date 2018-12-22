@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
   public PlayerManager playerManager;
   public LevelManager levelManager;
   public CameraManager cameraManager;
-  public AbilityManager abilityManager;
   public InteractiblesManager interactiblesManager;
 
   public State state;
@@ -34,7 +33,6 @@ public class GameManager : MonoBehaviour
     playerManager.gameManager = this;
     levelManager.gameManager = this;
     cameraManager.gameManager = this;
-    abilityManager.gameManager = this;
     interactiblesManager.gameManager = this;
   }
 
