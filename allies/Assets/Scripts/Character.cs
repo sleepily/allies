@@ -22,6 +22,7 @@ public class Character : MonoBehaviour
     idle,
     move,
     jump,
+    movejump,
     stun,
     ability
   }
@@ -33,7 +34,6 @@ public class Character : MonoBehaviour
 
   private void Update()
   {
-    state = State.idle;
     SetAnimatorProperties();
   }
 
@@ -70,6 +70,30 @@ public class Character : MonoBehaviour
     animator.SetBool("isColliding", isColliding);
     animator.SetBool("isJumping", isJumping);
     animator.SetFloat("verticalVelocity", rb.velocity.y);
+
+    if (rb.velocity.x < .1 && rb.velocity.y < .1)
+      state = State.idle;
+  }
+
+  public void CheckAbilityStatus()
+  {
+    if (state != State.ability)
+    {
+      allowJump = true;
+      allowMove = true;
+      DeactivateAbility();
+      return;
+    }
+
+    allowJump = false;
+    allowMove = false;
+
+    switch (name)
+    {
+      case "Rage":
+        Rampage();
+        break;
+    }
   }
 
   public void Move(Vector2 horizontalForce)
@@ -77,15 +101,15 @@ public class Character : MonoBehaviour
     if (!allowMove)
       return;
 
-    if (state == State.jump)
-    {
-      if (isColliding)
-        state = State.move;
-      else
-        state = State.jump;
-    }
-
     rb.velocity += horizontalForce * rb.gravityScale;
+
+    if (Mathf.Abs(rb.velocity.x) > .1)
+    {
+      state = State.move;
+
+      if (Mathf.Abs(rb.velocity.y) > .1)
+        state = State.movejump;
+    }
   }
 
   public void Jump(Vector2 verticalForce)
@@ -100,7 +124,6 @@ public class Character : MonoBehaviour
     isJumping = true;
 
     rb.velocity += verticalForce * rb.gravityScale;
-    
   }
 
   private void CheckGroundCollision(Collision2D collision)
@@ -115,5 +138,16 @@ public class Character : MonoBehaviour
         isJumping = false;
         Debug.DrawRay(cp.point, cp.normal, Color.green);
       }
+  }
+
+  void DeactivateAbility()
+  {
+
+  }
+
+  void Rampage()
+  {
+    //TODO: implement direction checking and bouncing off walls
+    rb.AddForce(Vector2.right * 30);
   }
 }

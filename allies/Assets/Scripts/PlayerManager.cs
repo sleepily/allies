@@ -96,7 +96,7 @@ public class PlayerManager : MonoBehaviour
       SceneManager.LoadScene(0);
 
     if (gameManager.inputManager.abilityAction)
-      gameManager.abilityManager.ActivateAbility(allies);
+      activeCharacter.state = Character.State.ability;
   }
 
   void CalculateMovement()
@@ -109,6 +109,7 @@ public class PlayerManager : MonoBehaviour
 
     foreach (Character ally in allies)
     {
+      ally.CheckAbilityStatus();
       ally.Move(horizontalForce);
       ally.Jump(verticalForce);
     }
