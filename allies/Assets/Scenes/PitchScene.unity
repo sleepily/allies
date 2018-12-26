@@ -1497,6 +1497,7 @@ MonoBehaviour:
   animator: {fileID: 1099699907}
   mirrorAnimation: 0
   state: 0
+  deactivateAbility: 0
 --- !u!95 &1099699907
 Animator:
   serializedVersion: 3
@@ -1734,7 +1735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1668091847
 Transform:
   m_ObjectHideFlags: 0
@@ -1980,6 +1981,7 @@ MonoBehaviour:
   animator: {fileID: 1989272838}
   mirrorAnimation: 0
   state: 0
+  deactivateAbility: 0
 --- !u!95 &1989272838
 Animator:
   serializedVersion: 3
@@ -2133,6 +2135,7 @@ MonoBehaviour:
   animator: {fileID: 2030524612}
   mirrorAnimation: 0
   state: 0
+  deactivateAbility: 0
 --- !u!95 &2030524612
 Animator:
   serializedVersion: 3
