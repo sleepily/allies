@@ -12,10 +12,12 @@ public class CameraManager : MonoBehaviour
   public Camera currentView; // Use this for initialization
   public int viewIndex = 0;
 
-  public SpriteRenderer visibleWithLayers; // sprite to be enabled only when vieweing in layer mode
+  public SpriteRenderer visibleWithLayers; // sprite to be enabled only when viewing in layer mode
 
   private void Start()
   {
+    currentView = views[0];
+    visibleWithLayers = gameManager.levelManager.levelColliderSpriteRenderer;
   }
 
   private void LateUpdate()

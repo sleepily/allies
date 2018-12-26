@@ -1,13 +1,23 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+  [Header("Initialized")]
   public InputManager inputManager;
   public UIManager uiManager;
   public PlayerManager playerManager;
   public LevelManager levelManager;
   public CameraManager cameraManager;
   public InteractiblesManager interactiblesManager;
+
+  public List<GameObject> managers;
+
+  [Header("Prefabs")]
+  public InputManager inputManagerPrefab;
+  public UIManager uiManagerPrefab;
+  public CameraManager cameraManagerPrefab;
+  public InteractiblesManager interactiblesManagerPrefab;
 
   public State state;
   public State lastState;
@@ -28,12 +38,27 @@ public class GameManager : MonoBehaviour
   {
     ChangeState(State.level, gameObject);
 
+    inputManager          = Instantiate(inputManagerPrefab);
+    uiManager             = Instantiate(uiManagerPrefab);
+    cameraManager         = Instantiate(cameraManagerPrefab);
+    interactiblesManager  = Instantiate(interactiblesManagerPrefab);
+
+    managers.Add(inputManager.gameObject);
+    managers.Add(uiManager.gameObject);
+    managers.Add(playerManager.gameObject);
+    managers.Add(levelManager.gameObject);
+    managers.Add(cameraManager.gameObject);
+    managers.Add(interactiblesManager.gameObject);
+
     inputManager.gameManager = this;
     uiManager.gameManager = this;
     playerManager.gameManager = this;
     levelManager.gameManager = this;
     cameraManager.gameManager = this;
     interactiblesManager.gameManager = this;
+
+    foreach (GameObject m in managers)
+      m.transform.SetParent(this.transform);
   }
 
   private void Update()
