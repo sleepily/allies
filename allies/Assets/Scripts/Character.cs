@@ -16,6 +16,7 @@ public class Character : MonoBehaviour
   public bool mirrorAnimation;
 
   public State state;
+  public bool deactivateAbility;
 
   public enum State
   {
@@ -57,11 +58,16 @@ public class Character : MonoBehaviour
     isColliding = false;
   }
 
+  /*
+   * useful for possible gravity changes in future levels
+   * should not affect performance, since only called in FixedUpdate()
+   */
   private void GetGlobalGravityScale()
   {
     rb.gravityScale = playerManager.globalGravityScale;
   }
 
+  //update the animator variables used to transition between animations
   private void SetAnimatorProperties()
   {
     if (animator == null)
@@ -79,9 +85,10 @@ public class Character : MonoBehaviour
   {
     if (state != State.ability)
     {
-      allowJump = true;
-      allowMove = true;
-      DeactivateAbility();
+      //use boolean as trigger (bool deactivateAbility will be reset in DeactivateAbility())
+      if (deactivateAbility)
+        DeactivateAbility();
+
       return;
     }
 
@@ -142,7 +149,11 @@ public class Character : MonoBehaviour
 
   void DeactivateAbility()
   {
+    //TODO: continue this
+    allowJump = true;
+    allowMove = true;
 
+    deactivateAbility = false;
   }
 
   void Rampage()
