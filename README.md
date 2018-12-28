@@ -6,6 +6,10 @@ ludic game project. topic: unity/allies
 [win 32bit](https://github.com/sleepily/allies/releases/download/v0.1a/forget.me.not.x86.zip)  
 [source](https://github.com/sleepily/allies/archive/v0.1a.zip)
 
+## tutorials
+[github for everyone](https://github.com/sleepily/allies/blob/wip/docs/github_tutorial_for_artists.md)  
+[level scene template](https://github.com/sleepily/allies/blob/wip/docs/level_template_tutorial.md)  
+
 ## gallery
 ![current progress](https://i.imgur.com/XIqtzH6.gif)
 
