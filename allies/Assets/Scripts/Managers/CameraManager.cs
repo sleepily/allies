@@ -17,7 +17,7 @@ public class CameraManager : MonoBehaviour
   private void Start()
   {
     currentView = views[0];
-    visibleWithLayers = gameManager.levelManager.levelColliderSpriteRenderer;
+    visibleWithLayers = gameManager.levelManager.colliderSpriteRenderer;
   }
 
   private void LateUpdate()

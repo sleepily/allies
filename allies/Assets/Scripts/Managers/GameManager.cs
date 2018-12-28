@@ -3,19 +3,23 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-  [Header("Initialized")]
+  [Header("Initialized (DO NOT touch this)")]
+  public LevelManager levelManager;
+  public DesignManager designManager;
+
+  [Header("Initialized from Prefabs (should be empty)")]
   public InputManager inputManager;
   public UIManager uiManager;
   public PlayerManager playerManager;
-  public LevelManager levelManager;
   public CameraManager cameraManager;
   public InteractiblesManager interactiblesManager;
 
   public List<GameObject> managers;
 
-  [Header("Prefabs")]
+  [Header("Prefabs (DO NOT touch this)")]
   public InputManager inputManagerPrefab;
   public UIManager uiManagerPrefab;
+  public PlayerManager playerManagerPrefab;
   public CameraManager cameraManagerPrefab;
   public InteractiblesManager interactiblesManagerPrefab;
 
@@ -40,9 +44,10 @@ public class GameManager : MonoBehaviour
 
     inputManager          = Instantiate(inputManagerPrefab);
     uiManager             = Instantiate(uiManagerPrefab);
+    playerManager         = Instantiate(playerManagerPrefab);
     cameraManager         = Instantiate(cameraManagerPrefab);
     interactiblesManager  = Instantiate(interactiblesManagerPrefab);
-
+    
     managers.Add(inputManager.gameObject);
     managers.Add(uiManager.gameObject);
     managers.Add(playerManager.gameObject);

@@ -3,6 +3,7 @@
 public class LevelManager : MonoBehaviour
 {
   public GameManager gameManager;
-  
-  public SpriteRenderer levelColliderSpriteRenderer;
+
+  [Header("DO NOT touch this")]
+  public SpriteRenderer colliderSpriteRenderer;
 }

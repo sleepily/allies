@@ -7,6 +7,11 @@ public class PlayerManager : MonoBehaviour
 {
   public GameManager gameManager;
 
+  [Header("Character Prefabs")]
+  public Character ragePrefab;
+  public Character anxietyPrefab;
+  public Character depressionPrefab;
+
   [Header("Active/Controllable Characters")]
   public Character rage;
   public Character anxiety;
@@ -27,6 +32,7 @@ public class PlayerManager : MonoBehaviour
   
 	void Start ()
   {
+    SpawnCharacters();
     SetPlayerManagerParent();
     SetActiveCharacter();
   }
@@ -50,6 +56,9 @@ public class PlayerManager : MonoBehaviour
 
     foreach (Character otherCharacter in characters)
     {
+      if (otherCharacter == null)
+        break;
+
       if (maxGroupingDistance > Vector2.Distance(activeCharacter.transform.position, otherCharacter.transform.position))
       {
         Debug.DrawRay(otherCharacter.transform.position, Vector2.up, Color.cyan);
@@ -61,10 +70,41 @@ public class PlayerManager : MonoBehaviour
     gameManager.uiManager.alliesText.text = allyString;
   }
 
+  // TODO: make this work with list of characters
+  void SpawnCharacters()
+  {
+    if (gameManager.designManager.ragPlaceholder != null)
+    {
+      rage = Instantiate(ragePrefab);
+      rage.playerManager = this;
+      rage.transform.SetParent(this.transform);
+      rage.transform.position += gameManager.designManager.ragPlaceholder.transform.position;
+    }
+
+    if (gameManager.designManager.depPlaceholder != null)
+    {
+      depression = Instantiate(depressionPrefab);
+      depression.playerManager = this;
+      depression.transform.SetParent(this.transform);
+      depression.transform.position += gameManager.designManager.depPlaceholder.transform.position;
+    }
+
+    if (gameManager.designManager.anxPlaceholder != null)
+    {
+      anxiety = Instantiate(anxietyPrefab);
+      anxiety.playerManager = this;
+      anxiety.transform.SetParent(this.transform);
+      anxiety.transform.position += gameManager.designManager.anxPlaceholder.transform.position;
+    }
+  }
+
   void SetPlayerManagerParent()
   {
     foreach (Character c in characters)
     {
+      if (c == null)
+        break;
+
       c.playerManager = this;
     }
   }
@@ -86,7 +126,7 @@ public class PlayerManager : MonoBehaviour
 
   void GetInput()
   {
-    if (activeCharacter.rb == null)
+    if (activeCharacter == null || activeCharacter.rb == null)
       return;
 
     if (gameManager.inputManager.switchAction)
