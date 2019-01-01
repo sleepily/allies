@@ -142,10 +142,11 @@ MonoBehaviour:
   rb: {fileID: 0}
   allowJump: 1
   allowMove: 1
-  isColliding: 0
+  isCollidingWithGround: 0
+  isCollidingWithWall: 0
   isJumping: 0
   animator: {fileID: 95864453939579788}
-  mirrorAnimation: 0
+  isMovingRight: 0
   state: 0
   deactivateAbility: 0
 --- !u!212 &212307484582155076
