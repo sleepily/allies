@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
 
   [Header("Animations")]
   public Animator animator;
-  public bool isMovingRight;
+  public bool isMovingLeft;
 
   public State state;
   public bool deactivateAbility;
@@ -79,6 +79,7 @@ public class Character : MonoBehaviour
 
     animator.SetBool  ("isColliding",         isCollidingWithGround);
     animator.SetBool  ("isJumping",           isJumping);
+    animator.SetBool  ("isMovingLeft",        isMovingLeft);
     animator.SetFloat ("horizontalVelocity",  rb.velocity.x);
     animator.SetFloat ("verticalVelocity",    rb.velocity.y);
 
@@ -177,9 +178,9 @@ public class Character : MonoBehaviour
         if (state == State.ability)
         {
           if (cp.point.x < transform.position.x)
-            isMovingRight = true;
+            isMovingLeft = true;
           else
-            isMovingRight = false;
+            isMovingLeft = false;
         }
       }
   }
@@ -198,7 +199,7 @@ public class Character : MonoBehaviour
   void Rampage()
   {
     //TODO: implement direction checking and bouncing off walls
-    if (isMovingRight)
+    if (isMovingLeft)
       rb.AddForce(Vector2.right * 30);
     else
       rb.AddForce(Vector2.left  * 30);
