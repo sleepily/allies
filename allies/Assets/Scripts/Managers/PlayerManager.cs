@@ -76,25 +76,34 @@ public class PlayerManager : MonoBehaviour
     if (gameManager.designManager.ragPlaceholder != null)
     {
       rage = Instantiate(ragePrefab);
+      rage.name = ragePrefab.name;
       rage.playerManager = this;
       rage.transform.SetParent(this.transform);
       rage.transform.position += gameManager.designManager.ragPlaceholder.transform.position;
+
+      characters.Add(rage);
     }
 
     if (gameManager.designManager.depPlaceholder != null)
     {
       depression = Instantiate(depressionPrefab);
+      depression.name = depressionPrefab.name;
       depression.playerManager = this;
       depression.transform.SetParent(this.transform);
       depression.transform.position += gameManager.designManager.depPlaceholder.transform.position;
+
+      characters.Add(depression);
     }
 
     if (gameManager.designManager.anxPlaceholder != null)
     {
       anxiety = Instantiate(anxietyPrefab);
+      anxiety.name = anxietyPrefab.name;
       anxiety.playerManager = this;
       anxiety.transform.SetParent(this.transform);
       anxiety.transform.position += gameManager.designManager.anxPlaceholder.transform.position;
+
+      characters.Add(anxiety);
     }
   }
 

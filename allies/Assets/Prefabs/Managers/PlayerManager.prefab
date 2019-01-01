@@ -61,10 +61,7 @@ MonoBehaviour:
   rage: {fileID: 0}
   anxiety: {fileID: 0}
   depression: {fileID: 0}
-  characters:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  characters: []
   characterIndex: 0
   activeCharacter: {fileID: 0}
   allies: []

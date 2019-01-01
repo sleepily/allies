@@ -8,12 +8,13 @@ public class Character : MonoBehaviour
   public Rigidbody2D rb;
   public bool allowJump;
   public bool allowMove;
-  public bool isColliding;
+  public bool isCollidingWithGround;
+  public bool isCollidingWithWall;
   public bool isJumping;
 
   [Header("Animations")]
   public Animator animator;
-  public bool mirrorAnimation;
+  public bool isMovingRight;
 
   public State state;
   public bool deactivateAbility;
@@ -46,16 +47,19 @@ public class Character : MonoBehaviour
   private void OnCollisionEnter2D(Collision2D collision)
   {
     CheckGroundCollision(collision);
+    CheckWallCollision(collision);
   }
 
   private void OnCollisionStay2D(Collision2D collision)
   {
     CheckGroundCollision(collision);
+    CheckWallCollision(collision);
   }
 
   private void OnCollisionExit2D(Collision2D collision)
   {
-    isColliding = false;
+    isCollidingWithGround = false;
+    isCollidingWithWall = false;
   }
 
   /*
@@ -73,12 +77,14 @@ public class Character : MonoBehaviour
     if (animator == null)
       return;
 
-    animator.SetBool("isColliding", isColliding);
-    animator.SetBool("isJumping", isJumping);
-    animator.SetFloat("verticalVelocity", rb.velocity.y);
+    animator.SetBool  ("isColliding",         isCollidingWithGround);
+    animator.SetBool  ("isJumping",           isJumping);
+    animator.SetFloat ("horizontalVelocity",  rb.velocity.x);
+    animator.SetFloat ("verticalVelocity",    rb.velocity.y);
 
     if (rb.velocity.x < .1 && rb.velocity.y < .1)
-      state = State.idle;
+      if (state != State.ability)
+        state = State.idle;
   }
 
   public void CheckAbilityStatus()
@@ -99,6 +105,12 @@ public class Character : MonoBehaviour
     {
       case "Rage":
         Rampage();
+        break;
+      case "Anxiety":
+        ColdFeet();
+        break;
+      case "Depression":
+        Crybaby();
         break;
     }
   }
@@ -121,7 +133,7 @@ public class Character : MonoBehaviour
 
   public void Jump(Vector2 verticalForce)
   {
-    if (!allowJump || !isColliding)
+    if (!allowJump || !isCollidingWithGround)
       return;
 
     if (verticalForce.magnitude < 1)
@@ -135,23 +147,50 @@ public class Character : MonoBehaviour
 
   private void CheckGroundCollision(Collision2D collision)
   {
-    isColliding = false;
+    isCollidingWithGround = false;
 
     // check for collision in the lower 30% of the collider in order to enable jumping
     foreach (ContactPoint2D cp in collision.contacts)
       if (cp.point.y < transform.position.y + (Vector2.down * .3f).y)
       {
-        isColliding = true;
+        isCollidingWithGround = true;
         isJumping = false;
         Debug.DrawRay(cp.point, cp.normal, Color.green);
       }
   }
 
+  private void CheckWallCollision(Collision2D collision)
+  {
+    isCollidingWithWall = false;
+
+    // check for collision in the middle 40% of the collider in order to enable bouncing off walls
+    foreach (ContactPoint2D cp in collision.contacts)
+      if
+      (
+        cp.point.y < transform.position.y + (Vector2.up   * .2f).y &&
+        cp.point.y > transform.position.y + (Vector2.down * .2f).y
+      )
+      {
+        isCollidingWithWall = true;
+        Debug.DrawRay(cp.point, cp.normal, Color.blue);
+
+        if (state == State.ability)
+        {
+          if (cp.point.x < transform.position.x)
+            isMovingRight = true;
+          else
+            isMovingRight = false;
+        }
+      }
+  }
+
+  // resets all character's properties to default behaviour and resets the switch
   void DeactivateAbility()
   {
-    //TODO: continue this
     allowJump = true;
     allowMove = true;
+
+    rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
     deactivateAbility = false;
   }
@@ -159,6 +198,22 @@ public class Character : MonoBehaviour
   void Rampage()
   {
     //TODO: implement direction checking and bouncing off walls
-    rb.AddForce(Vector2.right * 30);
+    if (isMovingRight)
+      rb.AddForce(Vector2.right * 30);
+    else
+      rb.AddForce(Vector2.left  * 30);
+  }
+
+  void ColdFeet()
+  {
+    rb.constraints =
+      RigidbodyConstraints2D.FreezePositionX |
+      RigidbodyConstraints2D.FreezePositionY |
+      RigidbodyConstraints2D.FreezeRotation;
+  }
+
+  void Crybaby()
+  {
+    //TODO: implement
   }
 }
