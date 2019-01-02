@@ -19,8 +19,8 @@ ExportedObj/
 *.csproj
 .DS_Store
 *.DS_Store
-# *.unityproj
-# *.sln
+*.unityproj
+.sln
 *.suo
 *.tmp
 *.user
