@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1682091115986956}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.39999998, y: 0.39999998, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -506,6 +506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74879104b841644b9c3e95ade01b57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  polygonCollider2D: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!212 &212131826972521830
 SpriteRenderer:
   m_ObjectHideFlags: 1

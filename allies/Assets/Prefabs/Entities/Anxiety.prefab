@@ -116,7 +116,7 @@ MonoBehaviour:
   isCollidingWithWall: 0
   isJumping: 0
   animator: {fileID: 95402407695717826}
-  isMovingRight: 0
+  isMovingLeft: 0
   state: 0
   deactivateAbility: 0
 --- !u!212 &212674257355521668
