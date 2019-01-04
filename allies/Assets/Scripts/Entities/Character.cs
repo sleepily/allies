@@ -164,12 +164,12 @@ public class Character : MonoBehaviour
   {
     isCollidingWithWall = false;
 
-    // check for collision in the middle 40% of the collider in order to enable bouncing off walls
+    // check for collision in the upper collider (except top) in order to enable bouncing off walls
     foreach (ContactPoint2D cp in collision.contacts)
       if
       (
-        cp.point.y < transform.position.y + (Vector2.up   * .2f).y &&
-        cp.point.y > transform.position.y + (Vector2.down * .2f).y
+        cp.point.y < transform.position.y + (Vector2.up   * .45f).y &&
+        cp.point.y > transform.position.y + (Vector2.down * .35f).y
       )
       {
         isCollidingWithWall = true;

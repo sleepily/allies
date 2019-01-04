@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class DesignManager : MonoBehaviour
@@ -11,11 +10,17 @@ public class DesignManager : MonoBehaviour
   public GameObject anxPlaceholder;
   public GameObject depPlaceholder;
 
-  public List<GameObject> objects;
+  public List<Interactible> interactibles;
 
-  void Start()
+  private void Start()
   {
-    this.gameObject.SetActive(false);
-    this.enabled = false;
+    foreach (Interactible interactible in interactibles)
+    {
+      interactible.gameManager = gameManager;
+      interactible.MoveToInteractiblesManager();
+    }
+
+    gameObject.SetActive(false);
+    enabled = false;
   }
 }
