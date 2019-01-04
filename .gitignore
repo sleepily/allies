@@ -20,7 +20,7 @@ ExportedObj/
 .DS_Store
 *.DS_Store
 *.unityproj
-*.sln
+# *.sln
 *.suo
 *.tmp
 *.user
