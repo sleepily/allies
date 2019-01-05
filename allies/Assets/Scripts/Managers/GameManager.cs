@@ -95,6 +95,9 @@ public class GameManager : MonoBehaviour
       case State.pause:
         break;
 
+      case State.cutscene:
+        break;
+
       default:
         PrintBadStateError(state);
         break;

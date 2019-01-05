@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BreakableWall : Interactible
 {
+  public Animator animator;
+
   private void OnCollisionEnter2D(Collision2D collision)
   {
     CheckForRageColliding(collision);
