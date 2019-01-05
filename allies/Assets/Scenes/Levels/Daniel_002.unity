@@ -946,7 +946,7 @@ Transform:
   m_GameObject: {fileID: 1369370510}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -5}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 559179489}
   m_RootOrder: 0
@@ -1118,10 +1118,12 @@ MonoBehaviour:
   cameraManager: {fileID: 0}
   interactiblesManager: {fileID: 0}
   managers: []
-  levelManagerPrefab: {fileID: 0}
+  levelManagerPrefab: {fileID: 114148753401165458, guid: 3e5d4a0d81d5f324fb0304a4186b684d,
+    type: 2}
   inputManagerPrefab: {fileID: 114892868513413560, guid: f59595ac2c8dfd949b90ccb88b504ca9,
     type: 2}
-  uiManagerPrefab: {fileID: 0}
+  uiManagerPrefab: {fileID: 114091900282719590, guid: 457428d55915b074da79be57f2fb1fcb,
+    type: 2}
   playerManagerPrefab: {fileID: 114656062616973686, guid: dc40c6d610972fd4b940b0a2dd292419,
     type: 2}
   cameraManagerPrefab: {fileID: 114258660469413758, guid: 93a90c9497c468a46b67f2bea4fd1a0c,
@@ -1205,7 +1207,7 @@ Camera:
   far clip plane: 100
   field of view: 40
   orthographic: 1
-  orthographic size: 9
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
