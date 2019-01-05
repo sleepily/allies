@@ -258,9 +258,29 @@ Prefab:
       propertyPath: interactibles.Array.data[5]
       value: 
       objectReference: {fileID: 1187321727}
+    - target: {fileID: 114298642833868584, guid: dc253b6ea3562914bbeebada31d55089,
+        type: 2}
+      propertyPath: anxPlaceholder
+      value: 
+      objectReference: {fileID: 630145973}
+    - target: {fileID: 114298642833868584, guid: dc253b6ea3562914bbeebada31d55089,
+        type: 2}
+      propertyPath: depPlaceholder
+      value: 
+      objectReference: {fileID: 630145972}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &630145972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1204622170216142, guid: dc253b6ea3562914bbeebada31d55089,
+    type: 2}
+  m_PrefabInternal: {fileID: 630145971}
+--- !u!1 &630145973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1811663575574852, guid: dc253b6ea3562914bbeebada31d55089,
+    type: 2}
+  m_PrefabInternal: {fileID: 630145971}
 --- !u!114 &675099648 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114448099942569752, guid: aec23f8d8fc0d5b4c9067432754361f9,

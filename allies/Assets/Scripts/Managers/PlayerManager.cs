@@ -73,7 +73,7 @@ public class PlayerManager : MonoBehaviour
   // TODO: make this work with list of characters
   void SpawnCharacters()
   {
-    if (gameManager.designManager.ragPlaceholder != null)
+    if (gameManager.designManager.ragPlaceholder.activeSelf)
     {
       rage = Instantiate(ragePrefab);
       rage.name = ragePrefab.name;
@@ -84,7 +84,7 @@ public class PlayerManager : MonoBehaviour
       characters.Add(rage);
     }
 
-    if (gameManager.designManager.depPlaceholder != null)
+    if (gameManager.designManager.depPlaceholder.activeSelf)
     {
       depression = Instantiate(depressionPrefab);
       depression.name = depressionPrefab.name;
@@ -95,7 +95,7 @@ public class PlayerManager : MonoBehaviour
       characters.Add(depression);
     }
 
-    if (gameManager.designManager.anxPlaceholder != null)
+    if (gameManager.designManager.anxPlaceholder.activeSelf)
     {
       anxiety = Instantiate(anxietyPrefab);
       anxiety.name = anxietyPrefab.name;
