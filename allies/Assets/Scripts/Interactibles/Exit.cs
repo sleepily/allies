@@ -22,7 +22,6 @@ public class Exit : Interactible
 
   void CheckCharacterCount(Collider2D collision)
   {
-    Destroy(collision.gameObject);
     ExitLevel();
   }
 

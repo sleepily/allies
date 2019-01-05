@@ -231,10 +231,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1491746493}
-  ragPlaceholder: {fileID: 121347653}
-  anxPlaceholder: {fileID: 1939830097}
-  depPlaceholder: {fileID: 753801079}
-  objects: []
+  characterPlaceholders: []
+  interactibles: []
 --- !u!1 &753801079
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,7 +773,7 @@ SpriteRenderer:
   m_Size: {x: 62.900005, y: 39.780003}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1012847692
@@ -850,7 +848,7 @@ SpriteRenderer:
   m_Size: {x: 62.900005, y: 39.780003}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1369370510
@@ -925,7 +923,7 @@ SpriteRenderer:
   m_Size: {x: 62.900005, y: 39.780003}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1447354781
@@ -986,18 +984,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7d203cb7f8ed94dab961e7693d8ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 1668091848}
   designManager: {fileID: 559179490}
+  levelManager: {fileID: 0}
   inputManager: {fileID: 0}
   uiManager: {fileID: 0}
   playerManager: {fileID: 0}
   cameraManager: {fileID: 0}
   interactiblesManager: {fileID: 0}
   managers: []
+  levelManagerPrefab: {fileID: 0}
   inputManagerPrefab: {fileID: 114892868513413560, guid: f59595ac2c8dfd949b90ccb88b504ca9,
     type: 2}
-  uiManagerPrefab: {fileID: 114178033728517520, guid: 457428d55915b074da79be57f2fb1fcb,
-    type: 2}
+  uiManagerPrefab: {fileID: 0}
   playerManagerPrefab: {fileID: 114656062616973686, guid: dc40c6d610972fd4b940b0a2dd292419,
     type: 2}
   cameraManagerPrefab: {fileID: 114258660469413758, guid: 93a90c9497c468a46b67f2bea4fd1a0c,
@@ -1142,6 +1140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1491746493}
+  levelIndex: 0
+  levels: []
   colliderSpriteRenderer: {fileID: 779357279}
 --- !u!1 &1939830097
 GameObject:

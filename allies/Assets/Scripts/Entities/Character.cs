@@ -74,6 +74,9 @@ public class Character : MonoBehaviour
    */
   private void GetGlobalGravityScale()
   {
+    if (!playerManager)
+      return;
+
     rb.gravityScale = playerManager.globalGravityScale;
   }
 

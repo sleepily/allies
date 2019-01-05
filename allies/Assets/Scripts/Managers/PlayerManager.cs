@@ -69,41 +69,41 @@ public class PlayerManager : MonoBehaviour
 
     gameManager.uiManager.alliesText.text = allyString;
   }
-
-  // TODO: make this work with list of characters
+  
   void SpawnCharacters()
   {
-    if (gameManager.designManager.ragPlaceholder.activeSelf)
+    int index = 0;
+
+    foreach (CharacterPlaceholder placeholder in gameManager.designManager.characterPlaceholders)
     {
-      rage = Instantiate(ragePrefab);
-      rage.name = ragePrefab.name;
-      rage.playerManager = this;
-      rage.transform.SetParent(this.transform);
-      rage.transform.position += gameManager.designManager.ragPlaceholder.transform.position;
+      if (placeholder.gameObject.activeSelf)
+      {
+        characters.Add(Instantiate(placeholder.characterPrefab));
+        
+        characters[index].name = placeholder.characterPrefab.name;
+        characters[index].playerManager = this;
+        characters[index].transform.SetParent(this.transform);
+        characters[index].transform.position += placeholder.transform.position;
+        
+        // connect r/a/d in list and variables
+        switch (characters[index].name)
+        {
+          case "Rage":
+            rage = characters[index];
+            break;
+          case "Anxiety":
+            anxiety = characters[index];
+            break;
+          case "Depression":
+            depression = characters[index];
+            break;
+          default:
+            Debug.LogError("Bad temporary character.");
+            break;
+        }
 
-      characters.Add(rage);
-    }
-
-    if (gameManager.designManager.depPlaceholder.activeSelf)
-    {
-      depression = Instantiate(depressionPrefab);
-      depression.name = depressionPrefab.name;
-      depression.playerManager = this;
-      depression.transform.SetParent(this.transform);
-      depression.transform.position += gameManager.designManager.depPlaceholder.transform.position;
-
-      characters.Add(depression);
-    }
-
-    if (gameManager.designManager.anxPlaceholder.activeSelf)
-    {
-      anxiety = Instantiate(anxietyPrefab);
-      anxiety.name = anxietyPrefab.name;
-      anxiety.playerManager = this;
-      anxiety.transform.SetParent(this.transform);
-      anxiety.transform.position += gameManager.designManager.anxPlaceholder.transform.position;
-
-      characters.Add(anxiety);
+        index++;
+      }
     }
   }
 

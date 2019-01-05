@@ -1,33 +1,27 @@
 fileFormatVersion: 2
-guid: a011ffd34263d394f81384bdd462e0c6
+guid: 65c117b91654f664e84fc4fc55fcc077
 TextureImporter:
   fileIDToRecycleName:
-    21300000: pillar_left
-    21300002: stone_bright
-    21300004: platform_thick_01
-    21300006: platform_01
-    21300008: spritesheet_stone_4
-    21300010: platform_thin_01
-    21300012: platform_02
-    21300014: pillar_right
-    21300016: stone_dark
-    21300018: platform_thin_02
-    21300020: platform_thick_02
-    21300022: platform_03
-    21300024: spritesheet_stone_12
-    21300026: pillar_top
-    21300028: pillar_bottom
-    21300030: breakablewall_large
-    21300032: platform_04
-    21300034: breakablewall_small
-    21300036: breakablewall_medium
-    21300038: platform_long_01
-    21300040: platform_long_02
-    21300042: pillar_small_01
-    21300044: pillar_small_02
-    21300046: pillar_small_top
-    21300048: pillar_small_bottom
-    21300050: spritesheet_stone_6
+    21300000: fuse_01
+    21300002: fuse_02
+    21300004: fuse_03
+    21300006: fuse_04
+    21300008: fuse_05
+    21300010: fuse_06
+    21300012: spritesheet_others_6
+    21300014: explosivemushrooms
+    21300016: spritesheet_others_8
+    21300018: switch
+    21300020: spritesheet_others_10
+    21300022: spritesheet_others_11
+    21300024: spritesheet_others_12
+    21300026: flower_continuous
+    21300028: flower_shooting
+    21300030: flower_floating
+    21300032: switch_stone
+    21300034: monster_shooting
+    21300036: exit
+    21300038: spikes
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -110,501 +104,401 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pillar_left
+      name: fuse_01
       rect:
         serializedVersion: 2
-        x: 211
-        y: 3977
-        width: 3705
-        height: 838
+        x: 160
+        y: 4403
+        width: 720
+        height: 399
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a53c1a49bb78d244a86a63f3682c886f
+      spriteID: 7dab3bea72cc3e74bacaaf910019827e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stone_bright
+      name: fuse_02
       rect:
         serializedVersion: 2
-        x: 4649
-        y: 4212
-        width: 442
-        height: 583
+        x: 1115
+        y: 4689
+        width: 1934
+        height: 107
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff28124278317ad4e82c3567fe3219d0
+      spriteID: 0e984c5336eb8fc4bb85fb8ba1f5ef8e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platform_thick_01
+      name: fuse_03
       rect:
         serializedVersion: 2
-        x: 6095
-        y: 4156
-        width: 676
-        height: 579
+        x: 87
+        y: 3308
+        width: 689
+        height: 752
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1376a7c5421fcb144becca71f329fe67
+      spriteID: 5f86984d2c864ad4dbe877cb491fe6ce
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platform_01
+      name: fuse_04
       rect:
         serializedVersion: 2
-        x: 8137
-        y: 4273
-        width: 544
-        height: 413
+        x: 860
+        y: 3795
+        width: 983
+        height: 387
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55861e59c8c64eb478aff0f674fa47ee
+      spriteID: 26cce4ca953179345894fcf7adca64d8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platform_thin_01
+      name: fuse_05
       rect:
         serializedVersion: 2
-        x: 7064
-        y: 3940
-        width: 777
-        height: 247
+        x: 2025
+        y: 3681
+        width: 650
+        height: 351
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 273359e53912fa6419d39838ae749a91
+      spriteID: d0e9bf9e42b7ac04ebb8288e6a6c2d94
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platform_02
+      name: fuse_06
       rect:
         serializedVersion: 2
-        x: 8151
-        y: 3704
-        width: 698
-        height: 353
+        x: 3035
+        y: 2942
+        width: 251
+        height: 1414
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 762b57c0a02138146873b2aea1689ff4
+      spriteID: fe0f1d0d2947bc7458dabba0b2f146f1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pillar_right
+      name: spritesheet_others_6
       rect:
         serializedVersion: 2
-        x: 209
-        y: 3109
-        width: 4031
-        height: 614
+        x: 2231
+        y: 3355
+        width: 10
+        height: 5
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 149c75c8a7dfc2b4cbd23e9d6e92a9c3
+      spriteID: 3c35d81c19f82994da8d766e97c8bddc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stone_dark
+      name: explosivemushrooms
       rect:
         serializedVersion: 2
-        x: 4683
-        y: 3356
-        width: 485
-        height: 486
+        x: 888
+        y: 2940
+        width: 469
+        height: 370
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0f2b371423d0cc42a2f8fa20d2ffabe
+      spriteID: 69bcd57c21432304c90ddcd8b8497998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platform_thin_02
+      name: spritesheet_others_8
       rect:
         serializedVersion: 2
-        x: 5947
-        y: 3527
-        width: 761
-        height: 229
+        x: 2081
+        y: 3205
+        width: 7
+        height: 12
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e5bd02f5b25b0e44968a872c92a0cbc
+      spriteID: 1c529c99b1b957b4a876a1109ae7fabd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platform_thick_02
+      name: switch
       rect:
         serializedVersion: 2
-        x: 6652
-        y: 2647
-        width: 1325
-        height: 730
+        x: 2107
+        y: 3133
+        width: 232
+        height: 209
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2e0224f7c68ed645bbaa28da8d207e4
+      spriteID: 471d4bee069f59a4891b22ae4b1f3bed
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platform_03
+      name: spritesheet_others_10
       rect:
         serializedVersion: 2
-        x: 8432
-        y: 3033
-        width: 667
-        height: 476
+        x: 2091
+        y: 3195
+        width: 7
+        height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 455f9d4cbc5d1fe4cb3a45d195d9b47f
+      spriteID: 30de74497397684448a9c796e1a3455b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet_stone_12
+      name: spritesheet_others_11
       rect:
         serializedVersion: 2
-        x: 215
-        y: 2704
-        width: 11
-        height: 13
+        x: 878
+        y: 3082
+        width: 10
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74a4f7ad425396449aefb22dd2041253
+      spriteID: 8858a34830237e04e96800aa0ca74d5f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pillar_top
+      name: spritesheet_others_12
       rect:
         serializedVersion: 2
-        x: 235
-        y: 202
-        width: 554
-        height: 2722
+        x: 1841
+        y: 2769
+        width: 10
+        height: 12
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38c5c820d144fc74f82a10aba061ced9
+      spriteID: 41224e27e3987c841a05850580f87fd1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pillar_bottom
+      name: flower_continuous
       rect:
         serializedVersion: 2
-        x: 1405
-        y: 175
-        width: 996
-        height: 2680
+        x: 225
+        y: 2257
+        width: 495
+        height: 447
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4019455893f939e4282183c4477102bb
+      spriteID: f8095114f500ed14bbe9521274e1953b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: breakablewall_large
+      name: flower_shooting
       rect:
         serializedVersion: 2
-        x: 5619
-        y: 321
-        width: 606
-        height: 2484
+        x: 1465
+        y: 2312
+        width: 474
+        height: 430
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 090e58dff4a22d149aa7b7da507fee34
+      spriteID: 0e80a8aaa10905c4e9dff0c20554f8b7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platform_04
+      name: flower_floating
       rect:
         serializedVersion: 2
-        x: 8557
-        y: 2515
-        width: 363
-        height: 285
+        x: 2591
+        y: 2339
+        width: 171
+        height: 283
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8aec876c773a863458f0aee027f460c1
+      spriteID: ca28aed8a9988d04eaf05c1771d99a8e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: breakablewall_small
+      name: switch_stone
       rect:
         serializedVersion: 2
-        x: 2920
-        y: 1278
-        width: 509
-        height: 1253
+        x: 318
+        y: 1269
+        width: 403
+        height: 590
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c376fd0e47f9c49449f7bb263e57b102
+      spriteID: 2d265ec230103b34ab64f3a9e1d9e636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: breakablewall_medium
+      name: monster_shooting
       rect:
         serializedVersion: 2
-        x: 4286
-        y: 767
-        width: 601
-        height: 1700
+        x: 1511
+        y: 1302
+        width: 348
+        height: 559
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8be58e4a786d99744bba7ab946240ff6
+      spriteID: acb6e90c6799f8e4897ef595c48ef0f6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platform_long_01
+      name: exit
       rect:
         serializedVersion: 2
-        x: 6353
-        y: 1817
-        width: 2098
-        height: 371
+        x: 271
+        y: 416
+        width: 1307
+        height: 437
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 146e6481a310d674db03551512540088
+      spriteID: b5c79e9328b317e45824213d51a2a5ed
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: platform_long_02
+      name: spikes
       rect:
         serializedVersion: 2
-        x: 7185
-        y: 847
-        width: 1877
-        height: 347
+        x: 2250
+        y: 416
+        width: 1011
+        height: 593
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bc76dddf0d5cd74f84a9a96ea2595a1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pillar_small_01
-      rect:
-        serializedVersion: 2
-        x: 9596
-        y: 3758
-        width: 398
-        height: 906
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 353ff87b65f902644bdc707f6db70d5c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pillar_small_02
-      rect:
-        serializedVersion: 2
-        x: 10794
-        y: 3665
-        width: 451
-        height: 1092
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c1775a4801fe5147adb55ae761853be
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pillar_small_top
-      rect:
-        serializedVersion: 2
-        x: 10854
-        y: 968
-        width: 530
-        height: 2068
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: abbded0bc63a7404a97ea4470dc6bfae
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pillar_small_bottom
-      rect:
-        serializedVersion: 2
-        x: 9438
-        y: 1539
-        width: 950
-        height: 1385
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dac765a23f155e64e84fed4fda8402f0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheet_stone_6
-      rect:
-        serializedVersion: 2
-        x: 211
-        y: 2678
-        width: 13
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3fa57f58ff1d3a34aaafea48423f08f2
+      spriteID: 12eca3bdcbe54414caead81aee7c542d
       vertices: []
       indices: 
       edges: []
@@ -612,7 +506,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e0c3a62e2e9e94c4fa28b2c0c7290b66
+    spriteID: 2a88fd4cf62e9b94389c134a4b2c2c4c
     vertices: []
     indices: 
     edges: []

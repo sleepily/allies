@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4713566295676790}
   - component: {fileID: 212526580029429568}
+  - component: {fileID: 114794392586214496}
   m_Layer: 0
   m_Name: Depression
   m_TagString: Untagged
@@ -51,6 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4934718857267012}
   - component: {fileID: 212321784456011798}
+  - component: {fileID: 114337795897451362}
   m_Layer: 0
   m_Name: Rage
   m_TagString: Untagged
@@ -99,6 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4964322038897844}
   - component: {fileID: 212180500858538326}
+  - component: {fileID: 114360729158423226}
   m_Layer: 0
   m_Name: Anxiety
   m_TagString: Untagged
@@ -188,7 +191,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1351588308500906}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.34, y: -6.2, z: 0}
+  m_LocalPosition: {x: -21.5, y: 8.55, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 4347132579291306}
@@ -279,9 +282,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  ragPlaceholder: {fileID: 1351588308500906}
-  anxPlaceholder: {fileID: 1811663575574852}
-  depPlaceholder: {fileID: 1204622170216142}
+  characterPlaceholders:
+  - {fileID: 114337795897451362}
+  - {fileID: 114360729158423226}
+  - {fileID: 114794392586214496}
   interactibles:
   - {fileID: 0}
   - {fileID: 0}
@@ -289,6 +293,45 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &114337795897451362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1351588308500906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46371b53d9f1e9c41916733595c209c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterPrefab: {fileID: 114563399439513634, guid: 5e7cebad33c9bff4f9f733d0112d32b3,
+    type: 2}
+--- !u!114 &114360729158423226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1811663575574852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46371b53d9f1e9c41916733595c209c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterPrefab: {fileID: 114299119914236220, guid: 46cee6cd2c7e61a42848b4103c7aee59,
+    type: 2}
+--- !u!114 &114794392586214496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1204622170216142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46371b53d9f1e9c41916733595c209c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterPrefab: {fileID: 114561912217283096, guid: 88564881450f4ea4cbc2a2c88f4b770e,
+    type: 2}
 --- !u!212 &212180500858538326
 SpriteRenderer:
   m_ObjectHideFlags: 1

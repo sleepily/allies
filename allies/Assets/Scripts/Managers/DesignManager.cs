@@ -4,11 +4,8 @@ using UnityEngine;
 public class DesignManager : MonoBehaviour
 {
   public GameManager gameManager;
-
-  [Header("Interactibles/Entities to be added")]
-  public GameObject ragPlaceholder;
-  public GameObject anxPlaceholder;
-  public GameObject depPlaceholder;
+  
+  public List<CharacterPlaceholder> characterPlaceholders;
 
   public List<Interactible> interactibles;
 
