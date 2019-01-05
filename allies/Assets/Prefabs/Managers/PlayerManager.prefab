@@ -67,5 +67,5 @@ MonoBehaviour:
   allies: []
   maxGroupingDistance: 3
   movementForce: 20
-  jumpForce: 4
+  jumpForce: 5
   globalGravityScale: 5
