@@ -17,7 +17,7 @@ public class Character : MonoBehaviour
   public bool isMovingLeft;
 
   public State state;
-  public bool deactivateAbility;
+  public bool deactivateAbilityTrigger;
 
   public enum State
   {
@@ -32,10 +32,12 @@ public class Character : MonoBehaviour
   private void Start()
   {
     rb = GetComponent<Rigidbody2D>();
+    isMovingLeft = false;
   }
 
   private void Update()
   {
+    CheckMovementDirection();
     SetAnimatorProperties();
   }
 
@@ -58,13 +60,17 @@ public class Character : MonoBehaviour
 
   private void OnCollisionExit2D(Collision2D collision)
   {
+    ResetCollision();
+  }
+
+  void ResetCollision()
+  {
     isCollidingWithGround = false;
     isCollidingWithWall = false;
   }
 
   /*
    * useful for possible gravity changes in future levels
-   * should not affect performance, since only called in FixedUpdate()
    */
   private void GetGlobalGravityScale()
   {
@@ -83,17 +89,39 @@ public class Character : MonoBehaviour
     animator.SetFloat ("horizontalVelocity",  rb.velocity.x);
     animator.SetFloat ("verticalVelocity",    rb.velocity.y);
 
-    if (rb.velocity.x < .1 && rb.velocity.y < .1)
+    if (!CharacterIsMoving())
       if (state != State.ability)
         state = State.idle;
+  }
+
+  bool CharacterIsMoving()
+  {
+    if
+    (
+      rb.velocity.x < .1 && rb.velocity.x > -.1 &&
+      rb.velocity.y < .1 && rb.velocity.y > -.1
+    )
+      return false;
+
+    return true;
+  }
+
+  void CheckMovementDirection()
+  {
+    if (state != State.ability)
+    {
+      if (rb.velocity.x < -.1)
+        isMovingLeft = true;
+      if (rb.velocity.x >  .1)
+        isMovingLeft = false;
+    }
   }
 
   public void CheckAbilityStatus()
   {
     if (state != State.ability)
     {
-      //use boolean as trigger (bool deactivateAbility will be reset in DeactivateAbility())
-      if (deactivateAbility)
+      if (deactivateAbilityTrigger)
         DeactivateAbility();
 
       return;
@@ -121,7 +149,17 @@ public class Character : MonoBehaviour
     if (!allowMove)
       return;
 
-    rb.velocity += horizontalForce * rb.gravityScale;
+    horizontalForce *= rb.gravityScale;
+
+    rb.velocity += horizontalForce;
+
+    float clampedForce = Mathf.Clamp(rb.velocity.x, -horizontalForce.x, horizontalForce.x);
+
+    if (clampedForce != rb.velocity.x)                                    // if character is moving faster than i should
+      if (rb.velocity.x > 0)                                              // if moving right, else left
+        rb.velocity += Vector2.left   * (rb.velocity.x - clampedForce);   // subtract excess speed from velocity
+      else if (rb.velocity.x < 0)
+        rb.velocity += Vector2.left   * (rb.velocity.x + clampedForce);
 
     if (Mathf.Abs(rb.velocity.x) > .1)
     {
@@ -178,9 +216,9 @@ public class Character : MonoBehaviour
         if (state == State.ability)
         {
           if (cp.point.x < transform.position.x)
-            isMovingLeft = true;
-          else
             isMovingLeft = false;
+          else
+            isMovingLeft = true;
         }
       }
   }
@@ -193,16 +231,15 @@ public class Character : MonoBehaviour
 
     rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-    deactivateAbility = false;
+    deactivateAbilityTrigger = false;
   }
 
   void Rampage()
   {
-    //TODO: implement direction checking and bouncing off walls
     if (isMovingLeft)
-      rb.AddForce(Vector2.right * 30);
-    else
       rb.AddForce(Vector2.left  * 30);
+    else
+      rb.AddForce(Vector2.right * 30);
   }
 
   void ColdFeet()
