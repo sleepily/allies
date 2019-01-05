@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1547230104823066}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -112,10 +112,11 @@ MonoBehaviour:
   rb: {fileID: 0}
   allowJump: 1
   allowMove: 1
-  isColliding: 0
+  isCollidingWithGround: 0
+  isCollidingWithWall: 0
   isJumping: 0
   animator: {fileID: 95580236177960292}
-  mirrorAnimation: 0
+  isMovingLeft: 0
   state: 0
   deactivateAbility: 0
 --- !u!212 &212635175326121436

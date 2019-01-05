@@ -6,11 +6,29 @@ public class Exit : Interactible
 {
 	void Start ()
   {
-		
+    Init();
+    ModifyCollider();
 	}
-	
-	void Update ()
+
+  private void OnTriggerEnter2D(Collider2D collision)
   {
-		
-	}
+    CheckCharacterCount(collision);
+  }
+
+  void ModifyCollider()
+  {
+    polygonCollider2D.isTrigger = true;
+  }
+
+  void CheckCharacterCount(Collider2D collision)
+  {
+    Destroy(collision.gameObject);
+    ExitLevel();
+  }
+
+  void ExitLevel()
+  {
+    Debug.Log("Finished Level");
+    gameManager.ChangeState(GameManager.State.cutscene, gameObject);
+  }
 }

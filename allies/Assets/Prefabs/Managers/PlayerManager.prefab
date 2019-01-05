@@ -66,6 +66,6 @@ MonoBehaviour:
   activeCharacter: {fileID: 0}
   allies: []
   maxGroupingDistance: 3
-  movementForce: 2
-  jumpForce: 3
+  movementForce: 20
+  jumpForce: 4
   globalGravityScale: 5

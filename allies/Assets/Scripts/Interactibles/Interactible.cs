@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Interactible : MonoBehaviour
 {
@@ -9,17 +7,31 @@ public class Interactible : MonoBehaviour
   public PolygonCollider2D polygonCollider2D;
   public Rigidbody2D rb;
 
-  void Start()
+  private void Start()
   {
-    rb = gameObject.AddComponent(typeof(Rigidbody2D)) as Rigidbody2D;
-    rb.isKinematic = true;
-    rb.useFullKinematicContacts = true;
+    Init();
+  }
 
-    polygonCollider2D = gameObject.AddComponent(typeof(PolygonCollider2D)) as PolygonCollider2D;
+  public void Init()
+  {
+    CreateRigidBody();
+    CreatePolygonCollider();
   }
 
   public void MoveToInteractiblesManager()
   {
     transform.SetParent(gameManager.interactiblesManager.transform);
+  }
+
+  private void CreateRigidBody()
+  {
+    rb = gameObject.AddComponent(typeof(Rigidbody2D)) as Rigidbody2D;
+    rb.isKinematic = true;
+    rb.useFullKinematicContacts = true;
+  }
+
+  private void CreatePolygonCollider()
+  {
+    polygonCollider2D = gameObject.AddComponent(typeof(PolygonCollider2D)) as PolygonCollider2D;
   }
 }
