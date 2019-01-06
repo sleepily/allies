@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
 {
   public GameManager gameManager;
 
-  public int activeLevelIndex = 0;
+  public int activeLevelBuildIndex = 0;
   public List<string> levels;
 
   [Header("DO NOT touch this")]
@@ -43,23 +43,22 @@ public class LevelManager : MonoBehaviour
     //TODO: get scene naes as string, sort out everything without "level" in its name, sort alphabetically
     foreach (string level in levels)
       if (level == SceneManager.GetActiveScene().name)
-        activeLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        activeLevelBuildIndex = SceneManager.GetActiveScene().buildIndex;
   }
 
   public void LoadLevel(int index)
   {
-    if (index == activeLevelIndex)
-    {
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
-      return;
-    }
+    activeLevelBuildIndex = index;
+    SceneManager.LoadScene(levels[activeLevelBuildIndex], LoadSceneMode.Single);
+  }
 
-    activeLevelIndex = index;
-    SceneManager.LoadScene(levels[activeLevelIndex], LoadSceneMode.Single);
+  public void Retry()
+  {
+    LoadLevel(activeLevelBuildIndex);
   }
 
   public void LoadNextLevel()
   {
-    LoadLevel(activeLevelIndex + 1);
+    LoadLevel(activeLevelBuildIndex + 1);
   }
 }

@@ -142,7 +142,7 @@ public class PlayerManager : MonoBehaviour
       SetNextCharacterAsActive();
 
     if (gameManager.inputManager.reloadScene)
-      SceneManager.LoadScene(0);
+      gameManager.levelManager.Retry();
 
     if (gameManager.inputManager.abilityAction)
       activeCharacter.state = Character.State.ability;
