@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BreakableWall : MonoBehaviour {
+public class BreakableWall : Interactible
+{
+  public Animator animator;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+  private void OnCollisionEnter2D(Collision2D collision)
+  {
+    CheckForRageColliding(collision);
+  }
+
+  void CheckForRageColliding(Collision2D collision)
+  {
+    if (collision.gameObject.name != "Rage")
+      return;
+
+    if (gameManager.playerManager.rage.state == Character.State.ability)
+      Destroy(gameObject);
+  }
 }

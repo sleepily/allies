@@ -2,15 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Exit : MonoBehaviour {
+public class Exit : Interactible
+{
+	void Start ()
+  {
+    Init();
+    ModifyCollider();
+	}
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+  private void OnTriggerEnter2D(Collider2D collision)
+  {
+    CheckCharacterCount(collision);
+  }
+
+  void ModifyCollider()
+  {
+    polygonCollider2D.isTrigger = true;
+  }
+
+  void CheckCharacterCount(Collider2D collision)
+  {
+    ExitLevel();
+  }
+
+  void ExitLevel()
+  {
+    Debug.Log("Finished Level");
+    gameManager.levelManager.LoadNextLevel();
+  }
 }

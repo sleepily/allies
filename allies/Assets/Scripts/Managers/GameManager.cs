@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
   [Header("Initialized (DO NOT touch this)")]
-  public LevelManager levelManager;
   public DesignManager designManager;
 
   [Header("Initialized from Prefabs (should be empty)")]
+  public LevelManager levelManager;
   public InputManager inputManager;
   public UIManager uiManager;
   public PlayerManager playerManager;
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
   public List<GameObject> managers;
 
   [Header("Prefabs (DO NOT touch this)")]
+  public LevelManager levelManagerPrefab;
   public InputManager inputManagerPrefab;
   public UIManager uiManagerPrefab;
   public PlayerManager playerManagerPrefab;
@@ -42,12 +44,14 @@ public class GameManager : MonoBehaviour
   {
     ChangeState(State.level, gameObject);
 
+    levelManager          = Instantiate(levelManagerPrefab);
     inputManager          = Instantiate(inputManagerPrefab);
     uiManager             = Instantiate(uiManagerPrefab);
     playerManager         = Instantiate(playerManagerPrefab);
     cameraManager         = Instantiate(cameraManagerPrefab);
     interactiblesManager  = Instantiate(interactiblesManagerPrefab);
-    
+
+    managers.Add(levelManager.gameObject);
     managers.Add(inputManager.gameObject);
     managers.Add(uiManager.gameObject);
     managers.Add(playerManager.gameObject);
@@ -55,6 +59,7 @@ public class GameManager : MonoBehaviour
     managers.Add(cameraManager.gameObject);
     managers.Add(interactiblesManager.gameObject);
 
+    levelManager.gameManager = this;
     inputManager.gameManager = this;
     uiManager.gameManager = this;
     playerManager.gameManager = this;
@@ -88,6 +93,9 @@ public class GameManager : MonoBehaviour
         break;
 
       case State.pause:
+        break;
+
+      case State.cutscene:
         break;
 
       default:
