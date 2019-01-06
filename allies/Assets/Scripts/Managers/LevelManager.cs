@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
 
   public int activeLevelBuildIndex = 0;
   public List<string> levels;
+  public bool foundActiveScene = false;
 
   [Header("DO NOT touch this")]
   public SpriteRenderer colliderSpriteRenderer;
@@ -43,7 +44,10 @@ public class LevelManager : MonoBehaviour
     //TODO: get scene naes as string, sort out everything without "level" in its name, sort alphabetically
     foreach (string level in levels)
       if (level == SceneManager.GetActiveScene().name)
+      {
         activeLevelBuildIndex = SceneManager.GetActiveScene().buildIndex;
+        foundActiveScene = true;
+      }
   }
 
   public void LoadLevel(int index)
@@ -54,11 +58,17 @@ public class LevelManager : MonoBehaviour
 
   public void Retry()
   {
+    if (!foundActiveScene)
+      return;
+
     LoadLevel(activeLevelBuildIndex);
   }
 
   public void LoadNextLevel()
   {
+    if (!foundActiveScene)
+      return;
+
     LoadLevel(activeLevelBuildIndex + 1);
   }
 }

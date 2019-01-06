@@ -20,14 +20,39 @@ public class InputManager : MonoBehaviour
   
   void Update()
   {
-    switchAction  = Input.GetKeyDown(KeyCode.R);
-    groupAction   = Input.GetKeyDown(KeyCode.F);
+    UpdateFunctionKeys();
+    UpdateMovementKeys();
+
+    CalculateAngleBetweenPlayerAndMouse();
+  }
+
+  void UpdateMovementKeys()
+  {
+    moveX = Input.GetAxisRaw("Horizontal");
+    moveY = (Input.GetKeyDown(KeyCode.W) | Input.GetKeyDown(KeyCode.UpArrow)) ? 1f : 0f;
+  }
+
+  void UpdateFunctionKeys()
+  {
+    switchAction = Input.GetKeyDown(KeyCode.R);
+    groupAction = Input.GetKeyDown(KeyCode.F);
     abilityAction = Input.GetKeyDown(KeyCode.E);
 
-    cameraSwitch  = Input.GetKeyDown(KeyCode.Space);
-    reloadScene   = Input.GetKeyDown(KeyCode.Q);
+    cameraSwitch = Input.GetKeyDown(KeyCode.Space);
+    reloadScene = Input.GetKeyDown(KeyCode.Q);
+  }
 
-    moveX = Input.GetAxisRaw("Horizontal");
-    moveY = Input.GetKeyDown(KeyCode.W) ? 1f : 0f;
+  void CalculateAngleBetweenPlayerAndMouse()
+  {
+    if (!gameManager.playerManager.activeCharacter)
+      return;
+
+    Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    Vector2 character = gameManager.playerManager.activeCharacter.transform.position;
+    Vector2 toMouse = mouse - character;
+    float angleToMouse = Mathf.Atan2(toMouse.y, toMouse.x) * Mathf.Rad2Deg;
+
+    if (angleToMouse < 0)
+      angleToMouse += 360;
   }
 }

@@ -13,6 +13,9 @@ public class DesignManager : MonoBehaviour
   {
     foreach (Interactible interactible in interactibles)
     {
+      if (interactible == null)
+        continue;
+
       interactible.gameManager = gameManager;
       interactible.MoveToInteractiblesManager();
     }
