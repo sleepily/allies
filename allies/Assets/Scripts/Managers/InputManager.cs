@@ -34,17 +34,19 @@ public class InputManager : MonoBehaviour
 
   void UpdateFunctionKeys()
   {
+    switchAction = Input.GetKeyDown(KeyCode.R);
+    groupAction = Input.GetKeyDown(KeyCode.F);
+    abilityAction = Input.GetKeyDown(KeyCode.E);
 
-      switchAction = Input.GetKeyDown(KeyCode.R);
-      groupAction = Input.GetKeyDown(KeyCode.F);
-      abilityAction = Input.GetKeyDown(KeyCode.E);
-
-      cameraSwitch = Input.GetKeyDown(KeyCode.Space);
-      reloadScene = Input.GetKeyDown(KeyCode.Q);
+    cameraSwitch = Input.GetKeyDown(KeyCode.Space);
+    reloadScene = Input.GetKeyDown(KeyCode.Q);
   }
 
   void CalculateAngleBetweenPlayerAndMouse()
   {
+    if (!gameManager.playerManager.activeCharacter)
+      return;
+
     Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     Vector2 character = gameManager.playerManager.activeCharacter.transform.position;
     Vector2 toMouse = mouse - character;

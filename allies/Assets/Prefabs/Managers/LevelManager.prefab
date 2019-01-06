@@ -598,6 +598,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   activeLevelBuildIndex: 0
   levels: []
+  foundActiveScene: 0
   colliderSpriteRenderer: {fileID: 212095813008327634}
 --- !u!212 &212095813008327634
 SpriteRenderer:
