@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
 {
   public GameManager gameManager;
 
-  public int levelIndex = 0;
+  public int activeLevelIndex = 0;
   public List<string> levels;
 
   [Header("DO NOT touch this")]
@@ -19,19 +19,22 @@ public class LevelManager : MonoBehaviour
     FindCurrentScene();
   }
 
-  //TODO: add scenes by path (Assets>Scenes>Levels)
   void LoadAllScenesToList()
   {
-    levels = new List<string>();
+    var info = new DirectoryInfo(Application.dataPath + "/Scenes/Levels/");
 
-    foreach (UnityEditor.EditorBuildSettingsScene S in UnityEditor.EditorBuildSettings.scenes)
+    var files = info.GetFiles();
+
+    foreach (var f in files)
     {
-      if (S.enabled)
-      {
-        string name = S.path.Substring(S.path.LastIndexOf('/') + 1);
-        name = name.Substring(0, name.Length - 6);
-        levels.Add(name);
-      }
+      if (f.Extension == ".meta")
+        continue;
+
+      string fileName = f.Name;
+
+      fileName = fileName.Replace(".unity", "");
+
+      levels.Add(fileName);
     }
   }
 
@@ -40,23 +43,23 @@ public class LevelManager : MonoBehaviour
     //TODO: get scene naes as string, sort out everything without "level" in its name, sort alphabetically
     foreach (string level in levels)
       if (level == SceneManager.GetActiveScene().name)
-        levelIndex = SceneManager.GetActiveScene().buildIndex;
+        activeLevelIndex = SceneManager.GetActiveScene().buildIndex;
   }
 
   public void LoadLevel(int index)
   {
-    if (index == levelIndex)
+    if (index == activeLevelIndex)
     {
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
       return;
     }
 
-    levelIndex = index;
-    SceneManager.LoadScene(levels[levelIndex], LoadSceneMode.Single);
+    activeLevelIndex = index;
+    SceneManager.LoadScene(levels[activeLevelIndex], LoadSceneMode.Single);
   }
 
   public void LoadNextLevel()
   {
-    LoadLevel(levelIndex++);
+    LoadLevel(activeLevelIndex + 1);
   }
 }

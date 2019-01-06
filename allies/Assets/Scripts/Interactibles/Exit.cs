@@ -28,6 +28,6 @@ public class Exit : Interactible
   void ExitLevel()
   {
     Debug.Log("Finished Level");
-    gameManager.ChangeState(GameManager.State.cutscene, gameObject);
+    gameManager.levelManager.LoadNextLevel();
   }
 }

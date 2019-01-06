@@ -6,6 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Levels/Daniel_001.unity
+    guid: c16136f1a651d004094ffd8794686c78
+  - enabled: 1
+    path: Assets/Scenes/Levels/Daniel_002.unity
+    guid: 5925189522ba99d4b9cba0855cd1fbac
+  - enabled: 1
+    path: Assets/Scenes/Levels/Daniel_003.unity
+    guid: 9cb990beba3b1984b94be209d67e044f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Daniel_004.unity
+    guid: 41333c3cb412d7a4dbb6c5aa199b1ea8
+  - enabled: 1
+    path: Assets/Scenes/Levels/Daniel_005.unity
+    guid: 5abcfc493bc20ea4e96030a0235571e7
+  - enabled: 1
+    path: Assets/Scenes/Templates/AllPrefabs.unity
+    guid: cab5764c129da6a43befca5b643ac412
   m_configObjects: {}
