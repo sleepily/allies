@@ -12,6 +12,9 @@ public class PlayerManager : MonoBehaviour
   public Character anxietyPrefab;
   public Character depressionPrefab;
 
+  [Header("Ability Prefabs")]
+
+
   [Header("Active/Controllable Characters")]
   public Character rage;
   public Character anxiety;

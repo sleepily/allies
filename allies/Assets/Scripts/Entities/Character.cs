@@ -55,7 +55,6 @@ public class Character : MonoBehaviour
   private void OnCollisionStay2D(Collision2D collision)
   {
     CheckGroundCollision(collision);
-    CheckWallCollision(collision);
   }
 
   private void OnCollisionExit2D(Collision2D collision)
@@ -144,6 +143,12 @@ public class Character : MonoBehaviour
       case "Depression":
         Crybaby();
         break;
+      case "Eruption":
+        Eruption();
+        break;
+      case "FrozenOutrage":
+        FrozenOutrage();
+        break;
     }
   }
 
@@ -205,6 +210,16 @@ public class Character : MonoBehaviour
   {
     isCollidingWithWall = false;
 
+    if (state != State.ability)
+      return;
+
+    if (!collision.gameObject.CompareTag("Platform"))
+    {
+      isMovingLeft = !isMovingLeft;
+      rb.velocity = new Vector2(isMovingLeft ? -30 : 30, rb.velocity.y);
+      return;
+    }
+
     // check for collision in the upper collider (except top) in order to enable bouncing off walls
     foreach (ContactPoint2D cp in collision.contacts)
       if
@@ -218,10 +233,9 @@ public class Character : MonoBehaviour
 
         if (state == State.ability)
         {
-          if (cp.point.x < transform.position.x)
-            isMovingLeft = false;
-          else
-            isMovingLeft = true;
+          isMovingLeft = (cp.point.x < transform.position.x);
+
+          rb.velocity = new Vector2(-rb.velocity.x, rb.velocity.y);
         }
       }
   }
@@ -232,7 +246,7 @@ public class Character : MonoBehaviour
     allowJump = true;
     allowMove = true;
 
-    rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+    rb.constraints = RigidbodyConstraints2D.None; // RigidbodyConstraints2D.FreezeRotation;
 
     deactivateAbilityTrigger = false;
   }
@@ -247,6 +261,12 @@ public class Character : MonoBehaviour
 
   void ColdFeet()
   {
+    if (!isCollidingWithGround)
+    {
+      DeactivateAbility();
+      return;
+    }
+
     rb.constraints =
       RigidbodyConstraints2D.FreezePositionX |
       RigidbodyConstraints2D.FreezePositionY |
@@ -256,5 +276,20 @@ public class Character : MonoBehaviour
   void Crybaby()
   {
     //TODO: implement
+  }
+
+  void Eruption()
+  {
+    ShootTear();
+  }
+
+  void FrozenOutrage()
+  {
+
+  }
+
+  void ShootTear()
+  {
+
   }
 }
