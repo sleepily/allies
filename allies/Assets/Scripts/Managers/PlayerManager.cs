@@ -85,7 +85,6 @@ public class PlayerManager : MonoBehaviour
         characters[index].transform.SetParent(this.transform);
         characters[index].transform.position += placeholder.transform.position;
         
-        // connect r/a/d in list and variables
         switch (characters[index].name)
         {
           case "Rage":
