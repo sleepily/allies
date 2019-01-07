@@ -6,6 +6,7 @@ public class Character : MonoBehaviour
 
   [Header("Physics")]
   public Rigidbody2D rb;
+  public Vector2 velocity;
   public bool allowJump;
   public bool allowMove;
   public bool isCollidingWithGround;
@@ -13,21 +14,13 @@ public class Character : MonoBehaviour
   public bool isJumping;
 
   [Header("Animations")]
+  public SpriteRenderer spriteRenderer;
   public Animator animator;
   public bool isMovingLeft;
-
-  public State state;
-  public bool deactivateAbilityTrigger;
-
-  public enum State
-  {
-    idle,
-    move,
-    jump,
-    movejump,
-    stun,
-    ability
-  }
+  public bool isMoving;
+  public bool abilityActive;
+  public GameObject flame;
+  public float angle;
 
   private void Start()
   {
@@ -48,13 +41,9 @@ public class Character : MonoBehaviour
 
   private void OnCollisionEnter2D(Collision2D collision)
   {
+    CheckCharacterCollision(collision);
     CheckGroundCollision(collision);
     CheckWallCollision(collision);
-  }
-
-  private void OnCollisionStay2D(Collision2D collision)
-  {
-    CheckGroundCollision(collision);
   }
 
   private void OnCollisionExit2D(Collision2D collision)
@@ -85,24 +74,48 @@ public class Character : MonoBehaviour
     if (animator == null)
       return;
 
-    animator.SetBool  ("isColliding",         isCollidingWithGround);
-    animator.SetBool  ("isJumping",           isJumping);
-    animator.SetBool  ("isMovingLeft",        isMovingLeft);
-    animator.SetFloat ("horizontalVelocity",  rb.velocity.x);
-    animator.SetFloat ("verticalVelocity",    rb.velocity.y);
+    CharacterSpecifics();
 
-    if (!CharacterIsMoving())
-      if (state != State.ability)
-        state = State.idle;
+    animator.SetBool("isJumping",           isJumping);
+    animator.SetBool("isMoving",            CharacterIsMoving());
+    animator.SetBool("mirrorAnimation",     isMovingLeft);
+    animator.SetFloat("horizontalVelocity", rb.velocity.x);
+    animator.SetFloat("verticalVelocity",   rb.velocity.y);
+
+    FlipSpriteX();
+  }
+
+  void CharacterSpecifics()
+  {
+    if (name == "Rage")
+      SetFireAngle();
+  }
+
+  void SetFireAngle()
+  {
+    if (rb.velocity.Equals(Vector2.zero))
+      angle = -90f;
+    else
+      angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+
+    flame.transform.rotation = Quaternion.Euler(0, 0, 90f + angle);
+  }
+
+  protected float GetVelocityAngle()
+  {
+    float angle = 90f;
+
+    if (!isMoving)
+      return angle;
+
+    angle = Vector2.Angle(Vector2.down, rb.velocity.normalized);
+
+    return angle;
   }
 
   bool CharacterIsMoving()
   {
-    if
-    (
-      rb.velocity.x < .1 && rb.velocity.x > -.1 &&
-      rb.velocity.y < .1 && rb.velocity.y > -.1
-    )
+    if (velocity.Equals(Vector2.zero))
       return false;
 
     return true;
@@ -110,22 +123,22 @@ public class Character : MonoBehaviour
 
   void CheckMovementDirection()
   {
-    if (state != State.ability)
+    if (!abilityActive)
     {
-      if (rb.velocity.x < -.1)
+      if (velocity.x < -.1)
         isMovingLeft = true;
-      if (rb.velocity.x >  .1)
+      if (velocity.x >  .1)
         isMovingLeft = false;
     }
   }
 
   public void CheckAbilityStatus()
   {
-    if (state != State.ability)
-      return;
-
-    if (deactivateAbilityTrigger)
+    if (!abilityActive)
+    {
       DeactivateAbility();
+      return;
+    }
 
     allowJump = false;
     allowMove = false;
@@ -150,53 +163,52 @@ public class Character : MonoBehaviour
     }
   }
 
-  public void Move(Vector2 horizontalForce)
+  public void Move(float axisHorizontal)
   {
     if (!allowMove)
       return;
 
-    horizontalForce *= rb.gravityScale;
+    velocity.x = axisHorizontal;
 
-    rb.velocity += horizontalForce;
+    float moveForce = velocity.x * rb.gravityScale * playerManager.movementForce;
 
-    float clampedForce = Mathf.Clamp(rb.velocity.x, -horizontalForce.x, horizontalForce.x);
-
-    if (clampedForce != rb.velocity.x)                                    // if character is moving faster than i should
-      if (rb.velocity.x > 0)                                              // if moving right, else left
-        rb.velocity += Vector2.left   * (rb.velocity.x - clampedForce);   // subtract excess speed from velocity
-      else if (rb.velocity.x < 0)
-        rb.velocity += Vector2.left   * (rb.velocity.x + clampedForce);
-
-    if (Mathf.Abs(rb.velocity.x) > .1)
-    {
-      state = State.move;
-
-      if (Mathf.Abs(rb.velocity.y) > .1)
-        state = State.movejump;
-    }
+    rb.velocity = new Vector2(moveForce, rb.velocity.y);
   }
 
-  public void Jump(Vector2 verticalForce)
+  public void Jump(float axisVertical)
   {
-    if (!allowJump || !isCollidingWithGround)
+    if (!allowJump)
       return;
 
-    if (verticalForce.magnitude < 1)
+    if (isJumping)
       return;
+
+    if (axisVertical < .5f)
+      return;
+
+    velocity.y = axisVertical;
+
+    float jumpForce = velocity.y * rb.gravityScale * playerManager.jumpForce;
     
-    state = State.jump;
     isJumping = true;
 
-    rb.velocity += verticalForce * rb.gravityScale;
+    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+  }
+
+  private void CheckCharacterCollision(Collision2D collision)
+  {
+    if (name == "Rage")
+      if (collision.gameObject.CompareTag("Character"))
+        abilityActive = false;
   }
 
   private void CheckGroundCollision(Collision2D collision)
   {
     isCollidingWithGround = false;
 
-    // check for collision in the lower 30% of the collider in order to enable jumping
+    // check for collision in the lower 25% of the collider in order to enable jumping
     foreach (ContactPoint2D cp in collision.contacts)
-      if (cp.point.y < transform.position.y + (Vector2.down * .3f).y)
+      if (cp.point.y < transform.position.y + (Vector2.down * .75f).y)
       {
         isCollidingWithGround = true;
         isJumping = false;
@@ -208,14 +220,13 @@ public class Character : MonoBehaviour
   {
     isCollidingWithWall = false;
 
-    if (state != State.ability)
+    if (!abilityActive)
       return;
 
     if (!collision.gameObject.CompareTag("Platform"))
     {
       isMovingLeft = !isMovingLeft;
-      // rb.velocity = new Vector2(isMovingLeft ? -30 : 30, rb.velocity.y);
-      rb.velocity = new Vector2(isMovingLeft ? -30 : 30, 0);
+      rb.velocity = new Vector2(isMovingLeft ? -30 : 30, 0); // fix bounce caused by using rb.velocity.y
       return;
     }
 
@@ -230,7 +241,7 @@ public class Character : MonoBehaviour
         isCollidingWithWall = true;
         Debug.DrawRay(cp.point, cp.normal, Color.blue);
 
-        if (state == State.ability)
+        if (abilityActive)
         {
           isMovingLeft = (cp.point.x < transform.position.x);
 
@@ -239,17 +250,23 @@ public class Character : MonoBehaviour
       }
   }
 
+  void FlipSpriteX()
+  {
+    if (!spriteRenderer)
+      return;
+
+    spriteRenderer.flipX = isMovingLeft;
+  }
+
   // resets all character's properties to default behaviour and resets the switch
   void DeactivateAbility()
   {
     allowJump = true;
     allowMove = true;
 
-    state = State.idle;
+    abilityActive = false;
 
     rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-
-    deactivateAbilityTrigger = false;
   }
 
   void Rampage()

@@ -57,5 +57,7 @@ MonoBehaviour:
   switchAction: 0
   groupAction: 0
   abilityAction: 0
+  toMouse: {x: 0, y: 0}
+  angleToMouse: 0
   reloadScene: 0
   cameraSwitch: 0

@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4718382368713344}
   - component: {fileID: 212307484582155076}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,12 +35,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4564877188980650}
+  - component: {fileID: 114423344843581724}
   - component: {fileID: 212664776256087870}
   - component: {fileID: 58581582291187470}
   - component: {fileID: 50533788383042338}
-  - component: {fileID: 114563399439513634}
   - component: {fileID: 95864453939579788}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rage
   m_TagString: Character
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114563399439513634
+--- !u!114 &114423344843581724
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,20 +135,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1276572455573926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 473bc8dea06c6a641aa5e32ed468afda, type: 3}
+  m_Script: {fileID: 11500000, guid: 13434affb8bd0654cb153604bd1779cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
   rb: {fileID: 0}
+  velocity: {x: 0, y: 0}
   allowJump: 1
   allowMove: 1
   isCollidingWithGround: 0
   isCollidingWithWall: 0
   isJumping: 0
+  spriteRenderer: {fileID: 212664776256087870}
   animator: {fileID: 95864453939579788}
   isMovingLeft: 0
-  state: 0
-  deactivateAbilityTrigger: 0
+  isMoving: 0
+  abilityActive: 0
+  flame: {fileID: 1200350611215452}
 --- !u!212 &212307484582155076
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -184,15 +187,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 4d8487df62952814f8b47820877d6017, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 13.54, y: 28.13}
+  m_Size: {x: 29.169998, y: 29.169998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!212 &212664776256087870

@@ -19,12 +19,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4781842387943966}
+  - component: {fileID: 114299119914236220}
   - component: {fileID: 212674257355521668}
   - component: {fileID: 58641553815642036}
   - component: {fileID: 50525138266446204}
-  - component: {fileID: 114299119914236220}
   - component: {fileID: 95402407695717826}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Anxiety
   m_TagString: Character
   m_Icon: {fileID: 0}
@@ -110,15 +110,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
   rb: {fileID: 0}
+  velocity: {x: 0, y: 0}
   allowJump: 1
   allowMove: 1
   isCollidingWithGround: 0
   isCollidingWithWall: 0
   isJumping: 0
+  spriteRenderer: {fileID: 212674257355521668}
   animator: {fileID: 95402407695717826}
   isMovingLeft: 0
-  state: 0
-  deactivateAbilityTrigger: 0
+  isMoving: 0
+  abilityActive: 0
 --- !u!212 &212674257355521668
 SpriteRenderer:
   m_ObjectHideFlags: 1

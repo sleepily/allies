@@ -534,6 +534,22 @@ Prefab:
       propertyPath: interactibles.Array.data[8]
       value: 
       objectReference: {fileID: 660744566}
+    - target: {fileID: 4713566295676790, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -17.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713566295676790, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -14.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964322038897844, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -21.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964322038897844, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -14.07
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
   m_IsPrefabAsset: 0

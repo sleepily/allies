@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4228796085422600}
   - component: {fileID: 212655063315568656}
   - component: {fileID: 114047427082579192}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tear_Ice
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,12 +56,14 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  spriteIndex: 0
   sprites:
   - {fileID: 21300028, guid: 9265b2b1b6db23847b3a4146a53f1810, type: 3}
   - {fileID: 21300018, guid: 9265b2b1b6db23847b3a4146a53f1810, type: 3}
   - {fileID: 21300020, guid: 9265b2b1b6db23847b3a4146a53f1810, type: 3}
+  collisionSprites: []
   isKinematic: 1
-  speed: 1
+  speed: 10
   angle: 0
   isShot: 0
   isColliding: 0

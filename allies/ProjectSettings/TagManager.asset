@@ -9,6 +9,7 @@ TagManager:
   - Interactible
   - Platform
   - Wall
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Projectiles
+  - Characters
   - 
   - 
   - 

@@ -45,7 +45,7 @@ public class PlayerManager : MonoBehaviour
   void Update ()
   {
     GetInput();
-    CalculateMovement();
+    MoveAllCharacters();
 	}
 
   private void FixedUpdate()
@@ -149,22 +149,17 @@ public class PlayerManager : MonoBehaviour
       gameManager.levelManager.Retry();
     
     if (gameManager.inputManager.abilityAction)
-      activeCharacter.state = Character.State.ability;
+      activeCharacter.abilityActive = true;
   }
 
-  void CalculateMovement()
+  void MoveAllCharacters()
   {
-    float moveX = gameManager.inputManager.moveX * movementForce * Time.deltaTime;
-    Vector3 horizontalForce = Vector3.right * moveX * movementForce;
-
-    float moveY = Mathf.Clamp01(gameManager.inputManager.moveY);
-    Vector3 verticalForce = Vector3.up * jumpForce * moveY;
-
     foreach (Character ally in allies)
     {
       ally.CheckAbilityStatus();
-      ally.Move(horizontalForce);
-      ally.Jump(verticalForce);
+
+      ally.Move(gameManager.inputManager.moveX);
+      ally.Jump(gameManager.inputManager.moveY);
     }
   }
 }

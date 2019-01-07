@@ -10,7 +10,9 @@ public class Projectile : MonoBehaviour
   public Rigidbody2D rb;
   public SpriteRenderer spriteRenderer;
 
+  public int spriteIndex = 0;
   public List<Sprite> sprites;
+  public List<Sprite> collisionSprites;
 
   public bool isKinematic = false;
 
@@ -54,6 +56,9 @@ public class Projectile : MonoBehaviour
     if (!isShot)
       return;
 
+    if (isColliding)
+      return;
+
     this.transform.position += (Vector3)direction * this.speed * Time.deltaTime;
   }
 
@@ -78,7 +83,8 @@ public class Projectile : MonoBehaviour
 
   private void SetRandomSprite()
   {
-    spriteRenderer.sprite = sprites[Random.Range(0, sprites.Count)];
+    spriteIndex = Random.Range(0, sprites.Count);
+    spriteRenderer.sprite = sprites[spriteIndex];
   }
 
   private void CreateRigidBody()

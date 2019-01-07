@@ -33,17 +33,22 @@ public class InputManager : MonoBehaviour
   void UpdateMovementKeys()
   {
     moveX = Input.GetAxisRaw("Horizontal");
-    moveY = (Input.GetKeyDown(KeyCode.W) | Input.GetKeyDown(KeyCode.UpArrow)) ? 1f : 0f;
+    if (moveX < -.1) moveX = -1;
+    if (moveX >  .1) moveX =  1;
+    
+    moveY = Input.GetAxis("Vertical");
+    if (moveY < 0)  moveY = 0;
+    if (moveY > 0)  moveY = 1;
   }
 
   void UpdateFunctionKeys()
   {
-    switchAction = Input.GetKeyDown(KeyCode.R);
-    groupAction = Input.GetKeyDown(KeyCode.F);
+    switchAction  = Input.GetKeyDown(KeyCode.R);
+    groupAction   = Input.GetKeyDown(KeyCode.F);
     abilityAction = Input.GetKeyDown(KeyCode.E);
 
-    cameraSwitch = Input.GetKeyDown(KeyCode.Space);
-    reloadScene = Input.GetKeyDown(KeyCode.Q);
+    cameraSwitch  = Input.GetKeyDown(KeyCode.Space);
+    reloadScene   = Input.GetKeyDown(KeyCode.Q);
   }
 
   void CalculateAngleBetweenPlayerAndMouse()

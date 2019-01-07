@@ -16,7 +16,7 @@ public class BreakableWall : Interactible
     if (collision.gameObject.name != "Rage")
       return;
 
-    if (gameManager.playerManager.rage.state == Character.State.ability)
+    if (gameManager.playerManager.rage.abilityActive)
       Destroy(gameObject);
   }
 }

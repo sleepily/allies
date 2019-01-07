@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  ragePrefab: {fileID: 114563399439513634, guid: 5e7cebad33c9bff4f9f733d0112d32b3,
+  ragePrefab: {fileID: 114423344843581724, guid: 5e7cebad33c9bff4f9f733d0112d32b3,
     type: 2}
   anxietyPrefab: {fileID: 114299119914236220, guid: 46cee6cd2c7e61a42848b4103c7aee59,
     type: 2}
@@ -60,7 +60,8 @@ MonoBehaviour:
     type: 2}
   icePrefab: {fileID: 114047427082579192, guid: e49fa0205badb1c4bab52670b4efc280,
     type: 2}
-  magmaPrefab: {fileID: 0}
+  magmaPrefab: {fileID: 114921687334721150, guid: b307c5ee65ae2ea4bb8b8dc2e66ece4f,
+    type: 2}
   coldMagmaPrefab: {fileID: 0}
   rage: {fileID: 0}
   anxiety: {fileID: 0}
@@ -70,6 +71,6 @@ MonoBehaviour:
   activeCharacter: {fileID: 0}
   allies: []
   maxGroupingDistance: 3
-  movementForce: 20
+  movementForce: 3
   jumpForce: 5
   globalGravityScale: 5
