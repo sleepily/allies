@@ -14,12 +14,21 @@ public class Projectile : MonoBehaviour
 
   public bool isKinematic = false;
 
+  public float speed = 1f;
+  public float angle = 0f;
+  Vector2 direction;
+
   public bool isShot = false;
   public bool isColliding = false;
 
   private void Start()
   {
     Init();
+  }
+
+  private void Update()
+  {
+    Move();
   }
 
   public void Init()
@@ -30,10 +39,19 @@ public class Projectile : MonoBehaviour
     CreatePolygonCollider();
   }
 
-  public void Shoot(GameObject parent)
+  void Move()
   {
-    float angle = 0;
-    Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+    if (!isShot)
+      return;
+
+    this.transform.position += (Vector3)direction * this.speed * Time.deltaTime;
+  }
+
+  public void Shoot(GameObject parent, float angle)
+  {
+    isShot = true;
+    this.angle = angle;
+    direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
     this.transform.SetPositionAndRotation(parent.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
   }
 

@@ -216,7 +216,8 @@ public class Character : MonoBehaviour
     if (!collision.gameObject.CompareTag("Platform"))
     {
       isMovingLeft = !isMovingLeft;
-      rb.velocity = new Vector2(isMovingLeft ? -30 : 30, rb.velocity.y);
+      // rb.velocity = new Vector2(isMovingLeft ? -30 : 30, rb.velocity.y);
+      rb.velocity = new Vector2(isMovingLeft ? -30 : 30, 0);
       return;
     }
 
