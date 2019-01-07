@@ -13,7 +13,9 @@ public class PlayerManager : MonoBehaviour
   public Character depressionPrefab;
 
   [Header("Ability Prefabs")]
-
+  public Tear icePrefab;
+  public Tear magmaPrefab;
+  public Projectile coldMagmaPrefab;
 
   [Header("Active/Controllable Characters")]
   public Character rage;
