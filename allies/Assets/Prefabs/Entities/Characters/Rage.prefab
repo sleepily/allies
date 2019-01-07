@@ -67,13 +67,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1200350611215452}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4564877188980650}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!50 &50533788383042338
 Rigidbody2D:
   serializedVersion: 4
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1276572455573926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13434affb8bd0654cb153604bd1779cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 473bc8dea06c6a641aa5e32ed468afda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
@@ -152,6 +152,7 @@ MonoBehaviour:
   isMoving: 0
   abilityActive: 0
   flame: {fileID: 1200350611215452}
+  angle: 0
 --- !u!212 &212307484582155076
 SpriteRenderer:
   m_ObjectHideFlags: 1
