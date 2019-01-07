@@ -31,12 +31,22 @@ public class Projectile : MonoBehaviour
     Move();
   }
 
+  private void OnCollisionEnter2D(Collision2D collision)
+  {
+    Collide(collision);
+  }
+
   public void Init()
   {
     GetSpriteRenderer();
     SetRandomSprite();
     CreateRigidBody();
     CreatePolygonCollider();
+  }
+
+  void Collide(Collision2D collision)
+  {
+    Destroy(this.gameObject);
   }
 
   void Move()
@@ -47,12 +57,13 @@ public class Projectile : MonoBehaviour
     this.transform.position += (Vector3)direction * this.speed * Time.deltaTime;
   }
 
-  public void Shoot(GameObject parent, float angle)
+  public void Shoot(GameObject parent, float angle, Vector2 direction)
   {
     isShot = true;
     this.angle = angle;
-    direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
-    this.transform.SetPositionAndRotation(parent.transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
+    this.direction = direction.normalized;
+    this.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + angle);
+    this.transform.position = parent.transform.position;
   }
 
   public void MoveToInteractiblesManager()
@@ -80,5 +91,6 @@ public class Projectile : MonoBehaviour
   private void CreatePolygonCollider()
   {
     polygonCollider2D = gameObject.AddComponent(typeof(PolygonCollider2D)) as PolygonCollider2D;
+    polygonCollider2D.isTrigger = true;
   }
 }

@@ -122,12 +122,10 @@ public class Character : MonoBehaviour
   public void CheckAbilityStatus()
   {
     if (state != State.ability)
-    {
-      if (deactivateAbilityTrigger)
-        DeactivateAbility();
-
       return;
-    }
+
+    if (deactivateAbilityTrigger)
+      DeactivateAbility();
 
     allowJump = false;
     allowMove = false;
@@ -247,7 +245,9 @@ public class Character : MonoBehaviour
     allowJump = true;
     allowMove = true;
 
-    rb.constraints = RigidbodyConstraints2D.None; // RigidbodyConstraints2D.FreezeRotation;
+    state = State.idle;
+
+    rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
     deactivateAbilityTrigger = false;
   }
@@ -276,12 +276,12 @@ public class Character : MonoBehaviour
 
   void Crybaby()
   {
-    //TODO: implement
+    ShootTear(playerManager.icePrefab);
   }
 
   void Eruption()
   {
-    ShootTear();
+    ShootTear(playerManager.magmaPrefab);
   }
 
   void FrozenOutrage()
@@ -289,8 +289,11 @@ public class Character : MonoBehaviour
 
   }
 
-  void ShootTear()
+  void ShootTear(Tear tear)
   {
-
+    Tear temp = Instantiate(tear);
+    temp.transform.SetParent(playerManager.gameManager.interactiblesManager.transform);
+    temp.Shoot(this.gameObject, playerManager.gameManager.inputManager.angleToMouse, playerManager.gameManager.inputManager.toMouse.normalized);
+    DeactivateAbility();
   }
 }

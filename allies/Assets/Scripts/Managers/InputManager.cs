@@ -14,6 +14,10 @@ public class InputManager : MonoBehaviour
   public bool groupAction   = false;
   public bool abilityAction = false;
 
+  [Header("Tear related")]
+  public Vector2 toMouse     = Vector2.zero;
+  public float angleToMouse  = 0f;
+
   [Header("Scene related")]
   public bool reloadScene   = false;
   public bool cameraSwitch  = false;
@@ -49,8 +53,8 @@ public class InputManager : MonoBehaviour
 
     Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     Vector2 character = gameManager.playerManager.activeCharacter.transform.position;
-    Vector2 toMouse = mouse - character;
-    float angleToMouse = Mathf.Atan2(toMouse.y, toMouse.x) * Mathf.Rad2Deg;
+    toMouse = mouse - character;
+    angleToMouse = Mathf.Atan2(toMouse.y, toMouse.x) * Mathf.Rad2Deg;
 
     if (angleToMouse < 0)
       angleToMouse += 360;

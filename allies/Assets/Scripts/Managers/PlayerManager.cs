@@ -147,7 +147,7 @@ public class PlayerManager : MonoBehaviour
 
     if (gameManager.inputManager.reloadScene)
       gameManager.levelManager.Retry();
-
+    
     if (gameManager.inputManager.abilityAction)
       activeCharacter.state = Character.State.ability;
   }
