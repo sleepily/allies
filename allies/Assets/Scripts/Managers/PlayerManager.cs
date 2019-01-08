@@ -59,6 +59,9 @@ public class PlayerManager : MonoBehaviour
 
     string allyString = "ALLIES:\n\n";
 
+    allies.Add(activeCharacter);
+
+    /*
     foreach (Character otherCharacter in characters)
     {
       if (otherCharacter == null)
@@ -71,6 +74,7 @@ public class PlayerManager : MonoBehaviour
         allyString += otherCharacter.name + "\n";
       }
     }
+    */
 
     gameManager.uiManager.alliesText.text = allyString;
   }
@@ -157,6 +161,9 @@ public class PlayerManager : MonoBehaviour
     foreach (Character ally in allies)
     {
       ally.CheckAbilityStatus();
+
+      if (ally.abilityActive)
+        return;
 
       ally.Move(gameManager.inputManager.moveX);
       ally.Jump(gameManager.inputManager.moveY);
