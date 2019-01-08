@@ -108,7 +108,7 @@ public class Character : MonoBehaviour
   {
     angle = CalculateCharacterAngle();
 
-    flame.transform.rotation = Quaternion.Euler(0, 0, 90f + angle);
+    flame.transform.rotation = Quaternion.Euler(0, 0, 35f + angle); //90f + angle
   }
 
   protected float GetVelocityAngle()
