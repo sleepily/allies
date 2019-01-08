@@ -21,6 +21,7 @@ public class Character : MonoBehaviour
   public bool abilityActive;
   public GameObject flame;
   public float angle;
+  public float angleVelocityThreshold;
 
   private void Start()
   {
@@ -91,12 +92,21 @@ public class Character : MonoBehaviour
       SetFireAngle();
   }
 
+  float CalculateCharacterAngle()
+  {
+    if
+    (
+      Mathf.Abs(rb.velocity.x) < angleVelocityThreshold &&
+      Mathf.Abs(rb.velocity.y) < angleVelocityThreshold
+    )
+      return -90f;
+
+    return Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+  }
+
   void SetFireAngle()
   {
-    if (rb.velocity.Equals(Vector2.zero))
-      angle = -90f;
-    else
-      angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+    angle = CalculateCharacterAngle();
 
     flame.transform.rotation = Quaternion.Euler(0, 0, 90f + angle);
   }
