@@ -10,7 +10,7 @@ public class Tear : Projectile
     magma
   }
 
-  void Collide(Collision2D collision)
+  override protected void Collide(Collision2D collision)
   {
     isColliding = true;
     rb.constraints = RigidbodyConstraints2D.FreezeAll;

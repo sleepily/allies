@@ -12,10 +12,15 @@ public class Interactible : MonoBehaviour
     Init();
   }
 
-  public void Init()
+  public virtual void Init()
   {
     CreateRigidBody();
     CreatePolygonCollider();
+  }
+
+  public virtual void Action()
+  {
+
   }
 
   public void MoveToInteractiblesManager()

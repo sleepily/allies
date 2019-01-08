@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
   public PolygonCollider2D polygonCollider2D;
   public Rigidbody2D rb;
   public SpriteRenderer spriteRenderer;
+  public GameObject parent;
 
   public int spriteIndex = 0;
   public List<Sprite> sprites;
@@ -46,8 +47,9 @@ public class Projectile : MonoBehaviour
     CreatePolygonCollider();
   }
 
-  void Collide(Collision2D collision)
+  protected virtual void Collide(Collision2D collision)
   {
+    Debug.Log("Projectile collision");
     Destroy(this.gameObject);
   }
 
@@ -65,6 +67,7 @@ public class Projectile : MonoBehaviour
   public void Shoot(GameObject parent, float angle, Vector2 direction)
   {
     isShot = true;
+    this.parent = parent;
     this.angle = angle;
     this.direction = direction.normalized;
     this.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + angle);
@@ -97,6 +100,6 @@ public class Projectile : MonoBehaviour
   private void CreatePolygonCollider()
   {
     polygonCollider2D = gameObject.AddComponent(typeof(PolygonCollider2D)) as PolygonCollider2D;
-    polygonCollider2D.isTrigger = true;
+    // polygonCollider2D.isTrigger = true;
   }
 }
