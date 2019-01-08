@@ -67,13 +67,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1200350611215452}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4564877188980650}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50533788383042338
 Rigidbody2D:
   serializedVersion: 4
@@ -118,7 +118,7 @@ Animator:
   m_GameObject: {fileID: 1276572455573926}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aa19bc373d77f214fb3b3e3b6c3e5f7a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2d10e3af77128024a99d88da267ba9c0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -153,6 +153,7 @@ MonoBehaviour:
   abilityActive: 0
   flame: {fileID: 1200350611215452}
   angle: 0
+  angleVelocityThreshold: 0.5
 --- !u!212 &212307484582155076
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -233,13 +234,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bb9b364cb8fbc754a841bfda4535fe33, type: 3}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: ee4cbae542db1184cb0e6776be345b15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6, y: 8}
+  m_Size: {x: 20.83, y: 20.83}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
