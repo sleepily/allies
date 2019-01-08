@@ -207,9 +207,10 @@ public class Character : MonoBehaviour
 
   private void CheckCharacterCollision(Collision2D collision)
   {
-    if (name == "Rage")
+    if (name != "Anxiety")
       if (collision.gameObject.CompareTag("Character"))
-        abilityActive = false;
+        if (abilityActive)
+          abilityActive = false;
   }
 
   private void CheckGroundCollision(Collision2D collision)
@@ -273,6 +274,8 @@ public class Character : MonoBehaviour
   {
     allowJump = true;
     allowMove = true;
+
+    isJumping = false;
 
     abilityActive = false;
 

@@ -10,9 +10,22 @@ public class Tear : Projectile
     magma
   }
 
+  public Type type;
+
   override protected void Collide(Collision2D collision)
   {
     isColliding = true;
-    rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+    switch(type)
+    {
+      case Type.ice:
+        Destroy(this.gameObject);
+        break;
+      case Type.magma:
+        this.rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        break;
+      default:
+        break;
+    }
   }
 }

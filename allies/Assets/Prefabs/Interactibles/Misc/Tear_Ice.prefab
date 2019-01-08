@@ -64,7 +64,7 @@ MonoBehaviour:
   - {fileID: 21300004, guid: 5d2dda91bbab45243a90ad05bccc41a0, type: 3}
   collisionSprites: []
   isKinematic: 1
-  speed: 10
+  speed: 16
   angle: 0
   isShot: 0
   isColliding: 0
