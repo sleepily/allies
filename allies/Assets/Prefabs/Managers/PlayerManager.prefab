@@ -58,11 +58,10 @@ MonoBehaviour:
     type: 2}
   depressionPrefab: {fileID: 114561912217283096, guid: 88564881450f4ea4cbc2a2c88f4b770e,
     type: 2}
-  icePrefab: {fileID: 114047427082579192, guid: e49fa0205badb1c4bab52670b4efc280,
+  icePrefab: {fileID: 114943508001085414, guid: e49fa0205badb1c4bab52670b4efc280,
     type: 2}
-  magmaPrefab: {fileID: 114921687334721150, guid: b307c5ee65ae2ea4bb8b8dc2e66ece4f,
+  magmaPrefab: {fileID: 114293418131878046, guid: b307c5ee65ae2ea4bb8b8dc2e66ece4f,
     type: 2}
-  coldMagmaPrefab: {fileID: 0}
   rage: {fileID: 0}
   anxiety: {fileID: 0}
   depression: {fileID: 0}

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallingPlatform : Interactible
+public class FallingPlatform : Interactable
 {
   [Header("Action")]
   public Platform platform;
@@ -21,5 +21,22 @@ public class FallingPlatform : Interactible
 
     platform.rb.gravityScale = gameManager.playerManager.globalGravityScale;
     platform.rb.isKinematic = false;
+  }
+
+  private void Update()
+  {
+    CheckPlatformCollision();
+  }
+
+  void CheckPlatformCollision()
+  {
+    if (platform.rb.isKinematic)
+      return;
+
+    if (!platform.rb.IsTouchingLayers())
+      return;
+
+    platform.rb.isKinematic = true;
+    platform.rb.constraints = RigidbodyConstraints2D.FreezeAll;
   }
 }

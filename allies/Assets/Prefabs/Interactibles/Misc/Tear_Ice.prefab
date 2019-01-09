@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4228796085422600}
   - component: {fileID: 212655063315568656}
-  - component: {fileID: 114047427082579192}
+  - component: {fileID: 114943508001085414}
   m_Layer: 10
   m_Name: Tear_Ice
   m_TagString: IceTear
@@ -41,7 +41,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
---- !u!114 &114047427082579192
+--- !u!114 &114943508001085414
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1355398526975032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31afb311ed97ea0418c87cc18f856dce, type: 3}
+  m_Script: {fileID: 11500000, guid: 19cde9c5d86d95a4fbd8b845177308f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}

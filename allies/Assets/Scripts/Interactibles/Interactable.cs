@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Interactible : MonoBehaviour
+public class Interactable : MonoBehaviour
 {
   public GameManager gameManager;
 

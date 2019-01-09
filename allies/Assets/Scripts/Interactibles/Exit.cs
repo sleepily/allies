@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Exit : Interactible
+public class Exit : Interactable
 {
   public bool activated = false;
 

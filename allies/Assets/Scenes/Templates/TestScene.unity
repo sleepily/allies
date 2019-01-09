@@ -294,6 +294,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114299119914236220, guid: 46cee6cd2c7e61a42848b4103c7aee59,
+        type: 2}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1491746493}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46cee6cd2c7e61a42848b4103c7aee59, type: 2}
   m_IsPrefabAsset: 0
@@ -701,6 +706,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114423344843581724, guid: 5e7cebad33c9bff4f9f733d0112d32b3,
+        type: 2}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1491746493}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e7cebad33c9bff4f9f733d0112d32b3, type: 2}
   m_IsPrefabAsset: 0
@@ -761,6 +771,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114561912217283096, guid: 88564881450f4ea4cbc2a2c88f4b770e,
+        type: 2}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1491746493}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88564881450f4ea4cbc2a2c88f4b770e, type: 2}
   m_IsPrefabAsset: 0

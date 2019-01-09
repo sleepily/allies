@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Character : Entity
 {
   public PlayerManager playerManager;
 
@@ -63,10 +63,10 @@ public class Character : MonoBehaviour
    */
   private void GetGlobalGravityScale()
   {
-    if (!playerManager)
+    if (!gameManager.playerManager)
       return;
 
-    rb.gravityScale = playerManager.globalGravityScale;
+    rb.gravityScale = gameManager.playerManager.globalGravityScale;
   }
 
   //update the animator variables used to transition between animations
@@ -180,7 +180,7 @@ public class Character : MonoBehaviour
 
     velocity.x = axisHorizontal;
 
-    float moveForce = velocity.x * rb.gravityScale * playerManager.movementForce;
+    float moveForce = velocity.x * rb.gravityScale * gameManager.playerManager.movementForce;
 
     rb.velocity = new Vector2(moveForce, rb.velocity.y);
   }
@@ -198,7 +198,7 @@ public class Character : MonoBehaviour
 
     velocity.y = axisVertical;
 
-    float jumpForce = velocity.y * rb.gravityScale * playerManager.jumpForce;
+    float jumpForce = velocity.y * rb.gravityScale * gameManager.playerManager.jumpForce;
     
     isJumping = true;
 
@@ -275,8 +275,6 @@ public class Character : MonoBehaviour
     allowJump = true;
     allowMove = true;
 
-    isJumping = false;
-
     abilityActive = false;
 
     rb.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -306,12 +304,12 @@ public class Character : MonoBehaviour
 
   void Crybaby()
   {
-    ShootTear(playerManager.icePrefab);
+    ShootTear(gameManager.playerManager.magmaPrefab);
   }
 
   void Eruption()
   {
-    ShootTear(playerManager.magmaPrefab);
+    ShootTear(gameManager.playerManager.magmaPrefab);
   }
 
   void FrozenOutrage()
@@ -322,8 +320,8 @@ public class Character : MonoBehaviour
   void ShootTear(Tear tear)
   {
     Tear temp = Instantiate(tear);
-    temp.transform.SetParent(playerManager.gameManager.interactiblesManager.transform);
-    temp.Shoot(this.gameObject, playerManager.gameManager.inputManager.angleToMouse, playerManager.gameManager.inputManager.toMouse.normalized);
+    temp.transform.SetParent(gameManager.interactiblesManager.transform);
+    temp.Shoot(this, gameManager.inputManager.angleToMouse, gameManager.inputManager.toMouse.normalized);
     DeactivateAbility();
   }
 }

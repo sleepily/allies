@@ -6,21 +6,23 @@ public class Projectile : MonoBehaviour
 {
   public GameManager gameManager;
 
+  [Header("Physics")]
   public PolygonCollider2D polygonCollider2D;
   public Rigidbody2D rb;
-  public SpriteRenderer spriteRenderer;
-  public GameObject parent;
 
+  [Header("Sprites")]
+  public SpriteRenderer spriteRenderer;
   public int spriteIndex = 0;
   public List<Sprite> sprites;
-  public List<Sprite> collisionSprites;
-
-  public bool isKinematic = false;
-
+  
+  [Header("Shooting")]
   public float speed = 1f;
   public float angle = 0f;
   Vector2 direction;
+  public float shootingOffset = 1f;
 
+  [Header("Rigidbody/Collision")]
+  public bool isKinematic = false;
   public bool isShot = false;
   public bool isColliding = false;
 
@@ -64,14 +66,14 @@ public class Projectile : MonoBehaviour
     this.transform.position += (Vector3)direction * this.speed * Time.deltaTime;
   }
 
-  public void Shoot(GameObject parent, float angle, Vector2 direction)
+  public void Shoot(Entity parent, float angle, Vector2 direction)
   {
     isShot = true;
-    this.parent = parent;
+    this.gameManager = parent.gameManager;
     this.angle = angle;
     this.direction = direction.normalized;
     this.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + angle);
-    this.transform.position = parent.transform.position;
+    this.transform.position = (Vector2)parent.transform.position + (this.direction * shootingOffset);
   }
 
   public void MoveToInteractiblesManager()
@@ -100,6 +102,5 @@ public class Projectile : MonoBehaviour
   private void CreatePolygonCollider()
   {
     polygonCollider2D = gameObject.AddComponent(typeof(PolygonCollider2D)) as PolygonCollider2D;
-    // polygonCollider2D.isTrigger = true;
   }
 }

@@ -15,7 +15,6 @@ public class PlayerManager : MonoBehaviour
   [Header("Ability Prefabs")]
   public Tear icePrefab;
   public Tear magmaPrefab;
-  public Projectile coldMagmaPrefab;
 
   [Header("Active/Controllable Characters")]
   public Character rage;
@@ -90,7 +89,7 @@ public class PlayerManager : MonoBehaviour
         characters.Add(Instantiate(placeholder.characterPrefab));
         
         characters[index].name = placeholder.characterPrefab.name;
-        characters[index].playerManager = this;
+        characters[index].gameManager = gameManager;
         characters[index].transform.SetParent(this.transform);
         characters[index].transform.position += placeholder.transform.position;
         

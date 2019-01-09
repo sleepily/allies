@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tear : Projectile
+public class Entity : MonoBehaviour
 {
-
+  public GameManager gameManager;
 }

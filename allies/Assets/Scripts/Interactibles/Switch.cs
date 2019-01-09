@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Switch : Interactible
+public class Switch : Interactable
 {
-  public List<Interactible> listToTrigger;
+  public List<Interactable> listToTrigger;
 
   public enum ActionSelector
   {
@@ -32,11 +32,11 @@ public class Switch : Interactible
     switch (action)
     {
       case ActionSelector.action:
-        foreach (Interactible i in listToTrigger)
+        foreach (Interactable i in listToTrigger)
           i.Action();
         break;
       case ActionSelector.destroy:
-        foreach (Interactible i in listToTrigger)
+        foreach (Interactable i in listToTrigger)
           Destroy(i.gameObject);
         break;
       default:

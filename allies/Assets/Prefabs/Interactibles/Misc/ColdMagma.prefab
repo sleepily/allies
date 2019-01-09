@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4360694823304040}
   - component: {fileID: 212405755079001910}
-  - component: {fileID: 114293418131878046}
+  - component: {fileID: 114701120350375326}
   m_Layer: 10
-  m_Name: Tear_Magma
+  m_Name: ColdMagma
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
---- !u!114 &114293418131878046
+--- !u!114 &114701120350375326
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,27 +49,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1993725434973838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23c4fc5a129fa5547a990eb7b6477779, type: 3}
+  m_Script: {fileID: 11500000, guid: 57253fde7d7e0464ebab65b581514556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
-  parent: {fileID: 0}
   spriteRenderer: {fileID: 0}
-  spriteIndex: 0
   sprites:
-  - {fileID: 21300000, guid: 43b51bfbce8807e4cb3b219053bd3440, type: 3}
-  - {fileID: 21300002, guid: 43b51bfbce8807e4cb3b219053bd3440, type: 3}
-  - {fileID: 21300004, guid: 43b51bfbce8807e4cb3b219053bd3440, type: 3}
-  speed: 16
-  angle: 0
-  shootingOffset: 1
-  isKinematic: 1
-  isShot: 0
-  isColliding: 0
-  coldMagmaPrefab: {fileID: 114701120350375326, guid: ee0c8d09c54f5864d96f88d776c61cc2,
-    type: 2}
+  - {fileID: 21300000, guid: b37b6c7b909048c42b23c0bb9c0c9567, type: 3}
+  - {fileID: 21300002, guid: b37b6c7b909048c42b23c0bb9c0c9567, type: 3}
+  - {fileID: 21300004, guid: b37b6c7b909048c42b23c0bb9c0c9567, type: 3}
 --- !u!212 &212405755079001910
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -105,14 +95,14 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300010, guid: 9265b2b1b6db23847b3a4146a53f1810, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b37b6c7b909048c42b23c0bb9c0c9567, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1.57, y: 1.76}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
