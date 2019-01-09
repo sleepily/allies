@@ -2,7 +2,7 @@
 ludic game project. topic: unity/allies
 
 ### latest release (intermediate pitch demo - v0.2)
-[win 64bit](https://github.com/sleepily/allies/releases/download/v0.2/forgetmenot_x64.zip)  
+[release page](https://github.com/sleepily/allies/releases/tag/v0.2)  
 _with a small bug of rage getting stuck in level 2, try activating rampage while jumping :)_  
 
 ## tutorials
