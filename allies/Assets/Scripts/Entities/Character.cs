@@ -335,12 +335,12 @@ public class Character : Entity
 
   void Crybaby()
   {
-    ShootTear(gameManager.playerManager.magmaPrefab);
+    ShootTear();
   }
 
   void Eruption()
   {
-    ShootTear(gameManager.playerManager.magmaPrefab);
+    ShootTear();
   }
 
   void FrozenOutrage()
@@ -348,9 +348,16 @@ public class Character : Entity
 
   }
 
-  void ShootTear(Tear tear)
+  void ShootTear() // ShootTear(Tear tear)
   {
-    Tear temp = Instantiate(tear);
+    Tear tearPrefab;
+
+    if (gameManager.levelManager.activeLevelBuildIndex == 4)
+      tearPrefab = gameManager.playerManager.magmaPrefab;
+    else
+      tearPrefab = gameManager.playerManager.icePrefab;
+
+    Tear temp = Instantiate(tearPrefab);
     temp.transform.SetParent(gameManager.interactiblesManager.transform);
     temp.Shoot(this, gameManager.inputManager.angleToMouse, gameManager.inputManager.toMouse.normalized);
     DeactivateAbility();

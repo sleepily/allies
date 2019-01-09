@@ -646,7 +646,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   activeLevelBuildIndex: 0
-  levels: []
+  levels:
+  - Daniel_001
+  - Daniel_002
+  - Daniel_003
+  - Daniel_004
+  - Daniel_005
   foundActiveScene: 0
   colliderSpriteRenderer: {fileID: 212095813008327634}
 --- !u!212 &212095813008327634
