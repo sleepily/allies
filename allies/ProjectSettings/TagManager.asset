@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Character
   - Presentation
+  - Interactible
+  - Platform
+  - Wall
+  - Projectile
+  - IceTear
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -15,10 +21,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Projectiles
+  - Characters
+  - Tears
+  - Ground
   - 
   - 
   - 

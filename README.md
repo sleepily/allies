@@ -18,7 +18,10 @@ _with a small bug of rage getting stuck in level 2, try activating rampage while
 - [x] physics-based 2D controls
   - [x] movement
   - [x] jumping only when touching ground
-- [x] character-specific jump/move values
+- [x] character animations
+  - [x] rage
+  - [x] anxiety (needs rework)
+  - [ ] depression (waiting for sprites)
 - [ ] character abilities
   - [x] rage: dash/fire
   - [x] anxiety: freeze
