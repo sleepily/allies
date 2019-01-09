@@ -11,6 +11,7 @@ TagManager:
   - Wall
   - Projectile
   - IceTear
+  - Enemy
   layers:
   - Default
   - TransparentFX

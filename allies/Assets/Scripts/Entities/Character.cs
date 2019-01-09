@@ -45,6 +45,7 @@ public class Character : Entity
     CheckCharacterCollision(collision);
     CheckGroundCollision(collision);
     CheckWallCollision(collision);
+    CheckEnemyCollision(collision);
   }
 
   private void OnCollisionExit2D(Collision2D collision)
@@ -77,11 +78,28 @@ public class Character : Entity
 
     CharacterSpecifics();
 
-    animator.SetBool("isJumping",           isJumping);
-    animator.SetBool("isMoving",            CharacterIsMoving());
-    animator.SetBool("mirrorAnimation",     isMovingLeft);
-    animator.SetFloat("horizontalVelocity", rb.velocity.x);
-    animator.SetFloat("verticalVelocity",   rb.velocity.y);
+    // positive velocity values for correctly triggering blend tree motions
+    float horizontalVelocityAbs = Mathf.Abs(rb.velocity.x);
+    float verticalVelocityAbs = Mathf.Abs(rb.velocity.y);
+
+    // prevent walking animation while jumping
+    if (isJumping)
+    {
+      horizontalVelocityAbs = 0f;
+
+      if (verticalVelocityAbs < 1f)
+        verticalVelocityAbs = -1f;
+    }
+
+
+    animator.SetBool  ("abilityActive",         abilityActive);
+    animator.SetBool  ("isJumping",             isJumping);
+    animator.SetBool  ("isMoving",              CharacterIsMoving());
+    animator.SetBool  ("mirrorAnimation",       isMovingLeft);
+    animator.SetFloat ("horizontalVelocity",    rb.velocity.x);
+    animator.SetFloat ("verticalVelocity",      rb.velocity.y);
+    animator.SetFloat ("horizontalVelocityAbs", horizontalVelocityAbs);
+    animator.SetFloat ("verticalVelocityAbs",   verticalVelocityAbs);
 
     FlipSpriteX();
   }
@@ -259,6 +277,17 @@ public class Character : Entity
           rb.velocity = new Vector2(-rb.velocity.x, rb.velocity.y);
         }
       }
+  }
+
+  void CheckEnemyCollision(Collision2D collision)
+  {
+    if (!collision.gameObject.CompareTag("Enemy"))
+      return;
+
+    if (name == "Anxiety" && abilityActive)
+      collision.gameObject.SendMessage("Bounce");
+    else
+      gameManager.levelManager.Retry();
   }
 
   void FlipSpriteX()

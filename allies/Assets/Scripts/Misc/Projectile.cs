@@ -76,6 +76,11 @@ public class Projectile : MonoBehaviour
     this.transform.position = (Vector2)parent.transform.position + (this.direction * shootingOffset);
   }
 
+  public void Bounce()
+  {
+    this.direction *= -1;
+  }
+
   public void MoveToInteractiblesManager()
   {
     transform.SetParent(gameManager.interactiblesManager.transform);
