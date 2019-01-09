@@ -91,8 +91,11 @@ public class Character : Entity
         verticalVelocityAbs = -1f;
     }
 
-
     animator.SetBool  ("abilityActive",         abilityActive);
+
+    if (name == "Anxiety" && abilityActive)
+      return;
+
     animator.SetBool  ("isJumping",             isJumping);
     animator.SetBool  ("isMoving",              CharacterIsMoving());
     animator.SetBool  ("mirrorAnimation",       isMovingLeft);
@@ -177,7 +180,8 @@ public class Character : Entity
         Rampage();
         break;
       case "Anxiety":
-        ColdFeet();
+        if (isCollidingWithGround)
+          ColdFeet();
         break;
       case "Depression":
         Crybaby();
@@ -225,10 +229,14 @@ public class Character : Entity
 
   private void CheckCharacterCollision(Collision2D collision)
   {
-    if (name != "Anxiety")
-      if (collision.gameObject.CompareTag("Character"))
-        if (abilityActive)
-          abilityActive = false;
+    if (!collision.gameObject.CompareTag("Character"))
+      return;
+
+    if (name == "Anxiety")
+      return;
+
+    if (abilityActive)
+      abilityActive = false;
   }
 
   private void CheckGroundCollision(Collision2D collision)
@@ -319,12 +327,6 @@ public class Character : Entity
 
   void ColdFeet()
   {
-    if (!isCollidingWithGround)
-    {
-      DeactivateAbility();
-      return;
-    }
-
     rb.constraints =
       RigidbodyConstraints2D.FreezePositionX |
       RigidbodyConstraints2D.FreezePositionY |
