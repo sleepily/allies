@@ -13,6 +13,7 @@ public class ProjectileMonster : Entity
   private void Start()
   {
     SetTime();
+    MoveToInteractiblesManager();
   }
 
   private void Update()
