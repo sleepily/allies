@@ -1,28 +1,31 @@
 # allies
 ludic game project. topic: unity/allies
 
-### latest release (v0.1a)
-[win 64bit](https://github.com/sleepily/allies/releases/download/v0.1a/forget.me.not.x64.zip)  
-[win 32bit](https://github.com/sleepily/allies/releases/download/v0.1a/forget.me.not.x86.zip)  
-[source](https://github.com/sleepily/allies/archive/v0.1a.zip)
+### latest release (intermediate pitch demo - v0.2)
+[win 64bit](https://github.com/sleepily/allies/releases/download/v0.2/forgetmenot_x64.zip)  
+_with a small bug of rage getting stuck in level 2, try activating rampage while jumping :)_  
 
 ## tutorials
 [github for everyone](https://github.com/sleepily/allies/blob/wip/docs/github_tutorial_for_artists.md)  
 [level scene template](https://github.com/sleepily/allies/blob/wip/docs/level_template_tutorial.md)  
 
 ## gallery
-![current progress](https://i.imgur.com/XIqtzH6.gif)
+![current progress](https://i.imgur.com/RhFqz13.gif)
 
 ## prototype progress/roadmap
 - [x] test level
+- [x] presentation levels
 - [x] physics-based 2D controls
   - [x] movement
   - [x] jumping only when touching ground
 - [x] character-specific jump/move values
 - [ ] character abilities
-  - [ ] rage: dash/fire
-  - [ ] anxiety: freeze
+  - [x] rage: dash/fire
+  - [x] anxiety: freeze
   - [ ] depression: tears
+  - [x] frozen tears
+  - [x] magma tears
+  - [ ] frozen outrage
 - [x] character grouping (team combos)
   - [ ] implementation
     - [x] grouping based on distance
@@ -30,8 +33,8 @@ ludic game project. topic: unity/allies
   - [ ] visualization
     - [x] UI text
     - [ ] character glow/pointer
-- [ ] win condition
-- [ ] level retry function
+- [x] win condition
+- [x] level retry function
 - [ ] level selector
 
 ### testing
