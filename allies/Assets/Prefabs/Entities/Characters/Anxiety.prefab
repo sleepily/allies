@@ -62,7 +62,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 774c993475f372c4caafe6004be42659, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &58641553815642036
 CircleCollider2D:
@@ -88,7 +88,7 @@ Animator:
   m_GameObject: {fileID: 1264776576801644}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2d10e3af77128024a99d88da267ba9c0, type: 2}
+  m_Controller: {fileID: 22100000, guid: c49efca201890324ca9f20ce9bc09634, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473bc8dea06c6a641aa5e32ed468afda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   playerManager: {fileID: 0}
   rb: {fileID: 0}
   velocity: {x: 0, y: 0}

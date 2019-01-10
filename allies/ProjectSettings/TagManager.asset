@@ -10,6 +10,8 @@ TagManager:
   - Platform
   - Wall
   - Projectile
+  - IceTear
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -21,8 +23,8 @@ TagManager:
   - 
   - Projectiles
   - Characters
-  - 
-  - 
+  - Tears
+  - Ground
   - 
   - 
   - 

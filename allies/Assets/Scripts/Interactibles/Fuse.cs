@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fuse : Interactible
+public class Fuse : Interactable
 {
   
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Character : Entity
 {
   public PlayerManager playerManager;
 
@@ -45,6 +45,7 @@ public class Character : MonoBehaviour
     CheckCharacterCollision(collision);
     CheckGroundCollision(collision);
     CheckWallCollision(collision);
+    CheckEnemyCollision(collision);
   }
 
   private void OnCollisionExit2D(Collision2D collision)
@@ -63,10 +64,10 @@ public class Character : MonoBehaviour
    */
   private void GetGlobalGravityScale()
   {
-    if (!playerManager)
+    if (!gameManager.playerManager)
       return;
 
-    rb.gravityScale = playerManager.globalGravityScale;
+    rb.gravityScale = gameManager.playerManager.globalGravityScale;
   }
 
   //update the animator variables used to transition between animations
@@ -77,11 +78,31 @@ public class Character : MonoBehaviour
 
     CharacterSpecifics();
 
-    animator.SetBool("isJumping",           isJumping);
-    animator.SetBool("isMoving",            CharacterIsMoving());
-    animator.SetBool("mirrorAnimation",     isMovingLeft);
-    animator.SetFloat("horizontalVelocity", rb.velocity.x);
-    animator.SetFloat("verticalVelocity",   rb.velocity.y);
+    // positive velocity values for correctly triggering blend tree motions
+    float horizontalVelocityAbs = Mathf.Abs(rb.velocity.x);
+    float verticalVelocityAbs = Mathf.Abs(rb.velocity.y);
+
+    // prevent walking animation while jumping
+    if (isJumping)
+    {
+      horizontalVelocityAbs = 0f;
+
+      if (verticalVelocityAbs < 1f)
+        verticalVelocityAbs = -1f;
+    }
+
+    animator.SetBool  ("abilityActive",         abilityActive);
+
+    if (name == "Anxiety" && abilityActive)
+      return;
+
+    animator.SetBool  ("isJumping",             isJumping);
+    animator.SetBool  ("isMoving",              CharacterIsMoving());
+    animator.SetBool  ("mirrorAnimation",       isMovingLeft);
+    animator.SetFloat ("horizontalVelocity",    rb.velocity.x);
+    animator.SetFloat ("verticalVelocity",      rb.velocity.y);
+    animator.SetFloat ("horizontalVelocityAbs", horizontalVelocityAbs);
+    animator.SetFloat ("verticalVelocityAbs",   verticalVelocityAbs);
 
     FlipSpriteX();
   }
@@ -108,7 +129,7 @@ public class Character : MonoBehaviour
   {
     angle = CalculateCharacterAngle();
 
-    flame.transform.rotation = Quaternion.Euler(0, 0, 90f + angle);
+    flame.transform.rotation = Quaternion.Euler(0, 0, 35f + angle); //90f + angle
   }
 
   protected float GetVelocityAngle()
@@ -159,7 +180,8 @@ public class Character : MonoBehaviour
         Rampage();
         break;
       case "Anxiety":
-        ColdFeet();
+        if (isCollidingWithGround)
+          ColdFeet();
         break;
       case "Depression":
         Crybaby();
@@ -180,7 +202,7 @@ public class Character : MonoBehaviour
 
     velocity.x = axisHorizontal;
 
-    float moveForce = velocity.x * rb.gravityScale * playerManager.movementForce;
+    float moveForce = velocity.x * rb.gravityScale * gameManager.playerManager.movementForce;
 
     rb.velocity = new Vector2(moveForce, rb.velocity.y);
   }
@@ -198,7 +220,7 @@ public class Character : MonoBehaviour
 
     velocity.y = axisVertical;
 
-    float jumpForce = velocity.y * rb.gravityScale * playerManager.jumpForce;
+    float jumpForce = velocity.y * rb.gravityScale * gameManager.playerManager.jumpForce;
     
     isJumping = true;
 
@@ -207,9 +229,14 @@ public class Character : MonoBehaviour
 
   private void CheckCharacterCollision(Collision2D collision)
   {
-    if (name == "Rage")
-      if (collision.gameObject.CompareTag("Character"))
-        abilityActive = false;
+    if (!collision.gameObject.CompareTag("Character"))
+      return;
+
+    if (name == "Anxiety")
+      return;
+
+    if (abilityActive)
+      abilityActive = false;
   }
 
   private void CheckGroundCollision(Collision2D collision)
@@ -260,6 +287,17 @@ public class Character : MonoBehaviour
       }
   }
 
+  void CheckEnemyCollision(Collision2D collision)
+  {
+    if (!collision.gameObject.CompareTag("Enemy"))
+      return;
+
+    if (name == "Anxiety" && abilityActive)
+      collision.gameObject.SendMessage("Bounce");
+    else
+      gameManager.levelManager.Retry();
+  }
+
   void FlipSpriteX()
   {
     if (!spriteRenderer)
@@ -289,12 +327,6 @@ public class Character : MonoBehaviour
 
   void ColdFeet()
   {
-    if (!isCollidingWithGround)
-    {
-      DeactivateAbility();
-      return;
-    }
-
     rb.constraints =
       RigidbodyConstraints2D.FreezePositionX |
       RigidbodyConstraints2D.FreezePositionY |
@@ -303,12 +335,12 @@ public class Character : MonoBehaviour
 
   void Crybaby()
   {
-    ShootTear(playerManager.icePrefab);
+    ShootTear();
   }
 
   void Eruption()
   {
-    ShootTear(playerManager.magmaPrefab);
+    ShootTear();
   }
 
   void FrozenOutrage()
@@ -316,11 +348,18 @@ public class Character : MonoBehaviour
 
   }
 
-  void ShootTear(Tear tear)
+  void ShootTear() // ShootTear(Tear tear)
   {
-    Tear temp = Instantiate(tear);
-    temp.transform.SetParent(playerManager.gameManager.interactiblesManager.transform);
-    temp.Shoot(this.gameObject, playerManager.gameManager.inputManager.angleToMouse, playerManager.gameManager.inputManager.toMouse.normalized);
+    Tear tearPrefab;
+
+    if (gameManager.levelManager.activeLevelBuildIndex == 4)
+      tearPrefab = gameManager.playerManager.magmaPrefab;
+    else
+      tearPrefab = gameManager.playerManager.icePrefab;
+
+    Tear temp = Instantiate(tearPrefab);
+    temp.transform.SetParent(gameManager.interactiblesManager.transform);
+    temp.Shoot(this, gameManager.inputManager.angleToMouse, gameManager.inputManager.toMouse.normalized);
     DeactivateAbility();
   }
 }
