@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spikes : Interactable
+public class Spikes : Interactible
 {
   private void OnCollisionEnter2D(Collision2D collision)
   {

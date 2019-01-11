@@ -16,23 +16,12 @@ public class LevelManager : MonoBehaviour
 
   private void Start()
   {
-    // LoadAllScenesToList();
+    LoadAllScenesToList();
     FindCurrentScene();
   }
 
-  /*
   void LoadAllScenesToList()
   {
-    foreach (UnityEditor.EditorBuildSettingsScene S in UnityEditor.EditorBuildSettings.scenes)
-    {
-      if (S.enabled)
-      {
-        string name = S.path.Substring(S.path.LastIndexOf('/') + 1);
-        name = name.Substring(0, name.Length - 6);
-        levels.Add(name);
-      }
-    }
-    
     var info = new DirectoryInfo(Application.dataPath + "/Scenes/Levels/");
 
     var files = info.GetFiles();
@@ -49,7 +38,6 @@ public class LevelManager : MonoBehaviour
       levels.Add(fileName);
     }
   }
-  */
 
   void FindCurrentScene()
   {

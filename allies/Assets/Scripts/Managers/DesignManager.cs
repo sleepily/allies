@@ -7,11 +7,11 @@ public class DesignManager : MonoBehaviour
   
   public List<CharacterPlaceholder> characterPlaceholders;
 
-  public List<Interactable> interactibles;
+  public List<Interactible> interactibles;
 
   private void Start()
   {
-    foreach (Interactable interactible in interactibles)
+    foreach (Interactible interactible in interactibles)
     {
       if (interactible == null)
         continue;

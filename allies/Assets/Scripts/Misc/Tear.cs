@@ -4,5 +4,15 @@ using UnityEngine;
 
 public class Tear : Projectile
 {
+  public enum Type
+  {
+    ice,
+    magma
+  }
 
+  void Collide(Collision2D collision)
+  {
+    isColliding = true;
+    rb.constraints = RigidbodyConstraints2D.FreezeAll;
+  }
 }

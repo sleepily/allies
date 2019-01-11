@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireFlower : Interactable
+public class FireFlower : Interactible
 {
 
 }

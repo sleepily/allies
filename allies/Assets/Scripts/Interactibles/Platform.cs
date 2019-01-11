@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Platform : Interactable
+public class Platform : Interactible
 {
 
 }

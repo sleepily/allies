@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BreakableWall : Interactable
+public class BreakableWall : Interactible
 {
   public Animator animator;
 

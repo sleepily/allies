@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
   [Header("Ability Prefabs")]
   public Tear icePrefab;
   public Tear magmaPrefab;
+  public Projectile coldMagmaPrefab;
 
   [Header("Active/Controllable Characters")]
   public Character rage;
@@ -58,9 +59,6 @@ public class PlayerManager : MonoBehaviour
 
     string allyString = "ALLIES:\n\n";
 
-    allies.Add(activeCharacter);
-
-    /*
     foreach (Character otherCharacter in characters)
     {
       if (otherCharacter == null)
@@ -73,7 +71,6 @@ public class PlayerManager : MonoBehaviour
         allyString += otherCharacter.name + "\n";
       }
     }
-    */
 
     gameManager.uiManager.alliesText.text = allyString;
   }
@@ -89,7 +86,7 @@ public class PlayerManager : MonoBehaviour
         characters.Add(Instantiate(placeholder.characterPrefab));
         
         characters[index].name = placeholder.characterPrefab.name;
-        characters[index].gameManager = gameManager;
+        characters[index].playerManager = this;
         characters[index].transform.SetParent(this.transform);
         characters[index].transform.position += placeholder.transform.position;
         
@@ -160,9 +157,6 @@ public class PlayerManager : MonoBehaviour
     foreach (Character ally in allies)
     {
       ally.CheckAbilityStatus();
-
-      if (ally.abilityActive)
-        return;
 
       ally.Move(gameManager.inputManager.moveX);
       ally.Jump(gameManager.inputManager.moveY);
