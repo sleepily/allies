@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: AnxietyController
+  m_Controller: {fileID: 9100000, guid: 2d10e3af77128024a99d88da267ba9c0, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 46525cd654795ba46bd9cc918ef607ab, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 331cc5ed0ae80a94aae48e3af0ec2425, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 005e5f73d5df2f545b3f8c39a92cab63, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cac73ca8bc8f95544a68baa8d0282cbb, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1036d03bd1f39a148b3b4df70182fdb3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c370b61344498b04bb2fc36e7ccf4cb2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 46ba1427308141040aa59b8d456beaff, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 786e592b1b380d24c972b8ed3ae7fe5d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 80095da2a27733d4da53958391a76ae2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cb025212b489f8f429cfe6885979bdfb, type: 2}

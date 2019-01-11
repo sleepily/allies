@@ -53,8 +53,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  polygonCollider2D: {fileID: 0}
-  rb: {fileID: 0}
+  projectilePrefab: {fileID: 114017616459726408, guid: 3575410160b1faf4bbca94ed37e6bff6,
+    type: 2}
+  interval: 0.3
 --- !u!212 &212399308514749972
 SpriteRenderer:
   m_ObjectHideFlags: 1
