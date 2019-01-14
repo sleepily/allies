@@ -4,11 +4,20 @@ public class Interactable : MonoBehaviour
 {
   public GameManager gameManager;
 
+  [Header("Physics")]
   public PolygonCollider2D polygonCollider2D;
   public Rigidbody2D rb;
 
+  [Header("Action")]
+  public bool actionActivated = false;
+
   private void Start()
   {
+    gameManager = GameManager.globalGameManager;
+
+    if (!gameManager)
+      Debug.LogError("No gamemanager");
+
     Init();
   }
 
@@ -20,12 +29,12 @@ public class Interactable : MonoBehaviour
 
   public virtual void Action()
   {
-
+    actionActivated = true;
   }
 
-  public void MoveToInteractiblesManager()
+  public void MoveToInteractablesManager()
   {
-    transform.SetParent(gameManager.interactiblesManager.transform);
+    transform.SetParent(gameManager.interactablesManager.transform);
   }
 
   private void CreateRigidBody()

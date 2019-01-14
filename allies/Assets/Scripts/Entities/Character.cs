@@ -25,13 +25,14 @@ public class Character : Entity
 
   private void Start()
   {
-    rb = GetComponent<Rigidbody2D>();
+    GetAllComponents();
     isMovingLeft = false;
   }
 
-  private void Update()
+  protected virtual void Update()
   {
     CheckMovementDirection();
+    CheckAbilityStatus();
     SetAnimatorProperties();
   }
 
@@ -42,10 +43,31 @@ public class Character : Entity
 
   private void OnCollisionEnter2D(Collision2D collision)
   {
-    CheckCharacterCollision(collision);
+    AllCollisionChecks(collision);
+
+    CollisionWithCharacter(collision);
     CheckGroundCollision(collision);
     CheckWallCollision(collision);
-    CheckEnemyCollision(collision);
+  }
+
+  protected virtual void GetAllComponents()
+  {
+    rb          = GetComponent<Rigidbody2D>();
+    animator    = GetComponent<Animator>();
+    spriteRenderer = GetComponent<SpriteRenderer>();
+  }
+
+  protected void AllCollisionChecks(Collision2D collision)
+  {
+    switch (collision.gameObject.tag)
+    {
+      case "Enemy":
+        CollisionWithEnemy(collision);
+        break;
+      default:
+        // Debug.LogError("Collision ignored: Tagged \"" + collision.gameObject.tag + "\".");
+        break;
+    }
   }
 
   private void OnCollisionExit2D(Collision2D collision)
@@ -76,13 +98,13 @@ public class Character : Entity
     if (animator == null)
       return;
 
-    CharacterSpecifics();
+    CharacterSpecificAnimationProperties();
 
     // positive velocity values for correctly triggering blend tree motions
     float horizontalVelocityAbs = Mathf.Abs(rb.velocity.x);
     float verticalVelocityAbs = Mathf.Abs(rb.velocity.y);
 
-    // prevent walking animation while jumping
+    // prevent idle and walking animation while jumping
     if (isJumping)
     {
       horizontalVelocityAbs = 0f;
@@ -93,6 +115,7 @@ public class Character : Entity
 
     animator.SetBool  ("abilityActive",         abilityActive);
 
+    //TODO: clean up
     if (name == "Anxiety" && abilityActive)
       return;
 
@@ -107,13 +130,12 @@ public class Character : Entity
     FlipSpriteX();
   }
 
-  void CharacterSpecifics()
+  protected virtual void CharacterSpecificAnimationProperties()
   {
-    if (name == "Rage")
-      SetFireAngle();
+
   }
 
-  float CalculateCharacterAngle()
+  protected float CalculateCharacterAngle()
   {
     if
     (
@@ -123,13 +145,6 @@ public class Character : Entity
       return -90f;
 
     return Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
-  }
-
-  void SetFireAngle()
-  {
-    angle = CalculateCharacterAngle();
-
-    flame.transform.rotation = Quaternion.Euler(0, 0, 35f + angle); //90f + angle
   }
 
   protected float GetVelocityAngle()
@@ -163,7 +178,7 @@ public class Character : Entity
     }
   }
 
-  public void CheckAbilityStatus()
+  protected void CheckAbilityStatus()
   {
     if (!abilityActive)
     {
@@ -171,28 +186,7 @@ public class Character : Entity
       return;
     }
 
-    allowJump = false;
-    allowMove = false;
-
-    switch (name)
-    {
-      case "Rage":
-        Rampage();
-        break;
-      case "Anxiety":
-        if (isCollidingWithGround)
-          ColdFeet();
-        break;
-      case "Depression":
-        Crybaby();
-        break;
-      case "Eruption":
-        Eruption();
-        break;
-      case "FrozenOutrage":
-        FrozenOutrage();
-        break;
-    }
+    Ability();
   }
 
   public void Move(float axisHorizontal)
@@ -227,14 +221,8 @@ public class Character : Entity
     rb.velocity = new Vector2(rb.velocity.x, jumpForce);
   }
 
-  private void CheckCharacterCollision(Collision2D collision)
+  protected virtual void CollisionWithCharacter(Collision2D collision)
   {
-    if (!collision.gameObject.CompareTag("Character"))
-      return;
-
-    if (name == "Anxiety")
-      return;
-
     if (abilityActive)
       abilityActive = false;
   }
@@ -286,16 +274,10 @@ public class Character : Entity
         }
       }
   }
-
-  void CheckEnemyCollision(Collision2D collision)
+  
+  protected virtual void CollisionWithEnemy(Collision2D collision)
   {
-    if (!collision.gameObject.CompareTag("Enemy"))
-      return;
-
-    if (name == "Anxiety" && abilityActive)
-      collision.gameObject.SendMessage("Bounce");
-    else
-      gameManager.levelManager.Retry();
+    gameManager.levelManager.Retry();
   }
 
   void FlipSpriteX()
@@ -306,8 +288,14 @@ public class Character : Entity
     spriteRenderer.flipX = isMovingLeft;
   }
 
+  protected virtual void Ability()
+  {
+    allowJump = false;
+    allowMove = false;
+  }
+
   // resets all character's properties to default behaviour and resets the switch
-  void DeactivateAbility()
+  protected virtual void DeactivateAbility()
   {
     allowJump = true;
     allowMove = true;
@@ -317,49 +305,10 @@ public class Character : Entity
     rb.constraints = RigidbodyConstraints2D.FreezeRotation;
   }
 
-  void Rampage()
+  protected void ShootTear(Tear tearPrefab)
   {
-    if (isMovingLeft)
-      rb.AddForce(Vector2.left  * 30);
-    else
-      rb.AddForce(Vector2.right * 30);
-  }
-
-  void ColdFeet()
-  {
-    rb.constraints =
-      RigidbodyConstraints2D.FreezePositionX |
-      RigidbodyConstraints2D.FreezePositionY |
-      RigidbodyConstraints2D.FreezeRotation;
-  }
-
-  void Crybaby()
-  {
-    ShootTear();
-  }
-
-  void Eruption()
-  {
-    ShootTear();
-  }
-
-  void FrozenOutrage()
-  {
-
-  }
-
-  void ShootTear() // ShootTear(Tear tear)
-  {
-    Tear tearPrefab;
-
-    if (gameManager.levelManager.activeLevelBuildIndex == 4)
-      tearPrefab = gameManager.playerManager.magmaPrefab;
-    else
-      tearPrefab = gameManager.playerManager.icePrefab;
-
-    Tear temp = Instantiate(tearPrefab);
-    temp.transform.SetParent(gameManager.interactiblesManager.transform);
-    temp.Shoot(this, gameManager.inputManager.angleToMouse, gameManager.inputManager.toMouse.normalized);
+    Tear tear = Instantiate(tearPrefab);
+    tear.Shoot(this, gameManager.inputManager.angleToMouse, gameManager.inputManager.toMouse.normalized);
     DeactivateAbility();
   }
 }

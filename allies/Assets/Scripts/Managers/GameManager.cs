@@ -1,128 +1,90 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Manager
 {
-  [Header("Initialized (DO NOT touch this)")]
+  public static GameManager globalGameManager;
+
+  public GameSceneManager sceneManager;
+
+  [HideInInspector]
   public DesignManager designManager;
-
-  [Header("Initialized from Prefabs (should be empty)")]
+  [HideInInspector]
   public LevelManager levelManager;
+  [HideInInspector]
   public InputManager inputManager;
+  [HideInInspector]
   public UIManager uiManager;
+  [HideInInspector]
   public PlayerManager playerManager;
+  [HideInInspector]
   public CameraManager cameraManager;
-  public InteractiblesManager interactiblesManager;
+  [HideInInspector]
+  public InteractablesManager interactablesManager;
 
-  public List<GameObject> managers;
+  [HideInInspector]
+  public List<Manager> managers;
 
-  [Header("Prefabs (DO NOT touch this)")]
+  [Header("Prefabs")]
   public LevelManager levelManagerPrefab;
   public InputManager inputManagerPrefab;
   public UIManager uiManagerPrefab;
   public PlayerManager playerManagerPrefab;
   public CameraManager cameraManagerPrefab;
-  public InteractiblesManager interactiblesManagerPrefab;
+  public InteractablesManager interactablesManagerPrefab;
 
-  public State state;
-  public State lastState;
-
-  public enum State
+  private void Awake()
   {
-    splash,
-    title,
-    options,
-    select_world,
-    select_level,
-    level,
-    pause,
-    cutscene
+    GameManager.globalGameManager = this;
   }
 
   private void Start()
   {
-    ChangeState(State.level, gameObject);
 
-    levelManager          = Instantiate(levelManagerPrefab);
-    inputManager          = Instantiate(inputManagerPrefab);
-    uiManager             = Instantiate(uiManagerPrefab);
-    playerManager         = Instantiate(playerManagerPrefab);
-    cameraManager         = Instantiate(cameraManagerPrefab);
-    interactiblesManager  = Instantiate(interactiblesManagerPrefab);
+  }
 
-    managers.Add(levelManager.gameObject);
-    managers.Add(inputManager.gameObject);
-    managers.Add(uiManager.gameObject);
-    managers.Add(playerManager.gameObject);
-    managers.Add(levelManager.gameObject);
-    managers.Add(cameraManager.gameObject);
-    managers.Add(interactiblesManager.gameObject);
+  private void Update()
+  {
 
+  }
+
+  public void InitializeManagers()
+  {
+    InstantiateManagers();
+    AddManagersToList();
+    SetGamemanagerInChildren();
+  }
+
+  void InstantiateManagers()
+  {
+    levelManager = Instantiate(levelManagerPrefab);
+    inputManager = Instantiate(inputManagerPrefab);
+    uiManager = Instantiate(uiManagerPrefab);
+    playerManager = Instantiate(playerManagerPrefab);
+    cameraManager = Instantiate(cameraManagerPrefab);
+    interactablesManager = Instantiate(interactablesManagerPrefab);
+  }
+
+  void AddManagersToList()
+  {
+    managers.Add(levelManager);
+    managers.Add(inputManager);
+    managers.Add(uiManager);
+    managers.Add(playerManager);
+    managers.Add(levelManager);
+    managers.Add(cameraManager);
+    managers.Add(interactablesManager);
+  }
+
+  void SetGamemanagerInChildren()
+  {
     levelManager.gameManager = this;
     inputManager.gameManager = this;
     uiManager.gameManager = this;
     playerManager.gameManager = this;
     levelManager.gameManager = this;
     cameraManager.gameManager = this;
-    interactiblesManager.gameManager = this;
-
-    foreach (GameObject m in managers)
-      m.transform.SetParent(this.transform);
-  }
-
-  private void Update()
-  {
-    CheckState();
-  }
-
-  private void CheckState()
-  {
-    if (state == lastState)
-      return;
-
-    switch (state)
-    {
-      case State.splash:
-        break;
-
-      case State.title:
-        break;
-
-      case State.level:
-        break;
-
-      case State.pause:
-        break;
-
-      case State.cutscene:
-        break;
-
-      default:
-        PrintBadStateError(state);
-        break;
-    }
-
-    lastState = state;
-  }
-
-  public void ChangeState(State state, GameObject id)
-  {
-    this.state = state;
-    PrintLogMessage(id);
-  }
-
-  private void PrintLogMessage(GameObject id)
-  {
-    string logstring = "{0} changed current state to {1}.";
-    logstring = string.Format(logstring, id.name, state.ToString());
-    Debug.Log(logstring);
-  }
-
-  private void PrintBadStateError(State badState)
-  {
-    string errorString = "Could not switch to state {0}: State does not exist.";
-    errorString = string.Format(errorString, badState.ToString());
-    Debug.LogError(errorString);
+    interactablesManager.gameManager = this;
   }
 }

@@ -6,8 +6,8 @@ public class Entity : MonoBehaviour
 {
   public GameManager gameManager;
 
-  virtual protected void MoveToInteractiblesManager()
+  public virtual void MoveToInteractablesManager()
   {
-    transform.SetParent(gameManager.interactiblesManager.transform);
+    transform.SetParent(gameManager.interactablesManager.transform);
   }
 }

@@ -6,22 +6,22 @@ public class Switch : Interactable
 {
   public List<Interactable> listToTrigger;
 
-  public enum ActionSelector
+  public enum TriggerAction
   {
     action,
     destroy
   }
 
-  public ActionSelector action;
+  public TriggerAction triggerAction;
 
   private void OnCollisionEnter2D(Collision2D collision)
   {
-    CheckCollision(collision);
+    ActivateSwitchOnTagCollision("IceTear", collision);
   }
 
-  protected virtual void CheckCollision(Collision2D collision)
+  protected virtual void ActivateSwitchOnTagCollision(string tag, Collision2D collision)
   {
-    if (!collision.gameObject.CompareTag("IceTear"))
+    if (!collision.gameObject.CompareTag(tag))
       return;
 
     TriggerSwitch();
@@ -29,13 +29,13 @@ public class Switch : Interactable
 
   void TriggerSwitch()
   {
-    switch (action)
+    switch (triggerAction)
     {
-      case ActionSelector.action:
+      case TriggerAction.action:
         foreach (Interactable i in listToTrigger)
           i.Action();
         break;
-      case ActionSelector.destroy:
+      case TriggerAction.destroy:
         foreach (Interactable i in listToTrigger)
           Destroy(i.gameObject);
         break;
