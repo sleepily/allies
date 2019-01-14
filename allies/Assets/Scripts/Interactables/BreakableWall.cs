@@ -13,10 +13,12 @@ public class BreakableWall : Interactable
 
   void CheckForRageColliding(Collision2D collision)
   {
-    if (collision.gameObject.name != "Rage")
+    Rage rage = collision.gameObject.GetComponent<Rage>();
+
+    if (!rage)
       return;
 
-    if (gameManager.playerManager.rage.abilityActive)
+    if (rage.abilityActive)
       Destroy(gameObject);
   }
 }

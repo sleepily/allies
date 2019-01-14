@@ -19,11 +19,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4592711663642162}
-  - component: {fileID: 114561912217283096}
   - component: {fileID: 212635175326121436}
   - component: {fileID: 58388322089144430}
   - component: {fileID: 50599813136994922}
   - component: {fileID: 95580236177960292}
+  - component: {fileID: 114231862690535282}
   m_Layer: 9
   m_Name: Depression
   m_TagString: Character
@@ -97,7 +97,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114561912217283096
+--- !u!114 &114231862690535282
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,20 +105,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1547230104823066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 473bc8dea06c6a641aa5e32ed468afda, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f251a4c3718ade41a9ba9f64242cd0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   playerManager: {fileID: 0}
   rb: {fileID: 0}
   velocity: {x: 0, y: 0}
-  allowJump: 1
-  allowMove: 1
+  allowJump: 0
+  allowMove: 0
   isCollidingWithGround: 0
   isCollidingWithWall: 0
   isJumping: 0
-  spriteRenderer: {fileID: 212635175326121436}
-  animator: {fileID: 95580236177960292}
+  spriteRenderer: {fileID: 0}
+  animator: {fileID: 0}
   isMovingLeft: 0
   isMoving: 0
   abilityActive: 0
