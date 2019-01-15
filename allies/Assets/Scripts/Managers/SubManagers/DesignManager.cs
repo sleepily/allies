@@ -10,8 +10,8 @@ public class DesignManager : SubManager
   public List<CharacterPlaceholder> characterPlaceholders;
 
   public GameObject designParent;
-  public List<Interactable> interactables;
-  public List<Entity> entities;
+  List<Interactable> interactables;
+  List<Entity> entities;
 
   public override void Init()
   {
@@ -58,5 +58,6 @@ public class DesignManager : SubManager
   {
     gameObject.SetActive(false);
     enabled = false;
+    Destroy(this.gameObject);
   }
 }
