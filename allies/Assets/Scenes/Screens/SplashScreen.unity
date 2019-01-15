@@ -295,7 +295,8 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   videoPlayer: {fileID: 835618342}
   spriteFade: {fileID: 1206193914}
-  isSkippable: 1
+  logoIsSkippable: 1
+  videoIsSkippable: 1
 --- !u!1 &1206193911
 GameObject:
   m_ObjectHideFlags: 0

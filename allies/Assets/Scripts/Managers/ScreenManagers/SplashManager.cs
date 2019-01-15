@@ -12,7 +12,8 @@ public class SplashManager : SubManager
   
   bool introStarted = false;
 
-  public bool isSkippable = false;
+  public bool logoIsSkippable = false;
+  public bool videoIsSkippable = false;
 
   public override void Init()
   {
@@ -34,18 +35,18 @@ public class SplashManager : SubManager
     CheckVideoStop();
   }
 
+  //TODO: rework this with input axis
   void CheckSkipAction()
   {
-    if (!isSkippable)
-      return;
-
     if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
     {
-      if (!spriteFade.isFinished)
-        spriteFade.FinishFade();
+      if (logoIsSkippable)
+        if (!spriteFade.isFinished)
+          spriteFade.FinishFade();
 
-      if (videoPlayer.isPlaying)
-        StopVideo();
+      if (videoIsSkippable)
+        if (videoPlayer.isPlaying)
+          StopVideo();
     }
   }
 
