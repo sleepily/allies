@@ -226,7 +226,7 @@ VideoPlayer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 835618340}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 8dc679976e2ad7a44a2e745beedad181, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 6bb92643c3e3e7443b509896b4e3a9c8, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 535083549}
@@ -295,6 +295,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   videoPlayer: {fileID: 835618342}
   spriteFade: {fileID: 1206193914}
+  isSkippable: 1
 --- !u!1 &1206193911
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +384,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1206193912}
-  fadeInTime: 1
-  holdTime: 1
-  fadeOutTime: 1
-  finishedFade: 0
+  timeBeforeFade: 1
+  fadeInTime: 1.5
+  holdTime: 2
+  fadeOutTime: 1.5
+  holdTimeAfter: 1
+  isFinished: 0

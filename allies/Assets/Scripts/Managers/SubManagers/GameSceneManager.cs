@@ -59,7 +59,7 @@ public class GameSceneManager : SubManager
     LoadScreen(Screen.level);
   }
 
-  public void LoadScreenSingle(string sceneID)
+  void LoadScreenSingle(string sceneID)
   {
     StartCoroutine(LoadSceneAsync(sceneID, LoadSceneMode.Single));
   }

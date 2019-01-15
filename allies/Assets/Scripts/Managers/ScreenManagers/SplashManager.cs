@@ -9,8 +9,10 @@ public class SplashManager : SubManager
 
   public VideoPlayer videoPlayer;
   public SpriteFade spriteFade;
+  
+  bool introStarted = false;
 
-  public float timeBetweenLogoAndVideo = 1f;
+  public bool isSkippable = false;
 
   public override void Init()
   {
@@ -23,5 +25,56 @@ public class SplashManager : SubManager
   {
     if (!videoPlayer.isPrepared)
       videoPlayer.Prepare();
+  }
+
+  private void Update()
+  {
+    CheckSkipAction();
+    CheckVideoStart();
+    CheckVideoStop();
+  }
+
+  void CheckSkipAction()
+  {
+    if (!isSkippable)
+      return;
+
+    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+    {
+      if (!spriteFade.isFinished)
+        spriteFade.FinishFade();
+
+      if (videoPlayer.isPlaying)
+        StopVideo();
+    }
+  }
+
+  void CheckVideoStart()
+  {
+    if (introStarted)
+      return;
+
+    if (!spriteFade.isFinished)
+      return;
+
+    PlayVideo();
+  }
+
+  void CheckVideoStop()
+  {
+    if (introStarted && !videoPlayer.isPlaying)
+      StopVideo();
+  }
+
+  void PlayVideo()
+  {
+    introStarted = true;
+    videoPlayer.Play();
+  }
+
+  void StopVideo()
+  {
+    videoPlayer.Stop();
+    gameManager.sceneManager.LoadScreen(GameSceneManager.Screen.mainMenu);
   }
 }
