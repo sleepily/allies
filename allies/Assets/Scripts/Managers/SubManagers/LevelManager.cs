@@ -55,9 +55,9 @@ public class LevelManager : SubManager
   {
     //TODO: get scene names as string, sort out everything without "level" in its name, sort alphabetically
     foreach (string level in levels)
-      if (level == SceneManager.GetActiveScene().name)
+      if (level == UnityEngine.SceneManagement.SceneManager.GetActiveScene().name)
       {
-        activeLevelBuildIndex = SceneManager.GetActiveScene().buildIndex;
+        activeLevelBuildIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
         foundActiveScene = true;
       }
   }
@@ -65,22 +65,16 @@ public class LevelManager : SubManager
   public void LoadLevel(int index)
   {
     activeLevelBuildIndex = index;
-    SceneManager.LoadScene(levels[activeLevelBuildIndex], LoadSceneMode.Single);
+    gameManager.sceneManager.LoadLevelFromBuildIndex(activeLevelBuildIndex);
   }
 
   public void Retry()
   {
-    if (!foundActiveScene)
-      return;
-
     LoadLevel(activeLevelBuildIndex);
   }
 
   public void LoadNextLevel()
   {
-    if (!foundActiveScene)
-      return;
-
     LoadLevel(activeLevelBuildIndex + 1);
   }
 }

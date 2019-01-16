@@ -76,6 +76,6 @@ public class SplashManager : SubManager
   void StopVideo()
   {
     videoPlayer.Stop();
-    gameManager.sceneManager.LoadScreen(GameSceneManager.Screen.mainMenu);
+    gameManager.sceneManager.LoadScreen(SceneManager.Screen.mainMenu);
   }
 }

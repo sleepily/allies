@@ -34,7 +34,6 @@ public class Exit : Interactable
       return;
 
     activated = true;
-    Debug.Log("Finished Level");
-    gameManager.levelManager.LoadNextLevel();
+    gameManager.sceneManager.LoadNextLevel();
   }
 }

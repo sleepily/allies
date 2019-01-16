@@ -6,7 +6,7 @@ public class GameManager : Manager
 {
   public static GameManager globalGameManager;
 
-  public GameSceneManager sceneManager;
+  public SceneManager sceneManager;
 
   [HideInInspector]
   public DesignManager designManager;

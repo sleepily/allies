@@ -10,8 +10,8 @@ public class DesignManager : SubManager
   public List<CharacterPlaceholder> characterPlaceholders;
 
   public GameObject designParent;
-  List<Interactable> interactables;
-  List<Entity> entities;
+  List<Interactable> interactables = new List<Interactable>();
+  List<Entity> entities = new List<Entity>();
 
   public override void Init()
   {
@@ -27,6 +27,9 @@ public class DesignManager : SubManager
 
   void AssignToGamemanager()
   {
+    if (!gameManager)
+      Debug.Log("GameManager missing, please open MainScene and change LevelID to test this level.");
+
     gameManager.designManager = this;
   }
 

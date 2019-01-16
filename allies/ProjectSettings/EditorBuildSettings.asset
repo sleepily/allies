@@ -15,18 +15,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Screens/MenuScreen.unity
     guid: 6998e2d76513d904e8374692bddd36d6
   - enabled: 1
-    path: Assets/Scenes/Levels/Daniel_001.unity
+    path: Assets/Scenes/Screens/GlossaryScreen.unity
+    guid: 06e7a16926b1d9447854051730707c4e
+  - enabled: 1
+    path: Assets/Scenes/Screens/SelectionScreen.unity
+    guid: af8a3d1884a42fd4ebe232be8cac75be
+  - enabled: 1
+    path: Assets/Scenes/Levels/Intro_002.unity
     guid: c16136f1a651d004094ffd8794686c78
   - enabled: 1
-    path: Assets/Scenes/Levels/Daniel_002.unity
+    path: Assets/Scenes/Levels/Intro_003.unity
     guid: 5925189522ba99d4b9cba0855cd1fbac
   - enabled: 1
-    path: Assets/Scenes/Levels/Daniel_003.unity
-    guid: 9cb990beba3b1984b94be209d67e044f
+    path: Assets/Scenes/Levels/Easy_003.unity
+    guid: 626472ec3f8e4344ca08b7d8d6996110
   - enabled: 1
-    path: Assets/Scenes/Levels/Daniel_004.unity
+    path: Assets/Scenes/Levels/Medium_003.unity
     guid: 41333c3cb412d7a4dbb6c5aa199b1ea8
-  - enabled: 1
-    path: Assets/Scenes/Levels/Daniel_005.unity
-    guid: 5abcfc493bc20ea4e96030a0235571e7
   m_configObjects: {}
