@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Screens/SelectionScreen.unity
     guid: af8a3d1884a42fd4ebe232be8cac75be
   - enabled: 1
+    path: Assets/Scenes/Templates/TestScene.unity
+    guid: aa8de6e406661e241b71942e113910be
+  - enabled: 1
     path: Assets/Scenes/Levels/Intro_002.unity
     guid: c16136f1a651d004094ffd8794686c78
   - enabled: 1
