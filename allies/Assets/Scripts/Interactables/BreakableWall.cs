@@ -5,6 +5,13 @@ using UnityEngine;
 public class BreakableWall : Interactable
 {
   public Animator animator;
+  public PhysicsMaterial2D physicsMaterial2D;
+
+  public override void Init()
+  {
+    base.Init();
+    polygonCollider2D.sharedMaterial = physicsMaterial2D;
+  }
 
   private void OnCollisionEnter2D(Collision2D collision)
   {

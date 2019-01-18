@@ -79,6 +79,11 @@ public class SceneManager : SubManager
     StartCoroutine(LoadSceneAsync(scene.buildIndex, mode));
   }
 
+  public void RetryLevel()
+  {
+    LoadScreenSingle(this.levelID);
+  }
+
   public void LoadNextLevel()
   {
     this.levelID++;

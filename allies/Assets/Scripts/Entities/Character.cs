@@ -142,7 +142,7 @@ public class Character : Entity
       Mathf.Abs(rb.velocity.x) < angleVelocityThreshold &&
       Mathf.Abs(rb.velocity.y) < angleVelocityThreshold
     )
-      return -90f;
+      return 0f;
 
     return Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
   }

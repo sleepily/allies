@@ -10,14 +10,11 @@ public class CameraManager : SubManager
   public Camera currentView; // Use this for initialization
   public int viewIndex = 0;
 
-  public SpriteRenderer visibleWithLayers; // sprite to be enabled only when viewing in layer mode
-
   public override void Init()
   {
     base.Init();
 
     currentView = views[0];
-    visibleWithLayers = gameManager.levelManager.colliderSpriteRenderer;
   }
 
   private void LateUpdate()
@@ -39,8 +36,6 @@ public class CameraManager : SubManager
 
   private void Update()
   {
-    visibleWithLayers.enabled = (viewIndex == 1);
-
     GetInput();
     currentView = views[viewIndex];
   }

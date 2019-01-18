@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Rage : Character
 {
+  //TODO; implement this
+  public Vector2 abilityDirection;
+
   protected override void CharacterSpecificAnimationProperties()
   {
     SetFireAngle();
