@@ -147,6 +147,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
+  actionActivated: 0
 --- !u!114 &114791801175395556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,6 +162,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
+  actionActivated: 0
 --- !u!114 &114909306320152122
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,6 +177,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
+  actionActivated: 0
 --- !u!114 &114927301005359926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,6 +192,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
+  actionActivated: 0
   platform: {fileID: 114238176395044016}
   fuses:
   - {fileID: 114791801175395556}
@@ -274,7 +278,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300094, guid: 3a419f18af7b6aa4691d3e0fb0af2f07, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b076fead28d390c4c89897e30bb1990c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

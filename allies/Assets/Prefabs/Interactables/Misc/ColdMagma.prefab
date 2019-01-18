@@ -55,11 +55,12 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
+  actionActivated: 0
   spriteRenderer: {fileID: 0}
   sprites:
-  - {fileID: 21300000, guid: b37b6c7b909048c42b23c0bb9c0c9567, type: 3}
-  - {fileID: 21300002, guid: b37b6c7b909048c42b23c0bb9c0c9567, type: 3}
-  - {fileID: 21300004, guid: b37b6c7b909048c42b23c0bb9c0c9567, type: 3}
+  - {fileID: 21300000, guid: ce22e960c79b2ea44bdac0452c8977c7, type: 3}
+  - {fileID: 21300000, guid: 478862dc05e04374a847a9da05552b53, type: 3}
+  - {fileID: 21300000, guid: ad84c215f54218d44b2e9421a8900cc9, type: 3}
 --- !u!212 &212405755079001910
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -95,7 +96,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b37b6c7b909048c42b23c0bb9c0c9567, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 478862dc05e04374a847a9da05552b53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

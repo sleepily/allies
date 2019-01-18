@@ -55,7 +55,9 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
+  actionActivated: 0
   listToTrigger: []
+  triggerAction: 0
 --- !u!212 &212242378899845632
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -91,7 +93,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300010, guid: 7ea6e164683ef2244907864131b77dfb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bb131ef28616ca14eaa8b3b987492d25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

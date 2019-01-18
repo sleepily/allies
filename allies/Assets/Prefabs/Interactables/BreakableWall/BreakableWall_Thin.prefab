@@ -55,7 +55,9 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
+  actionActivated: 0
   animator: {fileID: 0}
+  physicsMaterial2D: {fileID: 6200000, guid: 774c993475f372c4caafe6004be42659, type: 2}
 --- !u!212 &212219883594602272
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -91,7 +93,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300052, guid: 536aefa9057001d46a08a8cc735e00bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 27dde952d77ad7949b0843d0d6d6b82e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

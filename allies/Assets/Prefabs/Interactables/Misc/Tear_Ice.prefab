@@ -58,9 +58,9 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   spriteIndex: 0
   sprites:
-  - {fileID: 21300000, guid: 5d2dda91bbab45243a90ad05bccc41a0, type: 3}
-  - {fileID: 21300002, guid: 5d2dda91bbab45243a90ad05bccc41a0, type: 3}
-  - {fileID: 21300004, guid: 5d2dda91bbab45243a90ad05bccc41a0, type: 3}
+  - {fileID: 21300000, guid: 4ab9fae3d0f6b1d44afa647ceda33e15, type: 3}
+  - {fileID: 21300000, guid: a647882d0d757ae4790743b14557b8bf, type: 3}
+  - {fileID: 21300000, guid: 6a9e0205c20d8cf4eba7b1ffd0dbc096, type: 3}
   speed: 20
   angle: 0
   shootingOffset: 1
@@ -102,14 +102,14 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: 9265b2b1b6db23847b3a4146a53f1810, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a647882d0d757ae4790743b14557b8bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1.57, y: 1.76}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
