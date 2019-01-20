@@ -187,7 +187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ea3918fece71142948f3d13c66cb43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  done: 0
 --- !u!95 &1491746496
 Animator:
   serializedVersion: 3
@@ -236,7 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1491746493}
   screen: 0
-  levelID: 6
+  levelID: 7
 --- !u!4 &2079816788
 Transform:
   m_ObjectHideFlags: 0
@@ -261,4 +260,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ea3918fece71142948f3d13c66cb43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  done: 0
