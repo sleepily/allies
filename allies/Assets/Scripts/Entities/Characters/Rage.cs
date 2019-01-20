@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Rage : Character
 {
+  public GameObject flame;
   //TODO; implement this
   public Vector2 abilityDirection;
 
@@ -28,4 +29,6 @@ public class Rage : Character
     else
       rb.AddForce(Vector2.right * 30);
   }
+
+  
 }

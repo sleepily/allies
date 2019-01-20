@@ -55,6 +55,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
+  actionActivated: 0
 --- !u!212 &212228016804661132
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -87,8 +88,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1083900551
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300068, guid: 3a419f18af7b6aa4691d3e0fb0af2f07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

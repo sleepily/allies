@@ -32,6 +32,14 @@ public class SceneManager : SubManager
     LoadScreen(screen);
   }
 
+  private void Update()
+  {
+    if (Input.GetKeyDown(KeyCode.N))
+      LoadLevelFromBuildIndex(levelID - 1);
+    if (Input.GetKeyDown(KeyCode.M))
+      LoadLevelFromBuildIndex(levelID + 1);
+  }
+
   public void LoadScreen(Screen screen)
   {
     this.screen = screen;
@@ -42,9 +50,11 @@ public class SceneManager : SubManager
     {
       case Screen.splash:
         sceneID = "SplashScreen";
+        LoadScreenSingle(sceneID);
         break;
       case Screen.mainMenu:
         sceneID = "MenuScreen";
+        LoadScreenSingle(sceneID);
         break;
       case Screen.levelSelect:
         /*
@@ -55,23 +65,32 @@ public class SceneManager : SubManager
         return;
       case Screen.glossary:
         sceneID = "GlossaryScreen";
+        LoadScreenSingle(sceneID);
         break;
       case Screen.options:
         sceneID = "OptionsScreen";
+        LoadScreenAdditive("OptionsScreen");
         break;
       case Screen.pause:
         sceneID = "PauseScreen";
+        LoadScreenAdditive("PauseScreen");
         break;
       case Screen.quit:
-        Application.Quit();
+        Quit(); //TODO: replace with scene
         break;
       case Screen.level:
         LoadLevelFromBuildIndex(levelID);
         return;
     }
+  }
 
-    Debug.Log("Loading Scene: " + sceneID);
-    LoadScreenSingle(sceneID);
+  void Quit()
+  {
+    #if UNITY_EDITOR
+      UnityEditor.EditorApplication.isPlaying = false;
+    #else
+      Application.Quit ();
+    #endif
   }
 
   public void LoadScene(Scene scene, LoadSceneMode mode)
@@ -124,7 +143,7 @@ public class SceneManager : SubManager
   IEnumerator LoadSceneAsync(string sceneID, LoadSceneMode sceneMode)
   {
     asyncLoad = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneID, sceneMode);
-
+    
     while (!asyncLoad.isDone)
     {
       yield return null;
@@ -134,7 +153,7 @@ public class SceneManager : SubManager
   IEnumerator LoadSceneAsync(int sceneBuildIndex, LoadSceneMode sceneMode)
   {
     asyncLoad = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneBuildIndex, sceneMode);
-
+    
     while (!asyncLoad.isDone)
     {
       yield return null;
@@ -144,7 +163,7 @@ public class SceneManager : SubManager
   IEnumerator UnloadSceneAsync(Scene scene)
   {
     asyncUnload = UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(scene);
-
+    
     while (!asyncUnload.isDone)
     {
       yield return null;

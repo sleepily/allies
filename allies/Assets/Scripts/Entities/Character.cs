@@ -16,12 +16,12 @@ public class Character : Entity
   [Header("Animations")]
   public SpriteRenderer spriteRenderer;
   public Animator animator;
+  float horizontalVelocityAbs, verticalVelocityAbs;
   public bool isMovingLeft;
   public bool isMoving;
   public bool abilityActive;
-  public GameObject flame;
   public float angle;
-  public float angleVelocityThreshold;
+  float angleVelocityThreshold = 1f;
 
   private void Start()
   {
@@ -44,10 +44,14 @@ public class Character : Entity
   private void OnCollisionEnter2D(Collision2D collision)
   {
     AllCollisionChecks(collision);
+  }
 
-    CollisionWithCharacter(collision);
-    CheckGroundCollision(collision);
-    CheckWallCollision(collision);
+  protected virtual void AllCollisionChecks(Collision2D collision)
+  {
+    CheckCollisionWithEnemy(collision);
+    CheckCollisionWithCharacter(collision);
+    CheckCollisionWithGround(collision);
+    CheckCollisionWithWall(collision);
   }
 
   protected virtual void GetAllComponents()
@@ -55,19 +59,6 @@ public class Character : Entity
     rb          = GetComponent<Rigidbody2D>();
     animator    = GetComponent<Animator>();
     spriteRenderer = GetComponent<SpriteRenderer>();
-  }
-
-  protected void AllCollisionChecks(Collision2D collision)
-  {
-    switch (collision.gameObject.tag)
-    {
-      case "Enemy":
-        CollisionWithEnemy(collision);
-        break;
-      default:
-        // Debug.LogError("Collision ignored: Tagged \"" + collision.gameObject.tag + "\".");
-        break;
-    }
   }
 
   private void OnCollisionExit2D(Collision2D collision)
@@ -80,10 +71,7 @@ public class Character : Entity
     isCollidingWithGround = false;
     isCollidingWithWall = false;
   }
-
-  /*
-   * useful for possible gravity changes in future levels
-   */
+  
   private void GetGlobalGravityScale()
   {
     if (!gameManager.playerManager)
@@ -91,43 +79,48 @@ public class Character : Entity
 
     rb.gravityScale = gameManager.playerManager.globalGravityScale;
   }
-
-  //update the animator variables used to transition between animations
+  
   private void SetAnimatorProperties()
   {
     if (animator == null)
       return;
 
     CharacterSpecificAnimationProperties();
+    GetAbsoluteVelocityValues();
+    PreventIdleAnimationWhileJumping(); //TODO: work this into blend tree somehow
+    SetAnimatorVariables();
+    MirrorSpriteIfMovingLeft();
+  }
 
-    // positive velocity values for correctly triggering blend tree motions
-    float horizontalVelocityAbs = Mathf.Abs(rb.velocity.x);
-    float verticalVelocityAbs = Mathf.Abs(rb.velocity.y);
+  void SetAnimatorVariables()
+  {
+    animator.SetBool("abilityActive", abilityActive);
+    animator.SetBool("isJumping", isJumping);
+    animator.SetBool("isMoving", CharacterIsMoving());
+    animator.SetBool("mirrorAnimation", isMovingLeft);
+    animator.SetFloat("horizontalVelocity", rb.velocity.x);
+    animator.SetFloat("verticalVelocity", rb.velocity.y);
+    animator.SetFloat("horizontalVelocityAbs", horizontalVelocityAbs);
+    animator.SetFloat("verticalVelocityAbs", verticalVelocityAbs);
+  }
 
+  void PreventIdleAnimationWhileJumping()
+  {
     // prevent idle and walking animation while jumping
     if (isJumping)
     {
       horizontalVelocityAbs = 0f;
 
-      if (verticalVelocityAbs < 1f)
+      if (verticalVelocityAbs <= .1f)
         verticalVelocityAbs = -1f;
     }
+  }
 
-    animator.SetBool  ("abilityActive",         abilityActive);
-
-    //TODO: clean up
-    if (name == "Anxiety" && abilityActive)
-      return;
-
-    animator.SetBool  ("isJumping",             isJumping);
-    animator.SetBool  ("isMoving",              CharacterIsMoving());
-    animator.SetBool  ("mirrorAnimation",       isMovingLeft);
-    animator.SetFloat ("horizontalVelocity",    rb.velocity.x);
-    animator.SetFloat ("verticalVelocity",      rb.velocity.y);
-    animator.SetFloat ("horizontalVelocityAbs", horizontalVelocityAbs);
-    animator.SetFloat ("verticalVelocityAbs",   verticalVelocityAbs);
-
-    FlipSpriteX();
+  void GetAbsoluteVelocityValues()
+  {
+    // positive velocity values for correctly triggering blend tree motions
+    horizontalVelocityAbs = Mathf.Abs(rb.velocity.x);
+    verticalVelocityAbs = Mathf.Abs(rb.velocity.y);
   }
 
   protected virtual void CharacterSpecificAnimationProperties()
@@ -221,13 +214,16 @@ public class Character : Entity
     rb.velocity = new Vector2(rb.velocity.x, jumpForce);
   }
 
-  protected virtual void CollisionWithCharacter(Collision2D collision)
+  protected virtual void CheckCollisionWithCharacter(Collision2D collision)
   {
+    if (!collision.gameObject.CompareTag("Character"))
+      return;
+
     if (abilityActive)
       abilityActive = false;
   }
 
-  private void CheckGroundCollision(Collision2D collision)
+  private void CheckCollisionWithGround(Collision2D collision)
   {
     isCollidingWithGround = false;
 
@@ -241,17 +237,18 @@ public class Character : Entity
       }
   }
 
-  private void CheckWallCollision(Collision2D collision)
+  private void CheckCollisionWithWall(Collision2D collision)
   {
     isCollidingWithWall = false;
 
     if (!abilityActive)
       return;
-
+    
     if (!collision.gameObject.CompareTag("Platform"))
     {
-      isMovingLeft = !isMovingLeft;
-      rb.velocity = new Vector2(isMovingLeft ? -30 : 30, 0); // fix bounce caused by using rb.velocity.y
+      // isMovingLeft = !isMovingLeft;
+      // rb.velocity = new Vector2(isMovingLeft ? -30 : 30, 0); // fix bounce caused by using rb.velocity.y
+      rb.velocity = new Vector2(0, 0); // fix bounce caused by using rb.velocity.y
       return;
     }
 
@@ -275,12 +272,15 @@ public class Character : Entity
       }
   }
   
-  protected virtual void CollisionWithEnemy(Collision2D collision)
+  protected virtual void CheckCollisionWithEnemy(Collision2D collision)
   {
+    if (!collision.gameObject.CompareTag("Enemy"))
+      return;
+
     gameManager.levelManager.Retry();
   }
 
-  void FlipSpriteX()
+  void MirrorSpriteIfMovingLeft()
   {
     if (!spriteRenderer)
       return;

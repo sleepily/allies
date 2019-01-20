@@ -31,13 +31,13 @@ public class Anxiety : Character
     isDeactivating = false;
   }
 
-  protected override void CollisionWithEnemy(Collision2D collision)
+  protected override void CheckCollisionWithEnemy(Collision2D collision)
   {
     if (abilityActive)
       collision.gameObject.SendMessage("Bounce");
   }
 
-  protected override void CollisionWithCharacter(Collision2D collision)
+  protected override void CheckCollisionWithCharacter(Collision2D collision)
   {
     StartDeactivationTimer();
   }

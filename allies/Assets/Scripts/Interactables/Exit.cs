@@ -5,27 +5,69 @@ using UnityEngine;
 public class Exit : Interactable
 {
   public bool activated = false;
+  public List<Character> entered;
+  public int charactersMissing = 3;
+  bool gotCharacterCount = false;
 
 	void Start ()
   {
     Init();
-    ModifyCollider();
+    SetColliderToTrigger();
 	}
+
+  void GetMissingCharacterCount()
+  {
+    if (gotCharacterCount)
+      return;
+
+    charactersMissing = gameManager.playerManager.activeCharactersInLevel.Count;
+
+    if (charactersMissing == 0)
+      return;
+
+    gotCharacterCount = true;
+  }
+
+  private void FixedUpdate()
+  {
+    GetMissingCharacterCount();
+    CheckForAllCharacters();
+  }
+
+  void CheckForAllCharacters()
+  {
+    if (!gotCharacterCount)
+      return;
+
+    if (charactersMissing == 0)
+      ExitLevel();
+  }
 
   private void OnTriggerEnter2D(Collider2D collision)
   {
-    CheckCharacterCount(collision);
+    CheckCharacterTrigger(collision);
   }
 
-  void ModifyCollider()
+  void SetColliderToTrigger()
   {
     polygonCollider2D.isTrigger = true;
   }
 
-  void CheckCharacterCount(Collider2D collision)
+  void CheckCharacterTrigger(Collider2D collision)
   {
-    if (collision.CompareTag("Character"))
-      ExitLevel();
+    if (!collision.CompareTag("Character"))
+      return;
+
+    Character c = collision.gameObject.GetComponent<Character>();
+    HideCharacter(c);
+  }
+
+  void HideCharacter(Character character)
+  {
+    charactersMissing--;
+
+    character.gameObject.SetActive(false);
+    character.enabled = false;
   }
 
   void ExitLevel()

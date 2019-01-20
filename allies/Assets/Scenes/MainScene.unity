@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 2079816787}
   - component: {fileID: 2079816789}
   m_Layer: 0
-  m_Name: GameSceneManager
+  m_Name: SceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1491746493}
-  screen: 3
+  screen: 0
   levelID: 6
 --- !u!4 &2079816788
 Transform:

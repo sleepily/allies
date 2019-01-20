@@ -645,6 +645,16 @@ Prefab:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212744379941399554, guid: dc253b6ea3562914bbeebada31d55089,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 2098527485
+      objectReference: {fileID: 0}
+    - target: {fileID: 212744379941399554, guid: dc253b6ea3562914bbeebada31d55089,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
   m_IsPrefabAsset: 0

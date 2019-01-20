@@ -64,7 +64,7 @@ MonoBehaviour:
   speed: 20
   angle: 0
   shootingOffset: 1
-  isKinematic: 1
+  isKinematic: 0
   isShot: 0
   isColliding: 0
   coldMagmaPrefab: {fileID: 114701120350375326, guid: ee0c8d09c54f5864d96f88d776c61cc2,

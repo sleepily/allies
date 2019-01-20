@@ -58,7 +58,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   spriteIndex: 0
   sprites:
-  - {fileID: 21300000, guid: 169f2910bf9d88640839f19a9c2044fd, type: 3}
+  - {fileID: 21300000, guid: b014eae69aacae64582ae41cf1d023fe, type: 3}
   speed: 20
   angle: 0
   shootingOffset: 1
