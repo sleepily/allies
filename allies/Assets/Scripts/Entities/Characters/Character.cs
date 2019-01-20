@@ -20,6 +20,7 @@ public class Character : Entity
   public bool isMovingLeft;
   public bool isMoving;
   public bool abilityActive;
+  public int abilityIndex = 0;
   public float angle;
   float angleVelocityThreshold = 1f;
 
@@ -94,14 +95,15 @@ public class Character : Entity
 
   void SetAnimatorVariables()
   {
-    animator.SetBool("abilityActive", abilityActive);
-    animator.SetBool("isJumping", isJumping);
-    animator.SetBool("isMoving", CharacterIsMoving());
-    animator.SetBool("mirrorAnimation", isMovingLeft);
-    animator.SetFloat("horizontalVelocity", rb.velocity.x);
-    animator.SetFloat("verticalVelocity", rb.velocity.y);
-    animator.SetFloat("horizontalVelocityAbs", horizontalVelocityAbs);
-    animator.SetFloat("verticalVelocityAbs", verticalVelocityAbs);
+    animator.SetBool   ("abilityActive", abilityActive);
+    animator.SetInteger("abilityIndex", abilityIndex);
+    animator.SetBool   ("isJumping", isJumping);
+    animator.SetBool   ("isMoving", CharacterIsMoving());
+    animator.SetBool   ("mirrorAnimation", isMovingLeft);
+    animator.SetFloat  ("horizontalVelocity", rb.velocity.x);
+    animator.SetFloat  ("verticalVelocity", rb.velocity.y);
+    animator.SetFloat  ("horizontalVelocityAbs", horizontalVelocityAbs);
+    animator.SetFloat  ("verticalVelocityAbs", verticalVelocityAbs);
   }
 
   void PreventIdleAnimationWhileJumping()
@@ -169,6 +171,14 @@ public class Character : Entity
       if (velocity.x >  .1)
         isMovingLeft = false;
     }
+  }
+
+  public void ActivateAbility()
+  {
+    if (!isCollidingWithGround)
+      return;
+
+    abilityActive = true;
   }
 
   protected void CheckAbilityStatus()

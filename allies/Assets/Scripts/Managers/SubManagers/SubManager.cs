@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SubManager : Manager
 {
-  [HideInInspector]
+  //[HideInInspector]
   public GameManager gameManager;
 
   private void Start()

@@ -57,9 +57,9 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 2
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 774c993475f372c4caafe6004be42659, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -122,9 +122,7 @@ MonoBehaviour:
   isMovingLeft: 0
   isMoving: 0
   abilityActive: 0
-  flame: {fileID: 0}
   angle: 0
-  angleVelocityThreshold: 0
   deactivationTimestamp: 0
   deactivationTime: 4
   isDeactivating: 0
@@ -161,7 +159,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 280475669
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 1aa49b814577884458ab6b01bb243296, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

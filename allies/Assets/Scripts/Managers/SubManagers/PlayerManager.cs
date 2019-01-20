@@ -121,7 +121,17 @@ public class PlayerManager : SubManager
       gameManager.levelManager.Retry();
     
     if (gameManager.inputManager.abilityAction)
-      activeCharacter.abilityActive = true;
+    {
+      activeCharacter.abilityIndex = 0;
+      activeCharacter.ActivateAbility();
+    }
+
+    if (gameManager.inputManager.abilityAction2)
+      if (activeCharacter.name == "Depression")
+      {
+        activeCharacter.abilityIndex = 1;
+        activeCharacter.ActivateAbility();
+      }
   }
 
   void MoveActiveCharacter()

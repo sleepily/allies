@@ -5,7 +5,7 @@ Physics2DSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 3
   m_Gravity: {x: 0, y: -9.81}
-  m_DefaultMaterial: {fileID: 0}
+  m_DefaultMaterial: {fileID: 6200000, guid: 477848852293f0349871226994208e67, type: 2}
   m_VelocityIterations: 20
   m_PositionIterations: 15
   m_VelocityThreshold: 1
@@ -16,8 +16,8 @@ Physics2DSettings:
   m_BaumgarteScale: 0.5
   m_BaumgarteTimeOfImpactScale: 0.75
   m_TimeToSleep: 0.1
-  m_LinearSleepTolerance: 0.5
-  m_AngularSleepTolerance: 2
+  m_LinearSleepTolerance: 2
+  m_AngularSleepTolerance: 5
   m_DefaultContactOffset: 0.01
   m_JobOptions:
     serializedVersion: 2

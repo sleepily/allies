@@ -5,7 +5,6 @@ using UnityEngine;
 public class Rage : Character
 {
   public GameObject flame;
-  //TODO; implement this
   public Vector2 abilityDirection;
 
   protected override void CharacterSpecificAnimationProperties()
@@ -24,11 +23,8 @@ public class Rage : Character
   {
     base.Ability();
 
-    if (isMovingLeft)
-      rb.AddForce(Vector2.left * 30);
-    else
-      rb.AddForce(Vector2.right * 30);
+    abilityDirection = isMovingLeft ? Vector2.left : Vector2.right;
+    
+    rb.AddForce(abilityDirection * 30);
   }
-
-  
 }

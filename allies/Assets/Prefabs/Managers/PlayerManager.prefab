@@ -58,17 +58,9 @@ MonoBehaviour:
     type: 2}
   depressionPrefab: {fileID: 114231862690535282, guid: 88564881450f4ea4cbc2a2c88f4b770e,
     type: 2}
-  icePrefab: {fileID: 114943508001085414, guid: e49fa0205badb1c4bab52670b4efc280,
-    type: 2}
-  magmaPrefab: {fileID: 114293418131878046, guid: b307c5ee65ae2ea4bb8b8dc2e66ece4f,
-    type: 2}
-  rage: {fileID: 0}
-  anxiety: {fileID: 0}
-  depression: {fileID: 0}
-  characters: []
-  characterIndex: 0
+  activeCharactersInLevel: []
+  activeCharacterIndex: 0
   activeCharacter: {fileID: 0}
-  allies: []
   maxGroupingDistance: 3
   movementForce: 3
   jumpForce: 5

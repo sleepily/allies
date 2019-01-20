@@ -33,6 +33,9 @@ public class Anxiety : Character
 
   protected override void CheckCollisionWithEnemy(Collision2D collision)
   {
+    if (!collision.gameObject.CompareTag("Enemy"))
+      return;
+
     if (abilityActive)
       collision.gameObject.SendMessage("Bounce");
   }

@@ -8,9 +8,7 @@ public class InputManager : SubManager
   public float moveY = 0f;
 
   [Header("Player related")]
-  public bool switchAction  = false;
-  public bool groupAction   = false;
-  public bool abilityAction = false;
+  public bool switchAction, groupAction, abilityAction, abilityAction2 = false;
 
   [Header("Tear related")]
   public Vector2 toMouse     = Vector2.zero;
@@ -46,9 +44,10 @@ public class InputManager : SubManager
 
   void UpdateFunctionKeys()
   {
-    switchAction  = Input.GetKeyDown(KeyCode.R);
-    groupAction   = Input.GetKeyDown(KeyCode.F);
-    abilityAction = Input.GetKeyDown(KeyCode.E);
+    switchAction   = Input.GetKeyDown(KeyCode.R);
+    groupAction    = Input.GetKeyDown(KeyCode.F);
+    abilityAction  = Input.GetKeyDown(KeyCode.E);
+    abilityAction2 = Input.GetKeyDown(KeyCode.S);
 
     cameraSwitch  = Input.GetKeyDown(KeyCode.Space);
     reloadScene   = Input.GetKeyDown(KeyCode.Q);
