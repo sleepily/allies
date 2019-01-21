@@ -9,63 +9,55 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1868991227120198}
+  m_RootGameObject: {fileID: 1355398526975032}
   m_IsPrefabAsset: 1
---- !u!1 &1868991227120198
+--- !u!1 &1355398526975032
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4595861469793544}
-  - component: {fileID: 212242378899845632}
-  - component: {fileID: 114459831257759220}
-  m_Layer: 0
-  m_Name: Switch
-  m_TagString: Interactible
+  - component: {fileID: 4228796085422600}
+  - component: {fileID: 212655063315568656}
+  - component: {fileID: 114225852149091222}
+  m_Layer: 10
+  m_Name: Tear_Crybaby
+  m_TagString: IceTear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4595861469793544
+--- !u!4 &4228796085422600
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1868991227120198}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.44, y: -5.71, z: 0}
+  m_GameObject: {fileID: 1355398526975032}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114459831257759220
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
+--- !u!114 &114225852149091222
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1868991227120198}
+  m_GameObject: {fileID: 1355398526975032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d84ae966f3a5d14092f2f24956dc29f, type: 3}
+  m_Script: {fileID: 11500000, guid: bb647a61e363b844aa49bb844b3d7582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  polygonCollider2D: {fileID: 0}
-  rb: {fileID: 0}
-  activated: 0
-  spriteActivated: {fileID: 21300000, guid: acf11c893971e284c861a21f0c585cf8, type: 3}
-  spriteDeactivated: {fileID: 21300000, guid: 338266369a173b040a2a6597e572ff5c, type: 3}
-  listToTrigger: []
-  isActivated: 0
---- !u!212 &212242378899845632
+--- !u!212 &212655063315568656
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1868991227120198}
+  m_GameObject: {fileID: 1355398526975032}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -92,15 +84,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 567922605
-  m_SortingLayer: 3
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 338266369a173b040a2a6597e572ff5c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a647882d0d757ae4790743b14557b8bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.3, y: 2.14}
+  m_Size: {x: 1.57, y: 1.76}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

@@ -4,20 +4,10 @@ using UnityEngine;
 
 public class PressurePlate : Switch
 {
-  public Sprite spriteActivated;
-  public Sprite spriteDeactivated;
-
-  SpriteRenderer spriteRenderer;
-
   public override void Init()
   {
     base.Init();
-    spriteRenderer = GetComponent<SpriteRenderer>();
-  }
-
-  private void FixedUpdate()
-  {
-    DeactivateSwitch();
+    spriteRenderer.sprite = spriteDeactivated;
   }
 
   private void OnCollisionEnter2D(Collision2D collision)
@@ -28,6 +18,11 @@ public class PressurePlate : Switch
   private void OnCollisionStay2D(Collision2D collision)
   {
     ActivateSwitchOnTagCollision("Character", collision);
+  }
+
+  private void OnCollisionExit2D(Collision2D collision)
+  {
+    DeactivateSwitch();
   }
 
   protected override void ActivateSwitch()

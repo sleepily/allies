@@ -16,10 +16,4 @@ public class TestScript : MonoBehaviour
   {
 		
 	}
-	
-	void Update ()
-  {
-    if (Input.GetKeyDown(KeyCode.Q))
-      UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
-  }
 }

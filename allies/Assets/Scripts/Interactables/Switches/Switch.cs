@@ -4,8 +4,20 @@ using UnityEngine;
 
 public class Switch : Interactable
 {
+  [Header("Visuals")]
+  public Sprite spriteActivated;
+  public Sprite spriteDeactivated;
+  protected SpriteRenderer spriteRenderer;
+
+  [Header("Activation")]
   public List<Interactable> listToTrigger;
   public bool isActivated = false;
+
+  public override void Init()
+  {
+    base.Init();
+    spriteRenderer = GetComponent<SpriteRenderer>();
+  }
 
   private void OnCollisionEnter2D(Collision2D collision)
   {
@@ -23,14 +35,16 @@ public class Switch : Interactable
   protected virtual void ActivateSwitch()
   {
     isActivated = true;
-    foreach (Interactable i in listToTrigger)
-      i.Activate();
+    foreach (Interactable interactibleToTrigger in listToTrigger)
+      if (interactibleToTrigger)
+        interactibleToTrigger.Activate();
   }
 
   protected virtual void DeactivateSwitch()
   {
     isActivated = false;
-    foreach (Interactable i in listToTrigger)
-      i.Deactivate();
+    foreach (Interactable interactibleToTrigger in listToTrigger)
+      if (interactibleToTrigger)
+        interactibleToTrigger.Deactivate();
   }
 }

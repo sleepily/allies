@@ -16,10 +16,10 @@ public class FallingPlatform : Interactable
 
   public override void Activate()
   {
-    if (actionActivated)
+    if (activated)
       return;
 
-    actionActivated = true;
+    activated = true;
 
     foreach (Fuse fuse in fuses)
       Destroy(fuse.gameObject);

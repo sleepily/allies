@@ -31,7 +31,7 @@ public class FloatingPlatform : Interactable
 
   void FloatUp()
   {
-    if (!actionActivated)
+    if (!activated)
       return;
 
     if (transform.position.y >= initialPosition.y + floatHeight)

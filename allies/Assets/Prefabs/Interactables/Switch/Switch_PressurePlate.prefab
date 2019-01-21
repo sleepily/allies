@@ -55,11 +55,11 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
-  actionActivated: 0
-  listToTrigger: []
-  isActivated: 0
+  activated: 0
   spriteActivated: {fileID: 21300000, guid: 8003cc9c69ac3ea489d2405b22f748e2, type: 3}
   spriteDeactivated: {fileID: 21300000, guid: 1a8b1bfaab9d97f4a95cb15e28977d9c, type: 3}
+  listToTrigger: []
+  isActivated: 0
 --- !u!212 &212242378899845632
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -95,7 +95,7 @@ SpriteRenderer:
   m_SortingLayerID: 567922605
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1a8b1bfaab9d97f4a95cb15e28977d9c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8003cc9c69ac3ea489d2405b22f748e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
