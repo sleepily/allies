@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4074279178975780}
   - component: {fileID: 212537778972023846}
-  - component: {fileID: 114448099942569752}
+  - component: {fileID: 114177683881254788}
   m_Layer: 0
   m_Name: Pillar_Right
   m_TagString: Platform
@@ -41,7 +41,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114448099942569752
+--- !u!114 &114177683881254788
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,13 +49,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1575107917799778}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96cbb09a92454ba4dbea73ca19a990f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 93d9dce5c2174d540b58c78e9545e49e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   actionActivated: 0
+  icePhysicsMaterial: {fileID: 0}
 --- !u!212 &212537778972023846
 SpriteRenderer:
   m_ObjectHideFlags: 1

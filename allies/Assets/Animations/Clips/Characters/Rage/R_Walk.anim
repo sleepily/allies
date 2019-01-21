@@ -26,22 +26,16 @@ AnimationClip:
     script: {fileID: 0}
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 24f579c4c1c52df41848f2a7b2c6908a, type: 3}
-    - time: 0.083333336
-      value: {fileID: 21300000, guid: 690483e9ef340a348b4c7948d370fbb4, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300000, guid: a96f69b520fcae24099754ec9428aefc, type: 3}
-    - time: 0.25
       value: {fileID: 21300000, guid: 67e11c35dd9064e48b1b355cfbf50c68, type: 3}
-    - time: 0.33333334
+    - time: 0.083333336
       value: {fileID: 21300000, guid: 84910d57d6b720644ab9613209394d32, type: 3}
-    - time: 0.4166667
+    - time: 0.16666667
       value: {fileID: 21300000, guid: a49fa9e89e48e0047aea06619b5398e7, type: 3}
-    - time: 0.5
+    - time: 0.25
       value: {fileID: 21300000, guid: 46516ab3ff449d541ac1e802a0a61ca5, type: 3}
-    - time: 0.5833333
+    - time: 0.33333334
       value: {fileID: 21300000, guid: 14c52fa5da62b6e45b1feb20b256ea8a, type: 3}
-    - time: 0.6666666
+    - time: 0.4166667
       value: {fileID: 21300000, guid: e24b16fd7905bf4418381d5ff67b8865, type: 3}
     attribute: m_Sprite
     path: Flame
@@ -70,9 +64,6 @@ AnimationClip:
       isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: 21300000, guid: ee4cbae542db1184cb0e6776be345b15, type: 3}
-    - {fileID: 21300000, guid: 24f579c4c1c52df41848f2a7b2c6908a, type: 3}
-    - {fileID: 21300000, guid: 690483e9ef340a348b4c7948d370fbb4, type: 3}
-    - {fileID: 21300000, guid: a96f69b520fcae24099754ec9428aefc, type: 3}
     - {fileID: 21300000, guid: 67e11c35dd9064e48b1b355cfbf50c68, type: 3}
     - {fileID: 21300000, guid: 84910d57d6b720644ab9613209394d32, type: 3}
     - {fileID: 21300000, guid: a49fa9e89e48e0047aea06619b5398e7, type: 3}
@@ -84,7 +75,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.74999994
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

@@ -27,6 +27,11 @@ public class Character : Entity
 
   private void Start()
   {
+    Init();
+  }
+
+  protected virtual void Init()
+  {
     GetAllComponents();
     isMovingLeft = false;
   }
@@ -252,14 +257,14 @@ public class Character : Entity
   private void CheckCollisionWithWall(Collision2D collision)
   {
     isCollidingWithWall = false;
-
-    if (!abilityActive)
-      return;
     
     if (!collision.gameObject.CompareTag("Platform"))
     {
       // isMovingLeft = !isMovingLeft;
       // rb.velocity = new Vector2(isMovingLeft ? -30 : 30, 0); // fix bounce caused by using rb.velocity.y
+      if (!abilityActive)
+        return;
+
       rb.velocity = new Vector2(0, 0); // fix bounce caused by using rb.velocity.y
       return;
     }
@@ -292,7 +297,7 @@ public class Character : Entity
     gameManager.levelManager.Retry();
   }
 
-  void MirrorSpriteIfMovingLeft()
+  protected virtual void MirrorSpriteIfMovingLeft()
   {
     if (!spriteRenderer)
       return;

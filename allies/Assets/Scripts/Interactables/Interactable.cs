@@ -11,7 +11,7 @@ public class Interactable : MonoBehaviour
   public Rigidbody2D rb;
 
   [Header("Action")]
-  public bool activated = false;
+  public bool actionActivated = false;
 
   private void Start()
   {
@@ -31,12 +31,12 @@ public class Interactable : MonoBehaviour
 
   public virtual void Activate()
   {
-    activated = true;
+    actionActivated = true;
   }
 
   public virtual void Deactivate()
   {
-    activated = false;
+    actionActivated = false;
   }
 
   public void MoveToInteractablesManager()

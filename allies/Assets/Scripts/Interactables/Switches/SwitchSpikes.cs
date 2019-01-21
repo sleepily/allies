@@ -18,7 +18,7 @@ public class SwitchSpikes : Spikes
 
   protected override void CheckForCharacterCollision(Collision2D collision)
   {
-    if (activated)
+    if (actionActivated)
       return;
 
     base.CheckForCharacterCollision(collision);
