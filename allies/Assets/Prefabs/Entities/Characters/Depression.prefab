@@ -112,6 +112,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   rb: {fileID: 0}
   velocity: {x: 0, y: 0}
+  canUseAbilityInAir: 0
   allowJump: 0
   allowMove: 0
   isCollidingWithGround: 0
@@ -125,10 +126,11 @@ MonoBehaviour:
   abilityIndex: 0
   angle: 0
   jetpackOffset: 0.2
-  jetpackForce: 10
-  jetpackDuration: 2.4
+  jetpackForce: 16
+  jetpackDuration: 1.5
   timestamp_jetpack: -1
   jetpackIsActive: 0
+  horizontalDamping: 1.4
 --- !u!212 &212635175326121436
 SpriteRenderer:
   m_ObjectHideFlags: 1

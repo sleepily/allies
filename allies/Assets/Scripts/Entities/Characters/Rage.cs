@@ -24,8 +24,8 @@ public class Rage : Character
     base.Ability();
 
     abilityDirection = isMovingLeft ? Vector2.left : Vector2.right;
-    
-    rb.AddForce(abilityDirection * 30);
+
+    rb.velocity = new Vector2(abilityDirection.x * 16, rb.velocity.y);
   }
 
   protected override void MirrorSpriteIfMovingLeft()

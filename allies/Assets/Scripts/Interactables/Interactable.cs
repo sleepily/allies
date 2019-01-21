@@ -46,7 +46,11 @@ public class Interactable : MonoBehaviour
 
   private void CreateRigidBody()
   {
-    rb = gameObject.AddComponent(typeof(Rigidbody2D)) as Rigidbody2D;
+    rb = gameObject.GetComponent<Rigidbody2D>();
+
+    if (!rb)
+      rb = gameObject.AddComponent(typeof(Rigidbody2D)) as Rigidbody2D;
+
     rb.isKinematic = true;
     rb.useFullKinematicContacts = true;
   }

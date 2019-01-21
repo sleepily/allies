@@ -27,6 +27,7 @@ public class SwitchSpikes : Spikes
   public override void Activate()
   {
     base.Activate();
-    Destroy(this.gameObject);
+    spikes.color = new Color(1, 1, 1, 0);
+    polygonCollider2D.isTrigger = true;
   }
 }

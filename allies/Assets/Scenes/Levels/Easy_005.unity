@@ -484,7 +484,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4888141962139600, guid: 1e5f608c2acbe6a47ae70419bbb8ee29, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -14.215901
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 4888141962139600, guid: 1e5f608c2acbe6a47ae70419bbb8ee29, type: 2}
       propertyPath: m_LocalPosition.z
@@ -510,9 +510,42 @@ Prefab:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 212939789865000464, guid: 1e5f608c2acbe6a47ae70419bbb8ee29,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 4.13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e5f608c2acbe6a47ae70419bbb8ee29, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &827140542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1022218867515048, guid: 1e5f608c2acbe6a47ae70419bbb8ee29,
+    type: 2}
+  m_PrefabInternal: {fileID: 827140541}
+--- !u!1 &827140543 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1271315957965814, guid: 1e5f608c2acbe6a47ae70419bbb8ee29,
+    type: 2}
+  m_PrefabInternal: {fileID: 827140541}
+--- !u!114 &827140544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 827140543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c3f40bf0f37489479739ed7ed378ecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  polygonCollider2D: {fileID: 0}
+  rb: {fileID: 0}
+  actionActivated: 0
+  water: {fileID: 827140542}
+  floatTime: 3
+  floatHeight: 5
 --- !u!1001 &877192593
 Prefab:
   m_ObjectHideFlags: 0
@@ -607,6 +640,26 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c89e506c558c64a42a79b1527f814a98, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &928171244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1873278047130782, guid: c89e506c558c64a42a79b1527f814a98,
+    type: 2}
+  m_PrefabInternal: {fileID: 928171243}
+--- !u!114 &928171245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 928171244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96cbb09a92454ba4dbea73ca19a990f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  polygonCollider2D: {fileID: 0}
+  rb: {fileID: 0}
+  actionActivated: 0
 --- !u!1001 &981747353
 Prefab:
   m_ObjectHideFlags: 0

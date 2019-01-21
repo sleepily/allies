@@ -56,6 +56,9 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   actionActivated: 0
+  stonePhysicsMaterial: {fileID: 6200000, guid: 7f3383d48be9ec842af7fe8c0723beaf,
+    type: 2}
+  icePhysicsMaterial: {fileID: 6200000, guid: 774c993475f372c4caafe6004be42659, type: 2}
   speed: 7
 --- !u!212 &212537778972023846
 SpriteRenderer:

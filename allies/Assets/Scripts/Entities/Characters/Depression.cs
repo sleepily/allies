@@ -10,6 +10,8 @@ public class Depression : Character
   public float timestamp_jetpack = -1f;
   public bool jetpackIsActive = false;
 
+  public float horizontalDamping = 1.4f;
+
   protected override void Ability()
   {
     base.Ability();
@@ -42,7 +44,7 @@ public class Depression : Character
     if (Time.time < timestamp_jetpack + jetpackOffset + jetpackDuration)
     {
       allowMove = true;
-      rb.velocity = new Vector2(rb.velocity.x / 2, jetpackForce);
+      rb.velocity = new Vector2(rb.velocity.x / horizontalDamping, jetpackForce);
       return;
     }
 

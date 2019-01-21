@@ -41,7 +41,7 @@ public class InputManager : SubManager
     if (moveX < -.1) moveX = -1;
     if (moveX >  .1) moveX =  1;
     
-    moveY = Input.GetAxis("Vertical");
+    moveY = Input.GetAxisRaw("Vertical");
     if (moveY < 0)  moveY = 0;
     if (moveY > 0)  moveY = 1;
   }

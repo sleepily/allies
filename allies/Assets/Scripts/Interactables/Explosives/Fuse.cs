@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class Fuse : Interactable
 {
-  
+  public override void Init()
+  {
+    base.Init();
+    polygonCollider2D.isTrigger = true;
+  }
 }
