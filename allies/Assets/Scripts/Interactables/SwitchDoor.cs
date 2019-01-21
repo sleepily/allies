@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwitchDoor : Interactable
 {
-  public override void Action()
+  public override void Activate()
   {
     //TODO: implement animation
     Destroy(this.gameObject);

@@ -8,7 +8,8 @@ public class InputManager : SubManager
   public float moveY = 0f;
 
   [Header("Player related")]
-  public bool switchAction, groupAction, abilityAction, abilityAction2 = false;
+  public bool switchAction = false;
+  public bool groupAction, abilityAction, abilityAction2, backAction = false;
 
   [Header("Tear related")]
   public Vector2 toMouse     = Vector2.zero;
@@ -28,6 +29,9 @@ public class InputManager : SubManager
     UpdateFunctionKeys();
     UpdateMovementKeys();
 
+    if (backAction)
+      gameManager.sceneManager.LoadScreen(SceneManager.Screen.mainMenu);
+
     CalculateAngleBetweenPlayerAndMouse();
   }
 
@@ -44,17 +48,20 @@ public class InputManager : SubManager
 
   void UpdateFunctionKeys()
   {
-    switchAction   = Input.GetKeyDown(KeyCode.R);
+    switchAction   = Input.GetKeyDown(KeyCode.Q);
     groupAction    = Input.GetKeyDown(KeyCode.F);
     abilityAction  = Input.GetKeyDown(KeyCode.E);
     abilityAction2 = Input.GetKeyDown(KeyCode.S);
-
-    cameraSwitch  = Input.GetKeyDown(KeyCode.Space);
-    reloadScene   = Input.GetKeyDown(KeyCode.Q);
+    backAction     = Input.GetKeyDown(KeyCode.Escape);
+    
+    reloadScene   = Input.GetKeyDown(KeyCode.R);
   }
 
   void CalculateAngleBetweenPlayerAndMouse()
   {
+    if (!gameManager)
+      return;
+
     if (!gameManager.playerManager.activeCharacter)
       return;
 

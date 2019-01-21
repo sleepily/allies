@@ -5,14 +5,7 @@ using UnityEngine;
 public class Switch : Interactable
 {
   public List<Interactable> listToTrigger;
-
-  public enum TriggerAction
-  {
-    action,
-    destroy
-  }
-
-  public TriggerAction triggerAction;
+  public bool isActivated = false;
 
   private void OnCollisionEnter2D(Collision2D collision)
   {
@@ -24,23 +17,20 @@ public class Switch : Interactable
     if (!collision.gameObject.CompareTag(tag))
       return;
 
-    TriggerSwitch();
+    ActivateSwitch();
   }
 
-  void TriggerSwitch()
+  protected virtual void ActivateSwitch()
   {
-    switch (triggerAction)
-    {
-      case TriggerAction.action:
-        foreach (Interactable i in listToTrigger)
-          i.Action();
-        break;
-      case TriggerAction.destroy:
-        foreach (Interactable i in listToTrigger)
-          Destroy(i.gameObject);
-        break;
-      default:
-        break;
-    }
+    isActivated = true;
+    foreach (Interactable i in listToTrigger)
+      i.Activate();
+  }
+
+  protected virtual void DeactivateSwitch()
+  {
+    isActivated = false;
+    foreach (Interactable i in listToTrigger)
+      i.Deactivate();
   }
 }

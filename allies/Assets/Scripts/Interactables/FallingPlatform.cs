@@ -14,7 +14,7 @@ public class FallingPlatform : Interactable
     return;
   }
 
-  public override void Action()
+  public override void Activate()
   {
     if (actionActivated)
       return;

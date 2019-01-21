@@ -7,6 +7,7 @@ public class Character : Entity
   [Header("Physics")]
   public Rigidbody2D rb;
   public Vector2 velocity;
+  public bool canUseAbilityInAir;
   public bool allowJump;
   public bool allowMove;
   public bool isCollidingWithGround;
@@ -175,8 +176,9 @@ public class Character : Entity
 
   public void ActivateAbility()
   {
-    if (!isCollidingWithGround)
-      return;
+    if (!canUseAbilityInAir)
+      if (!isCollidingWithGround)
+        return;
 
     abilityActive = true;
   }

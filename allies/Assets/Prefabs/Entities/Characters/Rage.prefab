@@ -161,6 +161,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   rb: {fileID: 0}
   velocity: {x: 0, y: 0}
+  canUseAbilityInAir: 1
   allowJump: 0
   allowMove: 0
   isCollidingWithGround: 0
@@ -171,6 +172,7 @@ MonoBehaviour:
   isMovingLeft: 0
   isMoving: 0
   abilityActive: 0
+  abilityIndex: 0
   angle: 0
   flame: {fileID: 1200350611215452}
   abilityDirection: {x: 0, y: 0}

@@ -31,6 +31,9 @@ public class MovableStone : Interactable
     if (!rage.abilityActive)
       return;
 
+    this.rb.isKinematic = false;
+    this.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
     this.transform.position += (Vector3)rage.abilityDirection * speed * Time.deltaTime;
   }
 }

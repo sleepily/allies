@@ -37,7 +37,12 @@ public class Anxiety : Character
       return;
 
     if (abilityActive)
+    {
+      collision.rigidbody.velocity = Vector2.zero;
       collision.gameObject.SendMessage("Bounce");
+    }
+
+    gameManager.sceneManager.RetryLevel();
   }
 
   protected override void CheckCollisionWithCharacter(Collision2D collision)

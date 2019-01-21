@@ -2,10 +2,12 @@
 
 public class Interactable : MonoBehaviour
 {
+  [HideInInspector]
   public GameManager gameManager;
 
-  [Header("Physics")]
+  [HideInInspector]
   public PolygonCollider2D polygonCollider2D;
+  [HideInInspector]
   public Rigidbody2D rb;
 
   [Header("Action")]
@@ -27,9 +29,14 @@ public class Interactable : MonoBehaviour
     CreatePolygonCollider();
   }
 
-  public virtual void Action()
+  public virtual void Activate()
   {
     actionActivated = true;
+  }
+
+  public virtual void Deactivate()
+  {
+    actionActivated = false;
   }
 
   public void MoveToInteractablesManager()
