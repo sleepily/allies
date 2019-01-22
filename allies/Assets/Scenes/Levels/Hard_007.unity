@@ -113,12 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &103452812 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114448099942569752, guid: ce7ba2f7bf35fc34f94b85e00a1c48f6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1254479396}
-  m_Script: {fileID: 11500000, guid: 96cbb09a92454ba4dbea73ca19a990f3, type: 3}
 --- !u!114 &261388308 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114194317642925548, guid: ac1d055417bde344dac1f950308b7f19,
@@ -187,11 +181,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4595861469793544, guid: af4748c12eb78fc4d847ceb2fc410df7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.1047478
+      value: -1.76
       objectReference: {fileID: 0}
     - target: {fileID: 4595861469793544, guid: af4748c12eb78fc4d847ceb2fc410df7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -6.99266
+      value: -6.9
       objectReference: {fileID: 0}
     - target: {fileID: 4595861469793544, guid: af4748c12eb78fc4d847ceb2fc410df7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -262,12 +256,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4b7d8b8963e1844b7bcd7425b517af, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &566681276 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114448099942569752, guid: eb4b7d8b8963e1844b7bcd7425b517af,
-    type: 2}
-  m_PrefabInternal: {fileID: 566681275}
-  m_Script: {fileID: 11500000, guid: 96cbb09a92454ba4dbea73ca19a990f3, type: 3}
 --- !u!114 &583489509 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114408519960004042, guid: df783bdede1bd9b4192a6914b639e567,
@@ -528,11 +516,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4934718857267012, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.23
+      value: -1.28
       objectReference: {fileID: 0}
     - target: {fileID: 4934718857267012, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4.3
+      value: -5.52
       objectReference: {fileID: 0}
     - target: {fileID: 114298642833868584, guid: dc253b6ea3562914bbeebada31d55089,
         type: 2}
@@ -563,7 +551,7 @@ Prefab:
         type: 2}
       propertyPath: interactibles.Array.data[4]
       value: 
-      objectReference: {fileID: 103452812}
+      objectReference: {fileID: 0}
     - target: {fileID: 114298642833868584, guid: dc253b6ea3562914bbeebada31d55089,
         type: 2}
       propertyPath: interactibles.Array.data[5]
@@ -573,12 +561,12 @@ Prefab:
         type: 2}
       propertyPath: interactibles.Array.data[6]
       value: 
-      objectReference: {fileID: 1888004374}
+      objectReference: {fileID: 0}
     - target: {fileID: 114298642833868584, guid: dc253b6ea3562914bbeebada31d55089,
         type: 2}
       propertyPath: interactibles.Array.data[7]
       value: 
-      objectReference: {fileID: 566681276}
+      objectReference: {fileID: 0}
     - target: {fileID: 114298642833868584, guid: dc253b6ea3562914bbeebada31d55089,
         type: 2}
       propertyPath: interactibles.Array.data[8]
@@ -590,7 +578,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4713566295676790, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -14.41
+      value: -15.5952
       objectReference: {fileID: 0}
     - target: {fileID: 4964322038897844, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
       propertyPath: m_LocalPosition.x
@@ -598,7 +586,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4964322038897844, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -14.3
+      value: -15.5952
       objectReference: {fileID: 0}
     - target: {fileID: 1351588308500906, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
       propertyPath: m_IsActive
@@ -819,12 +807,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac1d055417bde344dac1f950308b7f19, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &1888004374 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114448099942569752, guid: ce7ba2f7bf35fc34f94b85e00a1c48f6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1016514478}
-  m_Script: {fileID: 11500000, guid: 96cbb09a92454ba4dbea73ca19a990f3, type: 3}
 --- !u!114 &2138335723 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114194317642925548, guid: ac1d055417bde344dac1f950308b7f19,

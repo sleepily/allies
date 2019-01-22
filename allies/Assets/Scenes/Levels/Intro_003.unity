@@ -722,12 +722,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed1ec6894066bb149b25e41a16d8048b, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &934586935 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114448099942569752, guid: ed1ec6894066bb149b25e41a16d8048b,
-    type: 2}
-  m_PrefabInternal: {fileID: 919345716}
-  m_Script: {fileID: 11500000, guid: 96cbb09a92454ba4dbea73ca19a990f3, type: 3}
 --- !u!114 &980371097 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114627057159931656, guid: edaab7c833f05ca4cabae8b4f64f9723,
@@ -752,12 +746,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1959236885}
   m_Script: {fileID: 11500000, guid: dffaa40bcb4d84b4b8600d531b629bee, type: 3}
---- !u!114 &1275661313 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114448099942569752, guid: 62ad57939bc872343b383a78bc2a9e40,
-    type: 2}
-  m_PrefabInternal: {fileID: 431862831}
-  m_Script: {fileID: 11500000, guid: 96cbb09a92454ba4dbea73ca19a990f3, type: 3}
 --- !u!1001 &1456942535
 Prefab:
   m_ObjectHideFlags: 0
@@ -1013,11 +1001,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4934718857267012, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -22.53
+      value: -22.27
       objectReference: {fileID: 0}
     - target: {fileID: 4934718857267012, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -14.76
+      value: -15.81
       objectReference: {fileID: 0}
     - target: {fileID: 114298642833868584, guid: dc253b6ea3562914bbeebada31d55089,
         type: 2}
@@ -1028,12 +1016,12 @@ Prefab:
         type: 2}
       propertyPath: interactibles.Array.data[0]
       value: 
-      objectReference: {fileID: 1275661313}
+      objectReference: {fileID: 0}
     - target: {fileID: 114298642833868584, guid: dc253b6ea3562914bbeebada31d55089,
         type: 2}
       propertyPath: interactibles.Array.data[1]
       value: 
-      objectReference: {fileID: 934586935}
+      objectReference: {fileID: 0}
     - target: {fileID: 114298642833868584, guid: dc253b6ea3562914bbeebada31d55089,
         type: 2}
       propertyPath: interactibles.Array.data[2]
