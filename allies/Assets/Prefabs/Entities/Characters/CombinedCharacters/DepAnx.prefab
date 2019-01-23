@@ -126,9 +126,10 @@ MonoBehaviour:
   abilityIndex: 0
   angle: 0
   combination:
-  - {fileID: 0}
-  - {fileID: 0}
-  iceTearPrefab: {fileID: 0}
+  - {fileID: 114231862690535282, guid: 88564881450f4ea4cbc2a2c88f4b770e, type: 2}
+  - {fileID: 114640122952600096, guid: 46cee6cd2c7e61a42848b4103c7aee59, type: 2}
+  iceTearPrefab: {fileID: 114943508001085414, guid: e49fa0205badb1c4bab52670b4efc280,
+    type: 2}
 --- !u!212 &212674257355521668
 SpriteRenderer:
   m_ObjectHideFlags: 1

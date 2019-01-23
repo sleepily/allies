@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Depression : Character
 {
-  CrybabyTear tearPrefab;
-
   [Header("Crybaby")]
+  public CrybabyTear crybabyTearPrefab;
   public bool crybabyActivated = false;
 
   [Header("Jetpack")]
@@ -40,14 +39,19 @@ public class Depression : Character
 
     crybabyActivated = true;
 
-    ShootTear(tearPrefab);
+    ShootTear(crybabyTearPrefab);
+  }
+
+  protected override void ShootTear(Tear tearPrefab)
+  {
+    CrybabyTear crybabyTear = Instantiate(crybabyTearPrefab);
+
+    Vector2 shootingDirection = new Vector2(isMovingLeft ? -1 : 1, 4);
+    crybabyTear.Shoot(this, shootingDirection);
   }
 
   void JetPack()
   {
-    if (jetpackActivated)
-      return;
-
     jetpackBeforeCrybaby = true;
     jetpackActivated = true;
 

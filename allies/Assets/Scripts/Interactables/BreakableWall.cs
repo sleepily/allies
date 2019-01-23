@@ -18,6 +18,11 @@ public class BreakableWall : Interactable
     CheckForRageColliding(collision);
   }
 
+  private void OnCollisionStay2D(Collision2D collision)
+  {
+    CheckForRageColliding(collision);
+  }
+
   void CheckForRageColliding(Collision2D collision)
   {
     Rage rage = collision.gameObject.GetComponent<Rage>();

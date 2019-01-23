@@ -322,10 +322,9 @@ public class Character : Entity
     rb.constraints = RigidbodyConstraints2D.FreezeRotation;
   }
 
-  protected void ShootTear(Tear tearPrefab)
+  protected virtual void ShootTear(Tear tearPrefab)
   {
     Tear tear = Instantiate(tearPrefab);
-    tear.Shoot(this, gameManager.inputManager.angleToMouse, gameManager.inputManager.toMouse.normalized);
-    DeactivateAbility();
+    tear.Shoot(this, gameManager.inputManager.toMouse.normalized);
   }
 }

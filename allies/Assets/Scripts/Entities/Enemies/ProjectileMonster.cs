@@ -33,7 +33,7 @@ public class ProjectileMonster : Enemy
 
     Projectile projectile = Instantiate(projectilePrefab);
     projectile.transform.SetParent(this.transform);
-    projectile.Shoot(this, 0f, Vector2.left * this.transform.localScale.x); //turn this around
+    projectile.Shoot(this, Vector2.left * this.transform.localScale.x); //turn this around
   }
 
   bool ShootingAvailable()

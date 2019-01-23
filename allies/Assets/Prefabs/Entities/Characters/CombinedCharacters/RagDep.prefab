@@ -126,9 +126,10 @@ MonoBehaviour:
   abilityIndex: 0
   angle: 0
   combination:
-  - {fileID: 0}
-  - {fileID: 0}
-  magmaTearPrefab: {fileID: 0}
+  - {fileID: 114325152899809400, guid: 5e7cebad33c9bff4f9f733d0112d32b3, type: 2}
+  - {fileID: 114231862690535282, guid: 88564881450f4ea4cbc2a2c88f4b770e, type: 2}
+  magmaTearPrefab: {fileID: 114293418131878046, guid: b307c5ee65ae2ea4bb8b8dc2e66ece4f,
+    type: 2}
 --- !u!212 &212674257355521668
 SpriteRenderer:
   m_ObjectHideFlags: 1

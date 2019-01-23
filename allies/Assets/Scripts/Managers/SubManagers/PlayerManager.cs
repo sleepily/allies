@@ -134,6 +134,10 @@ public class PlayerManager : SubManager
     if (gameManager.inputManager.abilityAction2)
       if (activeCharacter.name == "Depression")
       {
+        Depression dep = activeCharacter.GetComponent<Depression>();
+        if (dep.jetpackActivated)
+          return;
+
         activeCharacter.abilityIndex = 1;
         activeCharacter.ActivateAbility();
       }

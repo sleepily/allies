@@ -125,11 +125,16 @@ MonoBehaviour:
   abilityActive: 0
   abilityIndex: 0
   angle: 0
+  crybabyTearPrefab: {fileID: 114225852149091222, guid: 8aaef80edafc44b428bd05b249dd3ad6,
+    type: 2}
+  crybabyActivated: 0
   jetpackOffset: 0.2
   jetpackForce: 16
   jetpackDuration: 1.5
   timestamp_jetpack: -1
+  jetpackActivated: 0
   jetpackIsActive: 0
+  jetpackBeforeCrybaby: 0
   horizontalDamping: 1.4
 --- !u!212 &212635175326121436
 SpriteRenderer:

@@ -126,8 +126,8 @@ MonoBehaviour:
   abilityIndex: 0
   angle: 0
   combination:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 114640122952600096, guid: 46cee6cd2c7e61a42848b4103c7aee59, type: 2}
+  - {fileID: 114325152899809400, guid: 5e7cebad33c9bff4f9f733d0112d32b3, type: 2}
 --- !u!212 &212674257355521668
 SpriteRenderer:
   m_ObjectHideFlags: 1

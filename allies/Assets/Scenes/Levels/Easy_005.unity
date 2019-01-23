@@ -510,42 +510,36 @@ Prefab:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 212939789865000464, guid: 1e5f608c2acbe6a47ae70419bbb8ee29,
+    - target: {fileID: 4639085677092766, guid: 1e5f608c2acbe6a47ae70419bbb8ee29, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639085677092766, guid: 1e5f608c2acbe6a47ae70419bbb8ee29, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639085677092766, guid: 1e5f608c2acbe6a47ae70419bbb8ee29, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639085677092766, guid: 1e5f608c2acbe6a47ae70419bbb8ee29, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639085677092766, guid: 1e5f608c2acbe6a47ae70419bbb8ee29, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212053959921127290, guid: 1e5f608c2acbe6a47ae70419bbb8ee29,
         type: 2}
       propertyPath: m_Size.y
-      value: 4.13
+      value: 4.39
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 50310151061281600, guid: 1e5f608c2acbe6a47ae70419bbb8ee29, type: 2}
+    - {fileID: 60728956097741674, guid: 1e5f608c2acbe6a47ae70419bbb8ee29, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 1e5f608c2acbe6a47ae70419bbb8ee29, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &827140542 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1022218867515048, guid: 1e5f608c2acbe6a47ae70419bbb8ee29,
-    type: 2}
-  m_PrefabInternal: {fileID: 827140541}
---- !u!1 &827140543 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1271315957965814, guid: 1e5f608c2acbe6a47ae70419bbb8ee29,
-    type: 2}
-  m_PrefabInternal: {fileID: 827140541}
---- !u!114 &827140544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 827140543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c3f40bf0f37489479739ed7ed378ecf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  polygonCollider2D: {fileID: 0}
-  rb: {fileID: 0}
-  actionActivated: 0
-  water: {fileID: 827140542}
-  floatTime: 3
-  floatHeight: 5
 --- !u!1001 &877192593
 Prefab:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
   public bool isShot = false;
   public bool isColliding = false;
 
-  private void Start()
+  private void Awake()
   {
     Init();
   }
@@ -47,6 +47,7 @@ public class Projectile : MonoBehaviour
     SetRandomSprite();
     CreateRigidBody();
     CreatePolygonCollider();
+    gameManager = GameManager.globalGameManager;
     MoveToInteractablesManager();
   }
 
@@ -64,17 +65,24 @@ public class Projectile : MonoBehaviour
     if (isColliding)
       return;
 
-    this.transform.position += (Vector3)direction * this.speed * Time.deltaTime;
+    if (isKinematic)
+      this.transform.position += (Vector3)direction * this.speed * Time.deltaTime;
   }
 
-  public void Shoot(Entity parent, float angle, Vector2 direction)
+  public virtual void Shoot(Entity parent, Vector2 direction)
   {
     isShot = true;
     this.gameManager = parent.gameManager;
-    this.angle = angle;
     this.direction = direction.normalized;
+    this.angle = Vector2.Angle(Vector2.right, direction);
     this.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + angle);
     this.transform.position = (Vector2)parent.transform.position + (this.direction * shootingOffset);
+
+    if (!rb)
+      CreateRigidBody();
+
+    if (!isKinematic)
+      this.rb.velocity = direction * speed;
   }
 
   public void Bounce()
@@ -98,14 +106,16 @@ public class Projectile : MonoBehaviour
     spriteRenderer.sprite = sprites[spriteIndex];
   }
 
-  private void CreateRigidBody()
+  protected void CreateRigidBody()
   {
-    rb = gameObject.AddComponent(typeof(Rigidbody2D)) as Rigidbody2D;
+    if (!rb)
+      rb = gameObject.AddComponent(typeof(Rigidbody2D)) as Rigidbody2D;
+
     rb.isKinematic = isKinematic;
     rb.useFullKinematicContacts = isKinematic;
   }
 
-  private void CreatePolygonCollider()
+  protected void CreatePolygonCollider()
   {
     polygonCollider2D = gameObject.AddComponent(typeof(PolygonCollider2D)) as PolygonCollider2D;
   }
