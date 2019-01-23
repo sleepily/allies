@@ -9,7 +9,7 @@ public class InputManager : SubManager
 
   [Header("Player related")]
   public bool switchAction = false;
-  public bool groupAction, abilityAction, abilityAction2, backAction = false;
+  public bool fusionAction, abilityAction, abilityAction2, backAction = false;
 
   [Header("Tear related")]
   public Vector2 toMouse     = Vector2.zero;
@@ -49,7 +49,7 @@ public class InputManager : SubManager
   void UpdateFunctionKeys()
   {
     switchAction   = Input.GetKeyDown(KeyCode.Q);
-    groupAction    = Input.GetKeyDown(KeyCode.F);
+    fusionAction   = Input.GetKeyDown(KeyCode.F);
     abilityAction  = Input.GetKeyDown(KeyCode.E);
     abilityAction2 = Input.GetKeyDown(KeyCode.S);
     backAction     = Input.GetKeyDown(KeyCode.Escape);

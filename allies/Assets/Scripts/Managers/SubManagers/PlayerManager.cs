@@ -119,7 +119,12 @@ public class PlayerManager : SubManager
 
     if (gameManager.inputManager.reloadScene)
       gameManager.levelManager.Retry();
-    
+
+    if (gameManager.inputManager.fusionAction)
+    {
+      CombineCharacters();
+    }
+
     if (gameManager.inputManager.abilityAction)
     {
       activeCharacter.abilityIndex = 0;
@@ -138,5 +143,27 @@ public class PlayerManager : SubManager
   {
     activeCharacter.Move(gameManager.inputManager.moveX);
     activeCharacter.Jump(gameManager.inputManager.moveY);
+  }
+
+  void CombineCharacters()
+  {
+    if (activeCharactersInLevel.Count == 1)
+      return;
+    
+    foreach (Character character in activeCharactersInLevel)
+    {
+      if (character == activeCharacter)
+        return;
+
+      float distance = Vector2.Distance(activeCharacter.transform.position, character.transform.position);
+
+      if (distance > maxGroupingDistance)
+        continue;
+
+
+
+      // grab distance
+      // group if nearest character < groupingdistance
+    }
   }
 }

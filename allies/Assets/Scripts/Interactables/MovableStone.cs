@@ -14,7 +14,8 @@ public class MovableStone : Interactable
   {
     base.Init();
     rb.sharedMaterial = stonePhysicsMaterial;
-    this.rb.isKinematic = false;
+    this.rb.isKinematic = true;
+    this.rb.useFullKinematicContacts = true;
     this.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
   }
 
@@ -52,15 +53,14 @@ public class MovableStone : Interactable
 
   void RampageColliding()
   {
+    this.rb.isKinematic = false;
     rb.sharedMaterial = icePhysicsMaterial;
     this.rb.mass = 100f;
   }
 
   void StopMoving(Collision2D collision)
   {
-    if (collision.gameObject.name != "Rage")
-      return;
-
+    this.rb.isKinematic = true;
     rb.sharedMaterial = stonePhysicsMaterial;
     this.rb.mass = 10000f;
   }

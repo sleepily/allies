@@ -2,15 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrybabyTear : MonoBehaviour {
+public class CrybabyTear : Tear
+{
+  public override void Init()
+  {
+    base.Init();
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    ModifyPolygonCollider();
+  }
+
+  void ModifyPolygonCollider()
+  {
+    polygonCollider2D.isTrigger = true;
+  }
+
+  private void OnTriggerEnter2D(Collider2D collision)
+  {
+    CheckForWater(collision);
+  }
+
+  private void OnTriggerStay2D(Collider2D collision)
+  {
+    CheckForWater(collision);
+  }
+
+  void CheckForWater(Collider2D collision)
+  {
+    if (!collision.gameObject.CompareTag("Water"))
+      return;
+
+
+  }
 }

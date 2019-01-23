@@ -9,7 +9,7 @@ public class IceTear : Tear
     isColliding = true;
     Destroy(this.gameObject);
     
-    //TODO: implement
+    //TODO: implement animation
     /*
     Destroy(this.rb);
     Destroy(this.polygonCollider2D);

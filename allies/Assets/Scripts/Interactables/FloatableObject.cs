@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class FloatableObject : Interactable
 {
-  public GameObject water;
-  SpriteRenderer waterSpriteRenderer;
+  public Water water;
 
   public float floatTime = 1f;
   public float floatHeight = 4f;
@@ -17,8 +16,8 @@ public class FloatableObject : Interactable
   {
     base.Init();
 
+    water.parent = this;
     initialPosition = this.transform.position;
-    waterSpriteRenderer = water.GetComponent<SpriteRenderer>();
   }
 
   private void Update()
@@ -38,6 +37,6 @@ public class FloatableObject : Interactable
       return;
 
     this.transform.position += (Vector3)((Vector2.up * floatHeight) * (Time.deltaTime / floatTime));
-    waterSpriteRenderer.size += ((Vector2.up * floatHeight) * (Time.deltaTime / floatTime));
+    water.spriteRenderer.size += ((Vector2.up * floatHeight) * (Time.deltaTime / floatTime));
   }
 }

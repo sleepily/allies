@@ -12,6 +12,7 @@ TagManager:
   - Projectile
   - IceTear
   - Enemy
+  - Water
   layers:
   - Default
   - TransparentFX

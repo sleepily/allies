@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class Depression : Character
 {
+  CrybabyTear tearPrefab;
+
+  [Header("Crybaby")]
+  public bool crybabyActivated = false;
+
+  [Header("Jetpack")]
   public float jetpackOffset = .2f;
   public float jetpackForce = 1f;
   public float jetpackDuration = 2f;
   public float timestamp_jetpack = -1f;
+  public bool jetpackActivated = false;
   public bool jetpackIsActive = false;
+  public bool jetpackBeforeCrybaby = false;
 
   public float horizontalDamping = 1.4f;
 
@@ -24,11 +32,25 @@ public class Depression : Character
 
   void CryBaby()
   {
-    // shoot crybaby tear
+    if (jetpackBeforeCrybaby)
+      return;
+
+    if (crybabyActivated)
+      return;
+
+    crybabyActivated = true;
+
+    ShootTear(tearPrefab);
   }
 
   void JetPack()
   {
+    if (jetpackActivated)
+      return;
+
+    jetpackBeforeCrybaby = true;
+    jetpackActivated = true;
+
     if (timestamp_jetpack < 0)
     {
       timestamp_jetpack = Time.time;
@@ -57,6 +79,12 @@ public class Depression : Character
   protected override void DeactivateAbility()
   {
     base.DeactivateAbility();
+
+    crybabyActivated = false;
+
+    jetpackActivated = false;
+    jetpackIsActive = false;
+    jetpackBeforeCrybaby = false;
   }
 
   protected override void Update()

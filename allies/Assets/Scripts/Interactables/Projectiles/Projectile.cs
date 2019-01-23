@@ -41,7 +41,7 @@ public class Projectile : MonoBehaviour
     Collide(collision);
   }
 
-  public void Init()
+  public virtual void Init()
   {
     GetSpriteRenderer();
     SetRandomSprite();
