@@ -7,11 +7,14 @@ public class Character : Entity
   [Header("Physics")]
   public Rigidbody2D rb;
   public Vector2 velocity;
-  public bool canUseAbilityInAir;
   public bool allowJump;
   public bool allowMove;
   public bool isCollidingWithGround;
   public bool isCollidingWithWall;
+  public PhysicsMaterial2D moveMaterial;
+  public PhysicsMaterial2D idleMaterial;
+
+  public bool canUseAbilityInAir;
   public bool isJumping;
 
   [Header("Animations")]
@@ -46,6 +49,7 @@ public class Character : Entity
   private void FixedUpdate()
   {
     GetGlobalGravityScale();
+    rb.sharedMaterial = idleMaterial;
   }
 
   private void OnCollisionEnter2D(Collision2D collision)
@@ -204,10 +208,12 @@ public class Character : Entity
     if (!allowMove)
       return;
 
+    rb.sharedMaterial = moveMaterial;
+
     velocity.x = axisHorizontal;
 
     float moveForce = velocity.x * rb.gravityScale * gameManager.playerManager.movementForce;
-
+    
     rb.velocity = new Vector2(moveForce, rb.velocity.y);
   }
 
@@ -221,6 +227,8 @@ public class Character : Entity
 
     if (axisVertical < .5f)
       return;
+
+    rb.sharedMaterial = moveMaterial;
 
     velocity.y = axisVertical;
 

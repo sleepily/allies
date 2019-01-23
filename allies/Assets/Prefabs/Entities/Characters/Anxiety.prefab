@@ -112,11 +112,13 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   rb: {fileID: 0}
   velocity: {x: 0, y: 0}
-  canUseAbilityInAir: 1
   allowJump: 0
   allowMove: 0
   isCollidingWithGround: 0
   isCollidingWithWall: 0
+  moveMaterial: {fileID: 6200000, guid: 774c993475f372c4caafe6004be42659, type: 2}
+  idleMaterial: {fileID: 6200000, guid: 477848852293f0349871226994208e67, type: 2}
+  canUseAbilityInAir: 1
   isJumping: 0
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
