@@ -12,6 +12,8 @@ public class FloatableObject : Interactable
   Vector2 initialPosition;
   Vector2 initialWaterScale;
 
+  float waterColliderOffset = .2f;
+
   public override void Init()
   {
     base.Init();
@@ -22,9 +24,6 @@ public class FloatableObject : Interactable
 
   private void Update()
   {
-    if (Input.GetKeyDown(KeyCode.G))
-      Activate();
-
     FloatUp();
   }
 
@@ -49,6 +48,6 @@ public class FloatableObject : Interactable
   {
     water.spriteRenderer.size += ((Vector2.up* floatHeight) * (Time.deltaTime / floatTime));
     water.boxCollider.size = water.spriteRenderer.size;
-    water.boxCollider.offset = new Vector2(0, water.boxCollider.size.y / -2);
+    water.boxCollider.offset = new Vector2(0, -waterColliderOffset + ((water.boxCollider.size.y - waterColliderOffset) / -2));
   }
 }

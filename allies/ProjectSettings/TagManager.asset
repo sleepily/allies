@@ -60,7 +60,7 @@ TagManager:
   - name: Switchdoors
     uniqueID: 2083839795
     locked: 0
-  - name: Explosives and Flowers
+  - name: Flowers
     uniqueID: 899677267
     locked: 0
   - name: Breakables
@@ -89,4 +89,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 2098527485
+    locked: 0
+  - name: Explosives and Fuses
+    uniqueID: 3472964529
     locked: 0

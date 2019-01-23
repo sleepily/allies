@@ -13,11 +13,6 @@ public class Water : Interactable
     spriteRenderer = GetComponent<SpriteRenderer>();
   }
 
-  private void FixedUpdate()
-  {
-    UpdateBoxCollider();
-  }
-
   public override void Init()
   {
     base.Init();
@@ -37,8 +32,16 @@ public class Water : Interactable
       boxCollider = gameObject.AddComponent(typeof(BoxCollider2D)) as BoxCollider2D;
   }
 
-  void UpdateBoxCollider()
+  private void OnTriggerEnter2D(Collider2D collision)
   {
+    CheckCharacterCollision(collision);
+  }
 
+  void CheckCharacterCollision(Collider2D collision)
+  {
+    if (!collision.gameObject.CompareTag("Character"))
+      return;
+
+    gameManager.sceneManager.RetryLevel();
   }
 }
