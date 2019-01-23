@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4074279178975780}
   - component: {fileID: 212537778972023846}
   - component: {fileID: 114448099942569752}
+  - component: {fileID: 60391526979477984}
   m_Layer: 0
   m_Name: Stone_Bright
   m_TagString: Interactible
@@ -41,6 +42,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &60391526979477984
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1575107917799778}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.07, y: 5.57}
+    newSize: {x: 4.07, y: 5.57}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.165, y: -2.325}
+      - {x: 0.36499998, y: -2.695}
+      - {x: -0.73499995, y: -2.355}
+      - {x: -1.9549999, y: -1.3349999}
+      - {x: -0.24499999, y: 2.435}
+      - {x: 0.555, y: 2.455}
+      - {x: 2.0049999, y: -1.235}
 --- !u!114 &114448099942569752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,7 +121,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1459712419
-  m_SortingLayer: -2
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d0dc77f0d4a20674ca5cec163d4b1a89, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

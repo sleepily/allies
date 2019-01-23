@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4595861469793544}
   - component: {fileID: 212242378899845632}
   - component: {fileID: 114591907797627438}
+  - component: {fileID: 60769209133346572}
   m_Layer: 0
   m_Name: SwitchDoor_VerySmall_02
   m_TagString: Interactible
@@ -41,6 +42,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &60769209133346572
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1868991227120198}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 11.71, y: 2.64}
+    newSize: {x: 3.56, y: 5.41}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 3.3149998, y: -0.089999996}
+      - {x: 0.185, y: -0.16}
+      - {x: -2.695, y: -0.55}
+      - {x: -5.565, y: -0.29}
+      - {x: -5.1349998, y: 0.29999998}
+      - {x: -3.5049999, y: 0.08}
+      - {x: -0.59499997, y: 0.32}
+      - {x: 1.3249999, y: 0.78999996}
+      - {x: 3.465, y: 0.32999998}
+      - {x: 5.1949997, y: 0.32999998}
+      - {x: 5.7149997, y: -0.13}
+      - {x: 4.995, y: -0.5}
 --- !u!114 &114591907797627438
 MonoBehaviour:
   m_ObjectHideFlags: 1

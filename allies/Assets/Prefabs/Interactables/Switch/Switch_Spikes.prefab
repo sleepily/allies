@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4591860919707156}
   - component: {fileID: 212835653124377620}
   - component: {fileID: 114042457242401880}
+  - component: {fileID: 60482014246774988}
   m_Layer: 0
   m_Name: Switch_Spikes
   m_TagString: Interactible
@@ -71,6 +72,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &60482014246774988
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1862368725967974}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.08, y: 5.86}
+    newSize: {x: 10.1, y: 5.86}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 4.36, y: -2.79}
+      - {x: -2.37, y: -2.6299999}
+      - {x: -4.87, y: -1.36}
+      - {x: -3.79, y: 2.1399999}
+      - {x: -1.76, y: 2.1599998}
+      - {x: -0.04, y: 2.8}
+      - {x: 1.18, y: 2.04}
+      - {x: 2.99, y: 1.68}
+      - {x: 4.11, y: 0.38}
+      - {x: 4.97, y: -1.9499999}
 --- !u!114 &114042457242401880
 MonoBehaviour:
   m_ObjectHideFlags: 1

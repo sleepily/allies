@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4388850326888244}
   - component: {fileID: 212219883594602272}
   - component: {fileID: 114389769068608628}
+  - component: {fileID: 60345659202145606}
   m_Layer: 0
   m_Name: BreakableWall_Small_01
   m_TagString: Wall
@@ -41,6 +42,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!60 &60345659202145606
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893085868214984}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.49, y: 12.24}
+    newSize: {x: 4.2, y: 12.13}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.39499998, y: -6.0099998}
+      - {x: -1.515, y: -4.45}
+      - {x: -0.825, y: -0.88}
+      - {x: -1.985, y: 3.49}
+      - {x: -1.185, y: 5.7999997}
+      - {x: 0.765, y: 4.3399997}
+      - {x: 0.635, y: 1.23}
+      - {x: 1.4649999, y: -1.91}
+      - {x: 0.835, y: -4.0299997}
+      - {x: 1.145, y: -5.7799997}
 --- !u!114 &114389769068608628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,7 +126,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1682523799
-  m_SortingLayer: -3
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b1760013c13587b48b5a5995a8a62266, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

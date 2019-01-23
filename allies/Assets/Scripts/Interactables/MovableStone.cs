@@ -13,8 +13,11 @@ public class MovableStone : Interactable
   public override void Init()
   {
     base.Init();
+
     rb.sharedMaterial = stonePhysicsMaterial;
-    this.rb.isKinematic = true;
+    this.rb.mass = 1000000f;
+    this.rb.gravityScale = gameManager.playerManager.globalGravityScale;
+    this.rb.isKinematic = false;
     this.rb.useFullKinematicContacts = true;
     this.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
   }
@@ -53,15 +56,16 @@ public class MovableStone : Interactable
 
   void RampageColliding()
   {
-    this.rb.isKinematic = false;
+    //this.rb.isKinematic = false;
     rb.sharedMaterial = icePhysicsMaterial;
+    rb.AddForce(Vector2.down);
     this.rb.mass = 100f;
   }
 
   void StopMoving(Collision2D collision)
   {
-    this.rb.isKinematic = true;
+    //this.rb.isKinematic = true;
     rb.sharedMaterial = stonePhysicsMaterial;
-    this.rb.mass = 10000f;
+    this.rb.mass = 1000000f;
   }
 }

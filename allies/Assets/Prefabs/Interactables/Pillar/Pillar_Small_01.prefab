@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4074279178975780}
   - component: {fileID: 212537778972023846}
   - component: {fileID: 114629322096513794}
+  - component: {fileID: 60953816077870192}
   m_Layer: 0
   m_Name: Pillar_Small_01
   m_TagString: Wall
@@ -41,6 +42,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &60953816077870192
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1575107917799778}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.62, y: 8.73}
+    newSize: {x: 3.98, y: 9.059999}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.16, y: -4.265}
+      - {x: -1.56, y: -0.85499996}
+      - {x: -1.27, y: 2.825}
+      - {x: -0.65999997, y: 4.2149997}
+      - {x: -0.04, y: 4.1349998}
+      - {x: 1.73, y: 2.825}
+      - {x: 0.76, y: 0.45499998}
+      - {x: 0.26999998, y: -3.5349998}
 --- !u!114 &114629322096513794
 MonoBehaviour:
   m_ObjectHideFlags: 1

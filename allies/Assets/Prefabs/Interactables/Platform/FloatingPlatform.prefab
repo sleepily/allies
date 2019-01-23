@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4455000923732662}
   - component: {fileID: 212193118472139124}
   - component: {fileID: 114517290415216138}
+  - component: {fileID: 61435835841293928}
+  - component: {fileID: 50636490665336040}
   m_Layer: 0
   m_Name: Water
   m_TagString: Water
@@ -40,8 +42,7 @@ GameObject:
   - component: {fileID: 114937421687680524}
   - component: {fileID: 114810482625199362}
   - component: {fileID: 50486988230410938}
-  - component: {fileID: 60985948909311610}
-  - component: {fileID: 60987555976277836}
+  - component: {fileID: 60466955191626622}
   m_Layer: 0
   m_Name: FloatingPlatform
   m_TagString: Platform
@@ -69,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1413423980586596}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.45, y: -13.75, z: 0}
+  m_LocalPosition: {x: -8.592462, y: -14.774108, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4455000923732662}
@@ -96,7 +97,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &60985948909311610
+--- !u!50 &50636490665336040
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1252723314658136}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!60 &60466955191626622
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,36 +147,31 @@ PolygonCollider2D:
       - {x: 3.635, y: 0.21559997}
       - {x: 4.095, y: 0.045599975}
       - {x: 2.345, y: -0.3544}
---- !u!60 &60987555976277836
-PolygonCollider2D:
+--- !u!61 &61435835841293928
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1413423980586596}
+  m_GameObject: {fileID: 1252723314658136}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1.64}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.46}
-    oldSize: {x: 8.19, y: 3.14}
-    newSize: {x: 7.7699995, y: 2.47}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    border: {x: 0.06, y: 0.02, z: 0.099999994, w: 0}
+    pivot: {x: 0.5, y: 1}
+    oldSize: {x: 12.42, y: 12.5}
+    newSize: {x: 12.21, y: 3.9}
+    adaptiveTilingThreshold: 0
+    drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -1.5949999, y: -0.4144}
-      - {x: -4.095, y: -0.11440002}
-      - {x: -3.5549998, y: 0.19559997}
-      - {x: 3.635, y: 0.21559997}
-      - {x: 4.095, y: 0.045599975}
-      - {x: 2.345, y: -0.3544}
+  serializedVersion: 2
+  m_Size: {x: 12, y: 3}
+  m_EdgeRadius: 0
 --- !u!114 &114517290415216138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,10 +185,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   polygonCollider2D: {fileID: 0}
-  rb: {fileID: 0}
+  rb: {fileID: 50636490665336040}
   actionActivated: 0
   parent: {fileID: 114810482625199362}
   spriteRenderer: {fileID: 212193118472139124}
+  boxCollider: {fileID: 61435835841293928}
 --- !u!114 &114810482625199362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  polygonCollider2D: {fileID: 60987555976277836}
+  polygonCollider2D: {fileID: 0}
   rb: {fileID: 50486988230410938}
   actionActivated: 0
   water: {fileID: 114517290415216138}
@@ -203,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  polygonCollider2D: {fileID: 60985948909311610}
+  polygonCollider2D: {fileID: 0}
   rb: {fileID: 50486988230410938}
   actionActivated: 0
 --- !u!212 &212193118472139124
@@ -246,7 +263,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 12.42, y: 12.5}
+  m_Size: {x: 12.21, y: 3.9}
   m_AdaptiveModeThreshold: 0
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

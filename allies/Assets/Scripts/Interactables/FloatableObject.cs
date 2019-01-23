@@ -36,7 +36,19 @@ public class FloatableObject : Interactable
     if (transform.position.y >= initialPosition.y + floatHeight)
       return;
 
+    ChangePosition();
+    ChangeWaterSize();
+  }
+
+  void ChangePosition()
+  {
     this.transform.position += (Vector3)((Vector2.up * floatHeight) * (Time.deltaTime / floatTime));
-    water.spriteRenderer.size += ((Vector2.up * floatHeight) * (Time.deltaTime / floatTime));
+  }
+
+  void ChangeWaterSize()
+  {
+    water.spriteRenderer.size += ((Vector2.up* floatHeight) * (Time.deltaTime / floatTime));
+    water.boxCollider.size = water.spriteRenderer.size;
+    water.boxCollider.offset = new Vector2(0, water.boxCollider.size.y / -2);
   }
 }
