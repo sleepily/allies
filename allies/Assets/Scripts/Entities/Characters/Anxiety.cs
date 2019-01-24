@@ -8,7 +8,7 @@ public class Anxiety : Character
   public float deactivationTime = 4f;
   public bool isDeactivating = false;
 
-  BoxCollider2D abilityBoxCollider;
+  public BoxCollider2D abilityBoxCollider;
 
   private void Awake()
   {
@@ -17,7 +17,6 @@ public class Anxiety : Character
 
   void DisableBoxCollider()
   {
-    abilityBoxCollider = GetComponent<BoxCollider2D>();
     abilityBoxCollider.enabled = false;
   }
 
@@ -68,6 +67,7 @@ public class Anxiety : Character
     {
       collision.rigidbody.velocity = Vector2.zero;
       collision.gameObject.SendMessage("Bounce");
+      return;
     }
 
     gameManager.sceneManager.RetryLevel();
@@ -79,6 +79,11 @@ public class Anxiety : Character
       return;
 
     StartDeactivationTimer();
+  }
+
+  protected override void CheckForCharacterDistance()
+  {
+    return;
   }
 
   void StartDeactivationTimer()

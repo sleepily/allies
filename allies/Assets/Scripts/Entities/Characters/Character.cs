@@ -2,12 +2,15 @@
 
 public class Character : Entity
 {
+  [HideInInspector]
   public PlayerManager playerManager;
 
+  [HideInInspector]
   public bool startWithAbility = false;
 
   [Header("Physics")]
   public Rigidbody2D rb;
+
   public Vector2 velocity;
   public bool allowJump;
   public bool allowMove;
@@ -21,14 +24,15 @@ public class Character : Entity
 
   [Header("Animations")]
   public SpriteRenderer spriteRenderer;
+
   public Animator animator;
-  float horizontalVelocityAbs, verticalVelocityAbs;
+  private float horizontalVelocityAbs, verticalVelocityAbs;
   public bool isMovingLeft;
   public bool isMoving;
   public bool abilityActive;
   public int abilityIndex = 0;
   public float angle;
-  float angleVelocityThreshold = 1f;
+  private float angleVelocityThreshold = 1f;
 
   private void Start()
   {
@@ -44,6 +48,13 @@ public class Character : Entity
     isMovingLeft = false;
   }
 
+  protected virtual void GetAllComponents()
+  {
+    rb = GetComponent<Rigidbody2D>();
+    animator = GetComponent<Animator>();
+    spriteRenderer = GetComponent<SpriteRenderer>();
+  }
+
   protected virtual void Update()
   {
     CheckMovementDirection();
@@ -55,9 +66,39 @@ public class Character : Entity
   {
     GetGlobalGravityScale();
     rb.sharedMaterial = idleMaterial;
+
+    CheckForCharacterDistance();
+  }
+
+  protected virtual void CheckForCharacterDistance()
+  {
+    if (playerManager.activeCharactersInLevel.Count == 1)
+      return;
+
+    if (!abilityActive)
+      return;
+
+    foreach (Character character in playerManager.activeCharactersInLevel)
+    {
+      if (character == this)
+        continue;
+
+      float distance = Vector2.Distance(this.transform.position, character.transform.position);
+
+      if (distance < 2f)
+      {
+        DeactivateAbility();
+        return;
+      }
+    }
   }
 
   private void OnCollisionEnter2D(Collision2D collision)
+  {
+    AllCollisionChecks(collision);
+  }
+
+  private void OnCollisionStay2D(Collision2D collision)
   {
     AllCollisionChecks(collision);
   }
@@ -70,11 +111,69 @@ public class Character : Entity
     CheckCollisionWithWall(collision);
   }
 
-  protected virtual void GetAllComponents()
+  protected virtual void CheckCollisionWithCharacter(Collision2D collision)
   {
-    rb          = GetComponent<Rigidbody2D>();
-    animator    = GetComponent<Animator>();
-    spriteRenderer = GetComponent<SpriteRenderer>();
+    if (!collision.gameObject.CompareTag("Character"))
+      return;
+
+    if (abilityActive)
+      abilityActive = false;
+  }
+
+  private void CheckCollisionWithGround(Collision2D collision)
+  {
+    isCollidingWithGround = false;
+
+    // check for collision in the lower 25% of the collider in order to enable jumping
+    foreach (ContactPoint2D cp in collision.contacts)
+      if (cp.point.y < transform.position.y + (Vector2.down * .75f).y)
+      {
+        isCollidingWithGround = true;
+        isJumping = false;
+        Debug.DrawRay(cp.point, cp.normal, Color.green);
+      }
+  }
+
+  //TODO: remove this
+  private void CheckCollisionWithWall(Collision2D collision)
+  {
+    isCollidingWithWall = false;
+
+    if (!collision.gameObject.CompareTag("Platform"))
+    {
+      if (!abilityActive)
+        return;
+
+      rb.velocity = new Vector2(0, 0);
+      return;
+    }
+
+    // check for collision in the upper collider (except top) in order to enable bouncing off walls
+    foreach (ContactPoint2D cp in collision.contacts)
+      if
+      (
+        cp.point.y < transform.position.y + (Vector2.up * .45f).y &&
+        cp.point.y > transform.position.y + (Vector2.down * .35f).y
+      )
+      {
+        isCollidingWithWall = true;
+        Debug.DrawRay(cp.point, cp.normal, Color.blue);
+
+        if (abilityActive)
+        {
+          isMovingLeft = (cp.point.x < transform.position.x);
+
+          rb.velocity = new Vector2(-rb.velocity.x, rb.velocity.y);
+        }
+      }
+  }
+
+  protected virtual void CheckCollisionWithEnemy(Collision2D collision)
+  {
+    if (!collision.gameObject.CompareTag("Enemy"))
+      return;
+
+    gameManager.levelManager.Retry();
   }
 
   private void OnCollisionExit2D(Collision2D collision)
@@ -82,12 +181,12 @@ public class Character : Entity
     ResetCollision();
   }
 
-  void ResetCollision()
+  private void ResetCollision()
   {
     isCollidingWithGround = false;
     isCollidingWithWall = false;
   }
-  
+
   private void GetGlobalGravityScale()
   {
     if (!gameManager.playerManager)
@@ -95,7 +194,7 @@ public class Character : Entity
 
     rb.gravityScale = gameManager.playerManager.globalGravityScale;
   }
-  
+
   private void SetAnimatorProperties()
   {
     if (animator == null)
@@ -108,20 +207,20 @@ public class Character : Entity
     MirrorSpriteIfMovingLeft();
   }
 
-  void SetAnimatorVariables()
+  private void SetAnimatorVariables()
   {
-    animator.SetBool   ("abilityActive", abilityActive);
+    animator.SetBool("abilityActive", abilityActive);
     animator.SetInteger("abilityIndex", abilityIndex);
-    animator.SetBool   ("isJumping", isJumping);
-    animator.SetBool   ("isMoving", CharacterIsMoving());
-    animator.SetBool   ("mirrorAnimation", isMovingLeft);
-    animator.SetFloat  ("horizontalVelocity", rb.velocity.x);
-    animator.SetFloat  ("verticalVelocity", rb.velocity.y);
-    animator.SetFloat  ("horizontalVelocityAbs", horizontalVelocityAbs);
-    animator.SetFloat  ("verticalVelocityAbs", verticalVelocityAbs);
+    animator.SetBool("isJumping", isJumping);
+    animator.SetBool("isMoving", CharacterIsMoving());
+    animator.SetBool("mirrorAnimation", isMovingLeft);
+    animator.SetFloat("horizontalVelocity", rb.velocity.x);
+    animator.SetFloat("verticalVelocity", rb.velocity.y);
+    animator.SetFloat("horizontalVelocityAbs", horizontalVelocityAbs);
+    animator.SetFloat("verticalVelocityAbs", verticalVelocityAbs);
   }
 
-  void PreventIdleAnimationWhileJumping()
+  private void PreventIdleAnimationWhileJumping()
   {
     // prevent idle and walking animation while jumping
     if (isJumping)
@@ -133,7 +232,7 @@ public class Character : Entity
     }
   }
 
-  void GetAbsoluteVelocityValues()
+  private void GetAbsoluteVelocityValues()
   {
     // positive velocity values for correctly triggering blend tree motions
     horizontalVelocityAbs = Mathf.Abs(rb.velocity.x);
@@ -142,7 +241,6 @@ public class Character : Entity
 
   protected virtual void CharacterSpecificAnimationProperties()
   {
-
   }
 
   protected float CalculateCharacterAngle()
@@ -169,7 +267,7 @@ public class Character : Entity
     return angle;
   }
 
-  bool CharacterIsMoving()
+  private bool CharacterIsMoving()
   {
     if (velocity.Equals(Vector2.zero))
       return false;
@@ -177,13 +275,13 @@ public class Character : Entity
     return true;
   }
 
-  void CheckMovementDirection()
+  private void CheckMovementDirection()
   {
     if (!abilityActive)
     {
       if (velocity.x < -.1)
         isMovingLeft = true;
-      if (velocity.x >  .1)
+      if (velocity.x > .1)
         isMovingLeft = false;
     }
   }
@@ -218,7 +316,7 @@ public class Character : Entity
     velocity.x = axisHorizontal;
 
     float moveForce = velocity.x * rb.gravityScale * gameManager.playerManager.movementForce;
-    
+
     rb.velocity = new Vector2(moveForce, rb.velocity.y);
   }
 
@@ -238,76 +336,10 @@ public class Character : Entity
     velocity.y = axisVertical;
 
     float jumpForce = velocity.y * rb.gravityScale * gameManager.playerManager.jumpForce;
-    
+
     isJumping = true;
 
     rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-  }
-
-  protected virtual void CheckCollisionWithCharacter(Collision2D collision)
-  {
-    if (!collision.gameObject.CompareTag("Character"))
-      return;
-
-    if (abilityActive)
-      abilityActive = false;
-  }
-
-  private void CheckCollisionWithGround(Collision2D collision)
-  {
-    isCollidingWithGround = false;
-
-    // check for collision in the lower 25% of the collider in order to enable jumping
-    foreach (ContactPoint2D cp in collision.contacts)
-      if (cp.point.y < transform.position.y + (Vector2.down * .75f).y)
-      {
-        isCollidingWithGround = true;
-        isJumping = false;
-        Debug.DrawRay(cp.point, cp.normal, Color.green);
-      }
-  }
-
-  private void CheckCollisionWithWall(Collision2D collision)
-  {
-    isCollidingWithWall = false;
-    
-    if (!collision.gameObject.CompareTag("Platform"))
-    {
-      // isMovingLeft = !isMovingLeft;
-      // rb.velocity = new Vector2(isMovingLeft ? -30 : 30, 0); // fix bounce caused by using rb.velocity.y
-      if (!abilityActive)
-        return;
-
-      rb.velocity = new Vector2(0, 0); // fix bounce caused by using rb.velocity.y
-      return;
-    }
-
-    // check for collision in the upper collider (except top) in order to enable bouncing off walls
-    foreach (ContactPoint2D cp in collision.contacts)
-      if
-      (
-        cp.point.y < transform.position.y + (Vector2.up   * .45f).y &&
-        cp.point.y > transform.position.y + (Vector2.down * .35f).y
-      )
-      {
-        isCollidingWithWall = true;
-        Debug.DrawRay(cp.point, cp.normal, Color.blue);
-
-        if (abilityActive)
-        {
-          isMovingLeft = (cp.point.x < transform.position.x);
-
-          rb.velocity = new Vector2(-rb.velocity.x, rb.velocity.y);
-        }
-      }
-  }
-  
-  protected virtual void CheckCollisionWithEnemy(Collision2D collision)
-  {
-    if (!collision.gameObject.CompareTag("Enemy"))
-      return;
-
-    gameManager.levelManager.Retry();
   }
 
   protected virtual void MirrorSpriteIfMovingLeft()

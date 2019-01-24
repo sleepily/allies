@@ -159,6 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   playerManager: {fileID: 0}
+  startWithAbility: 0
   rb: {fileID: 0}
   velocity: {x: 0, y: 0}
   allowJump: 0

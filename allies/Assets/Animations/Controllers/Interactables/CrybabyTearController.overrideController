@@ -1,0 +1,14 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: CrybabyTearController
+  m_Controller: {fileID: 9100000, guid: d1d4c7665291e994f8c8bde88662fe8b, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: b072841d9a646db41a22adf0a089daeb, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 200542e0cbcd05c4eb245fa2f9850c12, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d946357e19b22dc44ae9c76dc72b2d44, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 11a7ff9d8538037409c114f4650fad95, type: 2}
