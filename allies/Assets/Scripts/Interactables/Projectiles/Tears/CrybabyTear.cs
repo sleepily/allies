@@ -45,7 +45,7 @@ public class CrybabyTear : Tear
 
   void ModifyPolygonCollider()
   {
-    polygonCollider2D.isTrigger = true;
+    polygonCollider2D.enabled = false;
   }
 
   private void OnTriggerEnter2D(Collider2D collision)
