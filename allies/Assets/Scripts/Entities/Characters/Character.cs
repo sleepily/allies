@@ -4,6 +4,8 @@ public class Character : Entity
 {
   public PlayerManager playerManager;
 
+  public bool startWithAbility = false;
+
   [Header("Physics")]
   public Rigidbody2D rb;
   public Vector2 velocity;
@@ -31,6 +33,9 @@ public class Character : Entity
   private void Start()
   {
     Init();
+
+    if (startWithAbility)
+      abilityActive = true;
   }
 
   protected virtual void Init()

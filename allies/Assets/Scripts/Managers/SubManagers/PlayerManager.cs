@@ -77,6 +77,7 @@ public class PlayerManager : SubManager
         activeCharactersInLevel[index].gameManager = gameManager;
         activeCharactersInLevel[index].transform.SetParent(this.transform);
         activeCharactersInLevel[index].transform.position += placeholder.transform.position;
+        activeCharactersInLevel[index].startWithAbility = placeholder.startWithAbility;
 
         index++;
       }

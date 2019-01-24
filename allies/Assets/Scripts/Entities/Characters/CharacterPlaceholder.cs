@@ -5,14 +5,5 @@ using UnityEngine;
 public class CharacterPlaceholder : MonoBehaviour
 {
   public Character characterPrefab;
-
-  private void Start()
-  {
-    
-  }
-
-  private void Update()
-  {
-    
-  }
+  public bool startWithAbility = false;
 }
