@@ -154,6 +154,9 @@ public class PlayerManager : SubManager
   {
     if (activeCharactersInLevel.Count == 1)
       return;
+
+    Character nearest = null;
+    float minDistance = maxGroupingDistance;
     
     foreach (Character character in activeCharactersInLevel)
     {
@@ -162,13 +165,16 @@ public class PlayerManager : SubManager
 
       float distance = Vector2.Distance(activeCharacter.transform.position, character.transform.position);
 
-      if (distance > maxGroupingDistance)
+      if (distance > minDistance)
         continue;
 
-
-
-      // grab distance
-      // group if nearest character < groupingdistance
+      minDistance = distance;
+      nearest = character;
     }
+
+    if (!nearest)
+      return;
+
+
   }
 }
