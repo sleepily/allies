@@ -8,6 +8,19 @@ public class Anxiety : Character
   public float deactivationTime = 4f;
   public bool isDeactivating = false;
 
+  BoxCollider2D abilityBoxCollider;
+
+  private void Awake()
+  {
+    DisableBoxCollider();
+  }
+
+  void DisableBoxCollider()
+  {
+    abilityBoxCollider = GetComponent<BoxCollider2D>();
+    abilityBoxCollider.enabled = false;
+  }
+
   protected override void Update()
   {
     base.Update();
@@ -18,6 +31,16 @@ public class Anxiety : Character
 
   protected override void Ability()
   {
+    base.Ability();
+
+    abilityBoxCollider.enabled = true;
+
+    if (isJumping || !isCollidingWithGround)
+      return;
+
+    rb.isKinematic = true;
+    rb.useFullKinematicContacts = true;
+
     rb.constraints =
       RigidbodyConstraints2D.FreezePositionX |
       RigidbodyConstraints2D.FreezePositionY |
@@ -27,6 +50,11 @@ public class Anxiety : Character
   protected override void DeactivateAbility()
   {
     base.DeactivateAbility();
+
+    abilityBoxCollider.enabled = false;
+
+    rb.isKinematic = false;
+    rb.useFullKinematicContacts = false;
 
     isDeactivating = false;
   }
@@ -47,6 +75,9 @@ public class Anxiety : Character
 
   protected override void CheckCollisionWithCharacter(Collision2D collision)
   {
+    if (!collision.gameObject.CompareTag("Character"))
+      return;
+
     StartDeactivationTimer();
   }
 
