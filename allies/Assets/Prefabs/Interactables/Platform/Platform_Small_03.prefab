@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4538406576056570}
   - component: {fileID: 212228016804661132}
   - component: {fileID: 114627057159931656}
-  - component: {fileID: 60699374568425746}
+  - component: {fileID: 60007594885027976}
   m_Layer: 0
-  m_Name: Platform_Thin_01
+  m_Name: Platform_Small_03
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,13 +36,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1413423980586596}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.29, y: -9.01, z: 0}
+  m_LocalPosition: {x: 19.310001, y: -9.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60699374568425746
+--- !u!60 &60007594885027976
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,20 +58,23 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.33, y: 2.27}
-    newSize: {x: 7.6099997, y: 2.29}
+    oldSize: {x: 6.37, y: 2.21}
+    newSize: {x: 7.7699995, y: 2.47}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -2.215, y: -1.015}
-      - {x: -3.615, y: 0.515}
-      - {x: -3.105, y: 0.765}
-      - {x: -0.685, y: 0.885}
-      - {x: 3.615, y: 0.205}
-      - {x: 2.865, y: -0.905}
+    - - {x: 1.4549999, y: -1.0849999}
+      - {x: -0.16499999, y: -0.755}
+      - {x: -1.265, y: -0.97499996}
+      - {x: -2.375, y: -0.60499996}
+      - {x: -3.135, y: 0.125}
+      - {x: -1.365, y: 0.66499996}
+      - {x: 1.515, y: 0.525}
+      - {x: 3.135, y: -0.575}
+      - {x: 2.5049999, y: -0.92499995}
 --- !u!114 &114627057159931656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,12 +125,12 @@ SpriteRenderer:
   m_SortingLayerID: 1083900551
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9a02850285437ac4ca9e63ec5efe9768, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 232c3b1dd3e03f14693c9c62e1d4679a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.6099997, y: 2.29}
+  m_Size: {x: 7.7699995, y: 2.47}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

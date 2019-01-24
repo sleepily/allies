@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4538406576056570}
   - component: {fileID: 212228016804661132}
   - component: {fileID: 114627057159931656}
-  - component: {fileID: 60830989785998918}
+  - component: {fileID: 60834241921411950}
   m_Layer: 0
-  m_Name: Platform_04
+  m_Name: Platform_Medium_01
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,13 +36,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1413423980586596}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.2799997, y: -8.92, z: 0}
+  m_LocalPosition: {x: 15.330001, y: 1.0799999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60830989785998918
+--- !u!60 &60834241921411950
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,49 +58,23 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.63, y: 2.85}
-    newSize: {x: 3.63, y: 2.85}
+    oldSize: {x: 12.7, y: 4.22}
+    newSize: {x: 6.7599998, y: 5.79}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.72843444, y: -0.48193693}
-      - {x: 0.9744778, y: -0.8003461}
-      - {x: 1.1047361, y: -0.8871849}
-      - {x: 1.2205213, y: -0.90165806}
-      - {x: 1.4231453, y: -0.68456095}
-      - {x: 1.6402425, y: -0.19247408}
-      - {x: 1.6836618, y: -0.16352779}
-      - {x: 1.7705007, y: 0.039096214}
-      - {x: 1.8139201, y: 0.2996128}
-      - {x: 1.7849739, y: 0.4009248}
-      - {x: 1.6547155, y: 0.76275337}
-      - {x: 1.6547155, y: 1.1680014}
-      - {x: 1.6112962, y: 1.2693133}
-      - {x: 1.5099841, y: 1.3706254}
-      - {x: 1.3363065, y: 1.4285179}
-      - {x: 0.4534447, y: 1.4285179}
-      - {x: 0.1495087, y: 1.3995717}
-      - {x: -0.47283646, y: 1.2837865}
-      - {x: -0.9504502, y: 1.240367}
-      - {x: -1.4570101, y: 1.1245819}
-      - {x: -1.6596342, y: 1.0232699}
-      - {x: -1.8043656, y: 0.8930116}
-      - {x: -1.8043656, y: 0.7048608}
-      - {x: -1.543849, y: 0.41539794}
-      - {x: -1.3122787, y: 0.039096214}
-      - {x: -1.1096548, y: -0.25036666}
-      - {x: -0.5886216, y: -0.75692666}
-      - {x: -0.5452022, y: -0.82929236}
-      - {x: -0.32810503, y: -1.2055941}
-      - {x: -0.27021244, y: -1.2924329}
-      - {x: -0.06758845, y: -1.3792717}
-      - {x: 0.06266984, y: -1.3792717}
-      - {x: 0.46791786, y: -0.98849696}
-      - {x: 0.56922984, y: -0.8437655}
-      - {x: 0.6705418, y: -0.68456095}
+    - - {x: 0.34, y: -1.7099999}
+      - {x: -4.96, y: -1.6899999}
+      - {x: -6.27, y: 0.07}
+      - {x: -6.08, y: 0.90999997}
+      - {x: -0.02, y: 1.37}
+      - {x: 6.24, y: 1.42}
+      - {x: 6.0499997, y: 0.53}
+      - {x: 4.87, y: -0.32}
+      - {x: 2.24, y: -0.89}
 --- !u!114 &114627057159931656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,12 +125,12 @@ SpriteRenderer:
   m_SortingLayerID: 1083900551
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300086, guid: 3a419f18af7b6aa4691d3e0fb0af2f07, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3be3e7c67b698994eac631a2d2f2d6e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.63, y: 2.85}
+  m_Size: {x: 6.7599998, y: 5.79}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

@@ -59,9 +59,7 @@ public class Interactable : MonoBehaviour
   {
     polygonCollider2D = gameObject.GetComponent<PolygonCollider2D>();
 
-    if (!rb)
+    if (!polygonCollider2D)
       polygonCollider2D = gameObject.AddComponent(typeof(PolygonCollider2D)) as PolygonCollider2D;
-
-    polygonCollider2D = gameObject.AddComponent(typeof(PolygonCollider2D)) as PolygonCollider2D;
   }
 }

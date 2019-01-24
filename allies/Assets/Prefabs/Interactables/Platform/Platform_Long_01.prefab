@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4538406576056570}
   - component: {fileID: 212228016804661132}
   - component: {fileID: 114627057159931656}
-  - component: {fileID: 60903849793453568}
+  - component: {fileID: 60462280437892502}
   m_Layer: 0
   m_Name: Platform_Long_01
   m_TagString: Platform
@@ -36,13 +36,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1413423980586596}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.47, y: 11.17, z: 0}
+  m_LocalPosition: {x: 11.67, y: 6.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60903849793453568
+--- !u!60 &60462280437892502
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,7 +58,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20.53, y: 3.8700001}
+    oldSize: {x: 35.82, y: 5.22}
     newSize: {x: 18.769999, y: 3.47}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -66,16 +66,17 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 5.2150006, y: -0.335}
-      - {x: 2.7350001, y: -1.775}
-      - {x: -5.0050006, y: -0.9050001}
-      - {x: -6.4550004, y: -1.3350002}
-      - {x: -7.4750004, y: -0.9750001}
-      - {x: -10.215001, y: 1.3950001}
-      - {x: -4.905, y: 1.1650001}
-      - {x: 3.1550002, y: 1.205}
-      - {x: 10.235001, y: 0.65500003}
-      - {x: 9.835001, y: 0.21500002}
+    - - {x: 11.640001, y: -0.82000005}
+      - {x: 3.1100001, y: -2.32}
+      - {x: 0.36, y: -1.2800001}
+      - {x: -9.35, y: -0.86}
+      - {x: -10.790001, y: -0.38000003}
+      - {x: -14.780002, y: -0.34}
+      - {x: -17.2, y: 1.1800001}
+      - {x: -12.990001, y: 1.7900001}
+      - {x: -6.3700004, y: 1.34}
+      - {x: 17.380001, y: 1.1800001}
+      - {x: 14.37, y: -1.45}
 --- !u!114 &114627057159931656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,7 +127,7 @@ SpriteRenderer:
   m_SortingLayerID: 1083900551
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bec3e3bf65672674183ae65baa05015e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7b2e36d15cae05f42a9ae34ed35cc020, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
