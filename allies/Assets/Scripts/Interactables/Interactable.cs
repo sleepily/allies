@@ -18,7 +18,7 @@ public class Interactable : MonoBehaviour
     gameManager = GameManager.globalGameManager;
 
     if (!gameManager)
-      Debug.LogError("No gamemanager");
+      Debug.LogError("No gamemanager - Please use MainScene to start the game.");
 
     Init();
   }
