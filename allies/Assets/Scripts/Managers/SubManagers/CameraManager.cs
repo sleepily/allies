@@ -10,14 +10,12 @@ public class CameraManager : SubManager
   public Camera currentView; // Use this for initialization
   public int viewIndex = 0;
 
-  public override void Init()
+  private void LateUpdate()
   {
-    base.Init();
-
-    currentView = views[0];
+    // MoveCamera(); no longer needed
   }
 
-  private void LateUpdate()
+  void MoveCamera()
   {
     mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, currentView.transform.position, Time.deltaTime * transitionSpeed);
 
@@ -37,7 +35,7 @@ public class CameraManager : SubManager
   private void Update()
   {
     GetInput();
-    currentView = views[viewIndex];
+    SetCurrentView();
   }
 
   void GetInput()
@@ -49,5 +47,10 @@ public class CameraManager : SubManager
       if (viewIndex >= views.Count)
         viewIndex = 0;
     }
+  }
+
+  void SetCurrentView()
+  {
+    currentView = views[viewIndex];
   }
 }

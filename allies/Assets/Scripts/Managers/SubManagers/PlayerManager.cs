@@ -50,6 +50,11 @@ public class PlayerManager : SubManager
     characterPrefabs.Add(anxietyPrefab);
     characterPrefabs.Add(depressionPrefab);
   }
+
+  void SpawnFusedCharacter()
+  {
+
+  }
   
   void SpawnCharacters()
   {
