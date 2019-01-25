@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: FrustrationController
+  m_Controller: {fileID: 9100000, guid: 0b593c103d719ef47ac7c0c83990aa7e, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 46525cd654795ba46bd9cc918ef607ab, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: be08fb9e6bbe03b4bb0db2610815a1c5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 89e95152a66d1a745bf142937d6fe4a0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0199b5b8ed1efdc408b2178cf9561404, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1360cf3f493df0c4d85e92001b97e54e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 73e75b4165134164e9f167863566e7e2, type: 2}

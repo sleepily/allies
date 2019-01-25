@@ -7,6 +7,7 @@ public class GameManager : Manager
   public static GameManager globalGameManager;
 
   public SceneManager sceneManager;
+  public static Camera globalCamera;
 
   [HideInInspector]
   public DesignManager designManager;
@@ -37,6 +38,7 @@ public class GameManager : Manager
   private void Awake()
   {
     GameManager.globalGameManager = this;
+    globalCamera = GetComponentInChildren<Camera>();
   }
 
   private void Start()
