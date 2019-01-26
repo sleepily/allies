@@ -333,19 +333,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4713566295676790, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 19.11
+      value: 19.04
       objectReference: {fileID: 0}
     - target: {fileID: 4713566295676790, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -15.54
+      value: -15.82
       objectReference: {fileID: 0}
     - target: {fileID: 4934718857267012, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.59
+      value: -1.66
       objectReference: {fileID: 0}
     - target: {fileID: 4934718857267012, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -15.99
+      value: -16.41
       objectReference: {fileID: 0}
     - target: {fileID: 4987786415093012, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
       propertyPath: m_RootOrder

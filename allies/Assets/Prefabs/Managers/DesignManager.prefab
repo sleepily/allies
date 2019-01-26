@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterPrefab: {fileID: 0}
+  startWithAbility: 0
 --- !u!114 &114360729158423226
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -263,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterPrefab: {fileID: 0}
+  startWithAbility: 0
 --- !u!114 &114794392586214496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -275,6 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterPrefab: {fileID: 0}
+  startWithAbility: 0
 --- !u!212 &212180500858538326
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -407,7 +410,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.31, y: 3.48}
+  m_Size: {x: 20.83, y: 20.83}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

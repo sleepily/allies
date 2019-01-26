@@ -559,6 +559,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 630145972}
     m_Modifications:
+    - target: {fileID: 114308051407025300, guid: 18c3992b4ed67994cbad9940eada227d,
+        type: 2}
+      propertyPath: listToTrigger.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4595861469793544, guid: 18c3992b4ed67994cbad9940eada227d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 19.62
@@ -595,6 +600,11 @@ Prefab:
       propertyPath: m_Name
       value: Switch_PressurePlate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114308051407025300, guid: 18c3992b4ed67994cbad9940eada227d,
+        type: 2}
+      propertyPath: listToTrigger.Array.data[0]
+      value: 
+      objectReference: {fileID: 150193512}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18c3992b4ed67994cbad9940eada227d, type: 2}
   m_IsPrefabAsset: 0
@@ -691,11 +701,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4074279178975780, guid: 3a9abe784c7a1e941a3a330fdc0d3bc2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -12.301521
+      value: -12.09
       objectReference: {fileID: 0}
     - target: {fileID: 4074279178975780, guid: 3a9abe784c7a1e941a3a330fdc0d3bc2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -14.020365
+      value: -14.72
       objectReference: {fileID: 0}
     - target: {fileID: 4074279178975780, guid: 3a9abe784c7a1e941a3a330fdc0d3bc2, type: 2}
       propertyPath: m_LocalPosition.z
