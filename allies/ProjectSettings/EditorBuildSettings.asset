@@ -51,6 +51,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Easy_005.unity
     guid: f2abafe12ccee85489d2a448b1aeabf2
   - enabled: 1
+    path: Assets/Scenes/Levels/Easy_006.unity
+    guid: 9f4b3a9b0bb9de5498e91dedb7de2240
+  - enabled: 1
     path: Assets/Scenes/Levels/Medium_001.unity
     guid: fb89d3a679c4d4b45a8e4f38b0d90f0a
   - enabled: 1
