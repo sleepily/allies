@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4847424491394554}
   - component: {fileID: 212399308514749972}
   - component: {fileID: 114737055258515094}
+  - component: {fileID: 50150871811731780}
+  - component: {fileID: 60533370767397624}
   m_Layer: 0
   m_Name: Monster_Shooting
   m_TagString: Untagged
@@ -41,6 +43,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50150871811731780
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1436599273632266}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!60 &60533370767397624
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1436599273632266}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.4}
+    oldSize: {x: 3.64, y: 6.52}
+    newSize: {x: 3.73, y: 6.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.66999996, y: -2.1580002}
+      - {x: -0.29999998, y: -2.4880002}
+      - {x: -1.13, y: -1.4680002}
+      - {x: -1.76, y: 0.7219998}
+      - {x: -1.77, y: 2.0819998}
+      - {x: -0.26999998, y: 3.8619998}
+      - {x: 1.06, y: 2.2019997}
+      - {x: 1.22, y: -0.9680002}
 --- !u!114 &114737055258515094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,7 +109,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   projectilePrefab: {fileID: 114017616459726408, guid: 3575410160b1faf4bbca94ed37e6bff6,
     type: 2}
-  interval: 0.3
+  interval: 0.5
 --- !u!212 &212399308514749972
 SpriteRenderer:
   m_ObjectHideFlags: 1

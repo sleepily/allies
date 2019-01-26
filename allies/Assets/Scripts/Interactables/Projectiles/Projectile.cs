@@ -18,7 +18,7 @@ public class Projectile : MonoBehaviour
   [Header("Shooting")]
   public float speed = 1f;
   public float angle = 0f;
-  Vector2 direction;
+  protected Vector2 direction;
   public float shootingOffset = 1f;
 
   [Header("Rigidbody/Collision")]
@@ -83,11 +83,6 @@ public class Projectile : MonoBehaviour
 
     if (!isKinematic)
       this.rb.velocity = direction * speed;
-  }
-
-  public void Bounce()
-  {
-    this.direction *= -1;
   }
 
   public void MoveToInteractablesManager()

@@ -12,4 +12,11 @@ public class MonsterProjectile : Projectile
       Destroy(this.gameObject);
     }
   }
+
+  public void Bounce()
+  {
+    this.gameObject.layer = LayerMask.NameToLayer("Projectiles");
+    this.gameObject.tag = "Projectile";
+    this.direction *= -1;
+  }
 }

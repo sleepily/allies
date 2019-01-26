@@ -44,4 +44,22 @@ public class ProjectileMonster : Enemy
     time += interval;
     return true;
   }
+
+  private void OnTriggerEnter2D(Collider2D collision)
+  {
+    KillOnProjectileCollision(collision);
+  }
+
+  private void OnTriggerStay2D(Collider2D collision)
+  {
+    KillOnProjectileCollision(collision);
+  }
+
+  protected void KillOnProjectileCollision(Collider2D collision)
+  {
+    if (!collision.gameObject.CompareTag("Projectile"))
+      return;
+
+    Destroy(this.gameObject);
+  }
 }

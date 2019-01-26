@@ -14,6 +14,7 @@ TagManager:
   - Enemy
   - Water
   - FireFlower
+  - MovableStone
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Characters
   - Tears
   - Ground
-  - 
+  - EnemyProjectiles
   - 
   - 
   - 

@@ -9,8 +9,7 @@ public class UIManager : SubManager
   public override void Init()
   {
     base.Init();
-
-    if (gameManager.cameraManager.mainCamera != null)
-      canvas.worldCamera = gameManager.cameraManager.mainCamera;
+    
+    canvas.worldCamera = GameManager.globalCamera;
   }
 }

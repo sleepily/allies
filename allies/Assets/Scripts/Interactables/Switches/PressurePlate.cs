@@ -13,11 +13,13 @@ public class PressurePlate : Switch
   private void OnCollisionEnter2D(Collision2D collision)
   {
     ActivateSwitchOnTagCollision("Character", collision);
+    ActivateSwitchOnTagCollision("MovableStone", collision);
   }
 
   private void OnCollisionStay2D(Collision2D collision)
   {
     ActivateSwitchOnTagCollision("Character", collision);
+    ActivateSwitchOnTagCollision("MovableStone", collision);
   }
 
   private void OnCollisionExit2D(Collision2D collision)

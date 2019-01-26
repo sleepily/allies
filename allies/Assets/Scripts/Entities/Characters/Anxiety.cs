@@ -63,13 +63,16 @@ public class Anxiety : Character
     if (!collision.gameObject.CompareTag("Enemy"))
       return;
 
-    if (abilityActive)
-    {
-      collision.rigidbody.velocity = Vector2.zero;
-      collision.gameObject.SendMessage("Bounce");
-      return;
-    }
+    MonsterProjectile monsterProjectile = collision.gameObject.GetComponent<MonsterProjectile>();
 
+    if (monsterProjectile)
+      if (abilityActive)
+      {
+        monsterProjectile.rb.velocity = Vector2.zero;
+        monsterProjectile.Bounce();
+        return;
+      }
+    
     gameManager.sceneManager.RetryLevel();
   }
 
