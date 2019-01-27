@@ -74,15 +74,12 @@ TextureImporter:
     sprites: []
     outline: []
     physicsShape:
-    - - {x: 234, y: -22}
-      - {x: 241, y: -41}
-      - {x: -241, y: -41}
-      - {x: -232, y: -24}
-      - {x: -207, y: 5}
-      - {x: -126, y: 18}
-      - {x: -20, y: 7}
-      - {x: 129, y: 20}
-      - {x: 213, y: 2}
+    - - {x: 237, y: -22}
+      - {x: 176, y: -41}
+      - {x: -183, y: -41}
+      - {x: -236, y: -23}
+      - {x: -153, y: 10}
+      - {x: 152, y: 10}
     bones: []
     spriteID: ad373c4426ca7bc438aaffb2eae1760e
     vertices: []

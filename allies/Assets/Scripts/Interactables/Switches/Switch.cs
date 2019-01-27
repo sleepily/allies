@@ -24,6 +24,14 @@ public class Switch : Interactable
     ActivateSwitchOnTagCollision("IceTear", collision);
   }
 
+  protected void ActivateSwitchOnTagTrigger(string tag, Collider2D collision)
+  {
+    if (!collision.gameObject.CompareTag(tag))
+      return;
+
+    ActivateSwitch();
+  }
+
   protected virtual void ActivateSwitchOnTagCollision(string tag, Collision2D collision)
   {
     if (!collision.gameObject.CompareTag(tag))

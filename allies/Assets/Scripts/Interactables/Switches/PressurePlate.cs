@@ -10,19 +10,19 @@ public class PressurePlate : Switch
     spriteRenderer.sprite = spriteDeactivated;
   }
 
-  private void OnCollisionEnter2D(Collision2D collision)
+  private void OnTriggerEnter2D(Collider2D collision)
   {
-    ActivateSwitchOnTagCollision("Character", collision);
-    ActivateSwitchOnTagCollision("MovableStone", collision);
+    ActivateSwitchOnTagTrigger("Character", collision);
+    ActivateSwitchOnTagTrigger("MovableStone", collision);
   }
 
-  private void OnCollisionStay2D(Collision2D collision)
+  private void OnTriggerStay2D(Collider2D collision)
   {
-    ActivateSwitchOnTagCollision("Character", collision);
-    ActivateSwitchOnTagCollision("MovableStone", collision);
+    ActivateSwitchOnTagTrigger("Character", collision);
+    ActivateSwitchOnTagTrigger("MovableStone", collision);
   }
 
-  private void OnCollisionExit2D(Collision2D collision)
+  private void OnTriggerExit2D(Collider2D collision)
   {
     DeactivateSwitch();
   }
