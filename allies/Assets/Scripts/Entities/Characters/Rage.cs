@@ -25,7 +25,7 @@ public class Rage : Character
 
     abilityDirection = isMovingLeft ? Vector2.left : Vector2.right;
 
-    rb.velocity = new Vector2(abilityDirection.x * 16, rb.velocity.y);
+    rb.velocity = new Vector2(abilityDirection.x * 18, rb.velocity.y);
   }
 
   protected override void MirrorSpriteIfMovingLeft()

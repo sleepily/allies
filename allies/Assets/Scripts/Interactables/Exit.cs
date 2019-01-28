@@ -14,24 +14,13 @@ public class Exit : Interactable
     Init();
     SetColliderToTrigger();
 	}
-
-  void GetMissingCharacterCount()
+  
+  void ActivateWhenNoCharactersAreMissing()
   {
-    if (gotCharacterCount)
+    if (gameManager.characterManager.GetActiveCharactersAsList().Count > 0)
       return;
 
-    charactersMissing = gameManager.playerManager.activeCharactersInLevel.Count;
-
-    if (charactersMissing == 0)
-      return;
-
-    gotCharacterCount = true;
-  }
-
-  private void FixedUpdate()
-  {
-    GetMissingCharacterCount();
-    CheckForAllCharacters();
+    ExitLevel();
   }
 
   void CheckForAllCharacters()
@@ -60,6 +49,8 @@ public class Exit : Interactable
 
     Character c = collision.gameObject.GetComponent<Character>();
     HideCharacter(c);
+
+    ActivateWhenNoCharactersAreMissing();
   }
 
   void HideCharacter(Character character)

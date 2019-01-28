@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212405755079001910}
   - component: {fileID: 114017616459726408}
   m_Layer: 12
-  m_Name: Projectile_Monster
+  m_Name: Projectile_Monster_Repelled
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b014eae69aacae64582ae41cf1d023fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b2df44f45f1cb4b43ac5adfe386b6de4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -18,7 +18,7 @@ public class GameManager : Manager
   [HideInInspector]
   public UIManager uiManager;
   [HideInInspector]
-  public PlayerManager playerManager;
+  public CharacterManager characterManager;
   [HideInInspector]
   public CameraManager cameraManager;
   [HideInInspector]
@@ -31,7 +31,7 @@ public class GameManager : Manager
   public LevelManager levelManagerPrefab;
   public InputManager inputManagerPrefab;
   public UIManager uiManagerPrefab;
-  public PlayerManager playerManagerPrefab;
+  public CharacterManager playerManagerPrefab;
   public CameraManager cameraManagerPrefab;
   public InteractablesManager interactablesManagerPrefab;
 
@@ -63,7 +63,7 @@ public class GameManager : Manager
     levelManager = Instantiate(levelManagerPrefab);
     inputManager = Instantiate(inputManagerPrefab);
     uiManager = Instantiate(uiManagerPrefab);
-    playerManager = Instantiate(playerManagerPrefab);
+    characterManager = Instantiate(playerManagerPrefab);
     cameraManager = Instantiate(cameraManagerPrefab);
     interactablesManager = Instantiate(interactablesManagerPrefab);
   }
@@ -73,7 +73,7 @@ public class GameManager : Manager
     managers.Add(levelManager);
     managers.Add(inputManager);
     managers.Add(uiManager);
-    managers.Add(playerManager);
+    managers.Add(characterManager);
     managers.Add(levelManager);
     managers.Add(cameraManager);
     managers.Add(interactablesManager);
@@ -84,7 +84,7 @@ public class GameManager : Manager
     levelManager.gameManager = this;
     inputManager.gameManager = this;
     uiManager.gameManager = this;
-    playerManager.gameManager = this;
+    characterManager.gameManager = this;
     levelManager.gameManager = this;
     cameraManager.gameManager = this;
     interactablesManager.gameManager = this;

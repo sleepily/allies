@@ -20,8 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4439938467852500}
   - component: {fileID: 114656062616973686}
+  - component: {fileID: 114527280903901050}
   m_Layer: 0
-  m_Name: PlayerManager
+  m_Name: CharacterManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,6 +41,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114527280903901050
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1878204115461444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -234403039, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
 --- !u!114 &114656062616973686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -58,9 +95,17 @@ MonoBehaviour:
     type: 2}
   depressionPrefab: {fileID: 114231862690535282, guid: 88564881450f4ea4cbc2a2c88f4b770e,
     type: 2}
+  stressPrefab: {fileID: 114483003167059450, guid: 8683ecb69d4789645962d3282bbddecb,
+    type: 2}
+  frustrationPrefab: {fileID: 114273890128533770, guid: f62e40180eff8114e973c94524e9e7fa,
+    type: 2}
+  apathyPrefab: {fileID: 114205463315312704, guid: 079dc564350cacc4ab203b2c08531425,
+    type: 2}
   activeCharactersInLevel: []
+  combinedCharacters: []
   activeCharacterIndex: 0
   activeCharacter: {fileID: 0}
+  activeCombinedCharacter: {fileID: 0}
   maxGroupingDistance: 3
   movementForce: 3
   jumpForce: 5

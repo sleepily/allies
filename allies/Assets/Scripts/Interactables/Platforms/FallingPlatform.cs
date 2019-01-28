@@ -24,7 +24,7 @@ public class FallingPlatform : Interactable
     foreach (Fuse fuse in fuses)
       Destroy(fuse.gameObject);
 
-    platform.rb.gravityScale = gameManager.playerManager.globalGravityScale;
+    platform.rb.gravityScale = gameManager.characterManager.globalGravityScale;
     platform.rb.isKinematic = false;
   }
 

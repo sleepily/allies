@@ -3,7 +3,7 @@
 public class Character : Entity
 {
   [HideInInspector]
-  public PlayerManager playerManager;
+  public CharacterManager characterManager;
 
   [HideInInspector]
   public bool startWithAbility = false;
@@ -45,14 +45,27 @@ public class Character : Entity
   protected virtual void Init()
   {
     GetAllComponents();
+    SetParentTransform();
+    DeactivateAbility();
     isMovingLeft = false;
   }
 
   protected virtual void GetAllComponents()
   {
+    if (!gameManager)
+      gameManager = GameManager.globalGameManager;
+
+    if (!characterManager)
+      characterManager = gameManager.characterManager;
+
     rb = GetComponent<Rigidbody2D>();
     animator = GetComponent<Animator>();
     spriteRenderer = GetComponent<SpriteRenderer>();
+  }
+
+  protected void SetParentTransform()
+  {
+    transform.SetParent(characterManager.transform);
   }
 
   protected virtual void Update()
@@ -72,13 +85,13 @@ public class Character : Entity
 
   protected virtual void CheckForCharacterDistance()
   {
-    if (playerManager.activeCharactersInLevel.Count == 1)
+    if (characterManager.charactersInLevel.Count == 1)
       return;
 
     if (!abilityActive)
       return;
 
-    foreach (Character character in playerManager.activeCharactersInLevel)
+    foreach (Character character in characterManager.GetActiveCharactersAsList())
     {
       if (character == this)
         continue;
@@ -87,6 +100,7 @@ public class Character : Entity
 
       if (distance < 2f)
       {
+        // Debug.Log("Disabled " + this.name + "'s ability due to distance to " + character.name + ".");
         DeactivateAbility();
         return;
       }
@@ -189,10 +203,10 @@ public class Character : Entity
 
   private void GetGlobalGravityScale()
   {
-    if (!gameManager.playerManager)
+    if (!gameManager.characterManager)
       return;
 
-    rb.gravityScale = gameManager.playerManager.globalGravityScale;
+    rb.gravityScale = gameManager.characterManager.globalGravityScale;
   }
 
   private void SetAnimatorProperties()
@@ -207,7 +221,7 @@ public class Character : Entity
     MirrorSpriteIfMovingLeft();
   }
 
-  private void SetAnimatorVariables()
+  protected virtual void SetAnimatorVariables()
   {
     animator.SetBool("abilityActive", abilityActive);
     animator.SetInteger("abilityIndex", abilityIndex);
@@ -286,22 +300,20 @@ public class Character : Entity
     }
   }
 
-  public void ActivateAbility()
+  public virtual void ActivateAbility()
   {
     if (!canUseAbilityInAir)
       if (!isCollidingWithGround)
         return;
 
     abilityActive = true;
+    characterManager.SetNextCharacterAsActive();
   }
 
   protected void CheckAbilityStatus()
   {
     if (!abilityActive)
-    {
-      DeactivateAbility();
       return;
-    }
 
     Ability();
   }
@@ -315,7 +327,7 @@ public class Character : Entity
 
     velocity.x = axisHorizontal;
 
-    float moveForce = velocity.x * rb.gravityScale * gameManager.playerManager.movementForce;
+    float moveForce = velocity.x * rb.gravityScale * gameManager.characterManager.movementForce;
 
     rb.velocity = new Vector2(moveForce, rb.velocity.y);
   }
@@ -335,7 +347,7 @@ public class Character : Entity
 
     velocity.y = axisVertical;
 
-    float jumpForce = velocity.y * rb.gravityScale * gameManager.playerManager.jumpForce;
+    float jumpForce = velocity.y * rb.gravityScale * gameManager.characterManager.jumpForce;
 
     isJumping = true;
 

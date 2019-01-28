@@ -62,11 +62,11 @@ public class InputManager : SubManager
     if (!gameManager)
       return;
 
-    if (!gameManager.playerManager.activeCharacter)
+    if (!gameManager.characterManager.activeCharacter)
       return;
 
     Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    Vector2 character = gameManager.playerManager.activeCharacter.transform.position;
+    Vector2 character = gameManager.characterManager.activeCharacter.transform.position;
     toMouse = mouse - character;
     angleToMouse = Mathf.Atan2(toMouse.y, toMouse.x) * Mathf.Rad2Deg;
 
