@@ -28,7 +28,7 @@ public class CombinedCharacter : Character
 
   void MoveToInitiatorPosition(Vector2 position)
   {
-    this.transform.position = (Vector3)position;
+    this.transform.position = position;
   }
 
   protected override void SetAnimatorVariables()
