@@ -117,6 +117,7 @@ public class SceneManager : SubManager
 
   void LoadScreenSingle(Scene scene)
   {
+    gameManager.cameraManager.FadeIn();
     StartCoroutine(LoadSceneAsync(scene.buildIndex, LoadSceneMode.Single));
   }
 

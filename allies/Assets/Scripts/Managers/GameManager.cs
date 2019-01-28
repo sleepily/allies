@@ -7,6 +7,7 @@ public class GameManager : Manager
   public static GameManager globalGameManager;
 
   public SceneManager sceneManager;
+  public CameraManager cameraManager;
   public static Camera globalCamera;
 
   [HideInInspector]
@@ -19,8 +20,6 @@ public class GameManager : Manager
   public UIManager uiManager;
   [HideInInspector]
   public CharacterManager characterManager;
-  [HideInInspector]
-  public CameraManager cameraManager;
   [HideInInspector]
   public InteractablesManager interactablesManager;
 
@@ -64,7 +63,6 @@ public class GameManager : Manager
     inputManager = Instantiate(inputManagerPrefab);
     uiManager = Instantiate(uiManagerPrefab);
     characterManager = Instantiate(playerManagerPrefab);
-    cameraManager = Instantiate(cameraManagerPrefab);
     interactablesManager = Instantiate(interactablesManagerPrefab);
   }
 
@@ -86,7 +84,6 @@ public class GameManager : Manager
     uiManager.gameManager = this;
     characterManager.gameManager = this;
     levelManager.gameManager = this;
-    cameraManager.gameManager = this;
     interactablesManager.gameManager = this;
   }
 }

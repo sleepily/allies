@@ -94,3 +94,9 @@ TagManager:
   - name: Explosives and Fuses
     uniqueID: 3472964529
     locked: 0
+  - name: UI
+    uniqueID: 87406383
+    locked: 0
+  - name: Fade FX
+    uniqueID: 257434605
+    locked: 0

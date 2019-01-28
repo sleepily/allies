@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DesignManager : SubManager
 {
@@ -12,6 +13,19 @@ public class DesignManager : SubManager
   public GameObject designParent;
   List<Interactable> interactables = new List<Interactable>();
   List<Entity> entities = new List<Entity>();
+
+  private void Awake()
+  {
+    LoadMainScreenInPlaymode();
+  }
+
+  void LoadMainScreenInPlaymode()
+  {
+    if (!GameManager.globalGameManager)
+    {
+      UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+  }
 
   public override void Init()
   {

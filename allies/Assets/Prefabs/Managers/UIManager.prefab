@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 223717473965919912}
   - component: {fileID: 114650789706645400}
   - component: {fileID: 114771373782011522}
+  - component: {fileID: 114975755551828252}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -206,6 +207,17 @@ MonoBehaviour:
     Rage
 
 '
+--- !u!114 &114975755551828252
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1621746812111900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa459b0136048a4c96a1103d767c2af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222224220140930506
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -229,7 +241,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 20731942600357842, guid: 93a90c9497c468a46b67f2bea4fd1a0c, type: 2}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 5
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
