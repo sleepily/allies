@@ -87,6 +87,8 @@ MonoBehaviour:
   actionActivated: 0
   floatTime: 1
   floatHeight: 4
+  spriteActivated: {fileID: 21300000, guid: 2ad85c62c824dfd4e9ae2e3e610957d8, type: 3}
+  spriteDeactivated: {fileID: 21300000, guid: 733f4dfee44f36140ae77a415eb0bc32, type: 3}
 --- !u!212 &212228016804661132
 SpriteRenderer:
   m_ObjectHideFlags: 1
