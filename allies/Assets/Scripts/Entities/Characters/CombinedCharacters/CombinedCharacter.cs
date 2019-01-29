@@ -39,10 +39,13 @@ public class CombinedCharacter : Character
   void SetCombinationActive(bool value)
   {
     foreach (Character character in combination)
+    {
+      character.DeactivateAbility();
       character.gameObject.SetActive(value);
+    }
   }
 
-  protected override void DeactivateAbility()
+  public override void DeactivateAbility()
   {
     base.DeactivateAbility();
 

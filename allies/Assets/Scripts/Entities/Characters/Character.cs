@@ -336,9 +336,8 @@ public class Character : Entity
     allowJump = false;
     allowMove = false;
   }
-
-  // resets all character's properties to default behaviour and resets the switch
-  protected virtual void DeactivateAbility()
+  
+  public virtual void DeactivateAbility()
   {
     allowJump = true;
     allowMove = true;

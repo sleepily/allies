@@ -99,7 +99,7 @@ public class Depression : Character
       characterManager.SetNextCharacterAsActive();
   }
 
-  protected override void DeactivateAbility()
+  public override void DeactivateAbility()
   {
     base.DeactivateAbility();
 

@@ -46,7 +46,7 @@ public class Anxiety : Character
       RigidbodyConstraints2D.FreezeRotation;
   }
 
-  protected override void DeactivateAbility()
+  public override void DeactivateAbility()
   {
     base.DeactivateAbility();
 
