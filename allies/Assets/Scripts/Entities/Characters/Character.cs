@@ -309,6 +309,9 @@ public class Character : Entity
     if (isJumping)
       return;
 
+    if (!isCollidingWithGround)
+      return;
+
     if (axisVertical < .5f)
       return;
 

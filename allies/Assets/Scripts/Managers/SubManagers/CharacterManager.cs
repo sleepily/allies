@@ -48,11 +48,6 @@ public class CharacterManager : SubManager
     MoveActiveCharacter();
   }
 
-  private void FixedUpdate()
-  {
-
-  }
-
   void CreateCharacterPrefabList()
   {
     characterPrefabs.Add(ragePrefab);
@@ -82,12 +77,12 @@ public class CharacterManager : SubManager
 
     if (!activeCombinedCharacter)
     {
-      Debug.Log("Couldn't fuse characters.");
+      Debug.Log("Couldn't set fusion flags. Check Character names!");
       return;
     }
 
     activeCombinedCharacter.Fusion(initiator, determinator);
-    Debug.Log("Set " + activeCombinedCharacter.name + " as active CC.");
+    // Debug.Log("Set " + activeCombinedCharacter.name + " as active CC.");
   }
 
   void SpawnCharacters()

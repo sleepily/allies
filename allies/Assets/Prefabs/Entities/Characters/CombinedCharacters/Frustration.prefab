@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4781842387943966}
   - component: {fileID: 212674257355521668}
+  - component: {fileID: 114273890128533770}
   - component: {fileID: 58641553815642036}
   - component: {fileID: 50525138266446204}
   - component: {fileID: 95402407695717826}
-  - component: {fileID: 114273890128533770}
   m_Layer: 9
   m_Name: Frustration
   m_TagString: Character
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  playerManager: {fileID: 0}
+  characterManager: {fileID: 0}
   startWithAbility: 0
   rb: {fileID: 0}
   velocity: {x: 0, y: 0}
@@ -133,6 +133,7 @@ MonoBehaviour:
   - {fileID: 114231862690535282, guid: 88564881450f4ea4cbc2a2c88f4b770e, type: 2}
   magmaTearPrefab: {fileID: 114293418131878046, guid: b307c5ee65ae2ea4bb8b8dc2e66ece4f,
     type: 2}
+  used: 0
 --- !u!212 &212674257355521668
 SpriteRenderer:
   m_ObjectHideFlags: 1
