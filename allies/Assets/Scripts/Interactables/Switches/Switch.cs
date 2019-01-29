@@ -42,6 +42,9 @@ public class Switch : Interactable
 
   protected virtual void ActivateSwitch()
   {
+    if (isActivated)
+      return;
+
     isActivated = true;
     foreach (Interactable interactibleToTrigger in listToTrigger)
       if (interactibleToTrigger)

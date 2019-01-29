@@ -1,53 +1,77 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FloatableObject : Interactable
 {
-  public Water water;
-
+  [Header("Settings")]
   public float floatTime = 1f;
+
   public float floatHeight = 4f;
-
-  Vector2 initialPosition;
-  Vector2 initialWaterScale;
-
-  float waterColliderOffset = .2f;
+  private Vector2 position_initial;
+  private Vector2 position_final;
+  private float timestamp = -1f;
 
   public override void Init()
   {
     base.Init();
 
-    water.parent = this;
-    initialPosition = this.transform.position;
+    position_initial = transform.position;
+    position_final = position_initial + Vector2.up * floatHeight;
   }
 
   private void Update()
   {
-    FloatUp();
+    Float();
   }
 
-  void FloatUp()
+  public override void Activate()
+  {
+    if (actionActivated)
+      return;
+
+    base.Activate();
+
+    UpdateTimestamp();
+  }
+
+  public override void Deactivate()
   {
     if (!actionActivated)
       return;
 
-    if (transform.position.y >= initialPosition.y + floatHeight)
+    base.Deactivate();
+    UpdateTimestamp();
+  }
+
+  private void UpdateTimestamp()
+  {
+    timestamp = Time.time;
+  }
+
+  protected virtual void Float()
+  {
+    FloatUp();
+    FloatDown();
+  }
+
+  protected virtual void FloatUp()
+  {
+    if (!actionActivated)
       return;
 
-    ChangePosition();
-    ChangeWaterSize();
+    LerpToPosition(position_initial, position_final);
   }
 
-  void ChangePosition()
+  protected virtual void FloatDown()
   {
-    this.transform.position += (Vector3)((Vector2.up * floatHeight) * (Time.deltaTime / floatTime));
+    if (actionActivated)
+      return;
+
+    LerpToPosition(position_final, position_initial);
   }
 
-  void ChangeWaterSize()
+  private void LerpToPosition(Vector2 start, Vector2 end)
   {
-    water.spriteRenderer.size += ((Vector2.up* floatHeight) * (Time.deltaTime / floatTime));
-    water.boxCollider.size = water.spriteRenderer.size;
-    water.boxCollider.offset = new Vector2(0, -waterColliderOffset + ((water.boxCollider.size.y - waterColliderOffset) / -2));
+    float lerpValue = Tools.ExtensionMethods.Map01(Time.time, timestamp, timestamp + floatTime);
+    transform.position = Vector2.Lerp(start, end, lerpValue);
   }
 }

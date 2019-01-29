@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4538406576056570}
   - component: {fileID: 212228016804661132}
-  - component: {fileID: 114627057159931656}
   - component: {fileID: 60171668974218702}
+  - component: {fileID: 114464787587827144}
   m_Layer: 0
   m_Name: Platform_Elevator
   m_TagString: Platform
@@ -70,7 +70,7 @@ PolygonCollider2D:
       - {x: -1.3100002, y: -16.300001}
       - {x: 1.7700001, y: -16.300001}
       - {x: 2.5700002, y: -16.590002}
---- !u!114 &114627057159931656
+--- !u!114 &114464787587827144
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,13 +78,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1413423980586596}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dffaa40bcb4d84b4b8600d531b629bee, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ab1886275f78a04785611871c49a479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   actionActivated: 0
+  floatTime: 1
+  floatHeight: 4
 --- !u!212 &212228016804661132
 SpriteRenderer:
   m_ObjectHideFlags: 1

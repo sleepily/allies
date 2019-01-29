@@ -193,7 +193,7 @@ public class CharacterManager : SubManager
       gameManager.levelManager.Retry();
 
     if (gameManager.inputManager.fusionAction)
-      CombineCharacters();
+      CombineActiveWithNearestCharacter();
 
     if (gameManager.inputManager.abilityAction)
     {
@@ -236,47 +236,33 @@ public class CharacterManager : SubManager
     return activeCharacters;
   }
 
-  void CombineCharacters()
+  void CombineActiveWithNearestCharacter()
   {
     List<Character> activeCharactersInLevel = GetActiveCharactersAsList();
 
     if (activeCharactersInLevel.Count <= 1)
-    {
-      Debug.Log("Only 1 Character in level.");
       return;
-    }
 
-    Debug.Log("Checking for nearest Character.");
-
-    Character nearest = null;
-    float minDistance = maxGroupingDistance;
+    Character nearestCharacter = null;
+    float smallestCharacterDistance = maxGroupingDistance;
 
     foreach (Character character in activeCharactersInLevel)
     {
       if (character == activeCharacter)
-      {
-        Debug.Log("Checking from Character " + character.name + ".");
         continue;
-      }
 
       float distance = Vector2.Distance(activeCharacter.transform.position, character.transform.position);
-
-      if (distance > minDistance)
-      {
-        Debug.Log("Character " + character.name + " not close enough.");
+      
+      if (distance > smallestCharacterDistance)
         continue;
-      }
 
-      minDistance = distance;
-      nearest = character;
+      smallestCharacterDistance = distance;
+      nearestCharacter = character;
     }
 
-    if (!nearest)
-    {
-      Debug.Log("No character is close enough.");
+    if (!nearestCharacter)
       return;
-    }
 
-    SpawnFusedCharacter(activeCharacter, nearest);
+    SpawnFusedCharacter(activeCharacter, nearestCharacter);
   }
 }

@@ -138,7 +138,7 @@ MonoBehaviour:
   spriteDeactivated: {fileID: 21300000, guid: 1a8b1bfaab9d97f4a95cb15e28977d9c, type: 3}
   listToTrigger:
   - {fileID: 0}
-  isActivated: 1
+  isActivated: 0
 --- !u!212 &212242378899845632
 SpriteRenderer:
   m_ObjectHideFlags: 1

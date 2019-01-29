@@ -104,7 +104,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   actionActivated: 0
   animator: {fileID: 0}
-  physicsMaterial2D: {fileID: 6200000, guid: 774c993475f372c4caafe6004be42659, type: 2}
+  physicsMaterial2D: {fileID: 0}
 --- !u!212 &212219883594602272
 SpriteRenderer:
   m_ObjectHideFlags: 1

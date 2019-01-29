@@ -217,7 +217,7 @@ Prefab:
         type: 2}
       propertyPath: listToTrigger.Array.data[0]
       value: 
-      objectReference: {fileID: 1857578128}
+      objectReference: {fileID: 1312612104}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18c3992b4ed67994cbad9940eada227d, type: 2}
   m_IsPrefabAsset: 0
@@ -596,11 +596,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4934718857267012, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6.51
+      value: 6.32
       objectReference: {fileID: 0}
     - target: {fileID: 4934718857267012, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -15.66
+      value: -15.15
       objectReference: {fileID: 0}
     - target: {fileID: 114298642833868584, guid: dc253b6ea3562914bbeebada31d55089,
         type: 2}
@@ -764,6 +764,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce7ba2f7bf35fc34f94b85e00a1c48f6, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1312612104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114464787587827144, guid: 5057347bf32eb6a4591c310d50fabf5b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1857578127}
+  m_Script: {fileID: 11500000, guid: 6ab1886275f78a04785611871c49a479, type: 3}
 --- !u!1001 &1328600978
 Prefab:
   m_ObjectHideFlags: 0
@@ -1048,7 +1054,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4538406576056570, guid: 5057347bf32eb6a4591c310d50fabf5b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.38
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4538406576056570, guid: 5057347bf32eb6a4591c310d50fabf5b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1074,12 +1080,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114464787587827144, guid: 5057347bf32eb6a4591c310d50fabf5b,
+        type: 2}
+      propertyPath: floatHeight
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114464787587827144, guid: 5057347bf32eb6a4591c310d50fabf5b,
+        type: 2}
+      propertyPath: floatTime
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5057347bf32eb6a4591c310d50fabf5b, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &1857578128 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114627057159931656, guid: 5057347bf32eb6a4591c310d50fabf5b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1857578127}
-  m_Script: {fileID: 11500000, guid: dffaa40bcb4d84b4b8600d531b629bee, type: 3}
