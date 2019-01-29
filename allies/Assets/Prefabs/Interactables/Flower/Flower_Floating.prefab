@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 4888141962139600}
   - component: {fileID: 212873309135382130}
   - component: {fileID: 114344465590421774}
-  - component: {fileID: 114563222563686768}
   - component: {fileID: 50319957892753724}
   - component: {fileID: 60349551203638682}
   m_Layer: 0
@@ -263,7 +262,7 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 50855961702185794}
   actionActivated: 0
-  parent: {fileID: 114563222563686768}
+  parent: {fileID: 114344465590421774}
   spriteRenderer: {fileID: 212572727269364994}
   boxCollider: {fileID: 61492845886945006}
 --- !u!114 &114344465590421774
@@ -281,24 +280,9 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   actionActivated: 0
---- !u!114 &114563222563686768
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1271315957965814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c3f40bf0f37489479739ed7ed378ecf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  polygonCollider2D: {fileID: 0}
-  rb: {fileID: 0}
-  actionActivated: 0
-  water: {fileID: 114325310736669420}
   floatTime: 1
   floatHeight: 4
+  water: {fileID: 114325310736669420}
 --- !u!212 &212572727269364994
 SpriteRenderer:
   m_ObjectHideFlags: 1

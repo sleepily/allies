@@ -6,8 +6,8 @@ public class FloatableObject : Interactable
   public float floatTime = 1f;
 
   public float floatHeight = 4f;
-  private Vector2 position_initial;
-  private Vector2 position_final;
+  protected Vector2 position_initial;
+  protected Vector2 position_final;
   private float timestamp = -1f;
 
   public override void Init()
@@ -69,7 +69,7 @@ public class FloatableObject : Interactable
     LerpToPosition(position_final, position_initial);
   }
 
-  private void LerpToPosition(Vector2 start, Vector2 end)
+  protected void LerpToPosition(Vector2 start, Vector2 end)
   {
     float lerpValue = Tools.ExtensionMethods.Map01(Time.time, timestamp, timestamp + floatTime);
     transform.position = Vector2.Lerp(start, end, lerpValue);

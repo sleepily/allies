@@ -11,8 +11,16 @@ public class FloatingPlatform : FloatableObject
   public override void Init()
   {
     base.Init();
+    SetWaterProperties();
+  }
+
+  void SetWaterProperties()
+  {
+    if (!water)
+      water = GetComponentInChildren<Water>();
 
     water.parent = this;
+    initialWaterScale = water.spriteRenderer.size;
   }
 
   public override void Deactivate()
@@ -23,12 +31,19 @@ public class FloatingPlatform : FloatableObject
   protected override void Float()
   {
     FloatUp();
+  }
+
+  protected override void FloatUp()
+  {
+    base.FloatUp();
     ChangeWaterSize();
   }
 
   void ChangeWaterSize()
   {
-    water.spriteRenderer.size += ((Vector2.up * floatHeight) * (Time.deltaTime / floatTime));
+    float mappedFloatHeight = Tools.ExtensionMethods.Map01(transform.position.y, position_initial.y, position_final.y);
+    float addedHeight = mappedFloatHeight * floatHeight;
+    water.spriteRenderer.size = new Vector2(initialWaterScale.x, initialWaterScale.y + addedHeight);
     water.boxCollider.size = water.spriteRenderer.size;
     water.boxCollider.offset = new Vector2(0, -waterColliderOffset + ((water.boxCollider.size.y - waterColliderOffset) / -2));
   }

@@ -289,6 +289,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4211264737045466, guid: dc253b6ea3562914bbeebada31d55089,
     type: 2}
   m_PrefabInternal: {fileID: 519298529}
+--- !u!114 &1320647938 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114511777170451044, guid: 8f1dde77134b6ee46b737dcfd52da495,
+    type: 2}
+  m_PrefabInternal: {fileID: 1775892510}
+  m_Script: {fileID: 11500000, guid: 8ba5f1c428dcbed4cbfeef8bf9ce9256, type: 3}
 --- !u!1001 &1376998777
 Prefab:
   m_ObjectHideFlags: 0
@@ -579,6 +585,16 @@ Prefab:
     - target: {fileID: 212193118472139124, guid: 8f1dde77134b6ee46b737dcfd52da495,
         type: 2}
       propertyPath: m_Size.x
+      value: 11.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114517290415216138, guid: 8f1dde77134b6ee46b737dcfd52da495,
+        type: 2}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 1320647938}
+    - target: {fileID: 61435835841293928, guid: 8f1dde77134b6ee46b737dcfd52da495,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.newSize.x
       value: 11.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []

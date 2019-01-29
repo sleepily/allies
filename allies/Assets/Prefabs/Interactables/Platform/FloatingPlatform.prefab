@@ -39,8 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4538406576056570}
   - component: {fileID: 212228016804661132}
-  - component: {fileID: 114937421687680524}
-  - component: {fileID: 114810482625199362}
+  - component: {fileID: 114511777170451044}
   - component: {fileID: 50486988230410938}
   - component: {fileID: 60466955191626622}
   m_Layer: 0
@@ -172,6 +171,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12, y: 3}
   m_EdgeRadius: 0
+--- !u!114 &114511777170451044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1413423980586596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba5f1c428dcbed4cbfeef8bf9ce9256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  polygonCollider2D: {fileID: 0}
+  rb: {fileID: 0}
+  actionActivated: 0
+  floatTime: 1
+  floatHeight: 4
+  water: {fileID: 114517290415216138}
 --- !u!114 &114517290415216138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,42 +204,9 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 50636490665336040}
   actionActivated: 0
-  parent: {fileID: 114810482625199362}
+  parent: {fileID: 0}
   spriteRenderer: {fileID: 212193118472139124}
   boxCollider: {fileID: 61435835841293928}
---- !u!114 &114810482625199362
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1413423980586596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c3f40bf0f37489479739ed7ed378ecf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  polygonCollider2D: {fileID: 0}
-  rb: {fileID: 50486988230410938}
-  actionActivated: 0
-  water: {fileID: 114517290415216138}
-  floatTime: 1
-  floatHeight: 5
---- !u!114 &114937421687680524
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1413423980586596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dffaa40bcb4d84b4b8600d531b629bee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  polygonCollider2D: {fileID: 0}
-  rb: {fileID: 50486988230410938}
-  actionActivated: 0
 --- !u!212 &212193118472139124
 SpriteRenderer:
   m_ObjectHideFlags: 1

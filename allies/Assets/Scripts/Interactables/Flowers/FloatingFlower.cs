@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FloatingFlower : FireFlower
+public class FloatingFlower : FloatingPlatform
 {
 
 }

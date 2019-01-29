@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7d203cb7f8ed94dab961e7693d8ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlaytest: 0
+  isPlaytest: 1
   sceneManager: {fileID: 2079816787}
   cameraManager: {fileID: 2066252229}
   designManager: {fileID: 0}
