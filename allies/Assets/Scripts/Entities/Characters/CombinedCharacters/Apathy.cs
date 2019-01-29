@@ -25,4 +25,11 @@ public class Apathy : CombinedCharacter
       timestamp_lastShot += shootingFrequency;
     }
   }
+
+  protected override void ShootTear(Tear tearPrefab)
+  {
+    IceTear iceTear = Instantiate(iceTearPrefab);
+
+    iceTear.Shoot(this, true);
+  }
 }

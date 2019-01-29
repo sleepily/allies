@@ -46,6 +46,8 @@ public class Switch : Interactable
       return;
 
     isActivated = true;
+    spriteRenderer.sprite = spriteActivated;
+
     foreach (Interactable interactibleToTrigger in listToTrigger)
       if (interactibleToTrigger)
         interactibleToTrigger.Activate();
@@ -54,6 +56,8 @@ public class Switch : Interactable
   protected virtual void DeactivateSwitch()
   {
     isActivated = false;
+    spriteRenderer.sprite = spriteDeactivated;
+
     foreach (Interactable interactibleToTrigger in listToTrigger)
       if (interactibleToTrigger)
         interactibleToTrigger.Deactivate();

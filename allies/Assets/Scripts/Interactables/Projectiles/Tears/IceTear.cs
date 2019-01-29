@@ -9,6 +9,9 @@ public class IceTear : Tear
     if (collision.gameObject.CompareTag("IceTear"))
       return;
 
+    if (collision.gameObject.CompareTag("Character"))
+      return;
+
     isColliding = true;
     Destroy(this.gameObject);
   }

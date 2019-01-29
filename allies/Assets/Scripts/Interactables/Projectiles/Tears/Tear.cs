@@ -15,9 +15,14 @@ public class Tear : Projectile
     initialAngle = transform.rotation.eulerAngles.z;
   }
 
+  private void Update()
+  {
+    velocity = rb.velocity;
+  }
+
   protected void RotateSpriteAngle()
   {
-    angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+    angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
 
     angle += initialAngle;
 
@@ -33,6 +38,23 @@ public class Tear : Projectile
   {
     isShot = true;
     shootVelocity = new Vector2(parent.isMovingLeft ? -shootVelocity.x : shootVelocity.x, shootVelocity.y);
+    Vector2 direction = shootVelocity.normalized;
+
+    this.gameManager = parent.gameManager;
+    this.angle = Vector2.Angle(Vector2.right, direction);
+    this.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + angle);
+    this.transform.position = (Vector2)parent.transform.position + shootingOffset;
+
+    if (!rb)
+      CreateRigidBody();
+
+    this.rb.velocity = shootVelocity * speed;
+  }
+
+  public virtual void Shoot(Character parent, bool toMouse = true)
+  {
+    isShot = true;
+    shootVelocity = gameManager.inputManager.toMouse.normalized;
     Vector2 direction = shootVelocity.normalized;
 
     this.gameManager = parent.gameManager;

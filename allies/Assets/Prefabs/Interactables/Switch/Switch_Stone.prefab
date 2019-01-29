@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4595861469793544}
   - component: {fileID: 212242378899845632}
-  - component: {fileID: 114459831257759220}
+  - component: {fileID: 114323883132376794}
   - component: {fileID: 60188640868750002}
   m_Layer: 0
   m_Name: Switch_Stone
@@ -104,7 +104,7 @@ PolygonCollider2D:
       - {x: 0.885, y: 1.015}
       - {x: 1.635, y: -0.875}
       - {x: 1.3149999, y: -2.125}
---- !u!114 &114459831257759220
+--- !u!114 &114323883132376794
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1868991227120198}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d84ae966f3a5d14092f2f24956dc29f, type: 3}
+  m_Script: {fileID: 11500000, guid: f65f69608214d744a833d2fd4fd8fe26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
@@ -123,6 +123,7 @@ MonoBehaviour:
   spriteDeactivated: {fileID: 21300000, guid: 338266369a173b040a2a6597e572ff5c, type: 3}
   listToTrigger: []
   isActivated: 0
+  eyeSpriteRenderer: {fileID: 212903512558802226}
 --- !u!212 &212242378899845632
 SpriteRenderer:
   m_ObjectHideFlags: 1

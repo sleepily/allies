@@ -28,7 +28,6 @@ public class MagmaTear : Tear
 
   private void Update()
   {
-    velocity = rb.velocity;
     RotateSpriteAngle();
     CheckRange();
   }

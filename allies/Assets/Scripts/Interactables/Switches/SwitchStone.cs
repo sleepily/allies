@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class SwitchStone : Switch
 {
+  public SpriteRenderer eyeSpriteRenderer;
+
   public override void Init()
   {
     base.Init();
-    spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+    spriteRenderer = eyeSpriteRenderer;
   }
 }
