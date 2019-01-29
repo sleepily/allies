@@ -6,6 +6,9 @@ public class IceTear : Tear
 {
   protected override void Collide(Collision2D collision)
   {
+    if (collision.gameObject.CompareTag("IceTear"))
+      return;
+
     isColliding = true;
     Destroy(this.gameObject);
     

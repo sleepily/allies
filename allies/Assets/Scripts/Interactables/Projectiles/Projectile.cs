@@ -19,7 +19,8 @@ public class Projectile : MonoBehaviour
   public float speed = 1f;
   public float angle = 0f;
   protected Vector2 direction;
-  public float shootingOffset = 1f;
+  public Vector2 shootingOffset = new Vector2();
+  public float timeOffset = 0f;
 
   [Header("Rigidbody/Collision")]
   public bool isKinematic = false;

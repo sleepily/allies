@@ -4,16 +4,9 @@ using UnityEngine;
 
 public class CrybabyTear : Tear
 {
-  float initialAngle;
-
-  public Vector2 shootVelocity;
-  public Vector2 velocity;
-
   public override void Init()
   {
     base.Init();
-
-    initialAngle = transform.rotation.eulerAngles.z;
 
     ModifyRigidBody();
     ModifyPolygonCollider();
@@ -23,18 +16,6 @@ public class CrybabyTear : Tear
   {
     velocity = rb.velocity;
     RotateSpriteAngle();
-  }
-
-  void RotateSpriteAngle()
-  {
-    float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
-
-    if (angle < 0)
-      angle += 360;
-
-    Quaternion newRotation = this.transform.rotation;
-    newRotation.eulerAngles = new Vector3(0, 0, initialAngle + angle);
-    this.transform.rotation = newRotation;
   }
 
   void ModifyRigidBody()
@@ -82,22 +63,5 @@ public class CrybabyTear : Tear
       return;
 
     continousFlower.Deactivate();
-  }
-
-  public void Shoot(Depression parent)
-  {
-    isShot = true;
-    shootVelocity = new Vector2(parent.isMovingLeft ? -shootVelocity.x : shootVelocity.x, shootVelocity.y);
-    Vector2 direction = shootVelocity.normalized;
-
-    this.gameManager = parent.gameManager;
-    this.angle = Vector2.Angle(Vector2.right, direction);
-    this.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + angle);
-    this.transform.position = (Vector2)parent.transform.position + (direction * shootingOffset);
-
-    if (!rb)
-      CreateRigidBody();
-    
-    this.rb.velocity = shootVelocity * speed;
   }
 }

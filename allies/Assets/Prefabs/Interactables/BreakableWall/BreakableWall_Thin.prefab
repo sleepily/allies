@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212219883594602272}
   - component: {fileID: 114389769068608628}
   - component: {fileID: 60563016629422494}
+  - component: {fileID: 114779466156869204}
   m_Layer: 0
   m_Name: BreakableWall_Thin
   m_TagString: Wall
@@ -94,6 +95,17 @@ MonoBehaviour:
   actionActivated: 0
   animator: {fileID: 0}
   physicsMaterial2D: {fileID: 6200000, guid: 774c993475f372c4caafe6004be42659, type: 2}
+--- !u!114 &114779466156869204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893085868214984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f743442bed665a4787e9275c4c00dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212219883594602272
 SpriteRenderer:
   m_ObjectHideFlags: 1

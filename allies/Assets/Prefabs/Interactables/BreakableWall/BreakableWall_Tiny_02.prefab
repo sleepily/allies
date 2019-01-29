@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212219883594602272}
   - component: {fileID: 114389769068608628}
   - component: {fileID: 60766786752645586}
+  - component: {fileID: 114081002308591382}
   m_Layer: 0
   m_Name: BreakableWall_Tiny_02
   m_TagString: Wall
@@ -76,6 +77,17 @@ PolygonCollider2D:
       - {x: 1.225, y: 1.145}
       - {x: 0.84499997, y: -2.205}
       - {x: 0.39499998, y: -3.175}
+--- !u!114 &114081002308591382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893085868214984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f743442bed665a4787e9275c4c00dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114389769068608628
 MonoBehaviour:
   m_ObjectHideFlags: 1

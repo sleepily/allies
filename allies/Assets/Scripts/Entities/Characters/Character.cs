@@ -122,7 +122,6 @@ public class Character : Entity
     CheckCollisionWithEnemy(collision);
     CheckCollisionWithCharacter(collision);
     CheckCollisionWithGround(collision);
-    CheckCollisionWithWall(collision);
   }
 
   protected virtual void CheckCollisionWithCharacter(Collision2D collision)
@@ -143,42 +142,9 @@ public class Character : Entity
       if (cp.point.y < transform.position.y + (Vector2.down * .75f).y)
       {
         isCollidingWithGround = true;
+        isCollidingWithWall = false;
         isJumping = false;
-        Debug.DrawRay(cp.point, cp.normal, Color.green);
-      }
-  }
-
-  //TODO: remove this
-  private void CheckCollisionWithWall(Collision2D collision)
-  {
-    isCollidingWithWall = false;
-
-    if (!collision.gameObject.CompareTag("Platform"))
-    {
-      if (!abilityActive)
         return;
-
-      rb.velocity = new Vector2(0, 0);
-      return;
-    }
-
-    // check for collision in the upper collider (except top) in order to enable bouncing off walls
-    foreach (ContactPoint2D cp in collision.contacts)
-      if
-      (
-        cp.point.y < transform.position.y + (Vector2.up * .45f).y &&
-        cp.point.y > transform.position.y + (Vector2.down * .35f).y
-      )
-      {
-        isCollidingWithWall = true;
-        Debug.DrawRay(cp.point, cp.normal, Color.blue);
-
-        if (abilityActive)
-        {
-          isMovingLeft = (cp.point.x < transform.position.x);
-
-          rb.velocity = new Vector2(-rb.velocity.x, rb.velocity.y);
-        }
       }
   }
 
@@ -321,6 +287,9 @@ public class Character : Entity
   public void Move(float axisHorizontal)
   {
     if (!allowMove)
+      return;
+
+    if (isCollidingWithWall)
       return;
 
     rb.sharedMaterial = moveMaterial;

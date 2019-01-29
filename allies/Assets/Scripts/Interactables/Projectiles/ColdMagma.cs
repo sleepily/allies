@@ -6,10 +6,6 @@ public class ColdMagma : Interactable
   public SpriteRenderer spriteRenderer;
   public List<Sprite> sprites;
 
-  private void Start()
-  {
-  }
-
   public void Init(MagmaTear tear)
   {
     gameManager = tear.gameManager;
@@ -18,7 +14,7 @@ public class ColdMagma : Interactable
     GetSpriteRenderer();
     MoveToInteractablesManager();
 
-    transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + tear.angle);
+    transform.rotation = Quaternion.Euler(0, 0, tear.angle);
     transform.position = tear.transform.position;
 
     SetSprite(tear.spriteIndex);

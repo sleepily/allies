@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212131826972521830}
   - component: {fileID: 114118478665306734}
   - component: {fileID: 60872171430124648}
+  - component: {fileID: 114080874963816770}
   m_Layer: 0
   m_Name: BreakableWall_Large
   m_TagString: Wall
@@ -76,6 +77,17 @@ PolygonCollider2D:
       - {x: 2.5300002, y: -8.01}
       - {x: 2.15, y: 2.3799999}
       - {x: -0.05, y: 12.42}
+--- !u!114 &114080874963816770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1682091115986956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f743442bed665a4787e9275c4c00dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114118478665306734
 MonoBehaviour:
   m_ObjectHideFlags: 1

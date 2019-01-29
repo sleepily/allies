@@ -9,13 +9,20 @@ public class Frustration : CombinedCharacter
 
   protected override void Ability()
   {
-    base.Ability();
-
     if (used)
       return;
+
+    base.Ability();
 
     ShootTear(magmaTearPrefab);
 
     used = true;
+  }
+
+  protected override void ShootTear(Tear tearPrefab)
+  {
+    MagmaTear magmaTear = Instantiate(magmaTearPrefab);
+    
+    magmaTear.Shoot(this);
   }
 }

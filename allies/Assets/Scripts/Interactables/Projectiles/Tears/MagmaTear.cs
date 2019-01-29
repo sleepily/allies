@@ -15,7 +15,13 @@ public class MagmaTear : Tear
 
     Destroy(this.gameObject);
   }
-  
+
+  private void Update()
+  {
+    velocity = rb.velocity;
+    RotateSpriteAngle();
+  }
+
   void SpawnColdMagma()
   {
     ColdMagma cold = Instantiate(coldMagmaPrefab);

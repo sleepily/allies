@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212537778972023846}
   - component: {fileID: 114629322096513794}
   - component: {fileID: 60953816077870192}
+  - component: {fileID: 114511789258579922}
   m_Layer: 0
   m_Name: Pillar_Small_01
   m_TagString: Wall
@@ -75,6 +76,17 @@ PolygonCollider2D:
       - {x: 0.39, y: 1.8349999}
       - {x: 0.78999996, y: 0.13499999}
       - {x: 0.26999998, y: -3.5349998}
+--- !u!114 &114511789258579922
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1575107917799778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f743442bed665a4787e9275c4c00dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114629322096513794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,7 +102,6 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   actionActivated: 0
-  icePhysicsMaterial: {fileID: 6200000, guid: 774c993475f372c4caafe6004be42659, type: 2}
 --- !u!212 &212537778972023846
 SpriteRenderer:
   m_ObjectHideFlags: 1

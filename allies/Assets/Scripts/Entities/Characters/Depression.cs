@@ -19,6 +19,18 @@ public class Depression : Character
 
   public float horizontalDamping = 1.4f;
 
+  public override void ActivateAbility()
+  {
+    if (!canUseAbilityInAir)
+      if (!isCollidingWithGround)
+        return;
+
+    abilityActive = true;
+
+    if (abilityIndex == 0)
+      characterManager.SetNextCharacterAsActive();
+  }
+
   protected override void Ability()
   {
     base.Ability();
@@ -45,9 +57,8 @@ public class Depression : Character
   protected override void ShootTear(Tear tearPrefab)
   {
     CrybabyTear crybabyTear = Instantiate(crybabyTearPrefab);
-
-    Vector2 shootingDirection = new Vector2(isMovingLeft ? -1 : 1, 4);
-    crybabyTear.Shoot(this, shootingDirection);
+    
+    crybabyTear.Shoot(this);
   }
 
   void JetPack()
@@ -74,10 +85,18 @@ public class Depression : Character
       return;
     }
 
+    EndJetpack();
+  }
+
+  void EndJetpack()
+  {
     timestamp_jetpack = -1f;
     rb.velocity = Vector2.zero;
     abilityIndex = 0;
     jetpackIsActive = false;
+
+    if (characterManager.activeCharacter == this)
+      characterManager.SetNextCharacterAsActive();
   }
 
   protected override void DeactivateAbility()

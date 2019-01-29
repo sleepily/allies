@@ -90,7 +90,6 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   actionActivated: 0
-  icePhysicsMaterial: {fileID: 0}
 --- !u!212 &212537778972023846
 SpriteRenderer:
   m_ObjectHideFlags: 1
