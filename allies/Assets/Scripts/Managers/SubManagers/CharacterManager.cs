@@ -162,10 +162,14 @@ public class CharacterManager : SubManager
   {
     Character temp = charactersInLevel[activeCharacterIndex];
 
-    if (!temp.gameObject.activeSelf)
+    int maxTries = 6;
+    while (!temp.gameObject.activeSelf)
     {
-      SetNextCharacterAsActive();
-      return;
+      if (maxTries < 0)
+        break;
+
+      IncreaseActiveCharacterIndex();
+      maxTries--;
     }
 
     activeCharacter = charactersInLevel[activeCharacterIndex];
@@ -173,12 +177,17 @@ public class CharacterManager : SubManager
 
   public void SetNextCharacterAsActive()
   {
+    IncreaseActiveCharacterIndex();
+
+    SetActiveCharacter();
+  }
+
+  void IncreaseActiveCharacterIndex()
+  {
     if (activeCharacterIndex + 1 >= charactersInLevel.Count)
       activeCharacterIndex = 0;
     else
       activeCharacterIndex++;
-
-    SetActiveCharacter();
   }
 
   void GetInput()
