@@ -339,6 +339,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af4748c12eb78fc4d847ceb2fc410df7, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &596635735 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114359009668560194, guid: af4748c12eb78fc4d847ceb2fc410df7,
+    type: 2}
+  m_PrefabInternal: {fileID: 596635734}
+  m_Script: {fileID: 11500000, guid: f567bffa852f0984a8da351b8802b17e, type: 3}
 --- !u!1001 &930392125
 Prefab:
   m_ObjectHideFlags: 0
@@ -751,6 +757,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114308051407025300, guid: 18c3992b4ed67994cbad9940eada227d,
+        type: 2}
+      propertyPath: listToTrigger.Array.data[0]
+      value: 
+      objectReference: {fileID: 596635735}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18c3992b4ed67994cbad9940eada227d, type: 2}
   m_IsPrefabAsset: 0
@@ -923,6 +934,11 @@ Prefab:
       propertyPath: m_Name
       value: Switch_PressurePlate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114308051407025300, guid: 18c3992b4ed67994cbad9940eada227d,
+        type: 2}
+      propertyPath: listToTrigger.Array.data[0]
+      value: 
+      objectReference: {fileID: 2051140734}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18c3992b4ed67994cbad9940eada227d, type: 2}
   m_IsPrefabAsset: 0
@@ -968,6 +984,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5057347bf32eb6a4591c310d50fabf5b, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &2051140734 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114464787587827144, guid: 5057347bf32eb6a4591c310d50fabf5b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2051140733}
+  m_Script: {fileID: 11500000, guid: 6ab1886275f78a04785611871c49a479, type: 3}
 --- !u!1001 &2073058894
 Prefab:
   m_ObjectHideFlags: 0
