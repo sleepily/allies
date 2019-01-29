@@ -15,7 +15,7 @@ public class SwitchDoor : Interactable
   public override void Activate()
   {
     base.Activate();
-    //TODO: implement animation
+
     spriteRenderer.color = new Color(1, 1, 1, 0);
     polygonCollider2D.isTrigger = true;
   }

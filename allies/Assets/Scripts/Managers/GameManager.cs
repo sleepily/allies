@@ -6,9 +6,16 @@ public class GameManager : Manager
 {
   public static GameManager globalGameManager;
 
+  [Header("Playtesting")]
+  public bool isPlaytest = false;
+
+  [Header("Instantiated Managers")]
   public SceneManager sceneManager;
   public CameraManager cameraManager;
+
+  [Header("Global/Static Variables")]
   public static Camera globalCamera;
+  public static bool globalPlaytestActive;
 
   [HideInInspector]
   public DesignManager designManager;
@@ -36,18 +43,14 @@ public class GameManager : Manager
 
   private void Awake()
   {
+    SetStaticVariables();
+  }
+
+  void SetStaticVariables()
+  {
     GameManager.globalGameManager = this;
+    GameManager.globalPlaytestActive = isPlaytest;
     globalCamera = GetComponentInChildren<Camera>();
-  }
-
-  private void Start()
-  {
-
-  }
-
-  private void Update()
-  {
-
   }
 
   public void InitializeManagers()

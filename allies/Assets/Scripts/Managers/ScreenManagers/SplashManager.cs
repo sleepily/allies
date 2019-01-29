@@ -34,8 +34,7 @@ public class SplashManager : SubManager
     CheckVideoStart();
     CheckVideoStop();
   }
-
-  //TODO: rework this with input axis
+  
   void CheckSkipAction()
   {
     if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))

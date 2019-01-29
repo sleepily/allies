@@ -11,12 +11,5 @@ public class IceTear : Tear
 
     isColliding = true;
     Destroy(this.gameObject);
-    
-    //TODO: implement animation
-    /*
-    Destroy(this.rb);
-    Destroy(this.polygonCollider2D);
-    //play particle animation
-    */
   }
 }

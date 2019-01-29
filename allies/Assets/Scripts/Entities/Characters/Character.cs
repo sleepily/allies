@@ -182,7 +182,7 @@ public class Character : Entity
 
     CharacterSpecificAnimationProperties();
     GetAbsoluteVelocityValues();
-    PreventIdleAnimationWhileJumping(); //TODO: work this into blend tree somehow
+    PreventIdleAnimationWhileJumping();
     SetAnimatorVariables();
     MirrorSpriteIfMovingLeft();
   }

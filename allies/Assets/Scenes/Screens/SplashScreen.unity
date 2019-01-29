@@ -232,7 +232,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   videoPlayer: {fileID: 835618342}
   spriteFade: {fileID: 1206193914}
-  logoIsSkippable: 1
+  logoIsSkippable: 0
   videoIsSkippable: 1
 --- !u!1 &1206193911
 GameObject:
@@ -322,9 +322,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1206193912}
-  timeBeforeFade: 1
-  fadeInTime: 1.5
-  holdTime: 2
-  fadeOutTime: 1.5
-  holdTimeAfter: 1
+  timeBeforeFade: 0.5
+  fadeInTime: 1
+  holdTime: 1.5
+  fadeOutTime: 1
+  holdTimeAfter: 0.5
   isFinished: 0

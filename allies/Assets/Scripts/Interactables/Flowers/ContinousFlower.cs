@@ -10,12 +10,10 @@ public class ContinousFlower : FireFlower
 
     Activate();
   }
-
+  
   public override void Deactivate()
   {
     base.Deactivate();
-
-
   }
 
   private void OnCollisionEnter2D(Collision2D collision)

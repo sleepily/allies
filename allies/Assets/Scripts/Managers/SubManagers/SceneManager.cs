@@ -19,7 +19,7 @@ public class SceneManager : SubManager
 
   public Screen screen;
 
-  [Header("If Screen = Level")]
+  [Header("First Level BuildIndex")]
   public int levelID = 0;
 
   AsyncOperation asyncLoad;
@@ -34,6 +34,14 @@ public class SceneManager : SubManager
 
   private void Update()
   {
+    PlaytestControls();
+  }
+
+  void PlaytestControls()
+  {
+    if (!GameManager.globalPlaytestActive)
+      return;
+
     if (Input.GetKeyDown(KeyCode.N))
       LoadLevelFromBuildIndex(levelID - 1);
     if (Input.GetKeyDown(KeyCode.M))
@@ -76,7 +84,7 @@ public class SceneManager : SubManager
         LoadScreenAdditive("PauseScreen");
         break;
       case Screen.quit:
-        Quit(); //TODO: replace with scene
+        Quit();
         break;
       case Screen.level:
         LoadLevelFromBuildIndex(levelID);
