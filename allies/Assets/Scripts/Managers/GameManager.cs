@@ -16,18 +16,12 @@ public class GameManager : Manager
   [Header("Global/Static Variables")]
   public static Camera globalCamera;
   public static bool globalPlaytestActive;
-
-  [HideInInspector]
+  
   public DesignManager designManager;
-  [HideInInspector]
   public LevelManager levelManager;
-  [HideInInspector]
   public InputManager inputManager;
-  [HideInInspector]
   public UIManager uiManager;
-  [HideInInspector]
   public CharacterManager characterManager;
-  [HideInInspector]
   public InteractablesManager interactablesManager;
 
   [HideInInspector]
@@ -38,12 +32,12 @@ public class GameManager : Manager
   public InputManager inputManagerPrefab;
   public UIManager uiManagerPrefab;
   public CharacterManager playerManagerPrefab;
-  public CameraManager cameraManagerPrefab;
   public InteractablesManager interactablesManagerPrefab;
 
   private void Awake()
   {
     SetStaticVariables();
+    Debug.Log("Gamemanager awake");
   }
 
   void SetStaticVariables()
@@ -51,13 +45,16 @@ public class GameManager : Manager
     GameManager.globalGameManager = this;
     GameManager.globalPlaytestActive = isPlaytest;
     globalCamera = GetComponentInChildren<Camera>();
+    Debug.Log("Gamemanager static variables");
   }
 
-  public void InitializeManagers()
+  public void InitializeManagersForPlay()
   {
+    Debug.Log("Gamemanager instantiate managers for play");
     InstantiateManagers();
+    InitializeDesignManager();
     AddManagersToList();
-    SetGamemanagerInChildren();
+    // PrintDebugLog();
   }
 
   void InstantiateManagers()
@@ -65,12 +62,19 @@ public class GameManager : Manager
     levelManager = Instantiate(levelManagerPrefab);
     inputManager = Instantiate(inputManagerPrefab);
     uiManager = Instantiate(uiManagerPrefab);
-    characterManager = Instantiate(playerManagerPrefab);
     interactablesManager = Instantiate(interactablesManagerPrefab);
+    characterManager = Instantiate(playerManagerPrefab);
+  }
+
+  void InitializeDesignManager()
+  {
+    designManager = FindObjectOfType<DesignManager>();
+    designManager.Init();
   }
 
   void AddManagersToList()
   {
+    managers.Clear();
     managers.Add(levelManager);
     managers.Add(inputManager);
     managers.Add(uiManager);
@@ -78,15 +82,17 @@ public class GameManager : Manager
     managers.Add(levelManager);
     managers.Add(cameraManager);
     managers.Add(interactablesManager);
+    managers.Add(designManager);
   }
 
-  void SetGamemanagerInChildren()
+  void PrintDebugLog()
   {
-    levelManager.gameManager = this;
-    inputManager.gameManager = this;
-    uiManager.gameManager = this;
-    characterManager.gameManager = this;
-    levelManager.gameManager = this;
-    interactablesManager.gameManager = this;
+    Debug.Log("All " + Resources.FindObjectsOfTypeAll(typeof(UnityEngine.Object)).Length);
+    Debug.Log("  GameObjects " + Resources.FindObjectsOfTypeAll(typeof(GameObject)).Length);
+    Debug.Log("  Components " + Resources.FindObjectsOfTypeAll(typeof(Component)).Length);
+    Debug.Log("  AudioClips " + Resources.FindObjectsOfTypeAll(typeof(AudioClip)).Length);
+    Debug.Log("  Interactables " + Resources.FindObjectsOfTypeAll(typeof(Interactable)).Length);
+    Debug.Log("  Entities " + Resources.FindObjectsOfTypeAll(typeof(Entity)).Length);
+    Debug.Log("    Characters " + Resources.FindObjectsOfTypeAll(typeof(Character)).Length);
   }
 }

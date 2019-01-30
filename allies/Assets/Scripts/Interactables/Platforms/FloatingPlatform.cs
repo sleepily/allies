@@ -8,9 +8,15 @@ public class FloatingPlatform : FloatableObject
   Vector2 initialWaterScale;
   float waterColliderOffset = .2f;
 
+  private void Start()
+  {
+    Init();
+  }
+
   public override void Init()
   {
     base.Init();
+    water.Init();
     SetWaterProperties();
   }
 

@@ -5,12 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : SubManager
 {
-  public List<string> levels;
-  public bool foundActiveScene = false;
-
-  [Header("DO NOT touch this")]
-  public SpriteRenderer colliderSpriteRenderer;
-
   public override void Init()
   {
     base.Init();

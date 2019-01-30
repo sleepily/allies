@@ -39,11 +39,11 @@ public class SplashManager : SubManager
   {
     if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
     {
-      if (logoIsSkippable)
+      if (logoIsSkippable || gameManager.isPlaytest)
         if (!spriteFade.isFinished)
           spriteFade.FinishFade();
 
-      if (videoIsSkippable)
+      if (videoIsSkippable || gameManager.isPlaytest)
         if (videoPlayer.isPlaying)
           StopVideo();
     }

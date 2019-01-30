@@ -9,4 +9,11 @@ public class Fuse : Interactable
     base.Init();
     polygonCollider2D.isTrigger = true;
   }
+
+  public override void Activate()
+  {
+    base.Activate();
+
+
+  }
 }

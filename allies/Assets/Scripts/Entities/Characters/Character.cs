@@ -4,27 +4,25 @@ public class Character : Entity
 {
   [HideInInspector]
   public CharacterManager characterManager;
-
-  [HideInInspector]
+  
+  [Header("Spawn Options")]
   public bool startWithAbility = false;
 
   [Header("Physics")]
   public Rigidbody2D rb;
-
   public Vector2 velocity;
-  public bool allowJump;
-  public bool allowMove;
   public bool isCollidingWithGround;
   public bool isCollidingWithWall;
   public PhysicsMaterial2D moveMaterial;
   public PhysicsMaterial2D idleMaterial;
+  public bool isJumping;
 
   public bool canUseAbilityInAir;
-  public bool isJumping;
+  public bool allowJump;
+  public bool allowMove;
 
   [Header("Animations")]
   public SpriteRenderer spriteRenderer;
-
   public Animator animator;
   private float horizontalVelocityAbs, verticalVelocityAbs;
   public bool isMovingLeft;
@@ -44,28 +42,26 @@ public class Character : Entity
 
   protected virtual void Init()
   {
+    base.Init();
+
     GetAllComponents();
-    SetParentTransform();
     DeactivateAbility();
     isMovingLeft = false;
   }
 
   protected virtual void GetAllComponents()
   {
-    if (!gameManager)
-      gameManager = GameManager.globalGameManager;
-
     if (!characterManager)
       characterManager = gameManager.characterManager;
 
-    rb = GetComponent<Rigidbody2D>();
-    animator = GetComponent<Animator>();
-    spriteRenderer = GetComponent<SpriteRenderer>();
-  }
+    if (!rb)
+      rb = GetComponent<Rigidbody2D>();
 
-  protected void SetParentTransform()
-  {
-    transform.SetParent(characterManager.transform);
+    if (!animator)
+      animator = GetComponent<Animator>();
+
+    if (!spriteRenderer)
+      spriteRenderer = GetComponent<SpriteRenderer>();
   }
 
   protected virtual void Update()
@@ -85,6 +81,9 @@ public class Character : Entity
 
   protected virtual void CheckForCharacterDistance()
   {
+    if (!characterManager)
+      GetAllComponents();
+
     if (characterManager.charactersInLevel.Count == 1)
       return;
 

@@ -13,14 +13,9 @@ public class Interactable : MonoBehaviour
   [Header("Action")]
   public bool actionActivated = false;
 
-  private void Start()
+  private void Awake()
   {
-    gameManager = GameManager.globalGameManager;
 
-    if (!gameManager)
-      Debug.LogError("No gamemanager - Please use MainScene to start the game.");
-
-    Init();
   }
 
   public virtual void Init()

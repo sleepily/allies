@@ -15,13 +15,12 @@ public class CombinedCharacter : Character
 
     this.gameObject.SetActive(true);
 
-    characterManager.SetActiveCharacter(this);
+    gameManager.characterManager.SetActiveCharacter(this);
   }
 
   protected override void Init()
   {
     GetAllComponents();
-    SetParentTransform();
     // DeactivateAbility(); DO NOT disable on init. will make character inactive
     isMovingLeft = false;
   }

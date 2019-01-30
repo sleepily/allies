@@ -9,6 +9,8 @@ public class SubManager : Manager
   private void Start()
   {
     Init();
+
+    Debug.Log(this.name + " initialized.");
   }
 
   public virtual void Init()

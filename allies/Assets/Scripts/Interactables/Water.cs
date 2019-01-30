@@ -8,17 +8,25 @@ public class Water : Interactable
   public SpriteRenderer spriteRenderer;
   public BoxCollider2D boxCollider;
 
-  private void Awake()
-  {
-    spriteRenderer = GetComponent<SpriteRenderer>();
-  }
-
   public override void Init()
   {
     base.Init();
+    GetAllComponents();
     CreateBoxCollider();
-    polygonCollider2D.isTrigger = true;
     this.transform.SetParent(parent.transform);
+  }
+
+  void GetAllComponents()
+  {
+    boxCollider = GetComponent<BoxCollider2D>();
+
+    if (!boxCollider)
+      boxCollider = gameObject.AddComponent(typeof(BoxCollider2D)) as BoxCollider2D;
+
+    spriteRenderer = GetComponent<SpriteRenderer>();
+
+    if (!spriteRenderer)
+      Debug.Log("Cannot find sprite renderer?");
   }
 
   void CreateBoxCollider()
@@ -26,10 +34,8 @@ public class Water : Interactable
     if (polygonCollider2D)
       Destroy(polygonCollider2D);
 
-    boxCollider = GetComponent<BoxCollider2D>();
-
-    if (!boxCollider)
-      boxCollider = gameObject.AddComponent(typeof(BoxCollider2D)) as BoxCollider2D;
+    boxCollider.size = spriteRenderer.size;
+    boxCollider.isTrigger = true;
   }
 
   private void OnTriggerEnter2D(Collider2D collision)

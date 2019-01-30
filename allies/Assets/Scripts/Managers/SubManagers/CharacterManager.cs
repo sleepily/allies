@@ -38,7 +38,6 @@ public class CharacterManager : SubManager
 
     CreateCharacterPrefabList();
     SpawnCharacters();
-    SetPlayerManagerParent();
     SetActiveCharacter();
   }
 
@@ -87,27 +86,10 @@ public class CharacterManager : SubManager
 
   void SpawnCharacters()
   {
-    foreach (CharacterPlaceholder placeholder in gameManager.designManager.characterPlaceholders)
+    foreach (Character character in FindObjectsOfType<Character>())
     {
-      Character characterPrefabToSpawn = null;
-
-      foreach (Character prefab in characterPrefabs)
-        if (placeholder.name == prefab.name)
-          characterPrefabToSpawn = prefab;
-
-      if (!characterPrefabToSpawn)
-      {
-        Debug.LogError("Couldn't assign character prefab for placeholder \"" + placeholder.name + "\".");
-        continue;
-      }
-
-      Character spawn = Instantiate(characterPrefabToSpawn);
-      charactersInLevel.Add(spawn);
-
-      spawn.name = characterPrefabToSpawn.name;
-      spawn.transform.position += placeholder.transform.position;
-      spawn.startWithAbility = placeholder.startWithAbility;
-      spawn.gameObject.SetActive(placeholder.gameObject.activeSelf);
+      character.characterManager = this;
+      charactersInLevel.Add(character);
     }
 
     apathy = Instantiate(apathyPrefab);
@@ -125,18 +107,7 @@ public class CharacterManager : SubManager
     foreach (CombinedCharacter cc in combinedCharacters)
     {
       cc.gameObject.SetActive(false);
-      cc.transform.SetParent(gameManager.characterManager.transform);
-    }
-  }
-
-  void SetPlayerManagerParent()
-  {
-    foreach (Character c in charactersInLevel)
-    {
-      if (c == null)
-        break;
-
-      c.characterManager = this;
+      cc.transform.SetParent(transform);
     }
   }
 

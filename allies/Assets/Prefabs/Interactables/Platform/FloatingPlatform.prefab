@@ -204,7 +204,7 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 50636490665336040}
   actionActivated: 0
-  parent: {fileID: 0}
+  parent: {fileID: 114511777170451044}
   spriteRenderer: {fileID: 212193118472139124}
   boxCollider: {fileID: 61435835841293928}
 --- !u!212 &212193118472139124

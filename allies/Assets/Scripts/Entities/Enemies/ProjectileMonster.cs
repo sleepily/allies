@@ -10,10 +10,11 @@ public class ProjectileMonster : Enemy
 
   float time;
 
-  private void Start()
+  public override void Init()
   {
+    base.Init();
+
     SetTime();
-    MoveToInteractablesManager();
   }
 
   private void Update()

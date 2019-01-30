@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4592711663642162}
   - component: {fileID: 212635175326121436}
+  - component: {fileID: 114231862690535282}
   - component: {fileID: 58388322089144430}
   - component: {fileID: 50599813136994922}
   - component: {fileID: 95580236177960292}
-  - component: {fileID: 114231862690535282}
   m_Layer: 9
   m_Name: Depression
   m_TagString: Character
@@ -109,17 +109,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  playerManager: {fileID: 0}
+  characterManager: {fileID: 0}
+  startWithAbility: 0
   rb: {fileID: 0}
   velocity: {x: 0, y: 0}
-  allowJump: 0
-  allowMove: 0
   isCollidingWithGround: 0
   isCollidingWithWall: 0
   moveMaterial: {fileID: 6200000, guid: 774c993475f372c4caafe6004be42659, type: 2}
   idleMaterial: {fileID: 6200000, guid: 477848852293f0349871226994208e67, type: 2}
-  canUseAbilityInAir: 0
   isJumping: 0
+  canUseAbilityInAir: 0
+  allowJump: 0
+  allowMove: 0
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
   isMovingLeft: 0

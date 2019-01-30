@@ -7,44 +7,52 @@ public class DesignManager : SubManager
 {
   [Header("Level Properties")]
   public string levelName = "";
-  
-  public List<CharacterPlaceholder> characterPlaceholders;
 
-  public GameObject designParent;
+  [Header("Current level's objects")]
   List<Interactable> interactables = new List<Interactable>();
   List<Entity> entities = new List<Entity>();
 
   private void Awake()
   {
-    LoadMainScreenInPlaymode();
+    if (LoadMainScreenInPlaymode())
+      return;
+
+    AssignToGamemanager();
   }
 
-  void LoadMainScreenInPlaymode()
+  bool LoadMainScreenInPlaymode()
   {
     if (!GameManager.globalGameManager)
     {
+      Debug.LogError("GGM doesn't exist. Loading scene 0.");
       UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+      return true;
     }
+
+    return false;
+  }
+
+  private void Start()
+  {
+    // do not Init() here
+    return;
   }
 
   public override void Init()
   {
     base.Init();
 
-    AssignToGamemanager();
     LoadChildrenToLists();
     AssignGamemanagerToChildren();
-    gameManager.InitializeManagers();
+    InitializeChildren();
     MoveChildrenToInterabtablesManager();
+
     DisableDesignManager();
   }
 
   void AssignToGamemanager()
   {
-    if (!gameManager)
-      Debug.Log("GameManager missing, please open MainScene and change LevelID to test this level.");
-
-    gameManager.designManager = this;
+    GameManager.globalGameManager.designManager = this;
   }
 
   void LoadChildrenToLists()
@@ -63,12 +71,20 @@ public class DesignManager : SubManager
       entity.gameManager = this.gameManager;
   }
 
+  void InitializeChildren()
+  {
+    foreach (Interactable interactable in interactables)
+      interactable.Init();
+    foreach (Entity entity in entities)
+      entity.Init();
+  }
+
   public void MoveChildrenToInterabtablesManager()
   {
-    foreach (Interactable i in designParent.GetComponentsInChildren<Interactable>())
-      i.MoveToInteractablesManager();
-    foreach (Entity e       in designParent.GetComponentsInChildren<Entity>())
-      e.MoveToInteractablesManager();
+    foreach (Interactable interactable in interactables)
+      interactable.MoveToInteractablesManager();
+    foreach (Entity entity in entities)
+      entity.MoveToInteractablesManager();
   }
 
   void DisableDesignManager()
