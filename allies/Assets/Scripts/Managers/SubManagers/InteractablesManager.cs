@@ -7,5 +7,13 @@ public class InteractablesManager : SubManager
   public override void Init()
   {
     base.Init();
+
+    InitializeAllInteractables();
+  }
+
+  void InitializeAllInteractables()
+  {
+    foreach (Interactable interactable in FindObjectsOfType<Interactable>())
+      interactable.Init();
   }
 }

@@ -10,9 +10,8 @@ public class ColdMagma : Interactable
   {
     gameManager = tear.gameManager;
 
-    Init();
+    base.Init();
     GetSpriteRenderer();
-    MoveToInteractablesManager();
 
     transform.rotation = Quaternion.Euler(0, 0, tear.angle);
     transform.position = tear.transform.position;

@@ -43,6 +43,11 @@ public class Character : Entity
       abilityActive = true;
   }
 
+  public override void MoveToParentTransform()
+  {
+    transform.SetParent(characterManager.transform);
+  }
+
   protected virtual void GetAllComponents()
   {
     if (!characterManager)

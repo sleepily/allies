@@ -10,10 +10,22 @@ public class Interactable : FMNObject
   [Header("Action")]
   public bool actionActivated = false;
 
+  private void Awake()
+  {
+    Init();
+  }
+
   public override void Init()
   {
+    gameManager = GameManager.globalGameManager;
     CreateRigidBody();
     CreatePolygonCollider();
+    initialized = true;
+  }
+
+  public override void MoveToParentTransform()
+  {
+    transform.SetParent(gameManager.interactablesManager.transform);
   }
 
   public virtual void Activate()
@@ -24,11 +36,6 @@ public class Interactable : FMNObject
   public virtual void Deactivate()
   {
     actionActivated = false;
-  }
-
-  public void MoveToInteractablesManager()
-  {
-    transform.SetParent(gameManager.interactablesManager.transform);
   }
 
   private void CreateRigidBody()

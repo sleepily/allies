@@ -16,7 +16,6 @@ public class CharacterManager : SubManager
 
   [Header("Instantiated Characters")]
   public List<Character> charactersInLevel = new List<Character>();
-  public List<CombinedCharacter> combinedCharacters = new List<CombinedCharacter>();
   public Stress stress;
   public Frustration frustration;
   public Apathy apathy;
@@ -36,8 +35,8 @@ public class CharacterManager : SubManager
     base.Init();
 
     CreateCharacterPrefabList();
-    SpawnCharacters();
-    SetActiveCharacter();
+    FindCharactersInLevel();
+    SetActiveCharacter(charactersInLevel[0]);
   }
 
   void Update()
@@ -83,12 +82,14 @@ public class CharacterManager : SubManager
     // Debug.Log("Set " + activeCombinedCharacter.name + " as active CC.");
   }
 
-  void SpawnCharacters()
+  void FindCharactersInLevel()
   {
     foreach (Character character in FindObjectsOfType<Character>())
     {
       character.characterManager = this;
+      character.Init();
       charactersInLevel.Add(character);
+      // Debug.Log("Found character: " + character.name);
     }
 
     apathy = Instantiate(apathyPrefab);
@@ -98,10 +99,6 @@ public class CharacterManager : SubManager
     charactersInLevel.Add(apathy);
     charactersInLevel.Add(stress);
     charactersInLevel.Add(frustration);
-    
-    combinedCharacters.Add(apathy);
-    combinedCharacters.Add(stress);
-    combinedCharacters.Add(frustration);
   }
 
   public void SetActiveCharacter(Character character)

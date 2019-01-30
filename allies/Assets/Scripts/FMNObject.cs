@@ -16,9 +16,15 @@ public class FMNObject : MonoBehaviour
   [HideInInspector]
   public bool initialized = false;
 
+  private void Awake()
+  {
+    gameManager = GameManager.globalGameManager;
+  }
+
   public virtual void Init()
   {
     gameManager = GameManager.globalGameManager;
+    MoveToParentTransform();
     initialized = true;
   }
 

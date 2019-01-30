@@ -25,6 +25,7 @@ public class CombinedCharacter : Character
 
   public override void Init()
   {
+    base.Init();
     GetAllComponents();
     // DeactivateAbility(); DO NOT disable on init. will make character inactive
     isMovingLeft = false;
