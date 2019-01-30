@@ -16,7 +16,8 @@ public class GameManager : Manager
   [Header("Global/Static Variables")]
   public static Camera globalCamera;
   public static bool globalPlaytestActive;
-  
+  public static float globalGravityScale = 5f;
+
   public DesignManager designManager;
   public LevelManager levelManager;
   public InputManager inputManager;

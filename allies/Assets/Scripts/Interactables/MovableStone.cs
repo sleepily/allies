@@ -16,7 +16,7 @@ public class MovableStone : Interactable
 
     rb.sharedMaterial = stonePhysicsMaterial;
     this.rb.mass = 1000000f;
-    this.rb.gravityScale = gameManager.characterManager.globalGravityScale;
+    this.rb.gravityScale = GameManager.globalGravityScale;
     this.rb.isKinematic = false;
     this.rb.useFullKinematicContacts = true;
     this.rb.constraints = RigidbodyConstraints2D.FreezeRotation;

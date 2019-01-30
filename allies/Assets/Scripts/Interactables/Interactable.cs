@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public class Interactable : FMNObject
 {
-  [HideInInspector]
-  public GameManager gameManager;
-
   [HideInInspector]
   public PolygonCollider2D polygonCollider2D;
   [HideInInspector]
@@ -13,12 +10,7 @@ public class Interactable : MonoBehaviour
   [Header("Action")]
   public bool actionActivated = false;
 
-  private void Awake()
-  {
-
-  }
-
-  public virtual void Init()
+  public override void Init()
   {
     CreateRigidBody();
     CreatePolygonCollider();
@@ -48,6 +40,7 @@ public class Interactable : MonoBehaviour
 
     rb.isKinematic = true;
     rb.useFullKinematicContacts = true;
+    rb.gravityScale = GameManager.globalGravityScale;
   }
 
   private void CreatePolygonCollider()

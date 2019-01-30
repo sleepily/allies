@@ -30,7 +30,6 @@ public class CharacterManager : SubManager
   [Header("Global Character Physics")]
   public float movementForce = 2f;
   public float jumpForce = 2f;
-  public float globalGravityScale = 5f;
 
   public override void Init()
   {
@@ -103,12 +102,6 @@ public class CharacterManager : SubManager
     combinedCharacters.Add(apathy);
     combinedCharacters.Add(stress);
     combinedCharacters.Add(frustration);
-
-    foreach (CombinedCharacter cc in combinedCharacters)
-    {
-      cc.gameObject.SetActive(false);
-      cc.transform.SetParent(transform);
-    }
   }
 
   public void SetActiveCharacter(Character character)

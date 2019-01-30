@@ -8,7 +8,7 @@ public class ProjectileMonster : Enemy
   public Projectile projectilePrefab;
   public float interval = .3f;
 
-  float time;
+  float timestamp_lastShot = -1f;
 
   public override void Init()
   {
@@ -24,7 +24,7 @@ public class ProjectileMonster : Enemy
 
   void SetTime()
   {
-    time = Time.time;
+    timestamp_lastShot = Time.time;
   }
 
   void CheckShoot()
@@ -39,10 +39,14 @@ public class ProjectileMonster : Enemy
 
   bool ShootingAvailable()
   {
-    if (Time.time < time + interval)
+    // enemy has not been initialized yet
+    if (timestamp_lastShot < 0)
       return false;
 
-    time += interval;
+    if (Time.time < timestamp_lastShot + interval)
+      return false;
+
+    timestamp_lastShot += interval;
     return true;
   }
 

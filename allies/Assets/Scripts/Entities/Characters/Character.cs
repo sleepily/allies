@@ -7,6 +7,7 @@ public class Character : Entity
   
   [Header("Spawn Options")]
   public bool startWithAbility = false;
+  public bool isMovingLeft = false;
 
   [Header("Physics")]
   public Rigidbody2D rb;
@@ -25,28 +26,21 @@ public class Character : Entity
   public SpriteRenderer spriteRenderer;
   public Animator animator;
   private float horizontalVelocityAbs, verticalVelocityAbs;
-  public bool isMovingLeft;
   public bool isMoving;
   public bool abilityActive;
   public int abilityIndex = 0;
   public float angle;
   private float angleVelocityThreshold = 1f;
 
-  private void Start()
-  {
-    Init();
-
-    if (startWithAbility)
-      abilityActive = true;
-  }
-
-  protected virtual void Init()
+  public override void Init()
   {
     base.Init();
 
     GetAllComponents();
     DeactivateAbility();
-    isMovingLeft = false;
+
+    if (startWithAbility)
+      abilityActive = true;
   }
 
   protected virtual void GetAllComponents()
@@ -66,6 +60,9 @@ public class Character : Entity
 
   protected virtual void Update()
   {
+    if (!initialized)
+      return;
+
     CheckMovementDirection();
     CheckAbilityStatus();
     SetAnimatorProperties();
@@ -73,6 +70,9 @@ public class Character : Entity
 
   private void FixedUpdate()
   {
+    if (!initialized)
+      return;
+
     GetGlobalGravityScale();
     rb.sharedMaterial = idleMaterial;
 
@@ -168,10 +168,7 @@ public class Character : Entity
 
   private void GetGlobalGravityScale()
   {
-    if (!gameManager.characterManager)
-      return;
-
-    rb.gravityScale = gameManager.characterManager.globalGravityScale;
+    rb.gravityScale = GameManager.globalGravityScale;
   }
 
   private void SetAnimatorProperties()

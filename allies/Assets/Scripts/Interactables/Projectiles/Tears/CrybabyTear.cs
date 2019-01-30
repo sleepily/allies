@@ -21,7 +21,7 @@ public class CrybabyTear : Tear
   void ModifyRigidBody()
   {
     rb.isKinematic = false;
-    rb.gravityScale = gameManager.characterManager.globalGravityScale / 2;
+    rb.gravityScale = GameManager.globalGravityScale / 2;
   }
 
   void ModifyPolygonCollider()

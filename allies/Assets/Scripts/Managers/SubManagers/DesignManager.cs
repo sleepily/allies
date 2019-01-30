@@ -9,6 +9,7 @@ public class DesignManager : SubManager
   public string levelName = "";
 
   [Header("Current level's objects")]
+  List<FMNObject> objects = new List<FMNObject>();
   List<Interactable> interactables = new List<Interactable>();
   List<Entity> entities = new List<Entity>();
 
@@ -43,7 +44,6 @@ public class DesignManager : SubManager
     base.Init();
 
     LoadChildrenToLists();
-    AssignGamemanagerToChildren();
     InitializeChildren();
     MoveChildrenToInterabtablesManager();
 
@@ -57,34 +57,20 @@ public class DesignManager : SubManager
 
   void LoadChildrenToLists()
   {
-    foreach (Interactable interactable in FindObjectsOfType<Interactable>())
-      interactables.Add(interactable);
-    foreach (Entity entity in FindObjectsOfType<Entity>())
-      entities.Add(entity);
-  }
-
-  public void AssignGamemanagerToChildren()
-  {
-    foreach (Interactable interactable in interactables)
-      interactable.gameManager = this.gameManager;
-    foreach (Entity entity in entities)
-      entity.gameManager = this.gameManager;
+    foreach (FMNObject obj in FindObjectsOfType<FMNObject>())
+      objects.Add(obj);
   }
 
   void InitializeChildren()
   {
-    foreach (Interactable interactable in interactables)
-      interactable.Init();
-    foreach (Entity entity in entities)
-      entity.Init();
+    foreach (FMNObject obj in FindObjectsOfType<FMNObject>())
+      obj.Init();
   }
 
   public void MoveChildrenToInterabtablesManager()
   {
-    foreach (Interactable interactable in interactables)
-      interactable.MoveToInteractablesManager();
-    foreach (Entity entity in entities)
-      entity.MoveToInteractablesManager();
+    foreach (FMNObject obj in FindObjectsOfType<FMNObject>())
+      obj.MoveToParentTransform();
   }
 
   void DisableDesignManager()

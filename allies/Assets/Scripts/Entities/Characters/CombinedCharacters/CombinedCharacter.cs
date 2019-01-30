@@ -4,6 +4,11 @@ public class CombinedCharacter : Character
 {
   public Character[] combination = new Character[2];
 
+  private void Awake()
+  {
+    this.gameObject.SetActive(false);
+  }
+
   public void Fusion(Character a, Character b)
   {
     combination[0] = a;
@@ -18,7 +23,7 @@ public class CombinedCharacter : Character
     gameManager.characterManager.SetActiveCharacter(this);
   }
 
-  protected override void Init()
+  public override void Init()
   {
     GetAllComponents();
     // DeactivateAbility(); DO NOT disable on init. will make character inactive
