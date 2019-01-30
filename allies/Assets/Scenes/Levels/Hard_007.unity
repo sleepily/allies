@@ -336,12 +336,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30b78e42beecfa841b364165a2487e63, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &660744566 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114459831257759220, guid: 30b78e42beecfa841b364165a2487e63,
-    type: 2}
-  m_PrefabInternal: {fileID: 660744565}
-  m_Script: {fileID: 11500000, guid: 9d84ae966f3a5d14092f2f24956dc29f, type: 3}
 --- !u!1001 &819295868
 Prefab:
   m_ObjectHideFlags: 0
@@ -397,7 +391,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4045574192870988, guid: df783bdede1bd9b4192a6914b639e567, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.48
+      value: 1.54
       objectReference: {fileID: 0}
     - target: {fileID: 4045574192870988, guid: df783bdede1bd9b4192a6914b639e567, type: 2}
       propertyPath: m_LocalPosition.z
@@ -577,7 +571,7 @@ Prefab:
         type: 2}
       propertyPath: interactibles.Array.data[8]
       value: 
-      objectReference: {fileID: 660744566}
+      objectReference: {fileID: 0}
     - target: {fileID: 4713566295676790, guid: dc253b6ea3562914bbeebada31d55089, type: 2}
       propertyPath: m_LocalPosition.x
       value: -21.7
