@@ -1118,6 +1118,11 @@ Prefab:
       propertyPath: listToTrigger.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114323883132376794, guid: 30b78e42beecfa841b364165a2487e63,
+        type: 2}
+      propertyPath: listToTrigger.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4595861469793544, guid: 30b78e42beecfa841b364165a2487e63, type: 2}
       propertyPath: m_LocalPosition.x
       value: 22.178139
@@ -1156,6 +1161,11 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114459831257759220, guid: 30b78e42beecfa841b364165a2487e63,
+        type: 2}
+      propertyPath: listToTrigger.Array.data[0]
+      value: 
+      objectReference: {fileID: 593601992}
+    - target: {fileID: 114323883132376794, guid: 30b78e42beecfa841b364165a2487e63,
         type: 2}
       propertyPath: listToTrigger.Array.data[0]
       value: 
