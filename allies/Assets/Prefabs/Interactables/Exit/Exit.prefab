@@ -66,11 +66,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.5, y: -3.1499999}
-      - {x: -0.35, y: -2.8799999}
+    - - {x: -0.31, y: -3.28}
       - {x: -0.19, y: 0.64}
-      - {x: 0.57, y: -2.83}
-      - {x: 1.76, y: -2.98}
+      - {x: 0.59, y: -3.21}
 --- !u!114 &114408519960004042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -83,12 +81,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  initialized: 0
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   actionActivated: 0
   activated: 0
   entered: []
-  charactersMissing: 3
 --- !u!212 &212169020214566356
 SpriteRenderer:
   m_ObjectHideFlags: 1

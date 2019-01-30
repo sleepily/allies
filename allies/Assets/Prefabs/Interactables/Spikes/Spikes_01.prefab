@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  initialized: 0
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   actionActivated: 0

@@ -6,8 +6,6 @@ public class Exit : Interactable
 {
   public bool activated = false;
   public List<Character> entered;
-  public int charactersMissing = 3;
-  bool gotCharacterCount = false;
 
 	void Start ()
   {
@@ -17,19 +15,19 @@ public class Exit : Interactable
   
   void ActivateWhenNoCharactersAreMissing()
   {
-    if (gameManager.characterManager.GetActiveCharactersAsList().Count > 0)
+    List<Character> missingCharacters = gameManager.characterManager.GetActiveCharactersAsList();
+    string missing = "";
+
+    if (missingCharacters.Count > 0)
+    {
+      foreach (Character missingCharacter in missingCharacters)
+        missing += missingCharacter.name + ", ";
+
+      Debug.Log("missing characters: " + missingCharacters.Count + "; " + missing);
       return;
+    }
 
     ExitLevel();
-  }
-
-  void CheckForAllCharacters()
-  {
-    if (!gotCharacterCount)
-      return;
-
-    if (charactersMissing == 0)
-      ExitLevel();
   }
 
   private void OnTriggerEnter2D(Collider2D collision)
@@ -55,8 +53,7 @@ public class Exit : Interactable
 
   void HideCharacter(Character character)
   {
-    charactersMissing--;
-
+    Debug.Log("hiding character " + character.name);
     character.gameObject.SetActive(false);
     character.enabled = false;
   }
@@ -66,6 +63,7 @@ public class Exit : Interactable
     if (activated)
       return;
 
+    Debug.Log("Exiting level " + gameManager.sceneManager.levelID);
     activated = true;
     gameManager.sceneManager.LoadNextLevel();
   }
