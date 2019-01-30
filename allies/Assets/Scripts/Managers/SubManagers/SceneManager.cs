@@ -108,51 +108,56 @@ public class SceneManager : SubManager
 
   public void RetryLevel()
   {
-    StartCoroutine(RetryLevelCoroutine());
+    StartCoroutine(RetryLevelCoroutine(1, Color.black));
   }
 
-  IEnumerator RetryLevelCoroutine()
+  public void RetryLevelOnKill()
   {
-    gameManager.cameraManager.FadeOut();
+    StartCoroutine(RetryLevelCoroutine(0, Color.red));
+  }
 
-    yield return new WaitForSeconds(1); ;
+  IEnumerator RetryLevelCoroutine(float waitTime, Color fadeColor)
+  {
+    gameManager.cameraManager.FadeOut(fadeColor);
 
-    LoadScreenSingle(this.levelID);
+    yield return new WaitForSeconds(waitTime); ;
+
+    LoadScreenSingleAsLevel(this.levelID, fadeColor);
   }
 
   public void LoadNextLevel()
   {
     this.levelID++;
-    LoadScreenSingleAsLevel(this.levelID);
+    LoadScreenSingleAsLevel(this.levelID, Color.black);
   }
 
   public void LoadLevelFromBuildIndex(int levelID)
   {
     this.levelID = levelID;
-    LoadScreenSingleAsLevel(this.levelID);
+    LoadScreenSingleAsLevel(this.levelID, Color.black);
   }
 
-  void LoadScreenSingleAsLevel(int sceneBuildIndex)
+  void LoadScreenSingleAsLevel(int sceneBuildIndex, Color fadeColor)
   {
-    gameManager.cameraManager.FadeIn();
+    gameManager.cameraManager.FadeIn(fadeColor);
     StartCoroutine(LoadLevelAsync(sceneBuildIndex, LoadSceneMode.Single));
   }
 
   void LoadScreenSingle(Scene scene)
   {
-    gameManager.cameraManager.FadeIn();
+    gameManager.cameraManager.FadeIn(Color.black);
     StartCoroutine(LoadSceneAsync(scene.buildIndex, LoadSceneMode.Single));
   }
 
   void LoadScreenSingle(int sceneBuildIndex)
   {
-    gameManager.cameraManager.FadeIn();
+    gameManager.cameraManager.FadeIn(Color.black);
     StartCoroutine(LoadSceneAsync(sceneBuildIndex, LoadSceneMode.Single));
   }
 
   void LoadScreenSingle(string sceneName)
   {
-    gameManager.cameraManager.FadeIn();
+    gameManager.cameraManager.FadeIn(Color.black);
     StartCoroutine(LoadSceneAsync(sceneName, LoadSceneMode.Single));
   }
 
@@ -168,43 +173,23 @@ public class SceneManager : SubManager
 
   IEnumerator LoadSceneAsync(string sceneID, LoadSceneMode sceneMode)
   {
-    asyncLoad = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneID, sceneMode);
-    
-    while (!asyncLoad.isDone)
-    {
-      yield return null;
-    }
+    yield return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneID, sceneMode);
   }
 
   IEnumerator LoadSceneAsync(int sceneBuildIndex, LoadSceneMode sceneMode)
   {
-    asyncLoad = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneBuildIndex, sceneMode);
-
-    while (!asyncLoad.isDone)
-    {
-      yield return null;
-    }
+    yield return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneBuildIndex, sceneMode);
   }
 
   IEnumerator LoadLevelAsync(int sceneBuildIndex, LoadSceneMode sceneMode)
   {
-    asyncLoad = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneBuildIndex, sceneMode);
-
-    while (!asyncLoad.isDone)
-    {
-      yield return null;
-    }
+    yield return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneBuildIndex, sceneMode);
 
     gameManager.InitializeManagersForPlay();
   }
 
   IEnumerator UnloadSceneAsync(Scene scene)
   {
-    asyncUnload = UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(scene);
-    
-    while (!asyncUnload.isDone)
-    {
-      yield return null;
-    }
+    yield return UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(scene);
   }
 }

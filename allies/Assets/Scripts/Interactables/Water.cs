@@ -48,6 +48,6 @@ public class Water : Interactable
     if (!collision.gameObject.CompareTag("Character"))
       return;
 
-    gameManager.sceneManager.RetryLevel();
+    gameManager.sceneManager.RetryLevelOnKill();
   }
 }

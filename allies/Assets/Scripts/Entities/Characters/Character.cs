@@ -157,7 +157,7 @@ public class Character : Entity
     if (!collision.gameObject.CompareTag("Enemy"))
       return;
 
-    gameManager.levelManager.Retry();
+    gameManager.sceneManager.RetryLevelOnKill();
   }
 
   private void OnCollisionExit2D(Collision2D collision)

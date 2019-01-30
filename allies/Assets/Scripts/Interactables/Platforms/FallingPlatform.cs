@@ -22,7 +22,10 @@ public class FallingPlatform : Interactable
     actionActivated = true;
 
     foreach (Fuse fuse in fuses)
-      Destroy(fuse.gameObject);
+    {
+      if (fuse)
+        Destroy(fuse.gameObject);
+    }
 
     platform.rb.gravityScale = GameManager.globalGravityScale;
     platform.rb.isKinematic = false;
@@ -43,5 +46,6 @@ public class FallingPlatform : Interactable
 
     platform.rb.isKinematic = true;
     platform.rb.constraints = RigidbodyConstraints2D.FreezeAll;
+    platform.rb.velocity = Vector2.zero;
   }
 }

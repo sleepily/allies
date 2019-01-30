@@ -330,16 +330,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlaytest: 1
-  isPlaceholder: 0
   sceneManager: {fileID: 2079816787}
   cameraManager: {fileID: 2066252229}
-  designManager: {fileID: 0}
   levelManager: {fileID: 0}
   inputManager: {fileID: 0}
   uiManager: {fileID: 0}
   characterManager: {fileID: 0}
   interactablesManager: {fileID: 0}
-  managers: []
   levelManagerPrefab: {fileID: 114148753401165458, guid: 3e5d4a0d81d5f324fb0304a4186b684d,
     type: 2}
   inputManagerPrefab: {fileID: 114892868513413560, guid: f59595ac2c8dfd949b90ccb88b504ca9,
@@ -420,6 +417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1491746493}
   animator: {fileID: 78373334}
+  fadeSpriteRenderer: {fileID: 78373333}
 --- !u!1 &2079816786
 GameObject:
   m_ObjectHideFlags: 0

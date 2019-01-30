@@ -21,6 +21,6 @@ public class Spikes : Interactable
       if (anxiety.abilityActive)
         return;
 
-    gameManager.levelManager.Retry();
+    gameManager.sceneManager.RetryLevelOnKill();
   }
 }
