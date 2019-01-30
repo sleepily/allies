@@ -20,10 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4888141962139600}
   - component: {fileID: 212873309135382130}
-  - component: {fileID: 114290734550742728}
+  - component: {fileID: 114487097237204770}
+  - component: {fileID: 60230872528951634}
   m_Layer: 0
   m_Name: Flower_Continous
-  m_TagString: Interactible
+  m_TagString: FireFlower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +42,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114290734550742728
+--- !u!60 &60230872528951634
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1271315957965814}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.92, y: 4.36}
+    newSize: {x: 4.93, y: 4.38}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.29999998, y: -2.1399999}
+      - {x: -0.78, y: -1.0699999}
+      - {x: -1.6899999, y: -0.93}
+      - {x: -2.11, y: -0.049999997}
+      - {x: -1.68, y: 0.58}
+      - {x: -1.25, y: 1.13}
+      - {x: -0.76, y: 1.9799999}
+      - {x: 0.35, y: 1.51}
+      - {x: 1.29, y: 0.90999997}
+      - {x: 2.18, y: 0.19999999}
+      - {x: 1.29, y: -0.56}
+      - {x: 0.64, y: -0.53999996}
+      - {x: 0.90999997, y: -2.12}
+--- !u!114 &114487097237204770
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,12 +87,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1271315957965814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6082fda2d82cf24fac1b67f0b2fd4cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 29fabf775a42cef44a0857c16a480a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
+  actionActivated: 0
 --- !u!212 &212873309135382130
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -87,10 +126,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 899677267
+  m_SortingLayer: -3
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 97cead754bbaa654f849f06968d8109d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: acb49e3b317fe5143906c91d03953ed1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

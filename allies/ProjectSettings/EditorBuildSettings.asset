@@ -6,24 +6,105 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Levels/Daniel_001.unity
-    guid: c16136f1a651d004094ffd8794686c78
+    path: Assets/Scenes/MainScene.unity
+    guid: eb15e92d5754865468fa5871c6b425bc
   - enabled: 1
-    path: Assets/Scenes/Levels/Daniel_002.unity
-    guid: 5925189522ba99d4b9cba0855cd1fbac
+    path: Assets/Scenes/Screens/SplashScreen.unity
+    guid: 196427bf1474a2b478c16e7786e80440
   - enabled: 1
-    path: Assets/Scenes/Levels/Daniel_003.unity
-    guid: 9cb990beba3b1984b94be209d67e044f
+    path: Assets/Scenes/Screens/MenuScreen.unity
+    guid: 6998e2d76513d904e8374692bddd36d6
   - enabled: 1
-    path: Assets/Scenes/Levels/Daniel_004.unity
-    guid: 41333c3cb412d7a4dbb6c5aa199b1ea8
+    path: Assets/Scenes/Screens/SelectionScreen.unity
+    guid: af8a3d1884a42fd4ebe232be8cac75be
   - enabled: 1
-    path: Assets/Scenes/Levels/Daniel_005.unity
-    guid: 5abcfc493bc20ea4e96030a0235571e7
+    path: Assets/Scenes/Screens/GlossaryScreen.unity
+    guid: 06e7a16926b1d9447854051730707c4e
   - enabled: 1
-    path: Assets/Scenes/Templates/AllPrefabs.unity
-    guid: cab5764c129da6a43befca5b643ac412
+    path: Assets/Scenes/Screens/OptionsScreen.unity
+    guid: 27e37d34ae635064db13d89e666b7dfe
   - enabled: 1
     path: Assets/Scenes/Templates/TestScene.unity
     guid: aa8de6e406661e241b71942e113910be
+  - enabled: 1
+    path: Assets/Scenes/Levels/Intro_001.unity
+    guid: 01d183008ac58884e8cda8091ff52bac
+  - enabled: 1
+    path: Assets/Scenes/Levels/Intro_002.unity
+    guid: c16136f1a651d004094ffd8794686c78
+  - enabled: 1
+    path: Assets/Scenes/Levels/Intro_003.unity
+    guid: 5925189522ba99d4b9cba0855cd1fbac
+  - enabled: 1
+    path: Assets/Scenes/Levels/Easy_001.unity
+    guid: 2072c27d9addd8d4fbdd0776566b62a0
+  - enabled: 1
+    path: Assets/Scenes/Levels/Easy_002.unity
+    guid: ba45740a1532ba94ca077ce0e1c1eca5
+  - enabled: 1
+    path: Assets/Scenes/Levels/Easy_003.unity
+    guid: 626472ec3f8e4344ca08b7d8d6996110
+  - enabled: 1
+    path: Assets/Scenes/Levels/Easy_004.unity
+    guid: 47ee73287dda7084eb2a660abad9ec1a
+  - enabled: 1
+    path: Assets/Scenes/Levels/Easy_005.unity
+    guid: f2abafe12ccee85489d2a448b1aeabf2
+  - enabled: 1
+    path: Assets/Scenes/Levels/Easy_006.unity
+    guid: 9f4b3a9b0bb9de5498e91dedb7de2240
+  - enabled: 1
+    path: Assets/Scenes/Levels/Easy_007.unity
+    guid: bb83204158d35a643899860ab51f5068
+  - enabled: 1
+    path: Assets/Scenes/Levels/Easy_008.unity
+    guid: f19cdfcc990b4b741893549e7569bcde
+  - enabled: 1
+    path: Assets/Scenes/Levels/Medium_001.unity
+    guid: fb89d3a679c4d4b45a8e4f38b0d90f0a
+  - enabled: 1
+    path: Assets/Scenes/Levels/Medium_002.unity
+    guid: c8aa289c75cdbb64f84f6d7b3ab9b452
+  - enabled: 1
+    path: Assets/Scenes/Levels/Medium_003.unity
+    guid: 41333c3cb412d7a4dbb6c5aa199b1ea8
+  - enabled: 1
+    path: Assets/Scenes/Levels/Medium_004.unity
+    guid: d84b3d290d72867479d251efbd3889ec
+  - enabled: 1
+    path: Assets/Scenes/Levels/Medium_005.unity
+    guid: 2f15fbdde16562f4c997604ceaeff195
+  - enabled: 1
+    path: Assets/Scenes/Levels/Medium_006.unity
+    guid: 007a632efe7f3754cb1d696a4170ac98
+  - enabled: 1
+    path: Assets/Scenes/Levels/Medium_008.unity
+    guid: 0039b9df59241a042ac31322b92fc1f7
+  - enabled: 1
+    path: Assets/Scenes/Levels/Medium_009.unity
+    guid: 9cb990beba3b1984b94be209d67e044f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hard_001.unity
+    guid: 478f9c2aac87d3d469eb5f8421291dc8
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hard_002.unity
+    guid: 0d1f26837d45c8d468a8aaeb4683fea4
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hard_003.unity
+    guid: 559117dc1150be74c927c562dce9eb0f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hard_004.unity
+    guid: 3903102272e002e469a9aa29a4518133
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hard_005.unity
+    guid: 5696f8674d3dabd48860c7ba5db18154
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hard_006.unity
+    guid: 840c350af31e0ff468497fd5ad9615b7
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hard_007.unity
+    guid: 5abcfc493bc20ea4e96030a0235571e7
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hard_009.unity
+    guid: 052e177137aedae46b945e9de0739dae
   m_configObjects: {}

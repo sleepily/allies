@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
+public class Entity : FMNObject
 {
-  public GameManager gameManager;
-
-  virtual protected void MoveToInteractiblesManager()
+  public override void MoveToParentTransform()
   {
-    transform.SetParent(gameManager.interactiblesManager.transform);
+    transform.SetParent(gameManager.interactablesManager.transform);
   }
 }

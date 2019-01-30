@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4388850326888244}
   - component: {fileID: 212219883594602272}
   - component: {fileID: 114389769068608628}
+  - component: {fileID: 60164502550967724}
+  - component: {fileID: 114492302138246532}
   m_Layer: 0
   m_Name: BreakableWall_Tiny_01
   m_TagString: Wall
@@ -41,6 +43,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!60 &60164502550967724
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893085868214984}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.52, y: 7.77}
+    newSize: {x: 4.2, y: 12.13}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.06, y: -3.7949998}
+      - {x: -1.18, y: -3.7649999}
+      - {x: -1.36, y: -3.245}
+      - {x: -1.11, y: -1.295}
+      - {x: -1.5899999, y: 0.13499999}
+      - {x: -1.6899999, y: 2.145}
+      - {x: -0.84, y: 3.225}
+      - {x: -0.12, y: 3.7749999}
+      - {x: 0.95, y: 2.855}
+      - {x: 0.96, y: 1.435}
+      - {x: 0.06, y: -0.235}
+      - {x: 0.62, y: -1.5949999}
+      - {x: 0.62, y: -3.2949998}
 --- !u!114 &114389769068608628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,7 +94,20 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
+  actionActivated: 0
   animator: {fileID: 0}
+  physicsMaterial2D: {fileID: 0}
+--- !u!114 &114492302138246532
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893085868214984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f743442bed665a4787e9275c4c00dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212219883594602272
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -88,10 +140,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1682523799
+  m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300066, guid: 536aefa9057001d46a08a8cc735e00bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c3aea32736e4b94f90cd674402697df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

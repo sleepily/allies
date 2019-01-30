@@ -42,4 +42,6 @@ sysinfo.txt
 # DS_Store
 .DS_Store
 *.DS_Store
-design/~$Forget Me Not intermediate presentation.pptx
+*.sln
+allies/Assets/Sprites/Interactibles.meta
+allies/Assets/Sprites/Entities/Characters/Dep/Ability.meta

@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4592711663642162}
-  - component: {fileID: 114561912217283096}
   - component: {fileID: 212635175326121436}
+  - component: {fileID: 114231862690535282}
   - component: {fileID: 58388322089144430}
   - component: {fileID: 50599813136994922}
   - component: {fileID: 95580236177960292}
@@ -57,9 +57,9 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 2
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 774c993475f372c4caafe6004be42659, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -97,7 +97,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114561912217283096
+--- !u!114 &114231862690535282
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,26 +105,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1547230104823066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 473bc8dea06c6a641aa5e32ed468afda, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f251a4c3718ade41a9ba9f64242cd0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  playerManager: {fileID: 0}
+  characterManager: {fileID: 0}
+  startWithAbility: 0
   rb: {fileID: 0}
   velocity: {x: 0, y: 0}
-  allowJump: 1
-  allowMove: 1
   isCollidingWithGround: 0
   isCollidingWithWall: 0
+  moveMaterial: {fileID: 6200000, guid: 774c993475f372c4caafe6004be42659, type: 2}
+  idleMaterial: {fileID: 6200000, guid: 477848852293f0349871226994208e67, type: 2}
   isJumping: 0
-  spriteRenderer: {fileID: 212635175326121436}
-  animator: {fileID: 95580236177960292}
+  canUseAbilityInAir: 0
+  allowJump: 0
+  allowMove: 0
+  spriteRenderer: {fileID: 0}
+  animator: {fileID: 0}
   isMovingLeft: 0
   isMoving: 0
   abilityActive: 0
-  flame: {fileID: 0}
+  abilityIndex: 0
   angle: 0
-  angleVelocityThreshold: 0
+  crybabyTearPrefab: {fileID: 114225852149091222, guid: 8aaef80edafc44b428bd05b249dd3ad6,
+    type: 2}
+  crybabyActivated: 0
+  jetpackOffset: 0.2
+  jetpackForce: 16
+  jetpackDuration: 1.5
+  timestamp_jetpack: -1
+  jetpackActivated: 0
+  jetpackIsActive: 0
+  jetpackBeforeCrybaby: 0
+  horizontalDamping: 1.4
 --- !u!212 &212635175326121436
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -157,8 +171,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 280475669
+  m_SortingLayer: 4
   m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: bfe60474189e1264f8dcc2d87c759edd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

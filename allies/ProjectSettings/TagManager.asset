@@ -12,6 +12,9 @@ TagManager:
   - Projectile
   - IceTear
   - Enemy
+  - Water
+  - FireFlower
+  - MovableStone
   layers:
   - Default
   - TransparentFX
@@ -25,7 +28,7 @@ TagManager:
   - Characters
   - Tears
   - Ground
-  - 
+  - EnemyProjectiles
   - 
   - 
   - 
@@ -46,6 +49,54 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2527276969
+    locked: 0
+  - name: Exit
+    uniqueID: 1688576553
+    locked: 0
+  - name: Spikes
+    uniqueID: 2516988149
+    locked: 0
+  - name: Switchdoors
+    uniqueID: 2083839795
+    locked: 0
+  - name: Flowers
+    uniqueID: 899677267
+    locked: 0
+  - name: Breakables
+    uniqueID: 1682523799
+    locked: 0
+  - name: Pillars
+    uniqueID: 1569593731
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Platforms
+    uniqueID: 1083900551
+    locked: 0
+  - name: Stones and Movables
+    uniqueID: 1459712419
+    locked: 0
+  - name: Switches
+    uniqueID: 567922605
+    locked: 0
+  - name: Characters
+    uniqueID: 280475669
+    locked: 0
+  - name: Decoration
+    uniqueID: 3837099883
+    locked: 0
+  - name: Foreground
+    uniqueID: 2098527485
+    locked: 0
+  - name: Explosives and Fuses
+    uniqueID: 3472964529
+    locked: 0
+  - name: UI
+    uniqueID: 87406383
+    locked: 0
+  - name: Fade FX
+    uniqueID: 257434605
     locked: 0
