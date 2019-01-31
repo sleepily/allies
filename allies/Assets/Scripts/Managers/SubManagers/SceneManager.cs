@@ -106,14 +106,19 @@ public class SceneManager : SubManager
     StartCoroutine(LoadSceneAsync(scene.buildIndex, mode));
   }
 
+  public void FinishLevel()
+  {
+    StartCoroutine(FinishLevelCoroutine(.5f, Color.black));
+  }
+
   public void RetryLevel()
   {
-    StartCoroutine(RetryLevelCoroutine(1, Color.black));
+    StartCoroutine(RetryLevelCoroutine(.5f, Color.black));
   }
 
   public void RetryLevelOnKill()
   {
-    StartCoroutine(RetryLevelCoroutine(0, Color.red));
+    StartCoroutine(RetryLevelCoroutine(0, new Color(.5f, 0, 0, 1)));
   }
 
   IEnumerator RetryLevelCoroutine(float waitTime, Color fadeColor)
@@ -123,6 +128,15 @@ public class SceneManager : SubManager
     yield return new WaitForSeconds(waitTime); ;
 
     LoadScreenSingleAsLevel(this.levelID, fadeColor);
+  }
+
+  IEnumerator FinishLevelCoroutine(float waitTime, Color fadeColor)
+  {
+    gameManager.cameraManager.FadeOut(fadeColor);
+
+    yield return new WaitForSeconds(waitTime); ;
+
+    LoadNextLevel();
   }
 
   public void LoadNextLevel()

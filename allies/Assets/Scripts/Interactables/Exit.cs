@@ -65,6 +65,6 @@ public class Exit : Interactable
 
     Debug.Log("Exiting level " + gameManager.sceneManager.levelID);
     activated = true;
-    gameManager.sceneManager.LoadNextLevel();
+    gameManager.sceneManager.FinishLevel();
   }
 }
