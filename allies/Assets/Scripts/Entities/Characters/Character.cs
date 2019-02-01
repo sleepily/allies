@@ -355,6 +355,6 @@ public class Character : Entity
   protected virtual void ShootTear(Tear tearPrefab)
   {
     Tear tear = Instantiate(tearPrefab);
-    tear.Shoot(this, gameManager.inputManager.toMouse.normalized);
+    tear.Shoot(this, true);
   }
 }

@@ -10,6 +10,12 @@ public class PressurePlate : Switch
     spriteRenderer.sprite = spriteDeactivated;
   }
 
+  private void OnCollisionEnter2D(Collision2D collision)
+  {
+    // prevent activation by icey tears
+    return;
+  }
+
   private void OnTriggerEnter2D(Collider2D collision)
   {
     ActivateSwitchOnTagTrigger("Character", collision);

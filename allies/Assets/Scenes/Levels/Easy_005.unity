@@ -447,6 +447,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a23d0e64e15683c4197bf79835ff8f38, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &685554329 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114254539257462982, guid: 0785a17c14d00324197c8c0f2e9d4f02,
+    type: 2}
+  m_PrefabInternal: {fileID: 2105210639}
+  m_Script: {fileID: 11500000, guid: cf1867173ce2025488ea398eba99aae8, type: 3}
 --- !u!1001 &827140541
 Prefab:
   m_ObjectHideFlags: 0
@@ -1194,6 +1200,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 39.74
       objectReference: {fileID: 0}
+    - target: {fileID: 114088942289046708, guid: 42af97498df32a44983b0b69cb16f78f,
+        type: 2}
+      propertyPath: fuseflame
+      value: 
+      objectReference: {fileID: 685554329}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42af97498df32a44983b0b69cb16f78f, type: 2}
   m_IsPrefabAsset: 0
@@ -1372,12 +1383,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 95147159003209140, guid: 0785a17c14d00324197c8c0f2e9d4f02,
-        type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 22100000, guid: ab8f83b8a1292e4499a4c3b383fc1c4d,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0785a17c14d00324197c8c0f2e9d4f02, type: 2}
   m_IsPrefabAsset: 0

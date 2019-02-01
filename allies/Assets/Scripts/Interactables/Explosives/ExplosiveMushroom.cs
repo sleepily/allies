@@ -26,6 +26,11 @@ public class ExplosiveMushroom : Interactable
     CheckForRampageCollision(collision);
   }
 
+  private void OnTriggerStay2D(Collider2D collision)
+  {
+    CheckForRampageCollision(collision);
+  }
+
   void CheckForRampageCollision(Collider2D collision)
   {
     Rage rage = collision.gameObject.GetComponent<Rage>();

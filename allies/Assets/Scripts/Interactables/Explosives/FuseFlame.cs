@@ -6,13 +6,18 @@ public class FuseFlame : Interactable
 {
   Animator animator;
   SpriteRenderer flameSpriteRenderer;
-
+  
   public override void Init()
   {
-    base.Init();
+    gameManager = GameManager.globalGameManager;
+
+    MoveToParentTransform();
+
     animator = GetComponent<Animator>();
     flameSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
     flameSpriteRenderer.enabled = false;
+
+    initialized = true;
   }
 
   private void OnTriggerEnter2D(Collider2D collision)
