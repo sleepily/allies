@@ -5,5 +5,5 @@ using UnityEngine.UI;
 
 public class MenuManager : SubManager
 {
-  //[Header("Scene Specifics")]
+
 }

@@ -20,6 +20,7 @@ public class Projectile : MonoBehaviour
   public float angle = 0f;
   protected Vector2 direction;
   public Vector2 shootingOffset = new Vector2();
+  public float shootingOffsetInDirection = 0f;
   public float timeOffset = 0f;
 
   [Header("Rigidbody/Collision")]
@@ -77,7 +78,7 @@ public class Projectile : MonoBehaviour
     this.direction = direction.normalized;
     this.angle = Vector2.Angle(Vector2.right, direction);
     this.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + angle);
-    this.transform.position = (Vector2)parent.transform.position + (this.direction * shootingOffset);
+    this.transform.position = (Vector2)parent.transform.position + (this.direction * shootingOffsetInDirection + shootingOffset);
 
     if (!rb)
       CreateRigidBody();

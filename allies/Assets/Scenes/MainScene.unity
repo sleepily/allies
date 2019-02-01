@@ -199,14 +199,57 @@ MonoBehaviour:
   m_GameObject: {fileID: 10536807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 09c4285f08bf02c46982265c1e83a740, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
+  volumeTrigger: {fileID: 10536810}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 3840
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 1
+  antialiasingMode: 2
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &78373331
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +313,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 257434605
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 03764ad51b2366140aac5a919f0af2ec, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
@@ -330,25 +373,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlaytest: 1
-  isPlaceholder: 0
   sceneManager: {fileID: 2079816787}
   cameraManager: {fileID: 2066252229}
-  designManager: {fileID: 0}
   levelManager: {fileID: 0}
   inputManager: {fileID: 0}
   uiManager: {fileID: 0}
   characterManager: {fileID: 0}
   interactablesManager: {fileID: 0}
-  managers: []
   levelManagerPrefab: {fileID: 114148753401165458, guid: 3e5d4a0d81d5f324fb0304a4186b684d,
     type: 2}
   inputManagerPrefab: {fileID: 114892868513413560, guid: f59595ac2c8dfd949b90ccb88b504ca9,
     type: 2}
   uiManagerPrefab: {fileID: 114091900282719590, guid: 457428d55915b074da79be57f2fb1fcb,
     type: 2}
-  playerManagerPrefab: {fileID: 114656062616973686, guid: dc40c6d610972fd4b940b0a2dd292419,
-    type: 2}
   interactablesManagerPrefab: {fileID: 114027836144882532, guid: eb29d88cde4d0f349b3438061a2894af,
+    type: 2}
+  characterManagerPrefab: {fileID: 114656062616973686, guid: dc40c6d610972fd4b940b0a2dd292419,
     type: 2}
 --- !u!4 &1491746494
 Transform:
@@ -420,6 +460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1491746493}
   animator: {fileID: 78373334}
+  fadeSpriteRenderer: {fileID: 78373333}
 --- !u!1 &2079816786
 GameObject:
   m_ObjectHideFlags: 0

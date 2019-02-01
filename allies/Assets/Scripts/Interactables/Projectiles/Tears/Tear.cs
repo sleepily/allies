@@ -38,12 +38,12 @@ public class Tear : Projectile
   {
     isShot = true;
     shootVelocity = new Vector2(parent.isMovingLeft ? -shootVelocity.x : shootVelocity.x, shootVelocity.y);
-    Vector2 direction = shootVelocity.normalized;
+    this.direction = shootVelocity.normalized;
 
     this.gameManager = parent.gameManager;
     this.angle = Vector2.Angle(Vector2.right, direction);
-    this.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + angle);
-    this.transform.position = (Vector2)parent.transform.position + shootingOffset;
+    this.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + this.angle);
+    this.transform.position = (Vector2)parent.transform.position + shootingOffset + (this.direction * shootingOffsetInDirection);
 
     if (!rb)
       CreateRigidBody();
@@ -54,13 +54,14 @@ public class Tear : Projectile
   public virtual void Shoot(Character parent, bool toMouse = true)
   {
     isShot = true;
-    shootVelocity = gameManager.inputManager.toMouse.normalized;
-    Vector2 direction = shootVelocity.normalized;
+    Vector2 vectorToMouse = gameManager.inputManager.CalculateVectorBetweenCharacterAndMouse(parent);
+    shootVelocity = vectorToMouse.normalized;
+    this.direction = vectorToMouse.normalized;
 
     this.gameManager = parent.gameManager;
-    this.angle = Vector2.Angle(Vector2.right, direction);
-    this.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + angle);
-    this.transform.position = (Vector2)parent.transform.position + shootingOffset;
+    this.angle = gameManager.inputManager.CalculateAngleToMouse();
+    this.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + this.angle);
+    this.transform.position = (Vector2)parent.transform.position + shootingOffset + (this.direction * shootingOffsetInDirection);
 
     if (!rb)
       CreateRigidBody();

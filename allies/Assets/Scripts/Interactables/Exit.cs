@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Exit : Interactable
 {
-  public bool activated = false;
   public List<Character> entered;
 
 	void Start ()
   {
     Init();
-    SetColliderToTrigger();
 	}
   
   void ActivateWhenNoCharactersAreMissing()
   {
+    if (actionActivated)
+      return;
+
     List<Character> missingCharacters = gameManager.characterManager.GetActiveCharactersAsList();
     string missing = "";
 
@@ -27,17 +28,12 @@ public class Exit : Interactable
       return;
     }
 
-    ExitLevel();
+    Activate();
   }
 
   private void OnTriggerEnter2D(Collider2D collision)
   {
     CheckCharacterTrigger(collision);
-  }
-
-  void SetColliderToTrigger()
-  {
-    polygonCollider2D.isTrigger = true;
   }
 
   void CheckCharacterTrigger(Collider2D collision)
@@ -58,13 +54,18 @@ public class Exit : Interactable
     character.enabled = false;
   }
 
-  void ExitLevel()
+  public override void Activate()
   {
-    if (activated)
+    if (actionActivated)
       return;
 
+    base.Activate();
+    ExitLevel();
+  }
+
+  void ExitLevel()
+  {
     Debug.Log("Exiting level " + gameManager.sceneManager.levelID);
-    activated = true;
-    gameManager.sceneManager.LoadNextLevel();
+    gameManager.sceneManager.FinishLevel();
   }
 }

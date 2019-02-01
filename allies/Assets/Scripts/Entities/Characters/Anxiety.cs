@@ -72,8 +72,8 @@ public class Anxiety : Character
         monsterProjectile.Bounce();
         return;
       }
-    
-    gameManager.sceneManager.RetryLevel();
+
+    gameManager.sceneManager.RetryLevelOnKill();
   }
 
   protected override void CheckCollisionWithCharacter(Collision2D collision)

@@ -67,9 +67,6 @@ TagManager:
   - name: Breakables
     uniqueID: 1682523799
     locked: 0
-  - name: Pillars
-    uniqueID: 1569593731
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -78,6 +75,9 @@ TagManager:
     locked: 0
   - name: Stones and Movables
     uniqueID: 1459712419
+    locked: 0
+  - name: Pillars
+    uniqueID: 1569593731
     locked: 0
   - name: Switches
     uniqueID: 567922605

@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 public class CharacterManager : SubManager
 {
   [Header("Character Prefabs")]
-  public Rage ragePrefab;
-  public Anxiety anxietyPrefab;
-  public Depression depressionPrefab;
   public Stress stressPrefab;
   public Frustration frustrationPrefab;
   public Apathy apathyPrefab;
@@ -33,8 +30,7 @@ public class CharacterManager : SubManager
   public override void Init()
   {
     base.Init();
-
-    CreateCharacterPrefabList();
+    
     FindCharactersInLevel();
     SetActiveCharacter(charactersInLevel[0]);
   }
@@ -43,13 +39,6 @@ public class CharacterManager : SubManager
   {
     GetInput();
     MoveActiveCharacter();
-  }
-
-  void CreateCharacterPrefabList()
-  {
-    characterPrefabs.Add(ragePrefab);
-    characterPrefabs.Add(anxietyPrefab);
-    characterPrefabs.Add(depressionPrefab);
   }
 
   void SpawnFusedCharacter(Character initiator, Character determinator)
@@ -86,7 +75,6 @@ public class CharacterManager : SubManager
   {
     foreach (Character character in FindObjectsOfType<Character>())
     {
-      character.characterManager = this;
       character.Init();
       charactersInLevel.Add(character);
       // Debug.Log("Found character: " + character.name);
@@ -167,15 +155,18 @@ public class CharacterManager : SubManager
     }
 
     if (gameManager.inputManager.abilityAction2)
-      if (activeCharacter.name == "Depression")
-      {
-        Depression dep = activeCharacter.GetComponent<Depression>();
-        if (dep.jetpackActivated)
-          return;
+    {
+      Depression depression = activeCharacter.GetComponent<Depression>();
 
-        activeCharacter.abilityIndex = 1;
-        activeCharacter.ActivateAbility();
-      }
+      if (!depression)
+        return;
+
+      if (depression.jetpackActivated)
+        return;
+
+      activeCharacter.abilityIndex = 1;
+      activeCharacter.ActivateAbility();
+    }
   }
 
   void MoveActiveCharacter()

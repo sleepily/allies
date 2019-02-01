@@ -10,16 +10,12 @@ public class Interactable : FMNObject
   [Header("Action")]
   public bool actionActivated = false;
 
-  private void Awake()
-  {
-    Init();
-  }
-
   public override void Init()
   {
     gameManager = GameManager.globalGameManager;
-    CreateRigidBody();
-    CreatePolygonCollider();
+    InitRigidBody();
+    InitPolygonCollider();
+    MoveToParentTransform();
     initialized = true;
   }
 
@@ -38,7 +34,7 @@ public class Interactable : FMNObject
     actionActivated = false;
   }
 
-  private void CreateRigidBody()
+  private void InitRigidBody()
   {
     rb = gameObject.GetComponent<Rigidbody2D>();
 
@@ -50,7 +46,7 @@ public class Interactable : FMNObject
     rb.gravityScale = GameManager.globalGravityScale;
   }
 
-  private void CreatePolygonCollider()
+  private void InitPolygonCollider()
   {
     polygonCollider2D = gameObject.GetComponent<PolygonCollider2D>();
 

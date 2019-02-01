@@ -12,8 +12,10 @@ public class InputManager : SubManager
   public bool fusionAction, abilityAction, abilityAction2, backAction = false;
 
   [Header("Tear related")]
-  public Vector2 toMouse     = Vector2.zero;
-  public float angleToMouse  = 0f;
+  [SerializeField]
+  Vector2 toMouse = Vector2.zero;
+  [SerializeField]
+  float angleToMouse = 0f;
 
   [Header("Scene related")]
   public bool reloadScene   = false;
@@ -31,8 +33,6 @@ public class InputManager : SubManager
 
     if (backAction)
       gameManager.sceneManager.LoadScreen(SceneManager.Screen.mainMenu);
-
-    CalculateAngleBetweenPlayerAndMouse();
   }
 
   void UpdateMovementKeys()
@@ -57,20 +57,28 @@ public class InputManager : SubManager
     reloadScene   = Input.GetKeyDown(KeyCode.R);
   }
 
-  void CalculateAngleBetweenPlayerAndMouse()
+  public Vector2 CalculateVectorBetweenCharacterAndMouse(Character character)
   {
     if (!gameManager)
-      return;
+      return Vector2.zero;
 
-    if (!gameManager.characterManager.activeCharacter)
-      return;
+    if (!character)
+      return Vector2.zero;
 
     Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    Vector2 character = gameManager.characterManager.activeCharacter.transform.position;
-    toMouse = mouse - character;
+    Vector2 characterPosition = character.transform.position;
+    toMouse = mouse - characterPosition;
+
+    return toMouse;
+  }
+
+  public float CalculateAngleToMouse()
+  {
     angleToMouse = Mathf.Atan2(toMouse.y, toMouse.x) * Mathf.Rad2Deg;
 
     if (angleToMouse < 0)
       angleToMouse += 360;
+
+    return angleToMouse;
   }
 }

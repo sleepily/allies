@@ -29,6 +29,6 @@ public class ContinousFlower : FireFlower
     if (!collision.gameObject.CompareTag("Character"))
       return;
 
-    gameManager.sceneManager.RetryLevel();
+    gameManager.sceneManager.RetryLevelOnKill();
   }
 }
