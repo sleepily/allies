@@ -10,25 +10,4 @@ public class ContinousFlower : FireFlower
 
     Activate();
   }
-  
-  public override void Deactivate()
-  {
-    base.Deactivate();
-  }
-
-  private void OnCollisionEnter2D(Collision2D collision)
-  {
-    CheckCharacterCollision(collision);
-  }
-
-  void CheckCharacterCollision(Collision2D collision)
-  {
-    if (!actionActivated)
-      return;
-
-    if (!collision.gameObject.CompareTag("Character"))
-      return;
-
-    gameManager.sceneManager.RetryLevelOnKill();
-  }
 }

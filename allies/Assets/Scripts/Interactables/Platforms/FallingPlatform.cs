@@ -11,7 +11,8 @@ public class FallingPlatform : Interactable
   // prevent creation of rigidbody and collider
   public override void Init()
   {
-    return;
+    gameManager = GameManager.globalGameManager;
+    MoveToParentTransform();
   }
 
   public override void Activate()
@@ -31,18 +32,24 @@ public class FallingPlatform : Interactable
     platform.rb.isKinematic = false;
   }
 
-  private void Update()
+  private void OnCollisionEnter2D(Collision2D collision)
   {
-    CheckPlatformCollision();
+    CheckPlatformCollision(collision);
   }
 
-  void CheckPlatformCollision()
+  private void OnCollisionStay2D(Collision2D collision)
   {
-    if (platform.rb.isKinematic)
-      return;
+    CheckPlatformCollision(collision);
+  }
 
-    if (!platform.rb.IsTouchingLayers())
+  void CheckPlatformCollision(Collision2D collision)
+  {
+    if (collision.gameObject.layer == LayerMask.NameToLayer("Tears"))
+    {
+      platform.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+      platform.rb.velocity = new Vector2(0, platform.rb.velocity.y);
       return;
+    }
 
     platform.rb.isKinematic = true;
     platform.rb.constraints = RigidbodyConstraints2D.FreezeAll;

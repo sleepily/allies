@@ -71,10 +71,9 @@ public class Projectile : MonoBehaviour
       this.transform.position += (Vector3)direction * this.speed * Time.deltaTime;
   }
 
-  public virtual void Shoot(Entity parent, Vector2 direction)
+  public virtual void Shoot(FMNObject parent, Vector2 direction)
   {
     isShot = true;
-    this.gameManager = parent.gameManager;
     this.direction = direction.normalized;
     this.angle = Vector2.Angle(Vector2.right, direction);
     this.transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + angle);

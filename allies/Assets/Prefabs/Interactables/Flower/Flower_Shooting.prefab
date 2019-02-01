@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4888141962139600}
   - component: {fileID: 212873309135382130}
-  - component: {fileID: 114290734550742728}
+  - component: {fileID: 114707365823303970}
   - component: {fileID: 60998483829715894}
   m_Layer: 0
   m_Name: Flower_Shooting
@@ -222,7 +222,7 @@ PolygonCollider2D:
       - {x: -0.08, y: 1.73}
       - {x: -0.08, y: 1.8399999}
       - {x: -0.13, y: 1.88}
---- !u!114 &114290734550742728
+--- !u!114 &114707365823303970
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,13 +230,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1271315957965814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6082fda2d82cf24fac1b67f0b2fd4cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e4cfc228fe998a41a348f9707a589b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  initialized: 0
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   actionActivated: 0
+  projectilePrefab: {fileID: 114017616459726408, guid: 5a77257975ddb604483b04984c8fffb6,
+    type: 2}
+  interval: 0.8
 --- !u!212 &212873309135382130
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -270,7 +274,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 899677267
-  m_SortingLayer: -3
+  m_SortingLayer: -2
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 57e234bde1fb9e64a877e3929d0e4fa6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

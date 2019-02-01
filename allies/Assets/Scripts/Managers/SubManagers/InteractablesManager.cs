@@ -15,5 +15,7 @@ public class InteractablesManager : SubManager
   {
     foreach (Interactable interactable in FindObjectsOfType<Interactable>())
       interactable.Init();
+    foreach (Enemy enemy in FindObjectsOfType<Enemy>())
+      enemy.Init();
   }
 }

@@ -21,6 +21,8 @@ public class CombinedCharacter : Character
 
     this.gameObject.SetActive(true);
 
+    isMovingLeft = a.isMovingLeft;
+
     gameManager.characterManager.SetActiveCharacter(this);
   }
 
