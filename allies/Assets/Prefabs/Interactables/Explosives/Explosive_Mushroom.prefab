@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114769721678717592}
   - component: {fileID: 60419993208138182}
   m_Layer: 0
-  m_Name: Mushroom_Explosive
+  m_Name: Explosive_Mushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -367,6 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  initialized: 0
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   actionActivated: 0
@@ -404,7 +405,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -822002767
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: a37912febec95ab49b9caa3acb844218, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -386,9 +386,9 @@ MonoBehaviour:
     type: 2}
   uiManagerPrefab: {fileID: 114091900282719590, guid: 457428d55915b074da79be57f2fb1fcb,
     type: 2}
-  playerManagerPrefab: {fileID: 114656062616973686, guid: dc40c6d610972fd4b940b0a2dd292419,
-    type: 2}
   interactablesManagerPrefab: {fileID: 114027836144882532, guid: eb29d88cde4d0f349b3438061a2894af,
+    type: 2}
+  characterManagerPrefab: {fileID: 114656062616973686, guid: dc40c6d610972fd4b940b0a2dd292419,
     type: 2}
 --- !u!4 &1491746494
 Transform:

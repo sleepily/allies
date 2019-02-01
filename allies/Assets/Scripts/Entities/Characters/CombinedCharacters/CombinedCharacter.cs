@@ -6,6 +6,7 @@ public class CombinedCharacter : Character
 
   private void Awake()
   {
+    Init();
     this.gameObject.SetActive(false);
   }
 
@@ -28,7 +29,6 @@ public class CombinedCharacter : Character
     base.Init();
     GetAllComponents();
     // DeactivateAbility(); DO NOT disable on init. will make character inactive
-    isMovingLeft = false;
   }
 
   void MoveToInitiatorPosition(Vector2 position)
@@ -56,7 +56,7 @@ public class CombinedCharacter : Character
 
     SetCombinationActive(true);
 
-    characterManager.activeCombinedCharacter = null;
+    gameManager.characterManager.activeCombinedCharacter = null;
     this.gameObject.SetActive(false);
   }
 }

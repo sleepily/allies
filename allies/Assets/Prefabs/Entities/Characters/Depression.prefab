@@ -109,9 +109,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  characterManager: {fileID: 0}
+  initialized: 0
   startWithAbility: 0
-  rb: {fileID: 0}
+  isMovingLeft: 0
+  rb: {fileID: 50599813136994922}
   velocity: {x: 0, y: 0}
   isCollidingWithGround: 0
   isCollidingWithWall: 0
@@ -119,11 +120,10 @@ MonoBehaviour:
   idleMaterial: {fileID: 6200000, guid: 477848852293f0349871226994208e67, type: 2}
   isJumping: 0
   canUseAbilityInAir: 0
-  allowJump: 0
-  allowMove: 0
+  allowJump: 1
+  allowMove: 1
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
-  isMovingLeft: 0
   isMoving: 0
   abilityActive: 0
   abilityIndex: 0
@@ -172,7 +172,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 280475669
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: bfe60474189e1264f8dcc2d87c759edd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

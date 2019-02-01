@@ -28,8 +28,8 @@ public class GameManager : Manager
   public LevelManager levelManagerPrefab;
   public InputManager inputManagerPrefab;
   public UIManager uiManagerPrefab;
-  public CharacterManager playerManagerPrefab;
   public InteractablesManager interactablesManagerPrefab;
+  public CharacterManager characterManagerPrefab;
 
   private void Awake()
   {
@@ -55,6 +55,6 @@ public class GameManager : Manager
     inputManager = Instantiate(inputManagerPrefab);
     uiManager = Instantiate(uiManagerPrefab);
     interactablesManager = Instantiate(interactablesManagerPrefab);
-    characterManager = Instantiate(playerManagerPrefab);
+    characterManager = Instantiate(characterManagerPrefab);
   }
 }

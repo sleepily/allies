@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1276572455573926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -10.331, y: 6.716, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 4718382368713344}
@@ -158,9 +158,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  characterManager: {fileID: 0}
+  initialized: 0
   startWithAbility: 0
-  rb: {fileID: 0}
+  isMovingLeft: 0
+  rb: {fileID: 50533788383042338}
   velocity: {x: 0, y: 0}
   isCollidingWithGround: 0
   isCollidingWithWall: 0
@@ -168,11 +169,10 @@ MonoBehaviour:
   idleMaterial: {fileID: 6200000, guid: 477848852293f0349871226994208e67, type: 2}
   isJumping: 0
   canUseAbilityInAir: 1
-  allowJump: 0
-  allowMove: 0
+  allowJump: 1
+  allowMove: 1
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
-  isMovingLeft: 0
   isMoving: 0
   abilityActive: 0
   abilityIndex: 0
@@ -212,7 +212,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 280475669
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 4d8487df62952814f8b47820877d6017, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -258,7 +258,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 280475669
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c504cb0b701d65a4c97a9176b56671e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

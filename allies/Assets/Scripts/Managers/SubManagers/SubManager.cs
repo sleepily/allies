@@ -6,7 +6,7 @@ public class SubManager : Manager
   //[HideInInspector]
   public GameManager gameManager;
 
-  private void Awake()
+  private void Start()
   {
     Init();
 

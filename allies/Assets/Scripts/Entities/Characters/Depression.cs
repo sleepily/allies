@@ -28,7 +28,7 @@ public class Depression : Character
     abilityActive = true;
 
     if (abilityIndex == 0)
-      characterManager.SetNextCharacterAsActive();
+      gameManager.characterManager.SetNextCharacterAsActive();
   }
 
   protected override void Ability()
@@ -95,8 +95,8 @@ public class Depression : Character
     abilityIndex = 0;
     jetpackIsActive = false;
 
-    if (characterManager.activeCharacter == this)
-      characterManager.SetNextCharacterAsActive();
+    if (gameManager.characterManager.activeCharacter == this)
+      gameManager.characterManager.SetNextCharacterAsActive();
   }
 
   public override void DeactivateAbility()

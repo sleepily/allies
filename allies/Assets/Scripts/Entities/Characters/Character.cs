@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 
 public class Character : Entity
-{
-  [HideInInspector]
-  public CharacterManager characterManager;
-  
+{  
   [Header("Spawn Options")]
   public bool startWithAbility = false;
   public bool isMovingLeft = false;
@@ -34,25 +31,26 @@ public class Character : Entity
 
   public override void Init()
   {
-    base.Init();
+    // base init without bool initialized
+    gameManager = GameManager.globalGameManager;
+    MoveToParentTransform();
 
     GetAllComponents();
     DeactivateAbility();
 
     if (startWithAbility)
       abilityActive = true;
+
+    initialized = true;
   }
 
   public override void MoveToParentTransform()
   {
-    transform.SetParent(characterManager.transform);
+    transform.SetParent(gameManager.characterManager.transform);
   }
 
   protected virtual void GetAllComponents()
   {
-    if (!characterManager)
-      characterManager = gameManager.characterManager;
-
     if (!rb)
       rb = GetComponent<Rigidbody2D>();
 
@@ -86,16 +84,16 @@ public class Character : Entity
 
   protected virtual void CheckForCharacterDistance()
   {
-    if (!characterManager)
-      GetAllComponents();
+    if (!initialized)
+      return;
 
-    if (characterManager.charactersInLevel.Count == 1)
+    if (gameManager.characterManager.charactersInLevel.Count == 1)
       return;
 
     if (!abilityActive)
       return;
 
-    foreach (Character character in characterManager.GetActiveCharactersAsList())
+    foreach (Character character in gameManager.characterManager.GetActiveCharactersAsList())
     {
       if (character == this)
         continue;
@@ -104,7 +102,7 @@ public class Character : Entity
 
       if (distance < 2f)
       {
-        // Debug.Log("Disabled " + this.name + "'s ability due to distance to " + character.name + ".");
+        Debug.Log(string.Format("Disabled {0}'s ability due to distance to {1}.", this.name, character.name));
         DeactivateAbility();
         return;
       }
@@ -274,7 +272,7 @@ public class Character : Entity
         return;
 
     abilityActive = true;
-    characterManager.SetNextCharacterAsActive();
+    gameManager.characterManager.SetNextCharacterAsActive();
   }
 
   protected void CheckAbilityStatus()
@@ -343,6 +341,9 @@ public class Character : Entity
   
   public virtual void DeactivateAbility()
   {
+    if (!initialized)
+      return;
+
     allowJump = true;
     allowMove = true;
 

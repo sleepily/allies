@@ -11,6 +11,9 @@ public class Spikes : Interactable
 
   protected virtual void CheckForCharacterCollision(Collision2D collision)
   {
+    if (actionActivated)
+      return;
+
     if (!collision.gameObject.CompareTag("Character"))
       return;
 
@@ -21,6 +24,12 @@ public class Spikes : Interactable
       if (anxiety.abilityActive)
         return;
 
+    Activate();
+  }
+
+  public override void Activate()
+  {
+    base.Activate();
     gameManager.sceneManager.RetryLevelOnKill();
   }
 }
