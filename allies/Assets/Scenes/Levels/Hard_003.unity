@@ -1120,6 +1120,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e381321990882904aa736624f659de7b, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1724850207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114389769068608628, guid: e381321990882904aa736624f659de7b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1724850206}
+  m_Script: {fileID: 11500000, guid: a74879104b841644b9c3e95ade01b57c, type: 3}
 --- !u!1001 &1852423913
 Prefab:
   m_ObjectHideFlags: 0
@@ -1169,13 +1175,18 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114769721678717592, guid: c89e506c558c64a42a79b1527f814a98,
+        type: 2}
+      propertyPath: interactablesToExplode.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4198168670113938, guid: c89e506c558c64a42a79b1527f814a98, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -12.52
+      value: -12.19
       objectReference: {fileID: 0}
     - target: {fileID: 4198168670113938, guid: c89e506c558c64a42a79b1527f814a98, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.06
+      value: 11.94
       objectReference: {fileID: 0}
     - target: {fileID: 4198168670113938, guid: c89e506c558c64a42a79b1527f814a98, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1211,6 +1222,11 @@ Prefab:
       propertyPath: m_SortingLayer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114769721678717592, guid: c89e506c558c64a42a79b1527f814a98,
+        type: 2}
+      propertyPath: interactablesToExplode.Array.data[0]
+      value: 
+      objectReference: {fileID: 1724850207}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c89e506c558c64a42a79b1527f814a98, type: 2}
   m_IsPrefabAsset: 0
