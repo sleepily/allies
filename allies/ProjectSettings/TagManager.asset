@@ -15,6 +15,7 @@ TagManager:
   - Water
   - FireFlower
   - MovableStone
+  - Fuse
   layers:
   - Default
   - TransparentFX

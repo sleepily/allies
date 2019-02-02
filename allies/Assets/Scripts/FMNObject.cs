@@ -33,4 +33,17 @@ public class FMNObject : MonoBehaviour
     // don't move anywhere if object is not specialized
     return;
   }
+
+  protected virtual void SetAnimatorTrigger(Animator animator, string trigger)
+  {
+    animator.SetTrigger(trigger);
+  }
+
+  protected virtual void SetAnimatorTrigger(Animator animator, string trigger, bool reset = false)
+  {
+    if (!reset)
+      animator.SetTrigger(trigger);
+    else
+      animator.ResetTrigger(trigger);
+  }
 }
