@@ -12,9 +12,11 @@ public class ShootingFlower : FireFlower
 
   public override void Init()
   {
-    base.Init();
+    gameManager = GameManager.globalGameManager;
+    MoveToParentTransform();
 
     SetTime();
+    initialized = true;
   }
 
   private void Update()

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneManager : SubManager
 {
+  bool transitioning = false;
+
   public enum Screen
   {
     splash,
@@ -21,9 +23,6 @@ public class SceneManager : SubManager
 
   [Header("First Level BuildIndex")]
   public int levelID = 0;
-
-  AsyncOperation asyncLoad;
-  AsyncOperation asyncUnload;
 
   public override void Init()
   {
@@ -108,33 +107,50 @@ public class SceneManager : SubManager
 
   public void FinishLevel()
   {
+    if (transitioning)
+      return;
+
     StartCoroutine(FinishLevelCoroutine(.5f, Color.black));
   }
 
   public void RetryLevel()
   {
+    if (transitioning)
+      return;
+
     StartCoroutine(RetryLevelCoroutine(.5f, Color.black));
   }
 
   public void RetryLevelOnKill()
   {
+    if (transitioning)
+      return;
+
     StartCoroutine(RetryLevelCoroutine(0, new Color(.5f, 0, 0, 1)));
   }
 
   IEnumerator RetryLevelCoroutine(float waitTime, Color fadeColor)
   {
+    transitioning = true;
+
     gameManager.cameraManager.FadeOut(fadeColor);
 
-    yield return new WaitForSeconds(waitTime); ;
+    yield return new WaitForSeconds(waitTime);
+
+    transitioning = false;
 
     LoadScreenSingleAsLevel(this.levelID, fadeColor);
   }
 
   IEnumerator FinishLevelCoroutine(float waitTime, Color fadeColor)
   {
+    transitioning = true;
+
     gameManager.cameraManager.FadeOut(fadeColor);
 
-    yield return new WaitForSeconds(waitTime); ;
+    yield return new WaitForSeconds(waitTime);
+
+    transitioning = false;
 
     LoadNextLevel();
   }

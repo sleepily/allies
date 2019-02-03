@@ -36,6 +36,9 @@ public class FMNObject : MonoBehaviour
 
   protected virtual void SetAnimatorTrigger(Animator animator, string trigger)
   {
+    if (!animator)
+      return;
+
     animator.SetTrigger(trigger);
   }
 

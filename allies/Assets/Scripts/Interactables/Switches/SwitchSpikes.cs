@@ -5,7 +5,7 @@ using UnityEngine;
 public class SwitchSpikes : Spikes
 {
   Animator animator;
-  SpriteRenderer spikes, eyes;
+  public SpriteRenderer spikes, eyes;
 
   public override void Init()
   {

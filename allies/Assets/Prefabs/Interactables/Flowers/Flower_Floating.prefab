@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 4888141962139600}
   - component: {fileID: 212873309135382130}
   - component: {fileID: 114344465590421774}
+  - component: {fileID: 114026014859452960}
   - component: {fileID: 50319957892753724}
   - component: {fileID: 60349551203638682}
   m_Layer: 0
@@ -101,7 +102,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1271315957965814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.15, y: 0, z: 0}
+  m_LocalPosition: {x: 19.35751, y: -11.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4511822648823188}
@@ -173,7 +174,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -287,7 +288,7 @@ BoxCollider2D:
     border: {x: 0.06, y: 0.02, z: 0.099999994, w: 0}
     pivot: {x: 0.5, y: 1}
     oldSize: {x: 12.42, y: 12.5}
-    newSize: {x: 12.21, y: 3.9}
+    newSize: {x: 12.21, y: 5.5}
     adaptiveTilingThreshold: 0
     drawMode: 2
     adaptiveTiling: 0
@@ -304,7 +305,7 @@ Animator:
   m_GameObject: {fileID: 1165928602380708}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d5be12a0f73390f49b7c4dc38c0dfebf, type: 2}
+  m_Controller: {fileID: 9100000, guid: 52c130f85647ddd4a9f6a1c523601663, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -329,7 +330,26 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   actionActivated: 0
-  startActivated: 0
+  startActivated: 1
+--- !u!114 &114026014859452960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1271315957965814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba5f1c428dcbed4cbfeef8bf9ce9256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  initialized: 0
+  polygonCollider2D: {fileID: 0}
+  rb: {fileID: 0}
+  actionActivated: 0
+  floatTime: 2
+  floatHeight: 5
+  water: {fileID: 114325310736669420}
 --- !u!114 &114325310736669420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -346,7 +366,7 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 50855961702185794}
   actionActivated: 0
-  parent: {fileID: 114344465590421774}
+  parent: {fileID: 114026014859452960}
   spriteRenderer: {fileID: 212572727269364994}
   boxCollider: {fileID: 61492845886945006}
 --- !u!114 &114344465590421774
@@ -365,9 +385,7 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   actionActivated: 0
-  floatTime: 1
-  floatHeight: 4
-  water: {fileID: 114325310736669420}
+  flame: {fileID: 114018203774836194}
 --- !u!212 &212572727269364994
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -408,7 +426,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 12.21, y: 3.9}
+  m_Size: {x: 12.21, y: 5.5}
   m_AdaptiveModeThreshold: 0
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
