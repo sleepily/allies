@@ -137,7 +137,8 @@ public class Character : Entity
 
   private void CheckCollisionWithGround(Collision2D collision)
   {
-    isCollidingWithGround = false;
+    if (isCollidingWithGround)
+      return;
 
     // check for collision in the lower 25% of the collider in order to enable jumping
     foreach (ContactPoint2D cp in collision.contacts)
@@ -146,6 +147,9 @@ public class Character : Entity
         isCollidingWithGround = true;
         isCollidingWithWall = false;
         isJumping = false;
+        
+        SoundManager.PlaySoundAttached(SoundManager.CharacterLand, this);
+
         return;
       }
   }
@@ -313,6 +317,8 @@ public class Character : Entity
 
     if (axisVertical < .5f)
       return;
+    
+    isJumping = true;
 
     rb.sharedMaterial = moveMaterial;
 
@@ -320,9 +326,11 @@ public class Character : Entity
 
     float jumpForce = velocity.y * rb.gravityScale * gameManager.characterManager.jumpForce;
 
-    isJumping = true;
-
     rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+
+    isCollidingWithGround = false;
+
+    SoundManager.PlaySoundAttached(SoundManager.CharacterJump, this);
   }
 
   protected virtual void MirrorSpriteIfMovingLeft()
