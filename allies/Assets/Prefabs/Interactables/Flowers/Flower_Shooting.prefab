@@ -238,7 +238,7 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   actionActivated: 0
-  flame: {fileID: 114310473129614524, guid: ab9874a798d686f4cb27d5a0f3e3c006, type: 2}
+  flame: {fileID: 0}
   startActivated: 0
   projectilePrefab: {fileID: 114017616459726408, guid: 5a77257975ddb604483b04984c8fffb6,
     type: 2}

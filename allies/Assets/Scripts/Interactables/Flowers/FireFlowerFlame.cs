@@ -5,16 +5,16 @@ using UnityEngine;
 public class FireFlowerFlame : Interactable
 {
   public FireFlower parent;
-  public Animator animator;
+  Animator animator;
 
   public override void Init()
   {
     gameManager = GameManager.globalGameManager;
-  }
 
-  private void Start()
-  {
     MoveToParentTransform();
+
+    animator = GetComponent<Animator>();
+    animator.Rebind();
   }
 
   public override void MoveToParentTransform()
@@ -26,14 +26,14 @@ public class FireFlowerFlame : Interactable
   {
     base.Activate();
     
-    // SetAnimatorTrigger(animator, "activate");
+    SetAnimatorTrigger(animator, "activate");
   }
 
   public override void Deactivate()
   {
     base.Deactivate();
 
-    // SetAnimatorTrigger(animator, "deactivate");
+    SetAnimatorTrigger(animator, "deactivate");
   }
 
   private void OnTriggerEnter2D(Collider2D collision)

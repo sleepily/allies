@@ -7,10 +7,18 @@ public class FireFlower : Interactable
   public FireFlowerFlame flame;
   public bool startActivated = false;
 
-  private void Start()
+  public override void Init()
   {
+    gameManager = GameManager.globalGameManager;
+
+    MoveToParentTransform();
+
+    flame.Init();
+
     if (startActivated)
       Activate();
+
+    initialized = true;
   }
 
   public override void Activate()

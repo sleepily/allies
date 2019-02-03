@@ -102,7 +102,7 @@ public class Character : Entity
 
       if (distance < 2f)
       {
-        Debug.Log(string.Format("Disabled {0}'s ability due to distance to {1}.", this.name, character.name));
+        // Debug.Log(string.Format("Disabled {0}'s ability due to distance to {1}.", this.name, character.name));
         DeactivateAbility();
         return;
       }
