@@ -4,10 +4,5 @@ using UnityEngine;
 
 public class ContinousFlower : FireFlower
 {
-  public override void Init()
-  {
-    base.Init();
 
-    Activate();
-  }
 }

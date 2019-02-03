@@ -161,7 +161,8 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   actionActivated: 0
-  startActivated: 1
+  parent: {fileID: 114487097237204770}
+  animator: {fileID: 95763486327337890, guid: ab9874a798d686f4cb27d5a0f3e3c006, type: 2}
 --- !u!114 &114487097237204770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,6 +180,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   actionActivated: 0
   flame: {fileID: 114032042059127020}
+  startActivated: 1
 --- !u!212 &212292494051402948
 SpriteRenderer:
   m_ObjectHideFlags: 1

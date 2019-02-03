@@ -5,15 +5,12 @@ using UnityEngine;
 public class FireFlower : Interactable
 {
   public FireFlowerFlame flame;
+  public bool startActivated = false;
 
-  public override void Init()
+  private void Start()
   {
-    base.Init();
-
-    if (!flame)
-      flame = GetComponentInChildren<FireFlowerFlame>();
-
-    flame.transform.SetParent(this.transform);
+    if (startActivated)
+      Activate();
   }
 
   public override void Activate()
@@ -30,22 +27,22 @@ public class FireFlower : Interactable
 
   private void OnTriggerEnter2D(Collider2D collision)
   {
-    CheckCharacterCollision(collision);
-    CheckCrybabyTearCollision(collision);
+    KillCharacterOnTrigger(collision);
+    DeactivateOnCrybabyTrigger(collision);
   }
 
   private void OnTriggerStay2D(Collider2D collision)
   {
-    CheckCharacterCollision(collision);
-    CheckCrybabyTearCollision(collision);
+    KillCharacterOnTrigger(collision);
+    DeactivateOnCrybabyTrigger(collision);
   }
 
   private void OnTriggerExit2D(Collider2D collision)
   {
-    CheckRampageCollision(collision);
+    ActivateOnRampageTrigger(collision);
   }
 
-  void CheckRampageCollision(Collider2D collision)
+  public void ActivateOnRampageTrigger(Collider2D collision)
   {
     if (actionActivated)
       return;
@@ -62,7 +59,7 @@ public class FireFlower : Interactable
       Activate();
   }
 
-  void CheckCrybabyTearCollision(Collider2D collision)
+  public void DeactivateOnCrybabyTrigger(Collider2D collision)
   {
     if (!actionActivated)
       return;
@@ -73,7 +70,7 @@ public class FireFlower : Interactable
     Deactivate();
   }
 
-  void CheckCharacterCollision(Collider2D collision)
+  public void KillCharacterOnTrigger(Collider2D collision)
   {
     if (!actionActivated)
       return;

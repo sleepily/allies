@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1271315957965814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -9.31, y: -5.07, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 4289260133814610}
@@ -263,7 +263,8 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   actionActivated: 0
-  startActivated: 0
+  parent: {fileID: 114774191856522362}
+  animator: {fileID: 95763486327337890, guid: ab9874a798d686f4cb27d5a0f3e3c006, type: 2}
 --- !u!114 &114774191856522362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -281,6 +282,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   actionActivated: 0
   flame: {fileID: 114592596279400956}
+  startActivated: 0
 --- !u!212 &212478659804250498
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -316,7 +318,7 @@ SpriteRenderer:
   m_SortingLayerID: 899677267
   m_SortingLayer: -2
   m_SortingOrder: -5
-  m_Sprite: {fileID: 21300000, guid: 03eb217fd80d5c446aa970e9327f11a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8cc6ab7aa9e90744b12dd992e3b75d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

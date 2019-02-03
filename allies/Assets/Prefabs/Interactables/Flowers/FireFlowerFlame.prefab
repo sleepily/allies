@@ -92,7 +92,7 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   actionActivated: 0
-  startActivated: 0
+  animator: {fileID: 95763486327337890}
 --- !u!212 &212362258596219590
 SpriteRenderer:
   m_ObjectHideFlags: 1
