@@ -25,6 +25,7 @@ public class FMNObject : MonoBehaviour
   {
     gameManager = GameManager.globalGameManager;
     MoveToParentTransform();
+    Debug.Log("FMN: Initializing " + gameObject.name);
     initialized = true;
   }
 
@@ -32,5 +33,36 @@ public class FMNObject : MonoBehaviour
   {
     // don't move anywhere if object is not specialized
     return;
+  }
+
+  protected virtual void SetAnimatorTrigger(Animator animator, string trigger)
+  {
+    if (!animator)
+    {
+      Debug.LogError(string.Format("Cannot set animation trigger: Animation \"{0}\" is null.", animator.name));
+      return;
+    }
+
+    if (!animator.gameObject.activeSelf)
+    {
+      Debug.LogError(string.Format("Setting {0} active to set Animator \"{1}\".", animator.gameObject.name, animator.name));
+      animator.gameObject.SetActive(true);
+    }
+
+    if (!animator.isInitialized)
+    {
+      Debug.LogError(string.Format("Setting {0} active to set Animator \"{1}\".", animator.gameObject.name, animator.name));
+      animator.Rebind();
+    }
+
+    animator.SetTrigger(trigger);
+  }
+
+  protected virtual void SetAnimatorTrigger(Animator animator, string trigger, bool reset = false)
+  {
+    if (!reset)
+      animator.SetTrigger(trigger);
+    else
+      animator.ResetTrigger(trigger);
   }
 }

@@ -15,6 +15,8 @@ TagManager:
   - Water
   - FireFlower
   - MovableStone
+  - Fuse
+  - CrybabyTear
   layers:
   - Default
   - TransparentFX

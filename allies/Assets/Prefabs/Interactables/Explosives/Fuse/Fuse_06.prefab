@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 60075251011396766}
   m_Layer: 0
   m_Name: Fuse_06
-  m_TagString: Interactible
+  m_TagString: Fuse
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -50,7 +50,7 @@ public class FuseFlame : Interactable
   {
     base.Activate();
 
-    SetAnimatorTrigger("activate");
+    SetAnimatorTrigger(animator, "activate");
     flameSpriteRenderer.enabled = true;
   }
 
@@ -58,20 +58,7 @@ public class FuseFlame : Interactable
   {
     base.Deactivate();
 
-    SetAnimatorTrigger("deactivate");
+    SetAnimatorTrigger(animator, "deactivate");
     flameSpriteRenderer.enabled = false;
-  }
-
-  void SetAnimatorTrigger(string trigger)
-  {
-    animator.SetTrigger(trigger);
-  }
-
-  void SetAnimatorTrigger(string trigger, bool reset = false)
-  {
-    if (!reset)
-      animator.SetTrigger(trigger);
-    else
-      animator.ResetTrigger(trigger);
   }
 }

@@ -50,7 +50,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1862368725967974}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 774c993475f372c4caafe6004be42659, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -121,7 +121,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1777979147
-  m_SortingLayer: -5
+  m_SortingLayer: -4
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: eb20eca836cd09b4e944e1a8df471053, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
