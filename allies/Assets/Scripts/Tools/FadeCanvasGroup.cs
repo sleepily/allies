@@ -35,6 +35,9 @@ public class FadeCanvasGroup : MonoBehaviour
 
   IEnumerator fadeCanvasGroup(CanvasGroup group, bool fadeIn, float duration)
   {
+    if (!group)
+      yield break;
+
     float counter = 0f;
     
     float fadeValueStart, fadeValueEnd;
