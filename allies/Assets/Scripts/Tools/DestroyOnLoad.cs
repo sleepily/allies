@@ -6,6 +6,7 @@ public class DestroyOnLoad : MonoBehaviour
 {
   private void Awake()
   {
-    Destroy(this.gameObject);
+    if (GameManager.globalGameManager)
+      Destroy(this.gameObject);
   }
 }

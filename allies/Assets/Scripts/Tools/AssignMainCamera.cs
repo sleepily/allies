@@ -16,7 +16,9 @@ public class AssignMainCamera : MonoBehaviour
     if (canvas)
     {
       canvas.planeDistance = 10;
-      canvas.worldCamera = GameManager.globalCamera;
+
+      if (GameManager.globalCamera)
+        canvas.worldCamera = GameManager.globalCamera;
     }
 
     videoPlayer = GetComponent<VideoPlayer>();
