@@ -197,6 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 389330242}
   - component: {fileID: 389330241}
+  - component: {fileID: 389330243}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -216,6 +217,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  isScenic: 1
+  parallaxParent: {fileID: 848653622}
+  buttonCanvasGroup: {fileID: 501200954}
+  cameraToMove: {fileID: 827728197}
 --- !u!4 &389330242
 Transform:
   m_ObjectHideFlags: 0
@@ -231,6 +236,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &389330243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 389330240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa459b0136048a4c96a1103d767c2af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: 0
 --- !u!1 &458705054
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +500,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 501200952}
+  - component: {fileID: 501200953}
+  - component: {fileID: 501200954}
   m_Layer: 5
   m_Name: Button Container
   m_TagString: Untagged
@@ -509,6 +528,29 @@ RectTransform:
   m_AnchoredPosition: {x: 685, y: 0}
   m_SizeDelta: {x: 550, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &501200953
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 501200951}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &501200954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 501200951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51299d8ff3c40940b893b4f3c9eda68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 1.2
 --- !u!1 &553069986
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,7 +632,6 @@ GameObject:
   m_Component:
   - component: {fileID: 827728195}
   - component: {fileID: 827728197}
-  - component: {fileID: 827728196}
   - component: {fileID: 827728198}
   m_Layer: 0
   m_Name: Camera
@@ -606,19 +647,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 827728194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -20}
+  m_LocalPosition: {x: -8, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 389330242}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &827728196
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 827728194}
-  m_Enabled: 1
 --- !u!20 &827728197
 Camera:
   m_ObjectHideFlags: 0
@@ -670,6 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95b152381eed31b4e9528b4c47ea9abe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyInEditor: 1
 --- !u!1 &848653620
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,8 +713,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 848653621}
+  - component: {fileID: 848653622}
   m_Layer: 0
-  m_Name: ParallaxBackground
+  m_Name: Parallax Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -709,9 +745,31 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -852, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchoredPosition: {x: -1080, y: 0}
+  m_SizeDelta: {x: 2186, y: 1120}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &848653622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 848653620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d985d3898b3d4f4682e4dab3f717d86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 1711163060}
+  - {fileID: 458705054}
+  - {fileID: 210419034}
+  - {fileID: 1490795409}
+  - {fileID: 1183259146}
+  - {fileID: 2021517035}
+  - {fileID: 1245956312}
+  - {fileID: 1092352816}
+  - {fileID: 1304330073}
+  focusDepth: 0
 --- !u!1001 &952370558
 Prefab:
   m_ObjectHideFlags: 0
@@ -1457,6 +1515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa459b0136048a4c96a1103d767c2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destination: 1
 --- !u!1001 &1423387445
 Prefab:
   m_ObjectHideFlags: 0
@@ -1881,7 +1940,7 @@ GameObject:
   - component: {fileID: 2041662940}
   - component: {fileID: 2041662941}
   m_Layer: 5
-  m_Name: Buttons
+  m_Name: Button Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
