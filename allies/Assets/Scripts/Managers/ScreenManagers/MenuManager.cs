@@ -18,7 +18,7 @@ public class MenuManager : SubManager
 
   [Header("Menu Components")]
   public ParallaxParent parallaxParent;
-  public FadeCanvasGroup buttonCanvasGroup;
+  public FadeCanvasGroup menuContainerGroup;
   public Camera cameraToMove;
 
   private void Start()
@@ -69,7 +69,7 @@ public class MenuManager : SubManager
 
   void ScenicTransition()
   {
-    buttonCanvasGroup.Fade(!isScenic);
+    menuContainerGroup.Fade(!isScenic);
   }
 
   void ScenicTransition(bool isInstant = true)
@@ -80,7 +80,7 @@ public class MenuManager : SubManager
       return;
     }
 
-    buttonCanvasGroup.FadeInstant(!isScenic);
+    menuContainerGroup.FadeInstant(!isScenic);
 
     cameraToMove.transform.position = CalculateNewCameraPosition();
   }
