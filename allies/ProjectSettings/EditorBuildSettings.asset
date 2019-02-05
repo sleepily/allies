@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Screens/SelectionScreen.unity
     guid: af8a3d1884a42fd4ebe232be8cac75be
   - enabled: 1
+    path: Assets/Scenes/Screens/CreditsScreen.unity
+    guid: 58f070f0a35ee9f42bf3ce1bb01056de
+  - enabled: 1
     path: Assets/Scenes/Templates/TestScene.unity
     guid: aa8de6e406661e241b71942e113910be
   - enabled: 1

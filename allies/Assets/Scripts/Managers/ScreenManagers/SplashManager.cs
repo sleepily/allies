@@ -11,6 +11,7 @@ public class SplashManager : SubManager
   public SpriteFade spriteFade;
   
   bool introStarted = false;
+  bool splashDone = false;
 
   public bool logoIsSkippable = false;
   public bool videoIsSkippable = false;
@@ -18,7 +19,10 @@ public class SplashManager : SubManager
   public override void Init()
   {
     base.Init();
-    
+
+
+    GameManager.globalCamera.backgroundColor = Color.black;
+
     PrepareVideoPlayer();
   }
 
@@ -74,6 +78,13 @@ public class SplashManager : SubManager
 
   void StopVideo()
   {
+    if (splashDone)
+      return;
+
+    splashDone = true;
+
+    GameManager.globalCamera.backgroundColor = gameManager.cameraManager.backgroundColor;
+
     videoPlayer.Stop();
     gameManager.sceneManager.LoadScreen(SceneManager.Screen.mainMenu);
   }

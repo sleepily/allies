@@ -6,6 +6,8 @@ public class CameraManager : SubManager
   public Animator animator;
   public SpriteRenderer fadeSpriteRenderer;
 
+  public Color backgroundColor = new Color(0.1019608f, 0.1058824f, 0.1490196f);
+
   private void Start()
   {
     if (!animator)
@@ -34,5 +36,10 @@ public class CameraManager : SubManager
     fadeSpriteRenderer.color = fadeColor;
     animator.SetTrigger("fadeOut");
     animator.ResetTrigger("fadeIn");
+  }
+
+  public void ResetCameraPosition()
+  {
+    GameManager.globalCamera.transform.position = Vector3.forward * -20;
   }
 }
