@@ -13,6 +13,7 @@ public class SceneManager : SubManager
     mainMenu,
     levelSelect,
     level,
+    credits,
     quit
   }
 
@@ -61,6 +62,10 @@ public class SceneManager : SubManager
         sceneID = "MenuScreen";
         LoadScreenSingle(sceneID);
         break;
+      case Screen.credits:
+        sceneID = "CreditsScreen";
+        LoadScreenSingle(sceneID);
+        break;
       case Screen.levelSelect:
         sceneID = "SelectionScreen";
         LoadScreenSingle(sceneID);
@@ -76,10 +81,24 @@ public class SceneManager : SubManager
 
   void Quit()
   {
+    if (transitioning)
+      return;
+
+    StartCoroutine(QuitCoroutine());
+  }
+
+  IEnumerator QuitCoroutine()
+  {
+    transitioning = true;
+
+    gameManager.cameraManager.FadeOut(Color.black);
+
+    yield return new WaitForSeconds(.5f);
+
     #if UNITY_EDITOR
-      UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;
     #else
-      Application.Quit ();
+              Application.Quit ();
     #endif
   }
 
