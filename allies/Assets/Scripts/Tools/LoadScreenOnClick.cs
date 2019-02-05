@@ -8,11 +8,12 @@ public class LoadScreenOnClick : MonoBehaviour
 
   public void LoadScreen()
   {
-    Debug.Log("Loading screen " + screenToLoad.ToString());
+    // Debug.Log("Loading screen " + screenToLoad.ToString());
 
     if (screenToLoad == SceneManager.Screen.level)
     {
-      GameManager.globalGameManager.sceneManager.LoadLevelFromName(gameObject.name);
+      GameManager.globalGameManager.sceneManager.levelName = gameObject.name;
+      GameManager.globalGameManager.sceneManager.RetryLevel();
     }
     else
       GameManager.globalGameManager.sceneManager.LoadScreen(screenToLoad);

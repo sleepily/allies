@@ -35,4 +35,9 @@ public class CameraManager : SubManager
     animator.SetTrigger("fadeOut");
     animator.ResetTrigger("fadeIn");
   }
+
+  public void ResetCameraPosition()
+  {
+    GameManager.globalCamera.transform.position = Vector3.forward * -20;
+  }
 }

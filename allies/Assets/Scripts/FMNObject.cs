@@ -25,7 +25,7 @@ public class FMNObject : MonoBehaviour
   {
     gameManager = GameManager.globalGameManager;
     MoveToParentTransform();
-    Debug.Log("FMN: Initializing " + gameObject.name);
+    // Debug.Log("FMN: Initializing " + gameObject.name);
     initialized = true;
   }
 

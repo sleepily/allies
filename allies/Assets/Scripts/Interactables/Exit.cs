@@ -24,7 +24,7 @@ public class Exit : Interactable
       foreach (Character missingCharacter in missingCharacters)
         missing += missingCharacter.name + ", ";
 
-      Debug.Log("missing characters: " + missingCharacters.Count + "; " + missing);
+      // Debug.Log("missing characters: " + missingCharacters.Count + "; " + missing);
       return;
     }
 
@@ -49,7 +49,7 @@ public class Exit : Interactable
 
   void HideCharacter(Character character)
   {
-    Debug.Log("hiding character " + character.name);
+    // Debug.Log("hiding character " + character.name);
     character.gameObject.SetActive(false);
     character.enabled = false;
   }
@@ -65,7 +65,7 @@ public class Exit : Interactable
 
   void ExitLevel()
   {
-    Debug.Log("Exiting level " + gameManager.sceneManager.levelID);
+    // Debug.Log("Exiting level " + gameManager.sceneManager.levelID);
     gameManager.sceneManager.FinishLevel();
   }
 }
