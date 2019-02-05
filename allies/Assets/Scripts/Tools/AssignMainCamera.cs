@@ -48,7 +48,7 @@ public class AssignMainCamera : MonoBehaviour
       case Destination.videoPlayer:
         videoPlayer = GetComponent<VideoPlayer>();
 
-        if (videoPlayer)
+        if (!videoPlayer)
           return;
 
         if (GameManager.globalCamera)

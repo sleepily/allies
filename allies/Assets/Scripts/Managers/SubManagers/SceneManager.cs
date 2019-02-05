@@ -13,8 +13,6 @@ public class SceneManager : SubManager
     mainMenu,
     levelSelect,
     level,
-    glossary,
-    options,
     pause,
     quit
   }
@@ -64,19 +62,7 @@ public class SceneManager : SubManager
         LoadScreenSingle(sceneID);
         break;
       case Screen.levelSelect:
-        /*
         sceneID = "SelectionScreen";
-        break;
-        */
-        LoadLevelFromBuildIndex(levelID);
-        return;
-      case Screen.glossary:
-        sceneID = "GlossaryScreen";
-        LoadScreenSingle(sceneID);
-        break;
-      case Screen.options:
-        sceneID = "OptionsScreen";
-        LoadScreenAdditive("OptionsScreen");
         break;
       case Screen.pause:
         sceneID = "PauseScreen";
