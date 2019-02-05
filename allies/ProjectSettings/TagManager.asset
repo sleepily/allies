@@ -57,6 +57,9 @@ TagManager:
   - name: Exit
     uniqueID: 1688576553
     locked: 0
+  - name: Tutorials
+    uniqueID: 3776338643
+    locked: 0
   - name: Spikes
     uniqueID: 2516988149
     locked: 0
