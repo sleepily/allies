@@ -152,7 +152,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.10196079, g: 0.10588236, b: 0.14901961, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7d203cb7f8ed94dab961e7693d8ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlaytest: 1
+  isPlaytest: 0
   sceneManager: {fileID: 2079816787}
   cameraManager: {fileID: 2066252229}
   levelManager: {fileID: 0}
@@ -466,6 +466,7 @@ MonoBehaviour:
   gameManager: {fileID: 1491746493}
   animator: {fileID: 78373334}
   fadeSpriteRenderer: {fileID: 78373333}
+  backgroundColor: {r: 0.101960786, g: 0.105882354, b: 0.14901961, a: 1}
 --- !u!1 &2079816786
 GameObject:
   m_ObjectHideFlags: 0

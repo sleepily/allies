@@ -6,6 +6,8 @@ public class CameraManager : SubManager
   public Animator animator;
   public SpriteRenderer fadeSpriteRenderer;
 
+  public Color backgroundColor = new Color(0.1019608f, 0.1058824f, 0.1490196f);
+
   private void Start()
   {
     if (!animator)

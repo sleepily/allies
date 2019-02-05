@@ -19,7 +19,10 @@ public class SplashManager : SubManager
   public override void Init()
   {
     base.Init();
-    
+
+
+    GameManager.globalCamera.backgroundColor = Color.black;
+
     PrepareVideoPlayer();
   }
 
@@ -79,6 +82,8 @@ public class SplashManager : SubManager
       return;
 
     splashDone = true;
+
+    GameManager.globalCamera.backgroundColor = gameManager.cameraManager.backgroundColor;
 
     videoPlayer.Stop();
     gameManager.sceneManager.LoadScreen(SceneManager.Screen.mainMenu);
