@@ -13,9 +13,6 @@ public class SceneManager : SubManager
     mainMenu,
     levelSelect,
     level,
-    glossary,
-    options,
-    pause,
     quit
   }
 
@@ -64,30 +61,15 @@ public class SceneManager : SubManager
         LoadScreenSingle(sceneID);
         break;
       case Screen.levelSelect:
-        /*
         sceneID = "SelectionScreen";
-        break;
-        */
-        LoadLevelFromBuildIndex(levelID);
-        return;
-      case Screen.glossary:
-        sceneID = "GlossaryScreen";
         LoadScreenSingle(sceneID);
-        break;
-      case Screen.options:
-        sceneID = "OptionsScreen";
-        LoadScreenAdditive("OptionsScreen");
-        break;
-      case Screen.pause:
-        sceneID = "PauseScreen";
-        LoadScreenAdditive("PauseScreen");
-        break;
-      case Screen.quit:
-        Quit();
         break;
       case Screen.level:
         LoadLevelFromBuildIndex(levelID);
         return;
+      case Screen.quit:
+        Quit();
+        break;
     }
   }
 
@@ -98,11 +80,6 @@ public class SceneManager : SubManager
     #else
       Application.Quit ();
     #endif
-  }
-
-  public void LoadScene(Scene scene, LoadSceneMode mode)
-  {
-    StartCoroutine(LoadSceneAsync(scene.buildIndex, mode));
   }
 
   public void FinishLevel()
@@ -167,38 +144,27 @@ public class SceneManager : SubManager
     LoadScreenSingleAsLevel(this.levelID, Color.black);
   }
 
+  public void LoadLevelFromName(string levelID)
+  {
+    LoadScreenSingleAsLevel(levelID, Color.black);
+  }
+
   void LoadScreenSingleAsLevel(int sceneBuildIndex, Color fadeColor)
   {
     gameManager.cameraManager.FadeIn(fadeColor);
     StartCoroutine(LoadLevelAsync(sceneBuildIndex, LoadSceneMode.Single));
   }
 
-  void LoadScreenSingle(Scene scene)
+  void LoadScreenSingleAsLevel(string levelName, Color fadeColor)
   {
-    gameManager.cameraManager.FadeIn(Color.black);
-    StartCoroutine(LoadSceneAsync(scene.buildIndex, LoadSceneMode.Single));
-  }
-
-  void LoadScreenSingle(int sceneBuildIndex)
-  {
-    gameManager.cameraManager.FadeIn(Color.black);
-    StartCoroutine(LoadSceneAsync(sceneBuildIndex, LoadSceneMode.Single));
+    gameManager.cameraManager.FadeIn(fadeColor);
+    StartCoroutine(LoadLevelAsync(levelName, LoadSceneMode.Single));
   }
 
   void LoadScreenSingle(string sceneName)
   {
     gameManager.cameraManager.FadeIn(Color.black);
     StartCoroutine(LoadSceneAsync(sceneName, LoadSceneMode.Single));
-  }
-
-  public void LoadScreenAdditive(Scene scene)
-  {
-    StartCoroutine(LoadSceneAsync(scene.buildIndex, LoadSceneMode.Additive));
-  }
-
-  public void LoadScreenAdditive(string sceneName)
-  {
-    StartCoroutine(LoadSceneAsync(sceneName, LoadSceneMode.Additive));
   }
 
   IEnumerator LoadSceneAsync(string sceneID, LoadSceneMode sceneMode)
@@ -218,8 +184,10 @@ public class SceneManager : SubManager
     gameManager.InitializeManagersForPlay();
   }
 
-  IEnumerator UnloadSceneAsync(Scene scene)
+  IEnumerator LoadLevelAsync(string levelName, LoadSceneMode sceneMode)
   {
-    yield return UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(scene);
+    yield return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(levelName, sceneMode);
+
+    gameManager.InitializeManagersForPlay();
   }
 }

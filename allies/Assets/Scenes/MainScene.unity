@@ -152,7 +152,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.10196079, g: 0.10588236, b: 0.14901961, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -210,7 +210,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 10536810}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 3840
+    m_Bits: 12032
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 1
   antialiasingMode: 2
@@ -495,7 +495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1491746493}
   screen: 0
-  levelID: 7
+  levelID: 5
 --- !u!4 &2079816788
 Transform:
   m_ObjectHideFlags: 0

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LoadScreenOnClick : MonoBehaviour
 {
@@ -9,6 +8,13 @@ public class LoadScreenOnClick : MonoBehaviour
 
   public void LoadScreen()
   {
-    GameManager.globalGameManager.sceneManager.LoadScreen(screenToLoad);
+    Debug.Log("Loading screen " + screenToLoad.ToString());
+
+    if (screenToLoad == SceneManager.Screen.level)
+    {
+      GameManager.globalGameManager.sceneManager.LoadLevelFromName(gameObject.name);
+    }
+    else
+      GameManager.globalGameManager.sceneManager.LoadScreen(screenToLoad);
   }
 }

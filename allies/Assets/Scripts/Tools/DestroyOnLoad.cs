@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class DestroyOnLoad : MonoBehaviour
 {
+  public enum EditorVariable
+  {
+    yes,
+    no
+  }
+
+  public EditorVariable destroyInEditor;
+
   private void Awake()
   {
-    Destroy(this.gameObject);
+    if (GameManager.globalGameManager || destroyInEditor == EditorVariable.yes)
+      Destroy(this.gameObject);
   }
 }
