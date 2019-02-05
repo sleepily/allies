@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: team crying whale
   productName: forget me not
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: 4e15142f150e2ee44a5ca5fc2ba3692d, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_ShowUnitySplashScreen: 1
@@ -115,7 +115,7 @@ PlayerSettings:
   vulkanEnableSetSRGBWrite: 0
   vulkanUseSWCommandBuffers: 0
   m_SupportedAspectRatios:
-    4:3: 1
+    4:3: 0
     5:4: 0
     16:10: 1
     16:9: 1
