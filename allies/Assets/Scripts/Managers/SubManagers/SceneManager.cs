@@ -63,6 +63,7 @@ public class SceneManager : SubManager
         break;
       case Screen.levelSelect:
         sceneID = "SelectionScreen";
+        LoadScreenSingle(sceneID);
         break;
       case Screen.pause:
         sceneID = "PauseScreen";

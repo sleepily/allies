@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class FadeCanvasGroup : MonoBehaviour
 {
+  public bool isNavigation = true;
   public float fadeDuration = 1.2f;
+
   CanvasGroup canvasGroup;
 
   private void Start()
@@ -37,6 +39,12 @@ public class FadeCanvasGroup : MonoBehaviour
   {
     if (!group)
       yield break;
+
+    if (isNavigation)
+    {
+      group.interactable = fadeIn;
+      group.blocksRaycasts = fadeIn;
+    }
 
     float counter = 0f;
     
