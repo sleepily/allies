@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4718382368713344}
   - component: {fileID: 212307484582155076}
   - component: {fileID: 95312566548298038}
+  - component: {fileID: 114498029716350406}
   m_Layer: 9
   m_Name: Flame
   m_TagString: Untagged
@@ -119,7 +120,7 @@ Animator:
   m_GameObject: {fileID: 1200350611215452}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f2974fff0334ba74b8294388810d7136, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -177,8 +178,27 @@ MonoBehaviour:
   abilityActive: 0
   abilityIndex: 0
   angle: 0
+  spriteGlowEffect: {fileID: 114498029716350406}
+  spriteGlowTransitionSpeed: 3
   flame: {fileID: 1200350611215452}
   abilityDirection: {x: 0, y: 0}
+--- !u!114 &114498029716350406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200350611215452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 1, g: 0.019607844, b: 0, a: 1}
+  glowBrightness: 3
+  outlineWidth: 8
+  alphaThreshold: 0.104
+  drawOutside: 0
+  enableInstancing: 0
 --- !u!212 &212307484582155076
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -194,7 +214,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -214,15 +234,15 @@ SpriteRenderer:
   m_SortingLayerID: 280475669
   m_SortingLayer: 5
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 4d8487df62952814f8b47820877d6017, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 03eb217fd80d5c446aa970e9327f11a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 29.169998, y: 29.169998}
+  m_Size: {x: 20.83, y: 20.83}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!212 &212664776256087870

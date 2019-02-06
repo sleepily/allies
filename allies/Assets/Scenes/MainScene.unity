@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 10536809}
   - component: {fileID: 10536811}
   - component: {fileID: 10536808}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 10536810}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 12032
+    m_Bits: 2147495680
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 1
   antialiasingMode: 2

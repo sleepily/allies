@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 47123381}
   - component: {fileID: 47123382}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 250358011}
   - component: {fileID: 250358012}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: cave top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1288,7 +1288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 503597338}
   - component: {fileID: 503597339}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: 'water sparkles '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1523,7 +1523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 631798278}
   - component: {fileID: 631798279}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: ground sparkles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1615,7 +1615,8 @@ GameObject:
   - component: {fileID: 827728195}
   - component: {fileID: 827728197}
   - component: {fileID: 827728198}
-  m_Layer: 0
+  - component: {fileID: 827728196}
+  m_Layer: 31
   m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1635,6 +1636,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &827728196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 827728194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 827728195}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 2147483648
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 1
+  antialiasingMode: 3
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!20 &827728197
 Camera:
   m_ObjectHideFlags: 0
@@ -1671,7 +1731,7 @@ Camera:
   m_HDR: 1
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
+  m_ForceIntoRT: 1
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -1696,7 +1756,8 @@ GameObject:
   m_Component:
   - component: {fileID: 848653621}
   - component: {fileID: 848653622}
-  m_Layer: 0
+  - component: {fileID: 848653623}
+  m_Layer: 31
   m_Name: Parallax Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1753,6 +1814,22 @@ MonoBehaviour:
   - {fileID: 1481664984}
   - {fileID: 1092503738}
   - {fileID: 47123380}
+--- !u!114 &848653623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 848653620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 98cb11038996c5742b68642e283a3a6b, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &900278850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,7 +1970,7 @@ GameObject:
   m_Component:
   - component: {fileID: 938289114}
   - component: {fileID: 938289115}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2163,7 +2240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1092503739}
   - component: {fileID: 1092503740}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: background sparkles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2472,7 +2549,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1300564028}
   - component: {fileID: 1300564029}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2880,7 +2957,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1481664985}
   - component: {fileID: 1481664986}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: background gray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3234,7 +3311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1760695153}
   - component: {fileID: 1760695154}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3579,7 +3656,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2074428039}
   - component: {fileID: 2074428040}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3654,7 +3731,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2129511082}
   - component: {fileID: 2129511083}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: characters
   m_TagString: Untagged
   m_Icon: {fileID: 0}

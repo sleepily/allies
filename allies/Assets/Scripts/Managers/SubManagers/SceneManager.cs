@@ -159,6 +159,13 @@ public class SceneManager : SubManager
   public void LoadNextLevel()
   {
     this.levelID++;
+
+    if (this.levelID >= UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings)
+    {
+      LoadScreenSingle("CreditsScreen");
+      return;
+    }
+
     LoadScreenSingleAsLevel(this.levelID, Color.black);
   }
 

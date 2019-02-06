@@ -29,6 +29,10 @@ public class Character : Entity
   public float angle;
   private float angleVelocityThreshold = 1f;
 
+  public SpriteGlow.SpriteGlowEffect spriteGlowEffect;
+  float spriteGlowTransitionSpeed = 6f;
+  Color spriteGlowColor;
+
   public override void Init()
   {
     // base init without bool initialized
@@ -36,6 +40,7 @@ public class Character : Entity
     MoveToParentTransform();
 
     GetAllComponents();
+    InitSpriteGlow();
     DeactivateAbility();
 
     if (startWithAbility)
@@ -59,6 +64,18 @@ public class Character : Entity
 
     if (!spriteRenderer)
       spriteRenderer = GetComponent<SpriteRenderer>();
+
+    if (!spriteGlowEffect)
+      spriteGlowEffect = GetComponent<SpriteGlow.SpriteGlowEffect>();
+  }
+  
+  void InitSpriteGlow()
+  {
+    spriteGlowColor = spriteGlowEffect.GlowColor;
+
+    spriteGlowColor.a = 0f; // reset alpha so nothing shines through on level load/retry
+
+    spriteGlowEffect.GlowColor = spriteGlowColor;
   }
 
   protected virtual void Update()
@@ -66,9 +83,33 @@ public class Character : Entity
     if (!initialized)
       return;
 
+    UpdateCharacterGlow();
     CheckMovementDirection();
     CheckAbilityStatus();
     SetAnimatorProperties();
+  }
+
+  public bool IsActiveCharacter()
+  {
+    if (!gameManager.characterManager.activeCharacter)
+      return false;
+
+    return this == gameManager.characterManager.activeCharacter;
+  }
+
+  void UpdateCharacterGlow()
+  {
+    SetCharacterGlow(IsActiveCharacter());
+  }
+
+  void SetCharacterGlow(bool enabled)
+  {
+    float alpha = enabled ? 1f : 0f;
+
+    Color glowColor = spriteGlowEffect.GlowColor;
+    glowColor.a = Mathf.Lerp(glowColor.a, alpha, Time.deltaTime * spriteGlowTransitionSpeed);
+
+    spriteGlowEffect.GlowColor = glowColor;
   }
 
   private void FixedUpdate()
