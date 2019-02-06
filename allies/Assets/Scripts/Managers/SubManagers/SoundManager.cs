@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class SoundManager : SubManager
 {
-  public static string CharacterJump = "event:/sfx/entities/characters/character jump";
-  public static string CharacterLand = "event:/sfx/entities/characters/character land";
-  public static string CharacterDie = "event:/sfx/entities/characters/character die";
+  public static AudioSource Jump, Land, Die;
+  public static AudioSource Submit, Back, Retry;
+
+  [SerializeField]
+  public AudioSource character_jump, character_land;
+  [SerializeField]
+  public AudioSource level_fail, level_retry, level_finish;
+  public AudioSource menu_confirm, menu_back;
   
-  public static void PlaySound(string path, FMNObject obj)
+  public static void PlaySound(AudioSource audio, FMNObject obj)
   {
-    FMODUnity.RuntimeManager.PlayOneShot(path, obj.transform.position);
+
   }
 
-  public static void PlaySoundAttached(string path, FMNObject obj)
+  public static void PlaySoundAttached(AudioSource audio, FMNObject obj)
   {
-    FMODUnity.RuntimeManager.PlayOneShotAttached(path, obj.gameObject);
+
   }
 }
