@@ -16,9 +16,12 @@ public class FMNObject : MonoBehaviour
   [HideInInspector]
   public bool initialized = false;
 
+  public AudioSource audioSource;
+
   private void Awake()
   {
     gameManager = GameManager.globalGameManager;
+    audioSource = gameObject.AddComponent<AudioSource>();
   }
 
   public virtual void Init()

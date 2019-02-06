@@ -464,9 +464,7 @@ MonoBehaviour:
 
     font: moonflower by Denise Bentulan
 
-    game engine: unity game engine by Unity Technologies
-
-    audio engine: FMOD Studio by Firelight Technologies'
+    game engine: unity game engine by Unity Technologies'
 --- !u!222 &487717619
 CanvasRenderer:
   m_ObjectHideFlags: 0

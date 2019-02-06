@@ -189,7 +189,7 @@ public class Character : Entity
         isCollidingWithWall = false;
         isJumping = false;
         
-        SoundManager.PlaySoundAttached(SoundManager.Land, this);
+        SoundManager.PlayOneShot(SoundManager.soundManager.character_land, this);
 
         return;
       }
@@ -371,7 +371,7 @@ public class Character : Entity
 
     isCollidingWithGround = false;
 
-    SoundManager.PlaySoundAttached(SoundManager.Jump, this);
+    SoundManager.PlayOneShot(SoundManager.soundManager.character_jump, this);
   }
 
   protected virtual void MirrorSpriteIfMovingLeft()

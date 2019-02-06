@@ -12,16 +12,22 @@ public class GameManager : Manager
   [Header("Instantiated Managers")]
   public SceneManager sceneManager;
   public CameraManager cameraManager;
+  public SoundManager soundManager;
 
   [Header("Global/Static Variables")]
   public static Camera globalCamera;
   public static bool globalPlaytestActive;
   public static float globalGravityScale = 5f;
   
+  [HideInInspector]
   public LevelManager levelManager;
+  [HideInInspector]
   public InputManager inputManager;
+  [HideInInspector]
   public UIManager uiManager;
+  [HideInInspector]
   public CharacterManager characterManager;
+  [HideInInspector]
   public InteractablesManager interactablesManager;
 
   [Header("Prefabs")]
