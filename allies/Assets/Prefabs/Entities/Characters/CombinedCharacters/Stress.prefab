@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  glowColor: {r: 0.9313903, g: 1, b: 0.11792451, a: 1}
   glowBrightness: 3
   outlineWidth: 8
   alphaThreshold: 0.104
@@ -147,7 +147,6 @@ MonoBehaviour:
   abilityIndex: 0
   angle: 0
   spriteGlowEffect: {fileID: 114024383748189062}
-  spriteGlowTransitionSpeed: 3
   combination:
   - {fileID: 114640122952600096, guid: 46cee6cd2c7e61a42848b4103c7aee59, type: 2}
   - {fileID: 114325152899809400, guid: 5e7cebad33c9bff4f9f733d0112d32b3, type: 2}

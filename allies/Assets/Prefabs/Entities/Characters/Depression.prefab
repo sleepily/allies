@@ -130,7 +130,6 @@ MonoBehaviour:
   abilityIndex: 0
   angle: 0
   spriteGlowEffect: {fileID: 114962346790517068}
-  spriteGlowTransitionSpeed: 3
   crybabyTearPrefab: {fileID: 114225852149091222, guid: 8aaef80edafc44b428bd05b249dd3ad6,
     type: 2}
   crybabyActivated: 0

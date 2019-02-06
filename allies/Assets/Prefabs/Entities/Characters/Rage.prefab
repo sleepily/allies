@@ -179,7 +179,6 @@ MonoBehaviour:
   abilityIndex: 0
   angle: 0
   spriteGlowEffect: {fileID: 114498029716350406}
-  spriteGlowTransitionSpeed: 3
   flame: {fileID: 1200350611215452}
   abilityDirection: {x: 0, y: 0}
 --- !u!114 &114498029716350406
