@@ -56,24 +56,30 @@ public class SceneManager : SubManager
     {
       case Screen.splash:
         sceneID = "SplashScreen";
+        gameManager.soundManager.musicSelector = SoundManager.MusicSelector.none;
         LoadScreenSingle(sceneID);
         break;
       case Screen.mainMenu:
         sceneID = "MenuScreen";
+        gameManager.soundManager.musicSelector = SoundManager.MusicSelector.menu;
         LoadScreenSingle(sceneID);
         break;
       case Screen.credits:
         sceneID = "CreditsScreen";
+        gameManager.soundManager.musicSelector = SoundManager.MusicSelector.credits;
         LoadScreenSingle(sceneID);
         break;
       case Screen.levelSelect:
+        gameManager.soundManager.musicSelector = SoundManager.MusicSelector.levelSelection;
         sceneID = "SelectionScreen";
         LoadScreenSingle(sceneID);
         break;
       case Screen.level:
+        gameManager.soundManager.musicSelector = SoundManager.MusicSelector.level;
         LoadLevelFromBuildIndex(levelID);
         return;
       case Screen.quit:
+        gameManager.soundManager.musicSelector = SoundManager.MusicSelector.none;
         Quit();
         break;
     }
@@ -224,6 +230,8 @@ public class SceneManager : SubManager
 
   IEnumerator LoadLevelAsync(int sceneBuildIndex, LoadSceneMode sceneMode)
   {
+    gameManager.soundManager.musicSelector = SoundManager.MusicSelector.level;
+
     yield return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneBuildIndex, sceneMode);
 
     UpdateLevelInfo();
@@ -233,6 +241,8 @@ public class SceneManager : SubManager
 
   IEnumerator LoadLevelAsync(string levelName, LoadSceneMode sceneMode)
   {
+    gameManager.soundManager.musicSelector = SoundManager.MusicSelector.level;
+
     yield return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(levelName, sceneMode);
 
     UpdateLevelInfo();

@@ -7,6 +7,7 @@ public class SoundManager : SubManager
 {
   public enum MusicSelector
   {
+    none,
     menu,
     credits,
     levelSelection,
@@ -97,32 +98,34 @@ public class SoundManager : SubManager
 
   void FadeToCurrentMusic()
   {
-    float[] volumes = new float[musicSources.Count];
+    float[] volumeOverrides = new float[musicSources.Count];
 
     switch (musicSelector)
     {
+      case MusicSelector.none:
+        break;
       case MusicSelector.menu:
-        volumes[0] = 1;
+        volumeOverrides[0] = 1;
         break;
       case MusicSelector.credits:
-        volumes[0] = 1;
-        volumes[1] = 1;
+        volumeOverrides[0] = 1;
+        volumeOverrides[1] = 1;
         break;
       case MusicSelector.levelSelection:
-        volumes[0] = 1;
-        volumes[2] = 1;
+        volumeOverrides[0] = 1;
+        volumeOverrides[2] = 1;
         break;
       case MusicSelector.level:
-        volumes[0] = 1;
-        volumes[2] = 1;
-        volumes[3] = 1;
+        volumeOverrides[0] = 1;
+        volumeOverrides[2] = 1;
+        volumeOverrides[3] = 1;
         break;
     }
 
     for (int sourceIndex = 0; sourceIndex < musicSources.Count; sourceIndex++)
     {
-      AudioSource musicSource = (AudioSource)musicSources[sourceIndex];
-      musicSource.volume = Mathf.Lerp(musicSource.volume, volumes[sourceIndex], Time.deltaTime * musicTransitionSpeed);
+      AudioSource musicSource = musicSources[sourceIndex];
+      musicSource.volume = Mathf.Lerp(musicSource.volume, volumeOverrides[sourceIndex], Time.deltaTime * musicTransitionSpeed);
     }
   }
 }
