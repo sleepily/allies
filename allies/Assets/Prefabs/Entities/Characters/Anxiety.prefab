@@ -183,6 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   initialized: 0
+  audioSource: {fileID: 0}
   startWithAbility: 0
   isMovingLeft: 0
   rb: {fileID: 50525138266446204}

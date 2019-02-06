@@ -5,8 +5,6 @@ using UnityEngine.Audio;
 
 public class SoundManager : SubManager
 {
-  public static SoundManager soundManager;
-
   public enum MusicSelector
   {
     menu,
@@ -55,8 +53,6 @@ public class SoundManager : SubManager
   public override void Init()
   {
     base.Init();
-
-    soundManager = this;
   }
 
   private void Start()
@@ -86,7 +82,7 @@ public class SoundManager : SubManager
     int mixerIndex = (int)destination;
 
     audioMixerVolume[mixerIndex] = volume;
-    audioMixer.SetFloat(audioMixerNames[mixerIndex], volume);
+    audioMixer.SetFloat("Volume_" + audioMixerNames[mixerIndex], volume);
   }
 
   private void Update()
