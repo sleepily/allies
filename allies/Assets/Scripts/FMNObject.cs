@@ -21,13 +21,13 @@ public class FMNObject : MonoBehaviour
   private void Awake()
   {
     gameManager = GameManager.globalGameManager;
-    audioSource = gameObject.AddComponent<AudioSource>();
   }
 
   public virtual void Init()
   {
     gameManager = GameManager.globalGameManager;
     MoveToParentTransform();
+    InitAudioSource();
     // Debug.Log("FMN: Initializing " + gameObject.name);
     initialized = true;
   }
@@ -36,6 +36,12 @@ public class FMNObject : MonoBehaviour
   {
     // don't move anywhere if object is not specialized
     return;
+  }
+
+  protected virtual void InitAudioSource()
+  {
+    audioSource = gameObject.AddComponent<AudioSource>();
+    audioSource.outputAudioMixerGroup = gameManager.soundManager.mixer_master;
   }
 
   protected virtual void SetAnimatorTrigger(Animator animator, string trigger)

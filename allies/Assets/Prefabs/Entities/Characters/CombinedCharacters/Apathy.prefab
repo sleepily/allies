@@ -40,7 +40,7 @@ Transform:
   m_GameObject: {fileID: 1264776576801644}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -7.42, y: 6.7, z: 0}
-  m_LocalScale: {x: 0.36, y: 0.36, z: 1}
+  m_LocalScale: {x: 0.72, y: 0.72, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -79,7 +79,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 1.5
 --- !u!95 &95402407695717826
 Animator:
   serializedVersion: 3
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   initialized: 0
+  audioSource: {fileID: 0}
   startWithAbility: 0
   isMovingLeft: 0
   rb: {fileID: 50525138266446204}
@@ -149,9 +150,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glowColor: {r: 0, g: 0.61144805, b: 1, a: 1}
   glowBrightness: 3
-  outlineWidth: 8
-  alphaThreshold: 0.104
-  drawOutside: 0
+  outlineWidth: 3
+  alphaThreshold: 0.9
+  drawOutside: 1
   enableInstancing: 0
 --- !u!212 &212674257355521668
 SpriteRenderer:

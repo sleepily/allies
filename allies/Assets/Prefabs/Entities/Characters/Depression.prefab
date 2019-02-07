@@ -40,7 +40,7 @@ Transform:
   m_GameObject: {fileID: 1547230104823066}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -79,7 +79,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 1.5
 --- !u!95 &95580236177960292
 Animator:
   serializedVersion: 3
@@ -155,9 +155,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glowColor: {r: 0, g: 1, b: 0.34083152, a: 1}
   glowBrightness: 3
-  outlineWidth: 8
-  alphaThreshold: 0.104
-  drawOutside: 0
+  outlineWidth: 10
+  alphaThreshold: 0.9
+  drawOutside: 1
   enableInstancing: 0
 --- !u!212 &212635175326121436
 SpriteRenderer:

@@ -26,6 +26,8 @@ public class SoundManager : SubManager
 
   [Header("Mixer")]
   public AudioMixer audioMixer;
+  public AudioMixerGroup mixer_master, mixer_characters, mixer_interactables;
+
   [SerializeField]
   public string[] audioMixerNames = new string[3];
   public float[] audioMixerVolume = new float[3];

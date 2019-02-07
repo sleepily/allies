@@ -46,6 +46,9 @@ public class CharacterManager : SubManager
     string a = initiator.name;
     string b = determinator.name;
 
+    if (initiator.GetComponent<CombinedCharacter>() || determinator.GetComponent<CombinedCharacter>())
+      return;
+
     bool flag_rage, flag_depression, flag_anxiety = false;
     
     flag_rage       = (a == "Rage" || b == "Rage");

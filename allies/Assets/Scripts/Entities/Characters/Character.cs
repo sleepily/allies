@@ -38,6 +38,7 @@ public class Character : Entity
     // base init without bool initialized
     gameManager = GameManager.globalGameManager;
     MoveToParentTransform();
+    InitAudioSource();
 
     GetAllComponents();
     InitSpriteGlow();
@@ -52,6 +53,12 @@ public class Character : Entity
   public override void MoveToParentTransform()
   {
     transform.SetParent(gameManager.characterManager.transform);
+  }
+
+  protected override void InitAudioSource()
+  {
+    audioSource = gameObject.AddComponent<AudioSource>();
+    audioSource.outputAudioMixerGroup = gameManager.soundManager.mixer_characters;
   }
 
   protected virtual void GetAllComponents()

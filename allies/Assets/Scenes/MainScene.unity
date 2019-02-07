@@ -547,6 +547,11 @@ MonoBehaviour:
   musicSelector: 0
   musicTransitionSpeed: 3
   audioMixer: {fileID: 24100000, guid: caa6a79aba043a04dbbf904ba523b453, type: 2}
+  mixer_master: {fileID: 24300002, guid: caa6a79aba043a04dbbf904ba523b453, type: 2}
+  mixer_characters: {fileID: 243985992134960348, guid: caa6a79aba043a04dbbf904ba523b453,
+    type: 2}
+  mixer_interactables: {fileID: 243081545357108572, guid: caa6a79aba043a04dbbf904ba523b453,
+    type: 2}
   audioMixerNames:
   - Master
   - Music
@@ -562,7 +567,6 @@ MonoBehaviour:
   level_finish: {fileID: 8300000, guid: 002b9262096733a438c683e7ae357779, type: 3}
   menu_confirm: {fileID: 8300000, guid: de1796498816a3d41a21ca78d814aec3, type: 3}
   menu_back: {fileID: 8300000, guid: 462e68f2b03f1a5469671f0f82c37a22, type: 3}
-  characterSource: {fileID: 1952763876}
   music_always: {fileID: 240350572}
   music_credits: {fileID: 1513144090}
   music_level: {fileID: 1034222237}

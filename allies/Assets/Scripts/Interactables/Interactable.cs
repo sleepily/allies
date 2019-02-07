@@ -13,10 +13,17 @@ public class Interactable : FMNObject
   public override void Init()
   {
     gameManager = GameManager.globalGameManager;
+    InitAudioSource();
     InitRigidBody();
     InitPolygonCollider();
     MoveToParentTransform();
     initialized = true;
+  }
+
+  protected override void InitAudioSource()
+  {
+    audioSource = gameObject.AddComponent<AudioSource>();
+    audioSource.outputAudioMixerGroup = gameManager.soundManager.mixer_interactables;
   }
 
   public override void MoveToParentTransform()
