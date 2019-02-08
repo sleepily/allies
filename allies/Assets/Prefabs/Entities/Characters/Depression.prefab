@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1547230104823066}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.54, y: 6.7, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -130,6 +130,9 @@ MonoBehaviour:
   abilityActive: 0
   abilityIndex: 0
   angle: 0
+  audioClip_abilityIntro: {fileID: 0}
+  audioClip_abilityLoop: {fileID: 0}
+  audioClip_abilityDeactivated: {fileID: 0}
   spriteGlowEffect: {fileID: 114962346790517068}
   crybabyTearPrefab: {fileID: 114225852149091222, guid: 8aaef80edafc44b428bd05b249dd3ad6,
     type: 2}
@@ -155,8 +158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glowColor: {r: 0, g: 1, b: 0.34083152, a: 1}
   glowBrightness: 3
-  outlineWidth: 10
-  alphaThreshold: 0.9
+  outlineWidth: 40
+  alphaThreshold: 0.996
   drawOutside: 1
   enableInstancing: 0
 --- !u!212 &212635175326121436

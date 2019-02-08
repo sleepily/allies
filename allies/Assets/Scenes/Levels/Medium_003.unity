@@ -277,7 +277,7 @@ Prefab:
         type: 2}
       propertyPath: fuseflame
       value: 
-      objectReference: {fileID: 653859400}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42af97498df32a44983b0b69cb16f78f, type: 2}
   m_IsPrefabAsset: 0
@@ -358,11 +358,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4484637312357346, guid: 0785a17c14d00324197c8c0f2e9d4f02, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 9.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4484637312357346, guid: 0785a17c14d00324197c8c0f2e9d4f02, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4484637312357346, guid: 0785a17c14d00324197c8c0f2e9d4f02, type: 2}
       propertyPath: m_LocalPosition.z
@@ -386,7 +386,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4484637312357346, guid: 0785a17c14d00324197c8c0f2e9d4f02, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 60295381817672410, guid: 0785a17c14d00324197c8c0f2e9d4f02,
         type: 2}
@@ -399,15 +399,19 @@ Prefab:
       value: 
       objectReference: {fileID: 22100000, guid: 0f39bb6df9b33e847af7f6f1b23f29dd,
         type: 2}
+    - target: {fileID: 95738157446330126, guid: 0785a17c14d00324197c8c0f2e9d4f02,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 0f39bb6df9b33e847af7f6f1b23f29dd,
+        type: 2}
+    - target: {fileID: 4644812151018422, guid: 0785a17c14d00324197c8c0f2e9d4f02, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0785a17c14d00324197c8c0f2e9d4f02, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &653859400 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114254539257462982, guid: 0785a17c14d00324197c8c0f2e9d4f02,
-    type: 2}
-  m_PrefabInternal: {fileID: 653859399}
-  m_Script: {fileID: 11500000, guid: cf1867173ce2025488ea398eba99aae8, type: 3}
 --- !u!1001 &718740197
 Prefab:
   m_ObjectHideFlags: 0
@@ -730,7 +734,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4538406576056570, guid: 57450047aa3762045bcde2f01b0dffaa, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1413423980586596, guid: 57450047aa3762045bcde2f01b0dffaa, type: 2}
       propertyPath: m_Name
@@ -782,7 +786,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4142701180947114, guid: 20b1c7cb34bb85847a6ef4039b365844, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20b1c7cb34bb85847a6ef4039b365844, type: 2}
@@ -1007,7 +1011,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4074279178975780, guid: 0526f6617606a434d8d9d965b7918be9, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4074279178975780, guid: 0526f6617606a434d8d9d965b7918be9, type: 2}
       propertyPath: m_LocalScale.x
@@ -1118,7 +1122,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4911412756444716, guid: 9045ea6da01814c4abdfe9af092ac54b, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9045ea6da01814c4abdfe9af092ac54b, type: 2}
@@ -1471,7 +1475,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4273208864095452, guid: d193ac9a15690bd48a454d8cb608e47f, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114659526650156352, guid: d193ac9a15690bd48a454d8cb608e47f,
         type: 2}

@@ -27,6 +27,8 @@ public class Depression : Character
 
     abilityActive = true;
 
+    SoundManager.PlayLoop(audioClip_abilityLoop, audioSource);
+
     if (abilityIndex == 0)
       gameManager.characterManager.SetNextCharacterAsActive();
   }

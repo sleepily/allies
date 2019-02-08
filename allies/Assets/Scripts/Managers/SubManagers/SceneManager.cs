@@ -113,6 +113,8 @@ public class SceneManager : SubManager
     if (transitioning)
       return;
 
+    SoundManager.PlayOneShot(gameManager.soundManager.level_finish, gameManager.soundManager.uiAudioSource);
+
     StartCoroutine(FinishLevelCoroutine(.5f, Color.black));
   }
 
@@ -121,6 +123,8 @@ public class SceneManager : SubManager
     if (transitioning)
       return;
 
+    SoundManager.PlayOneShot(gameManager.soundManager.level_retry, gameManager.soundManager.uiAudioSource);
+
     StartCoroutine(RetryLevelCoroutine(.5f, Color.black));
   }
 
@@ -128,6 +132,8 @@ public class SceneManager : SubManager
   {
     if (transitioning)
       return;
+
+    SoundManager.PlayOneShot(gameManager.soundManager.level_fail, gameManager.soundManager.uiAudioSource);
 
     StartCoroutine(RetryLevelCoroutine(0, new Color(.5f, 0, 0, 1)));
   }
@@ -207,7 +213,6 @@ public class SceneManager : SubManager
 
   IEnumerator LoadSceneAsync(string sceneID, LoadSceneMode sceneMode)
   {
-
     gameManager.cameraManager.FadeOut(Color.black);
 
     yield return new WaitForSeconds(.5f);

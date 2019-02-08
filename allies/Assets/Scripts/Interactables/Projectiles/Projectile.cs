@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : FMNObject
 {
-  public GameManager gameManager;
+  [Header("Audio")]
+  public AudioClip shoot;
+  public AudioClip collide;
 
   [Header("Physics")]
   public PolygonCollider2D polygonCollider2D;
@@ -33,6 +35,12 @@ public class Projectile : MonoBehaviour
     Init();
   }
 
+  protected override void InitAudioSource()
+  {
+    audioSource = gameObject.AddComponent<AudioSource>();
+    audioSource.outputAudioMixerGroup = gameManager.soundManager.mixer_interactables;
+  }
+
   private void Update()
   {
     Move();
@@ -43,14 +51,19 @@ public class Projectile : MonoBehaviour
     Collide(collision);
   }
 
-  public virtual void Init()
+  public override void Init()
   {
+    base.Init();
+
     GetSpriteRenderer();
     SetRandomSprite();
     CreateRigidBody();
     CreatePolygonCollider();
-    gameManager = GameManager.globalGameManager;
-    MoveToInteractablesManager();
+  }
+
+  public override void MoveToParentTransform()
+  {
+    this.transform.SetParent(gameManager.interactablesManager.transform);
   }
 
   protected virtual void Collide(Collision2D collision)

@@ -151,7 +151,7 @@ MonoBehaviour:
   glowColor: {r: 1, g: 0.28504565, b: 0, a: 1}
   glowBrightness: 3
   outlineWidth: 3
-  alphaThreshold: 0.9
+  alphaThreshold: 0.996
   drawOutside: 1
   enableInstancing: 0
 --- !u!212 &212674257355521668

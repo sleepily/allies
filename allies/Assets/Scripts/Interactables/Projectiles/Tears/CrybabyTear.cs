@@ -35,12 +35,6 @@ public class CrybabyTear : Tear
     CheckForFireFlower(collision);
   }
 
-  private void OnTriggerStay2D(Collider2D collision)
-  {
-    CheckForWater(collision);
-    CheckForFireFlower(collision);
-  }
-
   void CheckForWater(Collider2D collision)
   {
     if (!collision.gameObject.CompareTag("Water"))
@@ -48,6 +42,8 @@ public class CrybabyTear : Tear
     
     Water water = collision.GetComponent<Water>();
     water.parent.Activate();
+
+    SoundManager.PlayOneShot(collide, audioSource);
 
     Destroy(this.gameObject);
   }
@@ -61,6 +57,8 @@ public class CrybabyTear : Tear
 
     if (!continousFlower)
       return;
+
+    SoundManager.PlayOneShot(collide, audioSource);
 
     continousFlower.Deactivate();
   }

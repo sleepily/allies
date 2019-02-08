@@ -10,6 +10,10 @@ public class Interactable : FMNObject
   [Header("Action")]
   public bool actionActivated = false;
 
+  [Header("Sounds")]
+  public AudioClip audioClip_activate;
+  public AudioClip audioClip_deactivate;
+
   public override void Init()
   {
     gameManager = GameManager.globalGameManager;
@@ -34,11 +38,13 @@ public class Interactable : FMNObject
   public virtual void Activate()
   {
     actionActivated = true;
+    SoundManager.PlayOneShot(audioClip_activate, audioSource);
   }
 
   public virtual void Deactivate()
   {
     actionActivated = false;
+    SoundManager.PlayOneShot(audioClip_activate, audioSource);
   }
 
   private void InitRigidBody()

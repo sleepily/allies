@@ -12,9 +12,13 @@ public class FireFlowerFlame : Interactable
     gameManager = GameManager.globalGameManager;
 
     MoveToParentTransform();
+    InitAudioSource();
 
     animator = GetComponent<Animator>();
     animator.Rebind();
+
+    if (parent.startActivated)
+      Activate();
   }
 
   public override void MoveToParentTransform()

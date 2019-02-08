@@ -18,7 +18,7 @@ Physics2DSettings:
   m_TimeToSleep: 0.3
   m_LinearSleepTolerance: 2
   m_AngularSleepTolerance: 3
-  m_DefaultContactOffset: 0.01
+  m_DefaultContactOffset: 0.001
   m_JobOptions:
     serializedVersion: 2
     useMultithreading: 0

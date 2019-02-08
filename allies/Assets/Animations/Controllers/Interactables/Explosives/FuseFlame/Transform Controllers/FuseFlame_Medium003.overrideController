@@ -5,7 +5,7 @@ AnimatorOverrideController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: FuseFlame_Medium004
+  m_Name: FuseFlame_Medium003
   m_Controller: {fileID: 9100000, guid: 3ee8fcdd49a71ac4e80e3ca00fefece4, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: d83c16ef27e0d384aa52f005bb0bfd15, type: 2}

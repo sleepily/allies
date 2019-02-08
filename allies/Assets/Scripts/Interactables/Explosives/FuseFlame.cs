@@ -12,6 +12,7 @@ public class FuseFlame : Interactable
     gameManager = GameManager.globalGameManager;
 
     MoveToParentTransform();
+    InitAudioSource();
 
     animator = GetComponent<Animator>();
     flameSpriteRenderer = GetComponentInChildren<SpriteRenderer>();

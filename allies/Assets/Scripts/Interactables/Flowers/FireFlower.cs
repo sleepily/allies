@@ -12,6 +12,7 @@ public class FireFlower : Interactable
     gameManager = GameManager.globalGameManager;
 
     MoveToParentTransform();
+    InitAudioSource();
 
     flame.Init();
 

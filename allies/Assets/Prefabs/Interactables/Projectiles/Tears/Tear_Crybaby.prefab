@@ -88,13 +88,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  initialized: 0
+  audioSource: {fileID: 0}
+  shoot: {fileID: 0}
+  collide: {fileID: 8300000, guid: 79fa73627e3a14b4cb8863b11b9f0ab4, type: 3}
   polygonCollider2D: {fileID: 0}
   rb: {fileID: 0}
   spriteRenderer: {fileID: 0}
   spriteIndex: 0
   sprites:
   - {fileID: 21300000, guid: 51a115f0ccb4e9a4fbabdfa38d1731b6, type: 3}
-  speed: 3.4
+  speed: 4.4
   angle: 0
   shootingOffset: {x: 0, y: 0}
   shootingOffsetInDirection: 0

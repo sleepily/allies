@@ -35,6 +35,7 @@ public class SoundManager : SubManager
   [Header("Character Sounds")]
   public AudioClip character_jump;
   public AudioClip character_land;
+  public AudioClip character_meet;
 
   [Header("Level Sounds")]
   public AudioClip level_fail;
@@ -44,6 +45,9 @@ public class SoundManager : SubManager
   [Header("Menu Sounds")]
   public AudioClip menu_confirm;
   public AudioClip menu_back;
+
+  [Header("Audio Sources")]
+  public AudioSource uiAudioSource;
 
   [Header("Music Sources")]
   public AudioSource music_always;
@@ -93,9 +97,29 @@ public class SoundManager : SubManager
     FadeToCurrentMusic();
   }
 
-  public static void PlayOneShot(AudioClip audio, FMNObject obj)
+  public static void PlayOneShot(AudioClip audio, AudioSource audioSource)
   {
-    obj.audioSource.PlayOneShot(audio);
+    audioSource.loop = false;
+    Play(audio, audioSource);
+  }
+
+  public static void PlayLoop(AudioClip audio, AudioSource audioSource)
+  {
+    audioSource.loop = false;
+    Play(audio, audioSource);
+  }
+
+  static void Play(AudioClip audio, AudioSource audioSource)
+  {
+    if (!audio || !audioSource)
+      return;
+    
+    audioSource.PlayOneShot(audio);
+  }
+
+  public static void Stop(AudioSource audioSource)
+  {
+    audioSource.Stop();
   }
 
   void FadeToCurrentMusic()

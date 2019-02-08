@@ -7,28 +7,34 @@ public class Character : Entity
   public bool isMovingLeft = false;
 
   [Header("Physics")]
-  public Rigidbody2D rb;
-  public Vector2 velocity;
-  public bool isCollidingWithGround;
-  public bool isCollidingWithWall;
+  [HideInInspector] public Rigidbody2D rb;
+  [HideInInspector] public Vector2 velocity;
+  [HideInInspector] public bool isCollidingWithGround;
+  [HideInInspector] public bool isCollidingWithWall;
   public PhysicsMaterial2D moveMaterial;
   public PhysicsMaterial2D idleMaterial;
-  public bool isJumping;
+  [HideInInspector] public bool isJumping;
 
   public bool canUseAbilityInAir;
   public bool allowJump;
   public bool allowMove;
 
   [Header("Animations")]
-  public SpriteRenderer spriteRenderer;
-  public Animator animator;
+  [HideInInspector] public SpriteRenderer spriteRenderer;
+  [HideInInspector] public Animator animator;
   private float horizontalVelocityAbs, verticalVelocityAbs;
-  public bool isMoving;
-  public bool abilityActive;
-  public int abilityIndex = 0;
+  [HideInInspector] public bool isMoving;
+  [HideInInspector] public bool abilityActive;
+  [HideInInspector] public int abilityIndex = 0;
   public float angle;
   private float angleVelocityThreshold = 1f;
 
+  [Header("Sounds")]
+  public AudioClip audioClip_abilityIntro;
+  public AudioClip audioClip_abilityLoop;
+  public AudioClip audioClip_abilityDeactivated;
+
+  [Header("Character Glow")]
   public SpriteGlow.SpriteGlowEffect spriteGlowEffect;
   float spriteGlowTransitionSpeed = 6f;
   Color spriteGlowColor;
@@ -188,6 +194,8 @@ public class Character : Entity
     if (isCollidingWithGround)
       return;
 
+    bool mute = !isJumping;
+
     // check for collision in the lower 25% of the collider in order to enable jumping
     foreach (ContactPoint2D cp in collision.contacts)
       if (cp.point.y < transform.position.y + (Vector2.down * .75f).y)
@@ -196,7 +204,8 @@ public class Character : Entity
         isCollidingWithWall = false;
         isJumping = false;
         
-        SoundManager.PlayOneShot(gameManager.soundManager.character_land, this);
+        if (!mute)
+          SoundManager.PlayOneShot(gameManager.soundManager.character_land, audioSource);
 
         return;
       }
@@ -322,6 +331,8 @@ public class Character : Entity
     if (!canUseAbilityInAir)
       if (!isCollidingWithGround)
         return;
+    
+    SoundManager.PlayLoop(audioClip_abilityLoop, audioSource);
 
     abilityActive = true;
     gameManager.characterManager.SetNextCharacterAsActive();
@@ -374,11 +385,13 @@ public class Character : Entity
 
     float jumpForce = velocity.y * rb.gravityScale * gameManager.characterManager.jumpForce;
 
+    if (rb.velocity.y < jumpForce / 2)
+      SoundManager.PlayOneShot(gameManager.soundManager.character_jump, audioSource);
+
     rb.velocity = new Vector2(rb.velocity.x, jumpForce);
 
     isCollidingWithGround = false;
 
-    SoundManager.PlayOneShot(gameManager.soundManager.character_jump, this);
   }
 
   protected virtual void MirrorSpriteIfMovingLeft()
@@ -406,6 +419,10 @@ public class Character : Entity
     abilityActive = false;
 
     rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+    SoundManager.Stop(audioSource);
+
+    SoundManager.PlayOneShot(gameManager.soundManager.character_meet, audioSource);
   }
 
   protected virtual void ShootTear(Tear tearPrefab)

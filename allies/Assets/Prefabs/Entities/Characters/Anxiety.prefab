@@ -122,7 +122,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.5}
+  m_Offset: {x: 0, y: 0.75}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -133,7 +133,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9, y: 12}
+  m_Size: {x: 4.5, y: 6}
   m_EdgeRadius: 0
 --- !u!95 &95402407695717826
 Animator:
@@ -166,8 +166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glowColor: {r: 0, g: 0.8818593, b: 1, a: 1}
   glowBrightness: 3
-  outlineWidth: 10
-  alphaThreshold: 0.9
+  outlineWidth: 18
+  alphaThreshold: 0.996
   drawOutside: 1
   enableInstancing: 0
 --- !u!114 &114640122952600096
@@ -202,6 +202,9 @@ MonoBehaviour:
   abilityActive: 0
   abilityIndex: 0
   angle: 0
+  audioClip_abilityIntro: {fileID: 0}
+  audioClip_abilityLoop: {fileID: 0}
+  audioClip_abilityDeactivated: {fileID: 0}
   spriteGlowEffect: {fileID: 114143653968792122}
   deactivationTimestamp: 0
   deactivationTime: 2.5
