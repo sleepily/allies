@@ -143,7 +143,7 @@ public class SoundManager : SubManager
         break;
       case MusicSelector.level:
         volumeOverrides[0] = 1;
-        volumeOverrides[2] = 1;
+        volumeOverrides[1] = 1;
         volumeOverrides[3] = 1;
         break;
     }

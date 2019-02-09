@@ -337,6 +337,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0785a17c14d00324197c8c0f2e9d4f02, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &432134255 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114670080881043172, guid: 0785a17c14d00324197c8c0f2e9d4f02,
+    type: 2}
+  m_PrefabInternal: {fileID: 432134254}
+  m_Script: {fileID: 11500000, guid: cf1867173ce2025488ea398eba99aae8, type: 3}
 --- !u!1001 &507150183
 Prefab:
   m_ObjectHideFlags: 0
@@ -1182,7 +1188,7 @@ Prefab:
         type: 2}
       propertyPath: fuseflame
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 432134255}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42af97498df32a44983b0b69cb16f78f, type: 2}
   m_IsPrefabAsset: 0

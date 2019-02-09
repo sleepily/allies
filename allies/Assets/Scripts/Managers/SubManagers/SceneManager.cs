@@ -115,6 +115,12 @@ public class SceneManager : SubManager
 
     SoundManager.PlayOneShot(gameManager.soundManager.level_finish, gameManager.soundManager.uiAudioSource);
 
+    if (levelName == "Hard_008")
+    {
+      LoadScreen(Screen.credits);
+      return;
+    }
+
     StartCoroutine(FinishLevelCoroutine(.5f, Color.black));
   }
 
